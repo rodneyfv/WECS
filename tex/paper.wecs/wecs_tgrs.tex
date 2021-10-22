@@ -672,22 +672,22 @@ The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:Ellipsoid
 \begin{figure}[htb!]
 \centering
 %\includegraphics[width=40pc]{EllipsoidChanges/ellipses_all}
-\includegraphics[scale=.17]{ellipses_t1}
-\includegraphics[scale=.17]{ellipses_t2}
-\includegraphics[scale=.17]{ellipses_t3}
-\includegraphics[scale=.17]{ellipses_t4}
+\includegraphics[scale=.17]{../../figs/ellipses_t1}
+\includegraphics[scale=.17]{../../figs/ellipses_t2}
+\includegraphics[scale=.17]{../../figs/ellipses_t3}
+\includegraphics[scale=.17]{../../figs/ellipses_t4}
 \caption{Synthetic multi-temporal ($n=4$) images. Features and changes come as ellipses and dots.}
 \label{F:EllipsoidChanges}
 \end{figure}
 
 
 \begin{figure}[htp!]
-\includegraphics[scale=.1]{total_changes}(a)
-\includegraphics[scale=.1]{corr_changes_dm}(b)
-\includegraphics[scale=.1]{corr_changes_tm}(c)
-\includegraphics[scale=.1]{corr_changes_logratios}(d)
-\includegraphics[scale=.1]{corr_changes_dm_nowavelets}(e)
-\includegraphics[scale=.1]{corr_changes_tm_nowavelets}(f)
+\includegraphics[scale=.1]{../../figs/total_changes}(a)
+\includegraphics[scale=.1]{../../figs/corr_changes_dm}(b)
+\includegraphics[scale=.1]{../../figs/corr_changes_tm}(c)
+\includegraphics[scale=.1]{../../figs/corr_changes_logratios}(d)
+\includegraphics[scale=.1]{../../figs/corr_changes_dm_nowavelets}(e)
+\includegraphics[scale=.1]{../../figs/corr_changes_tm_nowavelets}(f)
 \caption{Synthetic images with changing ellipses. (a) Image composed by the total changes over time. 
 (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Proposed db2 WECS $\vt(m)$ with $J=2$.
 (d) Standard approach. (e) $\vd(m)$ without wavelets. (f) $\vt(m)$  without wavelets. 
@@ -709,12 +709,12 @@ Each ROC curve presents how close the magnitude variation of change measures is 
 \end{enumerate}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.13]{methods_comparison}\hspace{-.5cm}(a) 
-\includegraphics[scale=.13]{levels_comparison_WithReference}\hspace{-.5cm}(b)\\
-\includegraphics[scale=.13]{families_comparison_WithReference}\hspace{-.5cm}(c)
-\includegraphics[scale=.13]{dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
-\includegraphics[scale=.13]{levels_comparison_NoReference}\hspace{-.5cm}(e)
-\includegraphics[scale=.13]{families_comparison_NoReference}\hspace{-.5cm}(f)
+\includegraphics[scale=.13]{../../figs/methods_comparison}\hspace{-.5cm}(a) 
+\includegraphics[scale=.13]{../../figs/levels_comparison_WithReference}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.13]{../../figs/families_comparison_WithReference}\hspace{-.5cm}(c)
+\includegraphics[scale=.13]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
+\includegraphics[scale=.13]{../../figs/levels_comparison_NoReference}\hspace{-.5cm}(e)
+\includegraphics[scale=.13]{../../figs/families_comparison_NoReference}\hspace{-.5cm}(f)
 \caption{ROC curves for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) and green (db2 WECS $\vt(m)$) vs three non-wavelet methods: standard (red stars); $\vd(m)$ (blue); and $\vt(m)$ (red circles). 
 (b) db2 $\vd(m)$ with different levels.
 (c) $\vd(m)$ with different wavelet bases and J=2;
@@ -769,42 +769,42 @@ Regarding change time points, in each figure, we can notice a pattern of peaks w
 \end{list}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J1_VV_squared_meandev}(a)
-\includegraphics[scale=.12]{consecdif_J1_VV_squared_meandev}(b)\\
-\includegraphics[scale=.12]{J2_VV_squared_meandev}(c)
-\includegraphics[scale=.12]{consecdif_J2_VV_squared_meandev}(d)\\
-\includegraphics[scale=.12]{J3_VV_squared_meandev}(e)
-\includegraphics[scale=.12]{consecdif_J3_VV_squared_meandev}(f)\\
-\includegraphics[scale=.12]{J4_VV_squared_meandev}(g)
-\includegraphics[scale=.12]{consecdif_J4_VV_squared_meandev}(h)
+\includegraphics[scale=.12]{../../figs/J1_VV_squared_meandev}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J1_VV_squared_meandev}(b)\\
+\includegraphics[scale=.12]{../../figs/J2_VV_squared_meandev}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J2_VV_squared_meandev}(d)\\
+\includegraphics[scale=.12]{../../figs/J3_VV_squared_meandev}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_squared_meandev}(f)\\
+\includegraphics[scale=.12]{../../figs/J4_VV_squared_meandev}(g)
+\includegraphics[scale=.12]{../../figs/consecdif_J4_VV_squared_meandev}(h)
 \caption{{\sc VV Polarization Channel} Series of squared deviations $\vd(m)$ and $\vt(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation.  $\vd(m)$ - Approximation Levels:  (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. $\vt(m)$ - Approximation Levels:  (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. 
 }
 \label{F:squared_J1-4_VV}
 \end{figure}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J1_VH_squared_meandev}(a)
-\includegraphics[scale=.12]{consecdif_J1_VH_squared_meandev}(b)\\
-\includegraphics[scale=.12]{J2_VH_squared_meandev}(c)
-\includegraphics[scale=.12]{consecdif_J2_VH_squared_meandev}(d)\\
-\includegraphics[scale=.12]{J3_VH_squared_meandev}(e)
-\includegraphics[scale=.12]{consecdif_J3_VH_squared_meandev}(f)\\
-\includegraphics[scale=.12]{J4_VH_squared_meandev}(g)
-\includegraphics[scale=.12]{consecdif_J4_VH_squared_meandev}(h)
+\includegraphics[scale=.12]{../../figs/J1_VH_squared_meandev}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J1_VH_squared_meandev}(b)\\
+\includegraphics[scale=.12]{../../figs/J2_VH_squared_meandev}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J2_VH_squared_meandev}(d)\\
+\includegraphics[scale=.12]{../../figs/J3_VH_squared_meandev}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_squared_meandev}(f)\\
+\includegraphics[scale=.12]{../../figs/J4_VH_squared_meandev}(g)
+\includegraphics[scale=.12]{../../figs/consecdif_J4_VH_squared_meandev}(h)
 \caption{{\sc VH Polarization  Channel} Series of squared deviations $\vd(m)$ and $\vt(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation.  $\vd(m)$ - Approximation Levels:  (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. $\vt(m)$ - Approximation Levels:  (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. 
 }
 \label{F:squared_J1-4_VH}
 \end{figure}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J1_euclid_squared_meandev}(a)
-\includegraphics[scale=.12]{consecdif_J1_euclid_squared_meandev}(b)\\
-\includegraphics[scale=.12]{J2_euclid_squared_meandev}(c)
-\includegraphics[scale=.12]{consecdif_J2_euclid_squared_meandev}(d)\\
-\includegraphics[scale=.12]{J3_euclid_squared_meandev}(e)
-\includegraphics[scale=.12]{consecdif_J3_euclid_squared_meandev}(f)\\
-\includegraphics[scale=.12]{J4_euclid_squared_meandev}(g)
-\includegraphics[scale=.12]{consecdif_J4_euclid_squared_meandev}(h)
+\includegraphics[scale=.12]{../../figs/J1_euclid_squared_meandev}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J1_euclid_squared_meandev}(b)\\
+\includegraphics[scale=.12]{../../figs/J2_euclid_squared_meandev}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J2_euclid_squared_meandev}(d)\\
+\includegraphics[scale=.12]{../../figs/J3_euclid_squared_meandev}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_squared_meandev}(f)\\
+\includegraphics[scale=.12]{../../figs/J4_euclid_squared_meandev}(g)
+\includegraphics[scale=.12]{../../figs/consecdif_J4_euclid_squared_meandev}(h)
 \caption{{\sc Combined Channels} Series of squared deviations $\vd(m)$ and $\vt(m)$. The red horizontal line represents the median value  and the yellow horizontal line represents their median plus two times their absolute median deviation.  $\vd(m)$ - Approximation Levels:  (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. $\vt(m)$ - Approximation Levels:  (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. 
 }
 \label{F:squared_J1-4_euclid}
@@ -812,36 +812,36 @@ Regarding change time points, in each figure, we can notice a pattern of peaks w
 
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J3_VV_squared_meandev}(a)
-\includegraphics[scale=.12]{consecdif_J3_VV_squared_meandev}(b)\\
-\includegraphics[scale=.12]{J3_VV_sqrdif_change_locations}(c)
-\includegraphics[scale=.12]{consecdif_J3_VV_sqrdif_change_locations}(d)\\
-\includegraphics[scale=.12]{J3_VV_sqrdif_lowest_cor_locations}(e)
-\includegraphics[scale=.12]{consecdif_J3_VV_sqrdif_lowest_cor_locations}(f)\\
-\includegraphics[scale=.12]{perc01_J3_VV_sqrdif_change_locations}(g)
-\includegraphics[scale=.12]{perc01_consecdif_J3_VV_sqrdif_change_locations}(h)\\
-\includegraphics[scale=.12]{perc01_J3_VV_sqrdif_lowest_cor_locations}(i)
-\includegraphics[scale=.12]{perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations}(j)
+\includegraphics[scale=.12]{../../figs/J3_VV_squared_meandev}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_squared_meandev}(b)\\
+\includegraphics[scale=.12]{../../figs/J3_VV_sqrdif_change_locations}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_sqrdif_change_locations}(d)\\
+\includegraphics[scale=.12]{../../figs/J3_VV_sqrdif_lowest_cor_locations}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations}(f)\\
+\includegraphics[scale=.12]{../../figs/perc01_J3_VV_sqrdif_change_locations}(g)
+\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VV_sqrdif_change_locations}(h)\\
+\includegraphics[scale=.12]{../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations}(i)
+\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations}(j)
 \caption{{\sc VV Polarization Channel} Series of squared mean deviations at level $J=3$: (a) $\vd(m)$; (b) $\vt(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) $\vd(m)$;  (d) $\vt(m)$; 0.1\% smallest absolute correlations - (e) $\vd(m)$; (f) $\vt(m)$; 0.01\% highest absolute correlations - (g) $\vd(m)$;  (h) $\vt(m)$;  0.01\% smallest absolute correlations - (i) $\vd(m)$; (j)  $\vt(m)$. 
 }  
 \label{F:squared_meandev_J3_VV}
 \end{figure}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J3_VH_squared_meandev}(a)
-\includegraphics[scale=.12]{consecdif_J3_VH_squared_meandev}(b)
+\includegraphics[scale=.12]{../../figs/J3_VH_squared_meandev}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_squared_meandev}(b)
 
-\includegraphics[scale=.12]{J3_VH_sqrdif_change_locations}(c)
-\includegraphics[scale=.12]{consecdif_J3_VH_sqrdif_change_locations}(d)
+\includegraphics[scale=.12]{../../figs/J3_VH_sqrdif_change_locations}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_sqrdif_change_locations}(d)
 
-\includegraphics[scale=.12]{J3_VH_sqrdif_lowest_cor_locations}(e)
-\includegraphics[scale=.12]{consecdif_J3_VH_sqrdif_lowest_cor_locations}(f)
+\includegraphics[scale=.12]{../../figs/J3_VH_sqrdif_lowest_cor_locations}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations}(f)
 
-\includegraphics[scale=.12]{perc01_J3_VH_sqrdif_change_locations}(g)
-\includegraphics[scale=.12]{perc01_consecdif_J3_VH_sqrdif_change_locations}(h)
+\includegraphics[scale=.12]{../../figs/perc01_J3_VH_sqrdif_change_locations}(g)
+\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VH_sqrdif_change_locations}(h)
 
-\includegraphics[scale=.12]{perc01_J3_VH_sqrdif_lowest_cor_locations}(i)
-\includegraphics[scale=.12]{perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations}(j)
+\includegraphics[scale=.12]{../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations}(i)
+\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations}(j)
 
 \caption{{\sc VH Polarization Channel} Series of squared mean deviations at level $J=3$: (a) $\vd(m)$; (b) $\vt(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) $\vd(m)$;  (d) $\vt(m)$; 0.1\% smallest absolute correlations - (e) $\vd(m)$; (f) $\vt(m)$; 0.01\% highest absolute correlations - (g) $\vd(m)$;  (h) $\vt(m)$;  0.01\% smallest absolute correlations - (i) $\vd(m)$; (j)  $\vt(m)$. 
 }  
@@ -849,16 +849,16 @@ Regarding change time points, in each figure, we can notice a pattern of peaks w
 \end{figure}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J3_euclid_squared_meandev}(a)
-\includegraphics[scale=.12]{consecdif_J3_euclid_squared_meandev}(b)\\
-\includegraphics[scale=.12]{J3_euclid_sqrdif_change_locations}(c)
-\includegraphics[scale=.12]{consecdif_J3_euclid_sqrdif_change_locations}(d)\\
-\includegraphics[scale=.12]{J3_euclid_sqrdif_lowest_cor_locations}(e)
-\includegraphics[scale=.12]{consecdif_J3_euclid_sqrdif_lowest_cor_locations}(f)\\
-\includegraphics[scale=.12]{perc01_J3_euclid_sqrdif_change_locations}(g)
-\includegraphics[scale=.12]{perc01_consecdif_J3_euclid_sqrdif_change_locations}(h)\\
-\includegraphics[scale=.12]{perc01_J3_euclid_sqrdif_lowest_cor_locations}(i)
-\includegraphics[scale=.12]{perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations}(j)
+\includegraphics[scale=.12]{../../figs/J3_euclid_squared_meandev}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_squared_meandev}(b)\\
+\includegraphics[scale=.12]{../../figs/J3_euclid_sqrdif_change_locations}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_sqrdif_change_locations}(d)\\
+\includegraphics[scale=.12]{../../figs/J3_euclid_sqrdif_lowest_cor_locations}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locations}(f)\\
+\includegraphics[scale=.12]{../../figs/perc01_J3_euclid_sqrdif_change_locations}(g)
+\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_euclid_sqrdif_change_locations}(h)\\
+\includegraphics[scale=.12]{../../figs/perc01_J3_euclid_sqrdif_lowest_cor_locations}(i)
+\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations}(j)
 \caption{{\sc Combined Channels} Series of squared mean deviations at level $J=3$: (a) $\vd(m)$; (b) $\vt(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) $\vd(m)$;  (d) $\vt(m)$; 0.1\% smallest absolute correlations - (e) $\vd(m)$; (f) $\vt(m)$; 0.01\% highest absolute correlations - (g) $\vd(m)$;  (h) $\vt(m)$;  0.01\% smallest absolute correlations - (i) $\vd(m)$; (j)  $\vt(m)$. 
 } 
 \label{F:squared_meandev_J3_euclid}
@@ -891,24 +891,24 @@ Level &VV&VH&Comb& Coeffs &Level &VV&VH&Comb& Coeffs \\
 
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{J2_VV_image_cor}(a)
-\includegraphics[scale=.12]{J2_VH_image_cor}(b)\\
-\includegraphics[scale=.12]{J2_euclid_image_cor}(c)
-\includegraphics[scale=.12]{J3_VV_image_cor}(d)\\ 
-\includegraphics[scale=.12]{J3_VH_image_cor}(e)
-\includegraphics[scale=.12]{J3_euclid_image_cor}(f)
+\includegraphics[scale=.12]{../../figs/J2_VV_image_cor}(a)
+\includegraphics[scale=.12]{../../figs/J2_VH_image_cor}(b)\\
+\includegraphics[scale=.12]{../../figs/J2_euclid_image_cor}(c)
+\includegraphics[scale=.12]{../../figs/J3_VV_image_cor}(d)\\ 
+\includegraphics[scale=.12]{../../figs/J3_VH_image_cor}(e)
+\includegraphics[scale=.12]{../../figs/J3_euclid_image_cor}(f)
 
 \caption{Absolute correlation matrices $\vR^{(d)}$ between mean-corrected squared coefficients at approximation levels and overall mean-corrected total energy $\{\vd(m)\}$.  $J=2$ (a)-(c);  $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$ ($J=10$). The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc VV  Polarization - Channel} $J=2$. (b) {\sc VH  Polarization - Channel} $J=2$. (c) {\sc Combined Channels} $J=2$.  (d)  {\sc VV  Polarization - Channel} $J=3$. (e) {\sc VH  Polarization - Channel} $J=3$. (f) {\sc Combined Channels} $J=3$} 
 \label{F:image_corr_J2J3}
 \end{figure}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{consecdif_J2_VV_image_cor}(a)
-\includegraphics[scale=.12]{consecdif_J2_VH_image_cor}(b)\\
-\includegraphics[scale=.12]{consecdif_J2_euclid_image_cor}(c)
-\includegraphics[scale=.12]{consecdif_J3_VV_image_cor}(d)\\ 
-\includegraphics[scale=.12]{consecdif_J3_VH_image_cor}(e)
-\includegraphics[scale=.12]{consecdif_J3_euclid_image_cor}(f)
+\includegraphics[scale=.12]{../../figs/consecdif_J2_VV_image_cor}(a)
+\includegraphics[scale=.12]{../../figs/consecdif_J2_VH_image_cor}(b)\\
+\includegraphics[scale=.12]{../../figs/consecdif_J2_euclid_image_cor}(c)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_image_cor}(d)\\ 
+\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_image_cor}(e)
+\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_image_cor}(f)
 
 \caption{Absolute correlation matrices $\vR^{(t)}$ between squared differences of consecutive log-images' coefficients at approximation levels and their overall total energy $\{\vt(m)\}$. Levels $J=2$ (a)-(c);  $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$. The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc VV  Polarization - Channel} $J=2$. (b) {\sc VH  Polarization - Channel} $J=2$. (c) {\sc Combined Channels} $J=2$. (d)  {\sc VV  Polarization - Channel} $J=3$. (e) {\sc VH  Polarization - Channel} $J=3$. (f) {\sc Combined Channels} $J=3$.} 
 \label{F:image_corr_J2J3_consec}
