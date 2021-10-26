@@ -128,6 +128,11 @@ S.~Cui and M.~Datcu, ``Statistical wavelet subband modeling for multi-temporal
 J.~Fan, R.~Li, C.-H. Zhang, and H.~Zou, \emph{Statistical Foundations of Data
   Science}.\hskip 1em plus 0.5em minus 0.4em\relax Boca Raton: CRC Press, 2020.
 
+\bibitem{coifman1995translation}
+R.~R. Coifman and D.~L. Donoho, ``Translation-invariant de-noising,'' in
+  \emph{Wavelets and statistics}, A.~Antoniadis and G.~Oppenheim, Eds.\hskip
+  1em plus 0.5em minus 0.4em\relax New York: Springer, 1995, pp. 125--150.
+
 \bibitem{atto2016wavelet}
 A.~M. Atto, E.~Trouv{\'e}, J.-M. Nicolas, and T.~T. L{\^e}, ``Wavelet operators
   and multiplicative observation models—application to {SAR} image

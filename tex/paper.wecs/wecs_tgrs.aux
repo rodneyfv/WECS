@@ -18,8 +18,8 @@
 \citation{celik2009multiscale}
 \citation{cui2012statistical}
 \citation{fan2020statistical}
-\citation{morettin2017wavelets}
-\citation{vidakovic1999statistical}
+\citation{coifman1995translation}
+\citation{atto2012multidate}
 \citation{atto2016wavelet}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {II}Methodology}{1}\protected@file@percent }
@@ -27,67 +27,56 @@
 \citation{johnstone2009statistical}
 \citation{fan2020statistical}
 \citation{fan2020statistical}
-\newlabel{eq_ANOVAlogimage}{{2}{2}}
-\newlabel{eq_defdm}{{3}{2}}
-\newlabel{eq_defmatrixD}{{4}{2}}
-\newlabel{sparsemodel_d}{{5}{2}}
-\newlabel{def_Rkld}{{6}{2}}
-\newlabel{def_Mtaud}{{7}{2}}
-\newlabel{eq_deftm}{{8}{2}}
-\newlabel{eq_defmatrixT}{{9}{2}}
-\newlabel{sparsemodel_t}{{10}{2}}
-\citation{fan2020statistical}
-\newlabel{def_Rklt}{{11}{3}}
-\newlabel{def_Mpop}{{12}{3}}
-\newlabel{def_Memp}{{13}{3}}
+\newlabel{E:eq_ANOVAlogimage}{{1}{2}}
+\newlabel{E:eq_defdm}{{2}{2}}
+\newlabel{eq_defmatrixD}{{II}{2}}
+\newlabel{E:sparsemodel_d}{{3}{2}}
+\newlabel{def_Rkld}{{II}{2}}
+\newlabel{E:def_Mtaud}{{4}{2}}
+\citation{zhang2017beyond}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Validation on synthetic data}{3}\protected@file@percent }
 \newlabel{section_validation}{{III}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Synthetic multi-temporal ($n=4$) images. Features and changes come as ellipses and dots.}}{3}\protected@file@percent }
 \newlabel{F:EllipsoidChanges}{{1}{3}}
-\citation{zhang2017beyond}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Synthetic images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS ${\textbf  d}(m)$ with $J=2$; (c) Proposed db2 WECS ${\textbf  t}(m)$ with $J=2$. (d) Standard approach. (e) ${\textbf  d}(m)$ without wavelets. (f) ${\textbf  t}(m)$ without wavelets. }}{4}\protected@file@percent }
-\newlabel{F:Changes_methods_images}{{2}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Synthetic images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS ${\textbf  d}(m)$ with $J=2$; (c) Proposed db2 WECS ${\textbf  t}(m)$ with $J=2$. (d) Standard approach. (e) ${\textbf  d}(m)$ without wavelets. (f) ${\textbf  t}(m)$ without wavelets. }}{3}\protected@file@percent }
+\newlabel{F:Changes_methods_images}{{2}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces ROC curves for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS ${\textbf  d}(m)$) and green (db2 WECS ${\textbf  t}(m)$) vs three non-wavelet methods: standard (red stars); ${\textbf  d}(m)$ (blue); and ${\textbf  t}(m)$ (red circles). (b) db2 ${\textbf  d}(m)$ with different levels. (c) ${\textbf  d}(m)$ with different wavelet bases and J=2; (d) The proposed db2 WECS ${\textbf  d}(m)$ (red circles) and ${\textbf  d}(m)$ with deep-learning feature extraction and without wavelets (yellow line). (e) db2 ${\textbf  t}(m)$ with different levels. (f) ${\textbf  t}(m)$ with different wavelet bases and J=2. }}{4}\protected@file@percent }
 \newlabel{F:EllipsoidChanges_details}{{3}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Real Data Results}{5}\protected@file@percent }
-\newlabel{section_realdata}{{IV}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Real Data Results}{4}\protected@file@percent }
+\newlabel{section_realdata}{{IV}{4}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Wavelet Approximation Mean Energy Percentage for log-images. Forest region at the border of Brazil and the French Guiana from November 08, 2015 to December 09, 2017. $n=85$ multi-date satellite images. Each image has two channels and 1200 by 1000 pixels. VV Polarization Channel; VH Polarization Channel; and the Combined Image by Euclidean norm. Approximation $J=1,2,3,4$.}}{5}\protected@file@percent }
+\newlabel{T:approxenergy}{{I}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces {\sc  VV Polarization Channel} Series of squared deviations ${\textbf  d}(m)$ and ${\textbf  t}(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation. ${\textbf  d}(m)$ - Approximation Levels: (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. ${\textbf  t}(m)$ - Approximation Levels: (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. }}{5}\protected@file@percent }
 \newlabel{F:squared_J1-4_VV}{{4}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces {\sc  VH Polarization Channel} Series of squared deviations ${\textbf  d}(m)$ and ${\textbf  t}(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation. ${\textbf  d}(m)$ - Approximation Levels: (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. ${\textbf  t}(m)$ - Approximation Levels: (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. }}{5}\protected@file@percent }
+\newlabel{F:squared_J1-4_VH}{{5}{5}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Discussion}{5}\protected@file@percent }
 \newlabel{section_discussion}{{V}{5}}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Wavelet Approximation Mean Energy Percentage for log-images. Forest region at the border of Brazil and the French Guiana from November 08, 2015 to December 09, 2017. $n=85$ multi-date satellite images. Each image has two channels and 1200 by 1000 pixels. VV Polarization Channel; VH Polarization Channel; and the Combined Image by Euclidean norm. Approximation $J=1,2,3,4$.}}{6}\protected@file@percent }
-\newlabel{T:approxenergy}{{I}{6}}
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Absolute correlation thresholds and number of selected coefficients for $n=85$ multi-temporal images of $1200\times 1000$ . Correlation was computed between approximation coefficients and approximation total energy at level $J=2$ for each image. }}{6}\protected@file@percent }
-\newlabel{tabela_quantis}{{II}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces {\sc  VH Polarization Channel} Series of squared deviations ${\textbf  d}(m)$ and ${\textbf  t}(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation. ${\textbf  d}(m)$ - Approximation Levels: (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. ${\textbf  t}(m)$ - Approximation Levels: (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. }}{6}\protected@file@percent }
-\newlabel{F:squared_J1-4_VH}{{5}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces {\sc  Combined Channels} Series of squared deviations ${\textbf  d}(m)$ and ${\textbf  t}(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation. ${\textbf  d}(m)$ - Approximation Levels: (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. ${\textbf  t}(m)$ - Approximation Levels: (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. }}{6}\protected@file@percent }
-\newlabel{F:squared_J1-4_euclid}{{6}{6}}
 \bibstyle{IEEEtran}
 \bibdata{bibfile}
 \bibcite{ban2016change}{1}
 \bibcite{bovolo2015time}{2}
 \bibcite{liu2019review}{3}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Absolute correlation thresholds and number of selected coefficients for $n=85$ multi-temporal images of $1200\times 1000$ . Correlation was computed between approximation coefficients and approximation total energy at level $J=2$ for each image. }}{6}\protected@file@percent }
+\newlabel{tabela_quantis}{{II}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces {\sc  Combined Channels} Series of squared deviations ${\textbf  d}(m)$ and ${\textbf  t}(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation. ${\textbf  d}(m)$ - Approximation Levels: (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. ${\textbf  t}(m)$ - Approximation Levels: (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. }}{6}\protected@file@percent }
+\newlabel{F:squared_J1-4_euclid}{{6}{6}}
+\@writefile{toc}{\contentsline {section}{References}{6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces {\sc  VV Polarization Channel} Series of squared mean deviations at level $J=3$: (a) ${\textbf  d}(m)$; (b) ${\textbf  t}(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) ${\textbf  d}(m)$; (d) ${\textbf  t}(m)$; 0.1\% smallest absolute correlations - (e) ${\textbf  d}(m)$; (f) ${\textbf  t}(m)$; 0.01\% highest absolute correlations - (g) ${\textbf  d}(m)$; (h) ${\textbf  t}(m)$; 0.01\% smallest absolute correlations - (i) ${\textbf  d}(m)$; (j) ${\textbf  t}(m)$. }}{6}\protected@file@percent }
+\newlabel{F:squared_meandev_J3_VV}{{7}{6}}
 \bibcite{matsunaga2017current}{4}
 \bibcite{jia2018novel}{5}
 \bibcite{hou2014unsupervised}{6}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces {\sc  VV Polarization Channel} Series of squared mean deviations at level $J=3$: (a) ${\textbf  d}(m)$; (b) ${\textbf  t}(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) ${\textbf  d}(m)$; (d) ${\textbf  t}(m)$; 0.1\% smallest absolute correlations - (e) ${\textbf  d}(m)$; (f) ${\textbf  t}(m)$; 0.01\% highest absolute correlations - (g) ${\textbf  d}(m)$; (h) ${\textbf  t}(m)$; 0.01\% smallest absolute correlations - (i) ${\textbf  d}(m)$; (j) ${\textbf  t}(m)$. }}{7}\protected@file@percent }
-\newlabel{F:squared_meandev_J3_VV}{{7}{7}}
-\@writefile{toc}{\contentsline {section}{References}{7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces {\sc  VH Polarization Channel} Series of squared mean deviations at level $J=3$: (a) ${\textbf  d}(m)$; (b) ${\textbf  t}(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) ${\textbf  d}(m)$; (d) ${\textbf  t}(m)$; 0.1\% smallest absolute correlations - (e) ${\textbf  d}(m)$; (f) ${\textbf  t}(m)$; 0.01\% highest absolute correlations - (g) ${\textbf  d}(m)$; (h) ${\textbf  t}(m)$; 0.01\% smallest absolute correlations - (i) ${\textbf  d}(m)$; (j) ${\textbf  t}(m)$. }}{7}\protected@file@percent }
-\newlabel{F:squared_meandev_J3_VH}{{8}{7}}
 \bibcite{du2019unsupervised}{7}
 \bibcite{chen2020change}{8}
 \bibcite{ansari2020urban}{9}
 \bibcite{song2018multi}{10}
 \bibcite{ru2021multi}{11}
 \bibcite{barreto2016deforestation}{12}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces {\sc  Combined Channels} Series of squared mean deviations at level $J=3$: (a) ${\textbf  d}(m)$; (b) ${\textbf  t}(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) ${\textbf  d}(m)$; (d) ${\textbf  t}(m)$; 0.1\% smallest absolute correlations - (e) ${\textbf  d}(m)$; (f) ${\textbf  t}(m)$; 0.01\% highest absolute correlations - (g) ${\textbf  d}(m)$; (h) ${\textbf  t}(m)$; 0.01\% smallest absolute correlations - (i) ${\textbf  d}(m)$; (j) ${\textbf  t}(m)$. }}{8}\protected@file@percent }
-\newlabel{F:squared_meandev_J3_euclid}{{9}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Absolute correlation matrices ${\textbf  R}^{(d)}$ between mean-corrected squared coefficients at approximation levels and overall mean-corrected total energy $\{{\textbf  d}(m)\}$. $J=2$ (a)-(c); $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$ ($J=10$). The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc  VV Polarization - Channel} $J=2$. (b) {\sc  VH Polarization - Channel} $J=2$. (c) {\sc  Combined Channels} $J=2$. (d) {\sc  VV Polarization - Channel} $J=3$. (e) {\sc  VH Polarization - Channel} $J=3$. (f) {\sc  Combined Channels} $J=3$}}{8}\protected@file@percent }
-\newlabel{F:image_corr_J2J3}{{10}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Absolute correlation matrices ${\textbf  R}^{(t)}$ between squared differences of consecutive log-images' coefficients at approximation levels and their overall total energy $\{{\textbf  t}(m)\}$. Levels $J=2$ (a)-(c); $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$. The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc  VV Polarization - Channel} $J=2$. (b) {\sc  VH Polarization - Channel} $J=2$. (c) {\sc  Combined Channels} $J=2$. (d) {\sc  VV Polarization - Channel} $J=3$. (e) {\sc  VH Polarization - Channel} $J=3$. (f) {\sc  Combined Channels} $J=3$.}}{8}\protected@file@percent }
-\newlabel{F:image_corr_J2J3_consec}{{11}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces {\sc  VH Polarization Channel} Series of squared mean deviations at level $J=3$: (a) ${\textbf  d}(m)$; (b) ${\textbf  t}(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) ${\textbf  d}(m)$; (d) ${\textbf  t}(m)$; 0.1\% smallest absolute correlations - (e) ${\textbf  d}(m)$; (f) ${\textbf  t}(m)$; 0.01\% highest absolute correlations - (g) ${\textbf  d}(m)$; (h) ${\textbf  t}(m)$; 0.01\% smallest absolute correlations - (i) ${\textbf  d}(m)$; (j) ${\textbf  t}(m)$. }}{7}\protected@file@percent }
+\newlabel{F:squared_meandev_J3_VH}{{8}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces {\sc  Combined Channels} Series of squared mean deviations at level $J=3$: (a) ${\textbf  d}(m)$; (b) ${\textbf  t}(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) ${\textbf  d}(m)$; (d) ${\textbf  t}(m)$; 0.1\% smallest absolute correlations - (e) ${\textbf  d}(m)$; (f) ${\textbf  t}(m)$; 0.01\% highest absolute correlations - (g) ${\textbf  d}(m)$; (h) ${\textbf  t}(m)$; 0.01\% smallest absolute correlations - (i) ${\textbf  d}(m)$; (j) ${\textbf  t}(m)$. }}{7}\protected@file@percent }
+\newlabel{F:squared_meandev_J3_euclid}{{9}{7}}
 \bibcite{vidakovic1999statistical}{13}
 \bibcite{morettin2017wavelets}{14}
 \bibcite{atto2012multidate}{15}
@@ -95,6 +84,11 @@
 \bibcite{celik2009multiscale}{17}
 \bibcite{cui2012statistical}{18}
 \bibcite{fan2020statistical}{19}
-\bibcite{atto2016wavelet}{20}
-\bibcite{johnstone2009statistical}{21}
-\bibcite{zhang2017beyond}{22}
+\bibcite{coifman1995translation}{20}
+\bibcite{atto2016wavelet}{21}
+\bibcite{johnstone2009statistical}{22}
+\bibcite{zhang2017beyond}{23}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Absolute correlation matrices ${\textbf  R}^{(d)}$ between mean-corrected squared coefficients at approximation levels and overall mean-corrected total energy $\{{\textbf  d}(m)\}$. $J=2$ (a)-(c); $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$ ($J=10$). The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc  VV Polarization - Channel} $J=2$. (b) {\sc  VH Polarization - Channel} $J=2$. (c) {\sc  Combined Channels} $J=2$. (d) {\sc  VV Polarization - Channel} $J=3$. (e) {\sc  VH Polarization - Channel} $J=3$. (f) {\sc  Combined Channels} $J=3$}}{8}\protected@file@percent }
+\newlabel{F:image_corr_J2J3}{{10}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Absolute correlation matrices ${\textbf  R}^{(t)}$ between squared differences of consecutive log-images' coefficients at approximation levels and their overall total energy $\{{\textbf  t}(m)\}$. Levels $J=2$ (a)-(c); $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$. The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc  VV Polarization - Channel} $J=2$. (b) {\sc  VH Polarization - Channel} $J=2$. (c) {\sc  Combined Channels} $J=2$. (d) {\sc  VV Polarization - Channel} $J=3$. (e) {\sc  VH Polarization - Channel} $J=3$. (f) {\sc  Combined Channels} $J=3$.}}{8}\protected@file@percent }
+\newlabel{F:image_corr_J2J3_consec}{{11}{8}}
