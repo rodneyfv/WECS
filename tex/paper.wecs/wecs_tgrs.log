@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  22 OCT 2021 19:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  25 OCT 2021 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -909,7 +909,7 @@ lid_image_cor.jpg>]) [9
 Here is how much of TeX's memory you used:
  3760 strings out of 481239
  77224 string characters out of 5920377
- 327431 words of memory out of 5000000
+ 327455 words of memory out of 5000000
  18917 multiletter control sequences out of 15000+600000
  579775 words of font info for 108 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -931,7 +931,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (9 pages, 7133620 bytes).
+Output written on wecs_tgrs.pdf (9 pages, 7133652 bytes).
 PDF statistics:
  179 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream
