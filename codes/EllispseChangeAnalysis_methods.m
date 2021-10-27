@@ -13,7 +13,7 @@ im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');
 
 %
 % Images are too big, consider subsampling
-subsamplingfactor = 8;
+subsamplingfactor = 2;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
@@ -24,7 +24,7 @@ totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
 mImage = figure;
 imshow(totalchanges)
 title('Total changes', 'FontSize', 17)
-%saveas(mImage,sprintf('../figs/total_changes.jpg'))
+saveas(mImage,sprintf('../figs/total_changes.jpg'))
 
 %%
 eps = .00001;
@@ -79,7 +79,7 @@ R = reshape(R,NbRows, NbCols);
 mImage = figure;
 imshow(R)
 title('db2 WECS d(m), J=2', 'FontSize', 17)
-%saveas(mImage,sprintf('../figs/corr_changes_dm.jpg'))
+saveas(mImage,sprintf('../figs/corr_changes_dm.jpg'))
 
 
 %% No wavelets for comparison with mean image
@@ -114,13 +114,13 @@ R = reshape(R,NbRows, NbCols);
 mImage = figure;
 imshow(R)
 title('d(m) without wavelets', 'FontSize', 17)
-%saveas(mImage,sprintf('../figs/corr_changes_dm_nowavelets.jpg'))
+saveas(mImage,sprintf('../figs/corr_changes_dm_nowavelets.jpg'))
 
 
 %% Standard change detection
 
 S = abs(im4log - im3log) + abs(im3log - im2log) + abs(im2log - im1log);
-S = S./max(R(:));
+S = S./max(S(:));
 %
 [pD1,pFA1]=ROCcurveNew(S,255*totalchanges); close
 [vp,vF1_std,~,~] = F1Scorecurve(R,255*totalchanges); close
@@ -128,7 +128,7 @@ S = S./max(R(:));
 mImage = figure;
 imshow(S)
 title('Aggregation of log-ratios'                                                                                                                                                                                                                                                                                                                               , 'FontSize', 17)
-%saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
+saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
 
 %% Compare all results
 
@@ -142,11 +142,11 @@ axis square
 plot(pFA,pD,'k')
 plot(pFA0,pD0,'g-d')
 plot(pFA1,pD1,':+')
-legend('db2 WECS d(m), J=2', 'd(m): without wavelets', ...
-    'Aggregation of log-ratios', 'Location','southeast', 'FontSize', 12)
+legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
+    'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
+saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
 
 mImage = figure;
 hold on
@@ -162,7 +162,7 @@ legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', .
     'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/methods_comparison_F1score.jpg'))
+saveas(mImage,sprintf('../figs/methods_comparison_F1score.jpg'))
 
 
 

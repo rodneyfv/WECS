@@ -1,0 +1,1081 @@
+>> 
+>> 
+>> close all
+clear;
+%%
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+%
+>> 
+>> 
+%
+% Images are too big, consider subsampling
+subsamplingfactor = 2;
+im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
+%
+mImage = figure;
+imshow(totalchanges)
+title('Total changes', 'FontSize', 17)
+saveas(mImage,sprintf('../figs/total_changes.jpg'))
+
+%%
+eps = .00001;
+im1log = log(eps+double(im1));
+im2log = log(eps+double(im2));
+im3log = log(eps+double(im3));
+im4log = log(eps+double(im4));
+n=4;
+imRef = im1log + im2log + im3log + im4log;
+imRef = imRef/n;
+
+Warning: MATLAB has disabled some advanced graphics rendering features by switching to software
+OpenGL. For more information, click here. 
+>> 
+>> sie(im1)
+Unrecognized function or variable 'sie'.
+ 
+Did you mean:
+>> size(im1)
+
+ans =
+
+        1024        1024
+
+>> parfor k=1:1
+end
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 4).
+>> 
+>> 
+wname = 'db2';
+J = 2;
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+% imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD,pFA]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_wave,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+mImage = figure;
+imshow(R)
+title('db2 WECS d(m), J=2', 'FontSize', 17)
+saveas(mImage,sprintf('../figs/corr_changes_dm.jpg'))
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8647    1.8810    1.8845    1.9186
+
+>> 
+>> 
+%% No wavelets for comparison with mean image
+X1 = im1log;
+X2 = im2log;
+X3 = im3log;
+X4 = im4log;
+
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d1 = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d1);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d1);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD0,pFA0]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_nowave,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+mImage = figure;
+imshow(R)
+title('d(m) without wavelets', 'FontSize', 17)
+saveas(mImage,sprintf('../figs/corr_changes_dm_nowavelets.jpg'))
+
+
+%% Standard change detection
+
+S = abs(im4log - im3log) + abs(im3log - im2log) + abs(im2log - im1log);
+S = S./max(R(:));
+%
+[pD1,pFA1]=ROCcurveNew(S,255*totalchanges); close
+[vp,vF1_std,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+mImage = figure;
+imshow(S)
+title('Aggregation of log-ratios'                                                                                                                                                                                                                                                                                                                               , 'FontSize', 17)
+saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
+Expressiveness of changes per images
+   1.0e+04 *
+
+    1.8780    1.7430    1.7430    2.5337
+
+>> 
+>> 
+mImage = figure;
+hold on
+%title('ROC Curve', 'FontSize', 17)
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(pFA,pD,'k')
+plot(pFA0,pD0,'g-d')
+plot(pFA1,pD1,':+')
+legend('db2 WECS d(m), J=2', 'd(m): without wavelets', ...
+    'Aggregation of log-ratios', 'Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
+>> 
+>> mImage = figure;
+hold on
+%title('ROC Curve', 'FontSize', 17)
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(pFA,pD,'k')
+plot(pFA0,pD0,'g-d')
+plot(pFA1,pD1,':+')
+legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
+    'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
+>> 
+>> mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_wave,'k')
+plot(vp,vF1_nowave,'g-d')
+plot(vp,vF1_std,':+')
+legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
+    'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/methods_comparison_F1score.jpg'))
+>> 
+>> close all
+clear;
+%%
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+%
+>> % Images are too big, consider subsampling
+subsamplingfactor = 2;
+im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
+%
+figure
+imshow(totalchanges)
+title('Total changes')
+>> 
+>> %%
+eps = .00001;
+im1log = log(eps+double(im1));
+im2log = log(eps+double(im2));
+im3log = log(eps+double(im3));
+im4log = log(eps+double(im4));
+n=4;
+imRef = im1log + im2log + im3log + im4log;
+    imRef = imRef/n;
+
+% decomposition level fixed
+wname = 'db2';
+
+%% Case 1 : reference image 
+
+% Wavelet basis: Haar
+J = 1;
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD1,pFA1]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_haar,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db2 wavelet - J=1')
+
+%% 
+
+J = 2;
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD2,pFA2]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J2,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db2 wavelet - J=2')
+
+%% 
+
+J = 3;
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD3,pFA3]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J3,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db2 wavelet - J=3')
+
+%% 
+
+J = 4;
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD4,pFA4]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J4,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db2 wavelet - J=4')
+
+%% 
+
+J = 5;
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD5,pFA5]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J5,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db2 wavelet - J=5')
+Expressiveness of changes per images
+   1.0e+07 *
+
+    2.0616    2.0887    2.0945    2.1528
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8647    1.8810    1.8845    1.9186
+
+Expressiveness of changes per images
+   1.0e+09 *
+
+    1.0168    1.0244    1.0260    1.0417
+
+Expressiveness of changes per images
+   1.0e+09 *
+
+    4.6719    4.7047    4.7116    4.7776
+
+Expressiveness of changes per images
+   1.0e+10 *
+
+    1.9960    2.0095    2.0123    2.0394
+
+>> 
+>> mImage = figure;
+hold on
+%title('ROC Curve', 'FontSize', 17)
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(pFA1,pD1,':+')
+plot(pFA2,pD2,'-.or')
+plot(pFA3,pD3,':*')
+plot(pFA4,pD4,':^')
+plot(pFA5,pD5,'g-d')
+legend('$J=1$', '$J=2$', '$J=3$','$J=4$', '$J=5$',...
+    'interpreter','latex','Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/levels_comparison.jpg'))
+
+>> 
+>> 
+mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_haar,':+')
+plot(vp,vF1_J2,'-.or')
+plot(vp,vF1_J3,':*')
+plot(vp,vF1_J4,':^')
+plot(vp,vF1_J5,'g-d')
+legend('$J=1$', '$J=2$', '$J=3$','$J=4$', '$J=5$',...
+    'interpreter','latex','Location','northeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/levels_comparison_F1score.jpg'))
+>> 
+>> close all
+clear;
+%%
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+>> 
+>> 
+>> 
+>> %
+% Images are too big, consider subsampling
+subsamplingfactor = 2;
+im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
+%
+figure
+imshow(totalchanges)
+title('Total changes')
+
+%%
+eps = .00001;
+im1log = log(eps+double(im1));
+im2log = log(eps+double(im2));
+im3log = log(eps+double(im3));
+im4log = log(eps+double(im4));
+n=4;
+imRef = im1log + im2log + im3log + im4log;
+    imRef = imRef/n;
+
+% decomposition level fixed
+J = 2;
+>> 
+>> 
+>> 
+%% Case 1 : reference image 
+
+% Wavelet basis: Haar
+wname = 'haar';
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD1,pFA1]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_haar,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('Haar wavelet - J=2')
+
+%% 
+
+wname = 'db2';
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD2,pFA2]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_db2,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db2 wavelet - J=2')
+
+%% 
+
+wname = 'db4';
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD3,pFA3]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_db4,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('db4 wavelet - J=2')
+
+%% 
+
+wname = 'coif4';
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD4,pFA4]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_coif4,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('coif4 wavelet - J=2')
+
+%% 
+
+wname = 'sym4';
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD5,pFA5]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_sym4,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('sym4 wavelet - J=2')
+
+%% 
+
+wname = 'sym2';
+
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+
+% % mean approximation coefficients
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD6,pFA6]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_sym2,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('sym2 wavelet - J=2')
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8647    1.8810    1.8845    1.9185
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8647    1.8810    1.8845    1.9186
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8648    1.8812    1.8846    1.9190
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8648    1.8812    1.8847    1.9191
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8648    1.8811    1.8846    1.9189
+
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8647    1.8810    1.8845    1.9186
+
+>> 
+>> 
+mImage = figure;
+hold on
+%title('ROC Curve', 'FontSize', 17)
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(pFA1,pD1,':+')
+plot(pFA2,pD2,'-.or')
+plot(pFA3,pD3,':*')
+plot(pFA4,pD4,':^')
+plot(pFA5,pD5,'g-d')
+plot(pFA6,pD6,'k')
+legend('haar', 'db2', 'db4',...
+    'coif4', 'sym4', 'sym2','Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/families_comparison.jpg'))
+>> 
+>> mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_haar,':+')
+plot(vp,vF1_db2,'-.or')
+plot(vp,vF1_db4,':*')
+plot(vp,vF1_coif4,':^')
+plot(vp,vF1_sym4,'g-d')
+plot(vp,vF1_sym2,'k')
+legend('haar', 'db2', 'db4',...
+    'coif4', 'sym4', 'sym2','Location','northeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/families_comparison_F1score.jpg'))
+
+>> 
+>> 
+>> close all
+clear;
+%%
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+%
+>> 
+>> % Images are too big, consider subsampling
+subsamplingfactor = 16;
+im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
+%
+figure
+imshow(totalchanges)
+title('Total changes')
+>> 
+>> close all
+clear;
+%%
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+%
+
+% Images are too big, consider subsampling
+subsamplingfactor = 2;
+im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
+im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
+%
+figure
+imshow(totalchanges)
+title('Total changes')
+>> 
+>> %%
+eps = .00001;
+im1log = log(eps+double(im1));
+im2log = log(eps+double(im2));
+im3log = log(eps+double(im3));
+im4log = log(eps+double(im4));
+n=4;
+imRef = im1log + im2log + im3log + im4log;
+    imRef = imRef/n;
+%% comparison of wavelet denoising with mean image
+
+wname = 'db2';
+J = 2;
+
+tic
+[X1,~,~,~] = swt2(im1log,J,wname);
+    X1 = X1(:,:,J); % focus only on level J approximations ?
+[X2,~,~,~] = swt2(im2log,J,wname);
+    X2 = X2(:,:,J); % focus only on level J approximations ?
+[X3,~,~,~] = swt2(im3log,J,wname);
+    X3 = X3(:,:,J); % focus only on level J approximations ?
+[X4,~,~,~] = swt2(im4log,J,wname);
+    X4 = X4(:,:,J); % focus only on level J approximations ?
+toc
+
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d1 = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d1);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+% Not very fast is you want to use multicore processing
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d1);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pD2,pFA2]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_db2,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('d(m): wavelet db2, J=2')
+
+Elapsed time is 0.428189 seconds.
+Expressiveness of changes per images
+   1.0e+08 *
+
+    1.8647    1.8810    1.8845    1.9186
+
+>> 
+>> 
+>> %% deep learning denoiser instead of using a wavelet transform
+
+net = denoisingNetwork('DnCNN'); % load a deep neural network that has learned to denoise more efficiently than wavelets !
+
+% X1 = denoiseImageCPU(im1log,net);
+% X2 = denoiseImageCPU(im2log,net);
+% X3 = denoiseImageCPU(im3log,net);
+% X4 = denoiseImageCPU(im4log,net);
+
+tic
+X1 = denoiseImageCPU(im1,net);
+X2 = denoiseImageCPU(im2,net);
+X3 = denoiseImageCPU(im3,net);
+X4 = denoiseImageCPU(im4,net);
+toc
+Elapsed time is 64.683936 seconds.
+>> 
+>> %%
+X1 = double(X1);
+X2 = double(X2);
+X3 = double(X3);
+X4 = double(X4);
+
+%
+D1 = (X1 - imRef).^2;
+D2 = (X2 - imRef).^2;
+D3 = (X3 - imRef).^2;
+D4 = (X4 - imRef).^2;
+d1 = [sum(D1(:)) sum(D2(:)) sum(D3(:)) sum(D4(:))];
+disp('Expressiveness of changes per images');
+disp(d1);
+%
+[NbRows, NbCols] = size(D1);
+NbPixels = NbRows*NbCols;
+%%%%%%%%%%%%%%%
+Dtensor1 = cat(2,reshape(D1,NbPixels,1),reshape(D2,NbPixels,1),reshape(D3,NbPixels,1),reshape(D4,NbPixels,1)); % concatenation of sptial and temporal
+R = zeros(1, NbPixels);
+parfor k=1:NbPixels
+        temp = corrcoef(Dtensor1(k,:),d1);
+        R(k) = temp(1,2);
+end
+R = R./max(R(:));
+R = reshape(R,NbRows, NbCols);
+[pDdeep,pFAdeep]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_deep,~,~] = F1Scorecurve(R,255*totalchanges); close
+%
+figure
+imshow(R)
+title('d(m): deep learning denoiser')
+Expressiveness of changes per images
+   1.0e+09 *
+
+    7.1983    7.4515    7.5120    8.2641
+
+>> 
+>> 
+mImage = figure;
+hold on
+%title('ROC Curve', 'FontSize', 17)
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(pFA2,pD2,'-.or')
+plot(pFAdeep,pDdeep,'y','LineWidth',4)
+legend('db2 WECS $\textbf{d}(m)$, $J=2$', '\textbf{d}(m): deep learning denoiser', ...
+    'interpreter','latex','Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL.jpg'))
+>> 
+>> mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_db2,'-.or')
+plot(vp,vF1_deep,'y','LineWidth',4)
+legend('db2 WECS $\textbf{d}(m)$, $J=2$', '\textbf{d}(m): deep learning denoiser', ...
+    'interpreter','latex','Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL_F1score.jpg'))
+>> 
+>> 

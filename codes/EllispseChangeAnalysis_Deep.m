@@ -10,7 +10,7 @@ im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');
 %
 
 % Images are too big, consider subsampling
-subsamplingfactor = 16;
+subsamplingfactor = 2;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
@@ -140,7 +140,7 @@ legend('db2 WECS $\textbf{d}(m)$, $J=2$', '\textbf{d}(m): deep learning denoiser
     'interpreter','latex','Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL.jpg'))
+saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL.jpg'))
 
 mImage = figure;
 hold on
@@ -155,7 +155,7 @@ legend('db2 WECS $\textbf{d}(m)$, $J=2$', '\textbf{d}(m): deep learning denoiser
     'interpreter','latex','Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL_F1score.jpg'))
+saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL_F1score.jpg'))
 
 
 return

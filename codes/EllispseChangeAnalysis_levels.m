@@ -12,7 +12,7 @@ im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');
 %
 
 % Images are too big, consider subsampling
-subsamplingfactor = 8;
+subsamplingfactor = 2;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
@@ -39,7 +39,6 @@ wname = 'db2';
 
 %% Case 1 : reference image 
 
-% Wavelet basis: Haar
 J = 1;
 
 [X1,~,~,~] = swt2(im1log,J,wname);
@@ -75,7 +74,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD1,pFA1]=ROCcurveNew(R,255*totalchanges); close
-[vp,vF1_haar,~,~] = F1Scorecurve(R,255*totalchanges); close
+[vp,vF1_J1,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -271,7 +270,7 @@ legend('$J=1$', '$J=2$', '$J=3$','$J=4$', '$J=5$',...
     'interpreter','latex','Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/levels_comparison.jpg'))
+saveas(mImage,sprintf('../figs/levels_comparison.jpg'))
 
 mImage = figure;
 hold on
@@ -280,7 +279,7 @@ xlabel('$p$','interpreter','latex', 'FontSize', 13)
 ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
 axis([0 1 0 0.7]);
 axis square
-plot(vp,vF1_haar,':+')
+plot(vp,vF1_J1,':+')
 plot(vp,vF1_J2,'-.or')
 plot(vp,vF1_J3,':*')
 plot(vp,vF1_J4,':^')
@@ -289,7 +288,7 @@ legend('$J=1$', '$J=2$', '$J=3$','$J=4$', '$J=5$',...
     'interpreter','latex','Location','northeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/levels_comparison_F1score.jpg'))
+saveas(mImage,sprintf('../figs/levels_comparison_F1score.jpg'))
 
 
 return

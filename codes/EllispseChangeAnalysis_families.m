@@ -12,7 +12,7 @@ im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');
 
 %
 % Images are too big, consider subsampling
-subsamplingfactor = 8;
+subsamplingfactor = 2;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
@@ -315,7 +315,7 @@ legend('haar', 'db2', 'db4',...
     'coif4', 'sym4', 'sym2','Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/families_comparison.jpg'))
+saveas(mImage,sprintf('../figs/families_comparison.jpg'))
 
 mImage = figure;
 hold on
@@ -334,7 +334,7 @@ legend('haar', 'db2', 'db4',...
     'coif4', 'sym4', 'sym2','Location','northeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('../figs/families_comparison_F1score.jpg'))
+saveas(mImage,sprintf('../figs/families_comparison_F1score.jpg'))
 
 
 
