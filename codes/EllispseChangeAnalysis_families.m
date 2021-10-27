@@ -5,27 +5,19 @@
 close all
 clear;
 %%
-im1 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');  
-im2 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
-im3 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
-im4 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
-%
-figure
-imshow(im1)
-figure
-imshow(im2)
-figure
-imshow(im3)
-figure
-imshow(im4)
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+
 %
 % Images are too big, consider subsampling
-subsamplingfactor = 2;
+subsamplingfactor = 8;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
-totalchanges = imread('GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
 totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
 %
 figure
@@ -60,8 +52,8 @@ wname = 'haar';
     X4 = X4(:,:,J); % focus only on level J approximations ?
 
 % % mean approximation coefficients
-imRef_wave = X1 + X2 + X3 + X4;
-    imRef_wave = imRef_wave/n;
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
 %
 D1 = (X1 - imRef).^2;
 D2 = (X2 - imRef).^2;
@@ -83,6 +75,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD1,pFA1]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_haar,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -102,8 +95,8 @@ wname = 'db2';
     X4 = X4(:,:,J); % focus only on level J approximations ?
 
 % % mean approximation coefficients
-imRef_wave = X1 + X2 + X3 + X4;
-    imRef_wave = imRef_wave/n;
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
 %
 D1 = (X1 - imRef).^2;
 D2 = (X2 - imRef).^2;
@@ -125,6 +118,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD2,pFA2]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_db2,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -144,8 +138,8 @@ wname = 'db4';
     X4 = X4(:,:,J); % focus only on level J approximations ?
 
 % % mean approximation coefficients
-imRef_wave = X1 + X2 + X3 + X4;
-    imRef_wave = imRef_wave/n;
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
 %
 D1 = (X1 - imRef).^2;
 D2 = (X2 - imRef).^2;
@@ -167,6 +161,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD3,pFA3]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_db4,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -186,8 +181,8 @@ wname = 'coif4';
     X4 = X4(:,:,J); % focus only on level J approximations ?
 
 % % mean approximation coefficients
-imRef_wave = X1 + X2 + X3 + X4;
-    imRef_wave = imRef_wave/n;
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
 %
 D1 = (X1 - imRef).^2;
 D2 = (X2 - imRef).^2;
@@ -209,6 +204,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD4,pFA4]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_coif4,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -228,8 +224,8 @@ wname = 'sym4';
     X4 = X4(:,:,J); % focus only on level J approximations ?
 
 % % mean approximation coefficients
-imRef_wave = X1 + X2 + X3 + X4;
-    imRef_wave = imRef_wave/n;
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
 %
 D1 = (X1 - imRef).^2;
 D2 = (X2 - imRef).^2;
@@ -251,6 +247,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD5,pFA5]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_sym4,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -270,8 +267,8 @@ wname = 'sym2';
     X4 = X4(:,:,J); % focus only on level J approximations ?
 
 % % mean approximation coefficients
-imRef_wave = X1 + X2 + X3 + X4;
-    imRef_wave = imRef_wave/n;
+% imRef_wave = X1 + X2 + X3 + X4;
+%     imRef_wave = imRef_wave/n;
 %
 D1 = (X1 - imRef).^2;
 D2 = (X2 - imRef).^2;
@@ -293,6 +290,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD6,pFA6]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_sym2,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -302,7 +300,7 @@ title('sym2 wavelet - J=2')
 
 mImage = figure;
 hold on
-title('ROC Curve', 'FontSize', 17)
+%title('ROC Curve', 'FontSize', 17)
 xlabel('False positive rate', 'FontSize', 13)
 ylabel('True positive rate', 'FontSize', 13)
 axis([0 1 0 1]);
@@ -317,7 +315,26 @@ legend('haar', 'db2', 'db4',...
     'coif4', 'sym4', 'sym2','Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('families_comparison_WithReference.jpg'))
+%saveas(mImage,sprintf('../figs/families_comparison.jpg'))
+
+mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_haar,':+')
+plot(vp,vF1_db2,'-.or')
+plot(vp,vF1_db4,':*')
+plot(vp,vF1_coif4,':^')
+plot(vp,vF1_sym4,'g-d')
+plot(vp,vF1_sym2,'k')
+legend('haar', 'db2', 'db4',...
+    'coif4', 'sym4', 'sym2','Location','northeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+%saveas(mImage,sprintf('../figs/families_comparison_F1score.jpg'))
 
 
 

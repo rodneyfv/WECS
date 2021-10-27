@@ -5,27 +5,19 @@
 close all
 clear;
 %%
-im1 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');  
-im2 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
-im3 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
-im4 = imread('ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
+im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
+im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
+im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
+im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
 %
-figure
-imshow(im1)
-figure
-imshow(im2)
-figure
-imshow(im3)
-figure
-imshow(im4)
-%
+
 % Images are too big, consider subsampling
-subsamplingfactor = 1;
+subsamplingfactor = 8;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
-totalchanges = imread('GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
+totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
 totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
 %
 figure
@@ -83,6 +75,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD1,pFA1]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_haar,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -125,6 +118,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD2,pFA2]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J2,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -167,6 +161,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD3,pFA3]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J3,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -209,6 +204,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD4,pFA4]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J4,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -251,6 +247,7 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD5,pFA5]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_J5,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 figure
 imshow(R)
@@ -260,7 +257,7 @@ title('db2 wavelet - J=5')
 
 mImage = figure;
 hold on
-title('ROC Curve', 'FontSize', 17)
+%title('ROC Curve', 'FontSize', 17)
 xlabel('False positive rate', 'FontSize', 13)
 ylabel('True positive rate', 'FontSize', 13)
 axis([0 1 0 1]);
@@ -270,12 +267,29 @@ plot(pFA2,pD2,'-.or')
 plot(pFA3,pD3,':*')
 plot(pFA4,pD4,':^')
 plot(pFA5,pD5,'g-d')
-legend('J=1', 'J=2', 'J=3',...
-    'J=4', 'J=5','Location','southeast', 'FontSize', 12)
+legend('$J=1$', '$J=2$', '$J=3$','$J=4$', '$J=5$',...
+    'interpreter','latex','Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-saveas(mImage,sprintf('levels_comparison_WithReference.jpg'))
+%saveas(mImage,sprintf('../figs/levels_comparison.jpg'))
 
+mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_haar,':+')
+plot(vp,vF1_J2,'-.or')
+plot(vp,vF1_J3,':*')
+plot(vp,vF1_J4,':^')
+plot(vp,vF1_J5,'g-d')
+legend('$J=1$', '$J=2$', '$J=3$','$J=4$', '$J=5$',...
+    'interpreter','latex','Location','northeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+%saveas(mImage,sprintf('../figs/levels_comparison_F1score.jpg'))
 
 
 return

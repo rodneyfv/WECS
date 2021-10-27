@@ -10,24 +10,10 @@ im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');
 im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
 im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
 %
-figure
-imshow(im1)
-figure
-imshow(im2)
-figure
-imshow(im3)
-figure
-imshow(im4)
-
-figure
-subplot(1,4,1); imshow(im1); title('I(1)')
-subplot(1,4,2); imshow(im2); title('I(2)')
-subplot(1,4,3); imshow(im3); title('I(3)')
-subplot(1,4,4); imshow(im4); title('I(4)')
 
 %
 % Images are too big, consider subsampling
-subsamplingfactor = 2;
+subsamplingfactor = 8;
 im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
 im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
@@ -38,7 +24,7 @@ totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
 mImage = figure;
 imshow(totalchanges)
 title('Total changes', 'FontSize', 17)
-%saveas(mImage,sprintf('total_changes.jpg'))
+%saveas(mImage,sprintf('../figs/total_changes.jpg'))
 
 %%
 eps = .00001;
@@ -88,12 +74,14 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD,pFA]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_wave,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 mImage = figure;
 imshow(R)
 title('db2 WECS d(m), J=2', 'FontSize', 17)
-%saveas(mImage,sprintf('corr_changes_dm.jpg'))
-    
+%saveas(mImage,sprintf('../figs/corr_changes_dm.jpg'))
+
+
 %% No wavelets for comparison with mean image
 X1 = im1log;
 X2 = im2log;
@@ -121,11 +109,12 @@ end
 R = R./max(R(:));
 R = reshape(R,NbRows, NbCols);
 [pD0,pFA0]=ROCcurveNew(R,255*totalchanges); close
+[vp,vF1_nowave,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 mImage = figure;
 imshow(R)
 title('d(m) without wavelets', 'FontSize', 17)
-%saveas(mImage,sprintf('corr_changes_dm_nowavelets.jpg'))
+%saveas(mImage,sprintf('../figs/corr_changes_dm_nowavelets.jpg'))
 
 
 %% Standard change detection
@@ -134,17 +123,18 @@ S = abs(im4log - im3log) + abs(im3log - im2log) + abs(im2log - im1log);
 S = S./max(R(:));
 %
 [pD1,pFA1]=ROCcurveNew(S,255*totalchanges); close
+[vp,vF1_std,~,~] = F1Scorecurve(R,255*totalchanges); close
 %
 mImage = figure;
 imshow(S)
 title('Aggregation of log-ratios'                                                                                                                                                                                                                                                                                                                               , 'FontSize', 17)
-saveas(mImage,sprintf('corr_changes_logratios.jpg'))
+%saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
 
 %% Compare all results
 
 mImage = figure;
 hold on
-title('ROC Curve', 'FontSize', 17)
+%title('ROC Curve', 'FontSize', 17)
 xlabel('False positive rate', 'FontSize', 13)
 ylabel('True positive rate', 'FontSize', 13)
 axis([0 1 0 1]);
@@ -156,7 +146,23 @@ legend('db2 WECS d(m), J=2', 'd(m): without wavelets', ...
     'Aggregation of log-ratios', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-%saveas(mImage,sprintf('methods_comparison.jpg'))
+%saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
+
+mImage = figure;
+hold on
+%title('F1-score', 'FontSize', 17)
+xlabel('$p$','interpreter','latex', 'FontSize', 13)
+ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
+axis([0 1 0 0.7]);
+axis square
+plot(vp,vF1_wave,'k')
+plot(vp,vF1_nowave,'g-d')
+plot(vp,vF1_std,':+')
+legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
+    'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+%saveas(mImage,sprintf('../figs/methods_comparison_F1score.jpg'))
 
 
 
