@@ -28,10 +28,10 @@ saveas(mImage,sprintf('../figs/total_changes.jpg'))
 
 %%
 eps = .00001;
-im1log = log(eps+double(im1));
-im2log = log(eps+double(im2));
-im3log = log(eps+double(im3));
-im4log = log(eps+double(im4));
+im1log = eps+double(im1);
+im2log = eps+double(im2);
+im3log = eps+double(im3);
+im4log = eps+double(im4);
 n=4;
 imRef = im1log + im2log + im3log + im4log;
 imRef = imRef/n;
