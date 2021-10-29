@@ -369,6 +369,7 @@
 \newcommand{\vd}{{\textbf d}}
 \newcommand{\vW}{{\textbf W}}
 \newcommand{\vR}{{\textbf R}}
+\newcommand{\vS}{{\textbf S}}
 \newcommand{\vU}{{\textbf U}}
 \newcommand{\vI}{{\textbf I}}
 \newcommand{\vX}{{\textbf X}}
@@ -532,17 +533,17 @@ Let $\mathcal{I}(1),\ldots,\mathcal{I}(m)$ be a set of matrices representing the
 
 We can then consider further apportioning the total $\mathbb{L}_2$ energy of $\left\{\vX(m)\right\}$ as
 \begin{equation} 
-\sum_{m=1}^n\|\vX(m)\|^2=n\|\bar{\vX}\|^2+\sum_{m=1}^n\|\mathcal \vX(m)-\bar{\vX}\|^2,\label{E:eq_ANOVAlogimage}
+\sum_{m=1}^n\|\vX(m)\|^2 = n\|\bar{\mathcal{I}}\|^2+2n\langle\bar{\vX}-\bar{\mathcal{I}},\bar{\mathcal{I}}\rangle+\sum_{m=1}^n\|\mathcal \vX(m)-\bar{\mathcal{I}}\|^2,\label{E:eq_ANOVAlogimage}
 \end{equation}
-where $\bar{\vX}=n^{-1}\sum_{m=1}^n\vX(m)$ and $\|\vA\|^2=\sum_{i=1}^n\sum_{j=1}^m a_{ij}^2$ for a $n\times m$ matrix $\vA=[a_{ij}]$. The last term in (\ref{E:eq_ANOVAlogimage}) measures deviations in time of $\vX(m)$ compared to an {\it average wavelet-approximated image} $\bar{\vX}$, what motivates us to such deviations to detect change points in time. Since each element (pixel) in $\vX(m)$ also has a corresponding sequence of deviations in time, the relation of each local deviation to the overall measure can also be quantified, what allows us to detect changes in space. Such relation shall be computed in the present work with the Pearson correlation, what shares connections with the idea of feature screening employed in high-dimensional regression, as explained further. Other measures of change in time could be evaluated as well, such as squared differences of consecutive times $\|\mathcal \vX(m)-\vX(m-1)\|^2$, $d(\vX(m),\bar{\vX})$ with $d(\cdot,\cdot)$ denoting some distance measure (e.g., Hellinger, Kullback-Leibler, etc.), among many other possibilities.
+where $\bar{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}(m)$, $\bar{\vX}=n^{-1}\sum_{m=1}^n\vX(m)$ and $\|\vA\|^2=\sum_{i=1}^n\sum_{j=1}^m a_{ij}^2$ for a $n\times m$ matrix $\vA=[a_{ij}]$. The last term in (\ref{E:eq_ANOVAlogimage}) measures deviations in time of $\vX(m)$ compared to an {\it average image} $\bar{\mathcal{I}}$, what motivates us to such deviations to detect change points in time. Since each element (pixel) in $\vX(m)$ also has a corresponding sequence of deviations in time, the relation of each local deviation to the overall measure can also be quantified, what allows us to detect changes in space. Such relation shall be computed in the present work with the Pearson correlation, what shares connections with the idea of feature screening employed in high-dimensional regression, as explained further. Other measures of change in time could be evaluated as well, such as squared differences of consecutive times $\|\mathcal \vX(m)-\vX(m-1)\|^2$, $d(\vX(m),\bar{\vX})$ with $d(\cdot,\cdot)$ denoting some distance measure (e.g., Hellinger, Kullback-Leibler, etc.), among many other possibilities.
 
-Let $X_{k,l}(m)$ and $\bar{X}_{k,l}$ be the entry $(k,l)$ of the matrices $\vX(m)$ and $\bar{\vX}$, respectively. Computing $D_{k,l}(m)=(X_{k,l}(m)-\bar{X}_{k,l})^2$, we denote the matrix of squared mean differences as $\vD(m) = [D_{k.l}(m)]$. We then 
+Let $X_{k,l}(m)$ and $\bar{\mathcal{I}}_{k,l}$ be the entry $(k,l)$ of $\vX(m)$ and $\bar{\mathcal{I}}$, respectively. Computing $D_{k,l}(m)=(X_{k,l}(m)-\bar{\mathcal{I}}_{k,l})^2$, we denote the matrix of squared mean differences as $\vD(m) = [D_{k.l}(m)]$. We then 
 analyze the time series given by
 \begin{equation} 
-\vd(m)= \sum_{k,l}D_{k,l}(m) = \sum_{k,l}(X_{k,l}(m) - \bar{X}_{k,l})^2,
+\vd(m)= \sum_{k,l}D_{k,l}(m) = \sum_{k,l}(X_{k,l}(m) - \bar{\mathcal{I}}_{k,l})^2,
 \label{E:eq_defdm}
 \end{equation}
-$m=1,\ldots,n$, which measure the temporal overall variation with respect to $\bar{\vX}$.
+$m=1,\ldots,n$, which measure the temporal overall variation with respect to $\bar{\mathcal{I}}$.
 
 The time points with highest values of $\vd(m)$ represent the images for which the most expressive changes take place, where changes here are measured through $\mathbb{L}_2$ energy. Define the  $n\times p$ matrix
 \begin{equation*}
@@ -572,23 +573,23 @@ where $\vD_{k,l}=(D_{k,l}(1),\ldots,D_{k,l}(n))^T$ is the time series of squared
 
 We have a matrix $\vR=[R_{k,l}]$ of correlations of ultra-high dimension. Define the set of 
 {\it important} indices for changes in images with respect to $\bar{\mathcal I}$ as 
-$\mathcal{M}^{*d}=\{(k,l): \textit{change in } \mathcal{I}(m)\textit{ with respect to}$ $\bar{\mathcal{I}}$ \textit{is affected by changes in approximation coefficients of index} $(k,l)\}$.  This set coincides with the non-zero vectorized one-dimensional indices for the sparse representation of $\vbeta$ in (\ref{E:sparsemodel_d}). 
-We build the empirical set of selected indices by
+$\mathcal{M}^{*}=\{(k,l): \textit{changes in } \{\mathcal{I}(m)\}_{m=1}^m \textit{ with respect to}$ $\bar{\mathcal{I}}$ \textit{are affected by changes in location corresponding to index} $(k,l)$ $\textit{in such images}\}$.  This set coincides with the non-zero vectorized one-dimensional indices for the sparse representation of $\vbeta$ in (\ref{E:sparsemodel_d}). 
+We build the empirical set of indices flagged as corresponding to change locations by
 \begin{equation}
-\mathcal{M}_{\tau}=\{(k,l):|R_{k,l}|>\tau_d\},
+\mathcal{M}_{\tau}=\{(k,l):|R_{k,l}|>\tau\},
 \label{E:def_Mtaud}
 \end{equation}
 where $\tau_d>0$ is a convenient threshold value, function of $n$ and $J$. Under some regularity conditions, the probability that $\mathcal{M}_{\tau}$ contains its target set satisfies
 \[
 P(\mathcal{M}_{\tau}\supset\mathcal{M}^{*})\rightarrow 1,
 \]
-as $n\rightarrow\infty$ \cite{fan2020statistical}, where $P$ denotes a probability measure.
+as $n\rightarrow\infty$ \cite{fan2020statistical}, where $P$ denotes a probability measure. In other words, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{*}$ when the number of observations $n$ is large.
 
 Further geometrical motivation for our proposal is given as follows. As defined by (\ref{E:eq_defdm}), we expect $\vd$ to be a vector with some few high values, say $s_d$, and $n-s_d$ smaller values. This segregates the multi-temporal images, since the former time points identify the images in which significant changes occur, while the latter indices identify time points with no major changes. Consider $U>L>0$ such that the $s_d$ highest values of $\vd$ are larger than $U$, and the $n-s_d$ smallest values of $\vd$ are smaller than $L$. We also take $\delta=U-L$. The indices defined by  (\ref{E:def_Mtaud}) are such that   
 \[
-\frac{<\vD_{k,l},\vd>}{\|\vD_{k,l}\|_2\|\vd\|_2}>\tau_d,
+\frac{<\vD_{k,l},\vd>}{\|\vD_{k,l}\|_2\|\vd\|_2}>\tau,
 \]
-i.e., such that  $\sum_{m=1}^nD_{k,l}(m)\vd(m)>\tau_d\|\vD_{k,l}\|_2\|\vd\|_2$. This can be rewritten as
+i.e., such that  $\sum_{m=1}^nD_{k,l}(m)\vd(m)>\tau\|\vD_{k,l}\|_2\|\vd\|_2$. This can be rewritten as
 \[
 \left|\sum_{m:\vd(m)>U} D_{k,l}(m)\right|-\left|\sum_{m:\vd(m)<L} D_{k,l}(m)\right|>\Delta,
 \]
@@ -600,7 +601,7 @@ for some arbitrary $\Delta>>0$ (which can be a function of $n$ and $J$). Thence,
 \section{Validation on synthetic data}\label{section_validation}
 
 In this section we apply the change detection methods above on synthetic data of multi-temporal images. 
-The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:EllipsoidChanges}. The first image, $I(1)$, presents three elongated ellipses. Changes consist of three different types of ellipses that are successively added to the original image $I(1)$. The second image, $I(2)$, has new large ellipses added. Smaller ellipses are then added to form $I(3)$ and $I(4)$. 
+The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:EllipsoidChanges}. The first image, $\mathcal{I}(1)$, presents three elongated ellipses. Changes consist of three different types of ellipses that are successively added to the original image $I(1)$. The second image, $\mathcal{I}(2)$, has new large ellipses added. Smaller ellipses are then added to form $\mathcal{I}(3)$ and $\mathcal{I}(4)$. All the changes made to image $\mathcal{I}(1)$ can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
 
 \begin{figure}[htb!]
 \centering
@@ -617,48 +618,39 @@ The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:Ellipsoid
 \begin{figure}[htp!]
 \includegraphics[scale=.1]{../../figs/total_changes}(a)
 \includegraphics[scale=.1]{../../figs/corr_changes_dm}(b)
-\includegraphics[scale=.1]{../../figs/corr_changes_tm}(c)
-\includegraphics[scale=.1]{../../figs/corr_changes_logratios}(d)
-\includegraphics[scale=.1]{../../figs/corr_changes_dm_nowavelets}(e)
-\includegraphics[scale=.1]{../../figs/corr_changes_tm_nowavelets}(f)
-\caption{Synthetic images with changing ellipses. (a) Image composed by the total changes over time. 
-(b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Proposed db2 WECS $\vt(m)$ with $J=2$.
-(d) Standard approach. (e) $\vd(m)$ without wavelets. (f) $\vt(m)$  without wavelets. 
-}
+\includegraphics[scale=.1]{../../figs/corr_changes_logratios}(c)
+\includegraphics[scale=.1]{../../figs/corr_changes_dm_nowavelets}(d)
+\caption{Synthetic images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Standard approach. (d) $\vd(m)$ without wavelets.}
 \label{F:Changes_methods_images}
 \end{figure}
 
-Figure \ref{F:Changes_methods_images} illustrates the simulated synthetic images, the proposed wavelet detection methods, and three classic detection methods, as well. Panel (a) presents the total changes with respect to image $I(1)$. Panels (b) and (c) show the results by the proposed methods using Daubechies wavelet with two null moments (db2) and $J=2$ by $\vd(m)$ and $\vt(m)$, respectively. Panel (d) presents the results by a standard approach (aggregated log-ratios). Finally, in Panels (e) and (f)  we can see the results if $\vd(m)$ and $\vt(m)$ are performed purely on the spatial domain, without multiscale approximations. The spatio-temporal advantages of the proposed wavelet  $\vd(m)$ and $\vt(m)$ are clear in Figure \ref{F:Changes_methods_images}. A slight advantage for the detection of small ellipses is attained by $\vd(m)$ over $\vt(m)$.   
+Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated log-ratios, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{il} = \sum_{m=1}^3	|\log\left(\mathcal{I}_{k,l}(m+1)/\mathcal{I}_{k,l}(m)\right)|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}(m)$ instead of $\vX(m)$ in the WECS formulation. The spatio-temporal advantages of the proposed wavelet  $\vd(m)$ is clear in Figure \ref{F:Changes_methods_images}(b), which shows that a wavelet smoothing has an expressive capacity of measuring the the changes through correlations of coefficients' deviations.
 
 
-We compute ROC curves to compare the detection performance of different methods. For this we simulate noisy versions of the synthetic images illustrated by Figure \ref{F:EllipsoidChanges}. The change detection methods are then employed. Each method generates a correlation matrix between the real image of total changes and the estimated one.
-
-Each ROC curve presents how close the magnitude variation of change measures is to the variation of the image of total changes in the following way:
+We compute ROC curves to compare the detection performance of different methods and to verify the influence of some tuning parameters of wavelet smoothing: the resolution level $J$ and the choice of wavelet basis. Each detection method generates a matrix of change detection measures (correlations in the case of WECS). The ROC curves present the performance of change detection by applying a threshold on these measures, in the following way:
 \begin{enumerate}
 \item Let $R$ be the matrix of change measures. Compute the range $[r_{\min},r_{\max}]$ of the values in $R$;
 \item Let $(r_{(1)},\ldots,r_{(100)})$ be equally space values between $r_{\min}$ and $r_{\max}$;
-\item For each $k=1,\ldots,n$, check how many pixels are such that $R_{i,j}>r_{(k)}$ coincide with the pixels $(i,j)$ where a change really occurs on the image of total changes. Dividing this number by the total number of changes gives the true positive rate.
-\item For each $k=1,\ldots,n$, check how many pixels are such that $R_{i,j}>r_{(k)}$  do not coincide with the pixels $(i,j)$ where a change really occurs. Dividing this number by the total number of pixels where changes do not occur gives the false positive rate.
+\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$ coincide with the element $(i,j)$ where a change really occurs on the image of total changes. Dividing this number by the total number of changes gives the true positive rate.
+\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$  do not coincide with the element $(i,j)$ where a change really occurs. Dividing this number by the total number of entries where changes do not occur gives the false positive rate.
+\item The ROC curve is the plot of true and false positive rates corresponding to each $k$.
 \end{enumerate}
 
 \begin{figure}[htp!]
 \includegraphics[scale=.13]{../../figs/methods_comparison}\hspace{-.5cm}(a) 
-\includegraphics[scale=.13]{../../figs/levels_comparison_WithReference}\hspace{-.5cm}(b)\\
-\includegraphics[scale=.13]{../../figs/families_comparison_WithReference}\hspace{-.5cm}(c)
+\includegraphics[scale=.13]{../../figs/levels_comparison}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.13]{../../figs/families_comparison}\hspace{-.5cm}(c)
 \includegraphics[scale=.13]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
-\includegraphics[scale=.13]{../../figs/levels_comparison_NoReference}\hspace{-.5cm}(e)
-\includegraphics[scale=.13]{../../figs/families_comparison_NoReference}\hspace{-.5cm}(f)
-\caption{ROC curves for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) and green (db2 WECS $\vt(m)$) vs three non-wavelet methods: standard (red stars); $\vd(m)$ (blue); and $\vt(m)$ (red circles). 
+\caption{ROC curves for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue).
 (b) db2 $\vd(m)$ with different levels.
 (c) $\vd(m)$ with different wavelet bases and J=2;
-(d) The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line).  
-(e) db2 $\vt(m)$ with different levels. (f) $\vt(m)$ with different wavelet bases and J=2. }
+(d) The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line).}
 \label{F:EllipsoidChanges_details}
 \end{figure}
 
-Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the synthetic data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction and $\vd(m)$/$\vt(m)$ usage are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panels (c) and (f) present the ROC curves for the proposed methods under the aforementioned bases for $\vd(m)$ and $\vt(m)$, respectively. On both instances $J=2$ is employed. The results for $\vd(m)$ are much more robust to basis variation than the ones for $\vt(m)$. Combining the ROC curves's comparison from both panels, Daubechies db2 is the best choice.  Panels (b) and (e) present the ROC curves for different levels of decomposition under the aforementioned bases for $\vd(m)$ and $\vt(m)$, respectively. On both instances db2 is employed, and five levels are considered: $J=1,2,3,4,5$. Levels $J=2,3$ have a clear better performance for $\vd(m)$ (with a slight advantage to $J=2$), whilst $J=1$ is competitive for $\vt(m)$. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs with or without images' deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. The change detection method is the proposed db2 $\vd(m)$ with $J=2$. We can see that the ROC curves for images treated with deep-learning methods or treated with wavelet based methods are almost identical. The WECS runs in 3.35s, while the deep-learning based $\vd(m)$ runs in 559.12s on a notebook. The configuration of the notebook is: OS - Ubuntu 18.04.5 LTS; RAM 7.7 GB; Intel\textregistered Core\texttrademark $ $i7-7500U CPU @ 2.70GHz x 4; graphics - Intel\textregistered HD Graphics 620 (KBL GT2); GNOME - 3.28.2; OS type - 64-bit. We finally have in Panel (a) the proposed db2 $\vd(m)$ with $J=2$ and db2 $\vt(m)$ with $J=2$  compared to three other non-wavelet methods. These are $\vd(m)$ and $\vt(m)$ where wavelet decomposition is not performed, i.e., the squared deviations are computed using $\{\mathcal{I}(m)\}$ instead of $\{\vX(m)\}$, and the classic method of analyzing aggregated log-ratios of $\{\mathcal{I}(m)\}$. The ROC curves in Panel (a) clearly show that  the proposed db2 $\vd(m)$ with $J=2$ outperforms the rest. 
+Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the synthetic data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$. We can see that the ROC curves for images treated with deep-learning methods or treated with wavelet based methods are almost identical. The WECS runs in 0.42s, while the deep-learning based $\vd(m)$ runs in 64.68s on a notebook. The configuration of the notebook is: OS - Ubuntu 18.04.5 LTS; RAM 7.7 GB; Intel\textregistered Core\texttrademark $ $i7-8565U CPU @ 1.80GHz x 8; graphics - Mesa Intel\texttrademark UHD Graphics 620 ; GNOME - 3.36.8; OS type - 64-bit. We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}(m)\}$ instead of $\{\vX(m)\}$, and the classic method of analyzing aggregated log-ratios of $\{\mathcal{I}(m)\}$. The ROC curves in Panel (a) clearly show that  the proposed WECS outperforms the rest. 
 
-We may summarize these results as: the proposed wavelet $\vd(m)$ method presents a superior performance. It is also equipped with the following nice properties: (i) it is scalable; (ii) it is sparse; (iii) it is parsimonious; (iv) it can be easily adapted to be linearly updated when a new image is acquired; and (v) it is fast. Hence, the proposed wavelet change-detection procedure can be used as a real-time change detection tool for long time series of large images.    
+%We may summarize these results as: the proposed wavelet $\vd(m)$ method presents a superior performance. It is also equipped with the following nice properties: (i) it is scalable; (ii) it is sparse; (iii) it is parsimonious; (iv) it can be easily adapted to be linearly updated when a new image is acquired; and (v) it is fast. Hence, the proposed wavelet change-detection procedure can be used as a real-time change detection tool for long time series of large images.    
 
 
 

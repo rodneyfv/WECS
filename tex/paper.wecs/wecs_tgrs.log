@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  26 OCT 2021 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  27 OCT 2021 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -228,20 +228,20 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 (./wecs_tgrs.aux)
 \openout1 = `wecs_tgrs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
 
 -- Lines per column: 58 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -266,35 +266,35 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Underfull \hbox (badness 3039) in paragraph at lines 469--469
+Underfull \hbox (badness 3039) in paragraph at lines 470--470
 [][][]\OT1/ptm/m/n/8 R. Fon-seca and A. Pin-heiro are with the De-part-ment of 
 Statis-
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 469--469
+Underfull \hbox (badness 3907) in paragraph at lines 470--470
 \OT1/ptm/m/n/8 tics, Uni-ver-sity of Camp-inas, Camp-inas 13083-859, Brazil (e-
 mails:
  []
 
 
-Underfull \hbox (badness 3407) in paragraph at lines 469--469
+Underfull \hbox (badness 3407) in paragraph at lines 470--470
 [][][]\OT1/ptm/m/n/8 A. Atto is with the LIS-TIC - Poly-tech Annecy-Chamb[]ery,
  Uni-
  []
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 469--469
+Underfull \hbox (badness 3557) in paragraph at lines 470--470
 \OT1/ptm/m/n/8 ver-sit[]e de Savoie, 74944 An-necy le Vieux Cedex, France (e-ma
 il:
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 531
+LaTeX Font Info:    Trying to load font information for U+msa on input line 532
 .
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 531
+LaTeX Font Info:    Trying to load font information for U+msb on input line 532
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -302,580 +302,558 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] [2]
+]
+Underfull \hbox (badness 2653) in paragraph at lines 574--578
+[]\OT1/ptm/m/n/10 We have a ma-trix $[] \OT1/cmr/m/n/10 = [\OML/cmm/m/it/10 R[]
+\OT1/cmr/m/n/10 ]$ \OT1/ptm/m/n/10 of cor-re-la-tions of
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 574--578
+\OT1/ptm/m/n/10 for changes in im-ages with re-spect to $[]$ as $\OMS/cmsy/m/n/
+10 M[] \OT1/cmr/m/n/10 =
+ []
+
+[2]
 <../../figs/ellipses_t1.jpg, id=21, 704.6325pt x 605.26125pt>
 File: ../../figs/ellipses_t1.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t1.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t1.jpg  used on input line 608.
+Package pdftex.def Info: ../../figs/ellipses_t1.jpg  used on input line 609.
 (pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
 <../../figs/ellipses_t2.jpg, id=22, 704.6325pt x 605.26125pt>
 File: ../../figs/ellipses_t2.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t2.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t2.jpg  used on input line 609.
+Package pdftex.def Info: ../../figs/ellipses_t2.jpg  used on input line 610.
 (pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
 <../../figs/ellipses_t3.jpg, id=23, 704.6325pt x 605.26125pt>
 File: ../../figs/ellipses_t3.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t3.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t3.jpg  used on input line 610.
+Package pdftex.def Info: ../../figs/ellipses_t3.jpg  used on input line 611.
 (pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
 <../../figs/ellipses_t4.jpg, id=24, 704.6325pt x 605.26125pt>
 File: ../../figs/ellipses_t4.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t4.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t4.jpg  used on input line 611.
+Package pdftex.def Info: ../../figs/ellipses_t4.jpg  used on input line 612.
 (pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
 <../../figs/total_changes.jpg, id=25, 1106.1325pt x 955.57pt>
 File: ../../figs/total_changes.jpg Graphic file (type jpg)
 <use ../../figs/total_changes.jpg>
-Package pdftex.def Info: ../../figs/total_changes.jpg  used on input line 618.
+Package pdftex.def Info: ../../figs/total_changes.jpg  used on input line 619.
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
 <../../figs/corr_changes_dm.jpg, id=26, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_dm.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_dm.jpg>
-Package pdftex.def Info: ../../figs/corr_changes_dm.jpg  used on input line 619
+Package pdftex.def Info: ../../figs/corr_changes_dm.jpg  used on input line 620
 .
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
-<../../figs/corr_changes_tm.jpg, id=27, 1106.1325pt x 955.57pt>
-File: ../../figs/corr_changes_tm.jpg Graphic file (type jpg)
-<use ../../figs/corr_changes_tm.jpg>
-Package pdftex.def Info: ../../figs/corr_changes_tm.jpg  used on input line 620
-.
-(pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
-<../../figs/corr_changes_logratios.jpg, id=28, 1106.1325pt x 955.57pt>
+<../../figs/corr_changes_logratios.jpg, id=27, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_logratios.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_logratios.jpg>
 Package pdftex.def Info: ../../figs/corr_changes_logratios.jpg  used on input l
 ine 621.
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
-<../../figs/corr_changes_dm_nowavelets.jpg, id=29, 1106.1325pt x 955.57pt>
+<../../figs/corr_changes_dm_nowavelets.jpg, id=28, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_dm_nowavelets.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_dm_nowavelets.jpg>
 Package pdftex.def Info: ../../figs/corr_changes_dm_nowavelets.jpg  used on inp
 ut line 622.
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
-<../../figs/corr_changes_tm_nowavelets.jpg, id=30, 1106.1325pt x 955.57pt>
-File: ../../figs/corr_changes_tm_nowavelets.jpg Graphic file (type jpg)
-<use ../../figs/corr_changes_tm_nowavelets.jpg>
-Package pdftex.def Info: ../../figs/corr_changes_tm_nowavelets.jpg  used on inp
-ut line 623.
-(pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
 
-Underfull \hbox (badness 2698) in paragraph at lines 618--627
+Underfull \hbox (badness 2698) in paragraph at lines 619--623
 [][]\OT1/ptm/m/n/10 (a) [](b)
  []
 
-
-Underfull \hbox (badness 2698) in paragraph at lines 618--627
-[]\OT1/ptm/m/n/10 (c) [](d)
- []
-
-<../../figs/methods_comparison.jpg, id=31, 887.315pt x 665.48625pt>
+<../../figs/methods_comparison.jpg, id=29, 887.315pt x 665.48625pt>
 File: ../../figs/methods_comparison.jpg Graphic file (type jpg)
 <use ../../figs/methods_comparison.jpg>
 Package pdftex.def Info: ../../figs/methods_comparison.jpg  used on input line 
-645.
+640.
 (pdftex.def)             Requested size: 115.355pt x 86.51624pt.
-<../../figs/levels_comparison_WithReference.jpg, id=32, 903.375pt x 654.445pt>
-File: ../../figs/levels_comparison_WithReference.jpg Graphic file (type jpg)
-<use ../../figs/levels_comparison_WithReference.jpg>
-Package pdftex.def Info: ../../figs/levels_comparison_WithReference.jpg  used o
-n input line 646.
+<../../figs/levels_comparison.jpg, id=30, 903.375pt x 654.445pt>
+File: ../../figs/levels_comparison.jpg Graphic file (type jpg)
+<use ../../figs/levels_comparison.jpg>
+Package pdftex.def Info: ../../figs/levels_comparison.jpg  used on input line 6
+41.
 (pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
-<../../figs/families_comparison_WithReference.jpg, id=33, 903.375pt x 654.445pt
->
-File: ../../figs/families_comparison_WithReference.jpg Graphic file (type jpg)
-<use ../../figs/families_comparison_WithReference.jpg>
-Package pdftex.def Info: ../../figs/families_comparison_WithReference.jpg  used
- on input line 647.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
-<../../figs/dm_comparison_wavelet_deepL.jpg, id=34, 903.375pt x 654.445pt>
+<../../figs/families_comparison.jpg, id=31, 887.315pt x 665.48625pt>
+File: ../../figs/families_comparison.jpg Graphic file (type jpg)
+<use ../../figs/families_comparison.jpg>
+Package pdftex.def Info: ../../figs/families_comparison.jpg  used on input line
+ 642.
+(pdftex.def)             Requested size: 115.355pt x 86.51624pt.
+<../../figs/dm_comparison_wavelet_deepL.jpg, id=32, 903.375pt x 654.445pt>
 File: ../../figs/dm_comparison_wavelet_deepL.jpg Graphic file (type jpg)
 <use ../../figs/dm_comparison_wavelet_deepL.jpg>
 Package pdftex.def Info: ../../figs/dm_comparison_wavelet_deepL.jpg  used on in
-put line 648.
+put line 643.
 (pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
-<../../figs/levels_comparison_NoReference.jpg, id=35, 903.375pt x 654.445pt>
-File: ../../figs/levels_comparison_NoReference.jpg Graphic file (type jpg)
-<use ../../figs/levels_comparison_NoReference.jpg>
-Package pdftex.def Info: ../../figs/levels_comparison_NoReference.jpg  used on 
-input line 649.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
-<../../figs/families_comparison_NoReference.jpg, id=36, 903.375pt x 654.445pt>
-File: ../../figs/families_comparison_NoReference.jpg Graphic file (type jpg)
-<use ../../figs/families_comparison_NoReference.jpg>
-Package pdftex.def Info: ../../figs/families_comparison_NoReference.jpg  used o
-n input line 650.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 640--647
+
+ []
+
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
-59.
+51.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [3 <../../figs/ellipses_t1.jpg> <../../figs/ellipses_t2.jpg> <../../figs/elli
 pses_t3.jpg> <../../figs/ellipses_t4.jpg> <../../figs/total_changes.jpg> <../..
-/figs/corr_changes_dm.jpg> <../../figs/corr_changes_tm.jpg> <../../figs/corr_ch
-anges_logratios.jpg> <../../figs/corr_changes_dm_nowavelets.jpg> <../../figs/co
-rr_changes_tm_nowavelets.jpg>]
-Underfull \vbox (badness 1681) has occurred while \output is active []
-
-
+/figs/corr_changes_dm.jpg> <../../figs/corr_changes_logratios.jpg> <../../figs/
+corr_changes_dm_nowavelets.jpg>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../../figs/J1_VV_squared_meandev.jpg, id=42, 903.375pt x 654.445pt>
+<../../figs/J1_VV_squared_meandev.jpg, id=38, 903.375pt x 654.445pt>
 File: ../../figs/J1_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J1_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J1_VV_squared_meandev.jpg  used on input li
-ne 705.
+ne 697.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J1_VV_squared_meandev.jpg, id=43, 903.375pt x 654.445pt>
+<../../figs/consecdif_J1_VV_squared_meandev.jpg, id=39, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J1_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J1_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J1_VV_squared_meandev.jpg  used o
-n input line 706.
+n input line 698.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J2_VV_squared_meandev.jpg, id=44, 903.375pt x 654.445pt>
+<../../figs/J2_VV_squared_meandev.jpg, id=40, 903.375pt x 654.445pt>
 File: ../../figs/J2_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J2_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J2_VV_squared_meandev.jpg  used on input li
-ne 707.
+ne 699.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J2_VV_squared_meandev.jpg, id=45, 903.375pt x 654.445pt>
+<../../figs/consecdif_J2_VV_squared_meandev.jpg, id=41, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J2_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J2_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J2_VV_squared_meandev.jpg  used o
-n input line 708.
+n input line 700.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_VV_squared_meandev.jpg, id=46, 903.375pt x 654.445pt>
+<../../figs/J3_VV_squared_meandev.jpg, id=42, 903.375pt x 654.445pt>
 File: ../../figs/J3_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J3_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J3_VV_squared_meandev.jpg  used on input li
-ne 709.
+ne 701.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VV_squared_meandev.jpg, id=47, 903.375pt x 654.445pt>
+<../../figs/consecdif_J3_VV_squared_meandev.jpg, id=43, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J3_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VV_squared_meandev.jpg  used o
-n input line 710.
+n input line 702.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J4_VV_squared_meandev.jpg, id=48, 903.375pt x 654.445pt>
+<../../figs/J4_VV_squared_meandev.jpg, id=44, 903.375pt x 654.445pt>
 File: ../../figs/J4_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J4_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J4_VV_squared_meandev.jpg  used on input li
-ne 711.
+ne 703.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J4_VV_squared_meandev.jpg, id=49, 903.375pt x 654.445pt>
+<../../figs/consecdif_J4_VV_squared_meandev.jpg, id=45, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J4_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J4_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J4_VV_squared_meandev.jpg  used o
-n input line 712.
+n input line 704.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J1_VH_squared_meandev.jpg, id=50, 903.375pt x 654.445pt>
+<../../figs/J1_VH_squared_meandev.jpg, id=46, 903.375pt x 654.445pt>
 File: ../../figs/J1_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J1_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J1_VH_squared_meandev.jpg  used on input li
-ne 719.
+ne 711.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J1_VH_squared_meandev.jpg, id=51, 903.375pt x 654.445pt>
+<../../figs/consecdif_J1_VH_squared_meandev.jpg, id=47, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J1_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J1_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J1_VH_squared_meandev.jpg  used o
-n input line 720.
+n input line 712.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J2_VH_squared_meandev.jpg, id=52, 903.375pt x 654.445pt>
+<../../figs/J2_VH_squared_meandev.jpg, id=48, 903.375pt x 654.445pt>
 File: ../../figs/J2_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J2_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J2_VH_squared_meandev.jpg  used on input li
-ne 721.
+ne 713.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J2_VH_squared_meandev.jpg, id=53, 903.375pt x 654.445pt>
+<../../figs/consecdif_J2_VH_squared_meandev.jpg, id=49, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J2_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J2_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J2_VH_squared_meandev.jpg  used o
-n input line 722.
+n input line 714.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_VH_squared_meandev.jpg, id=54, 903.375pt x 654.445pt>
+<../../figs/J3_VH_squared_meandev.jpg, id=50, 903.375pt x 654.445pt>
 File: ../../figs/J3_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J3_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J3_VH_squared_meandev.jpg  used on input li
-ne 723.
+ne 715.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VH_squared_meandev.jpg, id=55, 903.375pt x 654.445pt>
+<../../figs/consecdif_J3_VH_squared_meandev.jpg, id=51, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J3_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VH_squared_meandev.jpg  used o
-n input line 724.
+n input line 716.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J4_VH_squared_meandev.jpg, id=56, 903.375pt x 654.445pt>
+<../../figs/J4_VH_squared_meandev.jpg, id=52, 903.375pt x 654.445pt>
 File: ../../figs/J4_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J4_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J4_VH_squared_meandev.jpg  used on input li
-ne 725.
+ne 717.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J4_VH_squared_meandev.jpg, id=57, 903.375pt x 654.445pt>
+<../../figs/consecdif_J4_VH_squared_meandev.jpg, id=53, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J4_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J4_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J4_VH_squared_meandev.jpg  used o
-n input line 726.
+n input line 718.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J1_euclid_squared_meandev.jpg, id=58, 903.375pt x 654.445pt>
+<../../figs/J1_euclid_squared_meandev.jpg, id=54, 903.375pt x 654.445pt>
 File: ../../figs/J1_euclid_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J1_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J1_euclid_squared_meandev.jpg  used on inpu
-t line 733.
+t line 725.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J1_euclid_squared_meandev.jpg, id=59, 903.375pt x 654.445
+<../../figs/consecdif_J1_euclid_squared_meandev.jpg, id=55, 903.375pt x 654.445
 pt>
 File: ../../figs/consecdif_J1_euclid_squared_meandev.jpg Graphic file (type jpg
 )
 <use ../../figs/consecdif_J1_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J1_euclid_squared_meandev.jpg  us
-ed on input line 734.
+ed on input line 726.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J2_euclid_squared_meandev.jpg, id=60, 903.375pt x 654.445pt>
+<../../figs/J2_euclid_squared_meandev.jpg, id=56, 903.375pt x 654.445pt>
 File: ../../figs/J2_euclid_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J2_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J2_euclid_squared_meandev.jpg  used on inpu
-t line 735.
+t line 727.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J2_euclid_squared_meandev.jpg, id=61, 903.375pt x 654.445
+<../../figs/consecdif_J2_euclid_squared_meandev.jpg, id=57, 903.375pt x 654.445
 pt>
 File: ../../figs/consecdif_J2_euclid_squared_meandev.jpg Graphic file (type jpg
 )
 <use ../../figs/consecdif_J2_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J2_euclid_squared_meandev.jpg  us
-ed on input line 736.
+ed on input line 728.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_euclid_squared_meandev.jpg, id=62, 903.375pt x 654.445pt>
+<../../figs/J3_euclid_squared_meandev.jpg, id=58, 903.375pt x 654.445pt>
 File: ../../figs/J3_euclid_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J3_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J3_euclid_squared_meandev.jpg  used on inpu
-t line 737.
+t line 729.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_euclid_squared_meandev.jpg, id=63, 903.375pt x 654.445
+<../../figs/consecdif_J3_euclid_squared_meandev.jpg, id=59, 903.375pt x 654.445
 pt>
 File: ../../figs/consecdif_J3_euclid_squared_meandev.jpg Graphic file (type jpg
 )
 <use ../../figs/consecdif_J3_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_euclid_squared_meandev.jpg  us
-ed on input line 738.
+ed on input line 730.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J4_euclid_squared_meandev.jpg, id=64, 903.375pt x 654.445pt>
+<../../figs/J4_euclid_squared_meandev.jpg, id=60, 903.375pt x 654.445pt>
 File: ../../figs/J4_euclid_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J4_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J4_euclid_squared_meandev.jpg  used on inpu
-t line 739.
+t line 731.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J4_euclid_squared_meandev.jpg, id=65, 903.375pt x 654.445
+<../../figs/consecdif_J4_euclid_squared_meandev.jpg, id=61, 903.375pt x 654.445
 pt>
 File: ../../figs/consecdif_J4_euclid_squared_meandev.jpg Graphic file (type jpg
 )
 <use ../../figs/consecdif_J4_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J4_euclid_squared_meandev.jpg  us
-ed on input line 740.
+ed on input line 732.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
 File: ../../figs/J3_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J3_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J3_VV_squared_meandev.jpg  used on input li
-ne 748.
+ne 740.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
 File: ../../figs/consecdif_J3_VV_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_VV_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VV_squared_meandev.jpg  used o
-n input line 749.
+n input line 741.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_VV_sqrdif_change_locations.jpg, id=66, 903.375pt x 654.445pt>
+<../../figs/J3_VV_sqrdif_change_locations.jpg, id=62, 903.375pt x 654.445pt>
 File: ../../figs/J3_VV_sqrdif_change_locations.jpg Graphic file (type jpg)
 <use ../../figs/J3_VV_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/J3_VV_sqrdif_change_locations.jpg  used on 
-input line 750.
+input line 742.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VV_sqrdif_change_locations.jpg, id=67, 903.375pt x 654
+<../../figs/consecdif_J3_VV_sqrdif_change_locations.jpg, id=63, 903.375pt x 654
 .445pt>
 File: ../../figs/consecdif_J3_VV_sqrdif_change_locations.jpg Graphic file (type
  jpg)
 <use ../../figs/consecdif_J3_VV_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VV_sqrdif_change_locations.jpg
-  used on input line 751.
+  used on input line 743.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_VV_sqrdif_lowest_cor_locations.jpg, id=68, 903.375pt x 654.445pt
+<../../figs/J3_VV_sqrdif_lowest_cor_locations.jpg, id=64, 903.375pt x 654.445pt
 >
 File: ../../figs/J3_VV_sqrdif_lowest_cor_locations.jpg Graphic file (type jpg)
 <use ../../figs/J3_VV_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/J3_VV_sqrdif_lowest_cor_locations.jpg  used
- on input line 752.
+ on input line 744.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg, id=69, 903.375pt x
+<../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg, id=65, 903.375pt x
  654.445pt>
 File: ../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg Graphic file (
 type jpg)
 <use ../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations
-.jpg  used on input line 753.
+.jpg  used on input line 745.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_J3_VV_sqrdif_change_locations.jpg, id=70, 903.375pt x 654.44
+<../../figs/perc01_J3_VV_sqrdif_change_locations.jpg, id=66, 903.375pt x 654.44
 5pt>
 File: ../../figs/perc01_J3_VV_sqrdif_change_locations.jpg Graphic file (type jp
 g)
 <use ../../figs/perc01_J3_VV_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_J3_VV_sqrdif_change_locations.jpg  u
-sed on input line 754.
+sed on input line 746.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_consecdif_J3_VV_sqrdif_change_locations.jpg, id=71, 903.375p
+<../../figs/perc01_consecdif_J3_VV_sqrdif_change_locations.jpg, id=67, 903.375p
 t x 654.445pt>
 File: ../../figs/perc01_consecdif_J3_VV_sqrdif_change_locations.jpg Graphic fil
 e (type jpg)
 <use ../../figs/perc01_consecdif_J3_VV_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_consecdif_J3_VV_sqrdif_change_locati
-ons.jpg  used on input line 755.
+ons.jpg  used on input line 747.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations.jpg, id=72, 887.315pt x 66
+<../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations.jpg, id=68, 887.315pt x 66
 5.48625pt>
 File: ../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations.jpg Graphic file (typ
 e jpg)
 <use ../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations.jp
-g  used on input line 756.
+g  used on input line 748.
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg, id=73, 903.
+<../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg, id=69, 903.
 375pt x 654.445pt>
 File: ../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg Graphic
  file (type jpg)
 <use ../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_lo
-cations.jpg  used on input line 757.
+cations.jpg  used on input line 749.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
 File: ../../figs/J3_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J3_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J3_VH_squared_meandev.jpg  used on input li
-ne 764.
+ne 756.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
 File: ../../figs/consecdif_J3_VH_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_VH_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VH_squared_meandev.jpg  used o
-n input line 765.
+n input line 757.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_VH_sqrdif_change_locations.jpg, id=74, 903.375pt x 654.445pt>
+<../../figs/J3_VH_sqrdif_change_locations.jpg, id=70, 903.375pt x 654.445pt>
 File: ../../figs/J3_VH_sqrdif_change_locations.jpg Graphic file (type jpg)
 <use ../../figs/J3_VH_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/J3_VH_sqrdif_change_locations.jpg  used on 
-input line 767.
+input line 759.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VH_sqrdif_change_locations.jpg, id=75, 903.375pt x 654
+<../../figs/consecdif_J3_VH_sqrdif_change_locations.jpg, id=71, 903.375pt x 654
 .445pt>
 File: ../../figs/consecdif_J3_VH_sqrdif_change_locations.jpg Graphic file (type
  jpg)
 <use ../../figs/consecdif_J3_VH_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VH_sqrdif_change_locations.jpg
-  used on input line 768.
+  used on input line 760.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_VH_sqrdif_lowest_cor_locations.jpg, id=76, 903.375pt x 654.445pt
+<../../figs/J3_VH_sqrdif_lowest_cor_locations.jpg, id=72, 903.375pt x 654.445pt
 >
 File: ../../figs/J3_VH_sqrdif_lowest_cor_locations.jpg Graphic file (type jpg)
 <use ../../figs/J3_VH_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/J3_VH_sqrdif_lowest_cor_locations.jpg  used
- on input line 770.
+ on input line 762.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg, id=77, 903.375pt x
+<../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg, id=73, 903.375pt x
  654.445pt>
 File: ../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg Graphic file (
 type jpg)
 <use ../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations
-.jpg  used on input line 771.
+.jpg  used on input line 763.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_J3_VH_sqrdif_change_locations.jpg, id=78, 903.375pt x 654.44
+<../../figs/perc01_J3_VH_sqrdif_change_locations.jpg, id=74, 903.375pt x 654.44
 5pt>
 File: ../../figs/perc01_J3_VH_sqrdif_change_locations.jpg Graphic file (type jp
 g)
 <use ../../figs/perc01_J3_VH_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_J3_VH_sqrdif_change_locations.jpg  u
-sed on input line 773.
+sed on input line 765.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_consecdif_J3_VH_sqrdif_change_locations.jpg, id=79, 903.375p
+<../../figs/perc01_consecdif_J3_VH_sqrdif_change_locations.jpg, id=75, 903.375p
 t x 654.445pt>
 File: ../../figs/perc01_consecdif_J3_VH_sqrdif_change_locations.jpg Graphic fil
 e (type jpg)
 <use ../../figs/perc01_consecdif_J3_VH_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_consecdif_J3_VH_sqrdif_change_locati
-ons.jpg  used on input line 774.
+ons.jpg  used on input line 766.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations.jpg, id=80, 903.375pt x 65
+<../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations.jpg, id=76, 903.375pt x 65
 4.445pt>
 File: ../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations.jpg Graphic file (typ
 e jpg)
 <use ../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations.jp
-g  used on input line 776.
+g  used on input line 768.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg, id=81, 903.
+<../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg, id=77, 903.
 375pt x 654.445pt>
 File: ../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg Graphic
  file (type jpg)
 <use ../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_lo
-cations.jpg  used on input line 777.
+cations.jpg  used on input line 769.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
 File: ../../figs/J3_euclid_squared_meandev.jpg Graphic file (type jpg)
 <use ../../figs/J3_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/J3_euclid_squared_meandev.jpg  used on inpu
-t line 785.
+t line 777.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
 File: ../../figs/consecdif_J3_euclid_squared_meandev.jpg Graphic file (type jpg
 )
 <use ../../figs/consecdif_J3_euclid_squared_meandev.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_euclid_squared_meandev.jpg  us
-ed on input line 786.
+ed on input line 778.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_euclid_sqrdif_change_locations.jpg, id=82, 903.375pt x 654.445pt
+<../../figs/J3_euclid_sqrdif_change_locations.jpg, id=78, 903.375pt x 654.445pt
 >
 File: ../../figs/J3_euclid_sqrdif_change_locations.jpg Graphic file (type jpg)
 <use ../../figs/J3_euclid_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/J3_euclid_sqrdif_change_locations.jpg  used
- on input line 787.
+ on input line 779.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_euclid_sqrdif_change_locations.jpg, id=83, 903.375pt x
+<../../figs/consecdif_J3_euclid_sqrdif_change_locations.jpg, id=79, 903.375pt x
  654.445pt>
 File: ../../figs/consecdif_J3_euclid_sqrdif_change_locations.jpg Graphic file (
 type jpg)
 <use ../../figs/consecdif_J3_euclid_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_euclid_sqrdif_change_locations
-.jpg  used on input line 788.
+.jpg  used on input line 780.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/J3_euclid_sqrdif_lowest_cor_locations.jpg, id=84, 903.375pt x 654.4
+<../../figs/J3_euclid_sqrdif_lowest_cor_locations.jpg, id=80, 903.375pt x 654.4
 45pt>
 File: ../../figs/J3_euclid_sqrdif_lowest_cor_locations.jpg Graphic file (type j
 pg)
 <use ../../figs/J3_euclid_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/J3_euclid_sqrdif_lowest_cor_locations.jpg  
-used on input line 789.
+used on input line 781.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg, id=85, 903.375
+<../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg, id=81, 903.375
 pt x 654.445pt>
 File: ../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg Graphic fi
 le (type jpg)
 <use ../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locat
-ions.jpg  used on input line 790.
+ions.jpg  used on input line 782.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_J3_euclid_sqrdif_change_locations.jpg, id=86, 903.375pt x 65
+<../../figs/perc01_J3_euclid_sqrdif_change_locations.jpg, id=82, 903.375pt x 65
 4.445pt>
 File: ../../figs/perc01_J3_euclid_sqrdif_change_locations.jpg Graphic file (typ
 e jpg)
 <use ../../figs/perc01_J3_euclid_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_J3_euclid_sqrdif_change_locations.jp
-g  used on input line 791.
+g  used on input line 783.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_consecdif_J3_euclid_sqrdif_change_locations.jpg, id=87, 903.
+<../../figs/perc01_consecdif_J3_euclid_sqrdif_change_locations.jpg, id=83, 903.
 375pt x 654.445pt>
 File: ../../figs/perc01_consecdif_J3_euclid_sqrdif_change_locations.jpg Graphic
  file (type jpg)
 <use ../../figs/perc01_consecdif_J3_euclid_sqrdif_change_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_consecdif_J3_euclid_sqrdif_change_lo
-cations.jpg  used on input line 792.
+cations.jpg  used on input line 784.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_J3_euclid_sqrdif_lowest_cor_locations.jpg, id=88, 903.375pt 
+<../../figs/perc01_J3_euclid_sqrdif_lowest_cor_locations.jpg, id=84, 903.375pt 
 x 654.445pt>
 File: ../../figs/perc01_J3_euclid_sqrdif_lowest_cor_locations.jpg Graphic file 
 (type jpg)
 <use ../../figs/perc01_J3_euclid_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_J3_euclid_sqrdif_lowest_cor_location
-s.jpg  used on input line 793.
+s.jpg  used on input line 785.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg, id=89, 
+<../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg, id=85, 
 903.375pt x 654.445pt>
 File: ../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg Gra
 phic file (type jpg)
 <use ../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations.jpg>
 Package pdftex.def Info: ../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_co
-r_locations.jpg  used on input line 794.
+r_locations.jpg  used on input line 786.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-[4 <../../figs/methods_comparison.jpg> <../../figs/levels_comparison_WithRefere
-nce.jpg> <../../figs/families_comparison_WithReference.jpg> <../../figs/dm_comp
-arison_wavelet_deepL.jpg> <../../figs/levels_comparison_NoReference.jpg> <../..
-/figs/families_comparison_NoReference.jpg>]
-<../../figs/J2_VV_image_cor.jpg, id=93, 887.315pt x 665.48625pt>
+<../../figs/J2_VV_image_cor.jpg, id=86, 887.315pt x 665.48625pt>
 File: ../../figs/J2_VV_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/J2_VV_image_cor.jpg>
-Package pdftex.def Info: ../../figs/J2_VV_image_cor.jpg  used on input line 827
+Package pdftex.def Info: ../../figs/J2_VV_image_cor.jpg  used on input line 819
 .
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/J2_VH_image_cor.jpg, id=94, 887.315pt x 665.48625pt>
+<../../figs/J2_VH_image_cor.jpg, id=87, 887.315pt x 665.48625pt>
 File: ../../figs/J2_VH_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/J2_VH_image_cor.jpg>
-Package pdftex.def Info: ../../figs/J2_VH_image_cor.jpg  used on input line 828
+Package pdftex.def Info: ../../figs/J2_VH_image_cor.jpg  used on input line 820
 .
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/J2_euclid_image_cor.jpg, id=95, 887.315pt x 665.48625pt>
+<../../figs/J2_euclid_image_cor.jpg, id=88, 887.315pt x 665.48625pt>
 File: ../../figs/J2_euclid_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/J2_euclid_image_cor.jpg>
 Package pdftex.def Info: ../../figs/J2_euclid_image_cor.jpg  used on input line
- 829.
+ 821.
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/J3_VV_image_cor.jpg, id=96, 887.315pt x 665.48625pt>
+<../../figs/J3_VV_image_cor.jpg, id=89, 887.315pt x 665.48625pt>
 File: ../../figs/J3_VV_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/J3_VV_image_cor.jpg>
-Package pdftex.def Info: ../../figs/J3_VV_image_cor.jpg  used on input line 830
+Package pdftex.def Info: ../../figs/J3_VV_image_cor.jpg  used on input line 822
 .
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/J3_VH_image_cor.jpg, id=97, 887.315pt x 665.48625pt>
+<../../figs/J3_VH_image_cor.jpg, id=90, 887.315pt x 665.48625pt>
 File: ../../figs/J3_VH_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/J3_VH_image_cor.jpg>
-Package pdftex.def Info: ../../figs/J3_VH_image_cor.jpg  used on input line 831
+Package pdftex.def Info: ../../figs/J3_VH_image_cor.jpg  used on input line 823
 .
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/J3_euclid_image_cor.jpg, id=98, 887.315pt x 665.48625pt>
+<../../figs/J3_euclid_image_cor.jpg, id=91, 887.315pt x 665.48625pt>
 File: ../../figs/J3_euclid_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/J3_euclid_image_cor.jpg>
 Package pdftex.def Info: ../../figs/J3_euclid_image_cor.jpg  used on input line
- 832.
+ 824.
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/consecdif_J2_VV_image_cor.jpg, id=99, 887.315pt x 665.48625pt>
+<../../figs/consecdif_J2_VV_image_cor.jpg, id=92, 887.315pt x 665.48625pt>
 File: ../../figs/consecdif_J2_VV_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J2_VV_image_cor.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J2_VV_image_cor.jpg  used on inpu
-t line 839.
+t line 831.
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/consecdif_J2_VH_image_cor.jpg, id=100, 887.315pt x 665.48625pt>
+<../../figs/consecdif_J2_VH_image_cor.jpg, id=93, 887.315pt x 665.48625pt>
 File: ../../figs/consecdif_J2_VH_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J2_VH_image_cor.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J2_VH_image_cor.jpg  used on inpu
-t line 840.
+t line 832.
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/consecdif_J2_euclid_image_cor.jpg, id=101, 903.375pt x 654.445pt>
+<../../figs/consecdif_J2_euclid_image_cor.jpg, id=94, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J2_euclid_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J2_euclid_image_cor.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J2_euclid_image_cor.jpg  used on 
-input line 841.
+input line 833.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_VV_image_cor.jpg, id=102, 887.315pt x 665.48625pt>
+<../../figs/consecdif_J3_VV_image_cor.jpg, id=95, 887.315pt x 665.48625pt>
 File: ../../figs/consecdif_J3_VV_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_VV_image_cor.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VV_image_cor.jpg  used on inpu
-t line 842.
+t line 834.
 (pdftex.def)             Requested size: 106.4732pt x 79.8549pt.
-<../../figs/consecdif_J3_VH_image_cor.jpg, id=103, 903.375pt x 654.445pt>
+<../../figs/consecdif_J3_VH_image_cor.jpg, id=96, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J3_VH_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_VH_image_cor.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_VH_image_cor.jpg  used on inpu
-t line 843.
+t line 835.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-<../../figs/consecdif_J3_euclid_image_cor.jpg, id=104, 903.375pt x 654.445pt>
+<../../figs/consecdif_J3_euclid_image_cor.jpg, id=97, 903.375pt x 654.445pt>
 File: ../../figs/consecdif_J3_euclid_image_cor.jpg Graphic file (type jpg)
 <use ../../figs/consecdif_J3_euclid_image_cor.jpg>
 Package pdftex.def Info: ../../figs/consecdif_J3_euclid_image_cor.jpg  used on 
-input line 844.
+input line 836.
 (pdftex.def)             Requested size: 108.40031pt x 78.53pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5 <../../figs/J1_VV_squared_meandev.jpg> <../../figs/consecdif_J1_VV_squared_
-meandev.jpg> <../../figs/J2_VV_squared_meandev.jpg> <../../figs/consecdif_J2_VV
-_squared_meandev.jpg> <../../figs/J3_VV_squared_meandev.jpg> <../../figs/consec
-dif_J3_VV_squared_meandev.jpg> <../../figs/J4_VV_squared_meandev.jpg> <../../fi
-gs/consecdif_J4_VV_squared_meandev.jpg> <../../figs/J1_VH_squared_meandev.jpg> 
-<../../figs/consecdif_J1_VH_squared_meandev.jpg> <../../figs/J2_VH_squared_mean
-dev.jpg> <../../figs/consecdif_J2_VH_squared_meandev.jpg> <../../figs/J3_VH_squ
-ared_meandev.jpg> <../../figs/consecdif_J3_VH_squared_meandev.jpg> <../../figs/
-J4_VH_squared_meandev.jpg> <../../figs/consecdif_J4_VH_squared_meandev.jpg>]
+[4 <../../figs/methods_comparison.jpg> <../../figs/levels_comparison.jpg> <../.
+./figs/families_comparison.jpg> <../../figs/dm_comparison_wavelet_deepL.jpg>]
+[5 <../../figs/J1_VV_squared_meandev.jpg> <../../figs/consecdif_J1_VV_squared_m
+eandev.jpg> <../../figs/J2_VV_squared_meandev.jpg> <../../figs/consecdif_J2_VV_
+squared_meandev.jpg> <../../figs/J3_VV_squared_meandev.jpg> <../../figs/consecd
+if_J3_VV_squared_meandev.jpg> <../../figs/J4_VV_squared_meandev.jpg> <../../fig
+s/consecdif_J4_VV_squared_meandev.jpg> <../../figs/J1_VH_squared_meandev.jpg> <
+../../figs/consecdif_J1_VH_squared_meandev.jpg> <../../figs/J2_VH_squared_meand
+ev.jpg> <../../figs/consecdif_J2_VH_squared_meandev.jpg> <../../figs/J3_VH_squa
+red_meandev.jpg> <../../figs/consecdif_J3_VH_squared_meandev.jpg> <../../figs/J
+4_VH_squared_meandev.jpg> <../../figs/consecdif_J4_VH_squared_meandev.jpg>]
 (./wecs_tgrs.bbl [6 <../../figs/J1_euclid_squared_meandev.jpg> <../../figs/cons
 ecdif_J1_euclid_squared_meandev.jpg> <../../figs/J2_euclid_squared_meandev.jpg>
  <../../figs/consecdif_J2_euclid_squared_meandev.jpg> <../../figs/J3_euclid_squ
@@ -905,36 +883,39 @@ s/J3_VH_image_cor.jpg> <../../figs/J3_euclid_image_cor.jpg> <../../figs/consecd
 if_J2_VV_image_cor.jpg> <../../figs/consecdif_J2_VH_image_cor.jpg> <../../figs/
 consecdif_J2_euclid_image_cor.jpg> <../../figs/consecdif_J3_VV_image_cor.jpg> <
 ../../figs/consecdif_J3_VH_image_cor.jpg> <../../figs/consecdif_J3_euclid_image
-_cor.jpg>] (./wecs_tgrs.aux) ) 
+_cor.jpg>] (./wecs_tgrs.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3755 strings out of 481239
- 77186 string characters out of 5920377
- 320646 words of memory out of 5000000
- 18912 multiletter control sequences out of 15000+600000
+ 3720 strings out of 481239
+ 75471 string characters out of 5920377
+ 331996 words of memory out of 5000000
+ 18881 multiletter control sequences out of 15000+600000
  579775 words of font info for 108 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 30i,10n,27p,2526b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
-se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (8 pages, 7130086 bytes).
+ 30i,10n,27p,2127b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on wecs_tgrs.pdf (8 pages, 6096408 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
+ 172 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 381 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
