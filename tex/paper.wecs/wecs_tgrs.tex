@@ -601,7 +601,7 @@ for some arbitrary $\Delta>>0$ (which can be a function of $n$ and $J$). Thence,
 \section{Validation on synthetic data}\label{section_validation}
 
 In this section we apply the change detection methods above on synthetic data of multi-temporal images. 
-The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:EllipsoidChanges}. The first image, $\mathcal{I}(1)$, presents three elongated ellipses. Changes consist of three different types of ellipses that are successively added to the original image $I(1)$. The second image, $\mathcal{I}(2)$, has new large ellipses added. Smaller ellipses are then added to form $\mathcal{I}(3)$ and $\mathcal{I}(4)$. All the changes made to image $\mathcal{I}(1)$ can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
+The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with 1/2 on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a Gaussian distribution with zero mean and variance $1/100$. The first image, $\mathcal{I}(1)$, presents three elongated ellipses. Changes consist of three different types of ellipses that are successively added to the original image $\mathcal{I}(1)$. The second image, $\mathcal{I}(2)$, has new large ellipses added. Smaller ellipses are then added to form $\mathcal{I}(3)$ and $\mathcal{I}(4)$. All the changes made to image $\mathcal{I}(1)$ can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
 
 \begin{figure}[htb!]
 \centering
@@ -624,7 +624,8 @@ The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:Ellipsoid
 \label{F:Changes_methods_images}
 \end{figure}
 
-Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated log-ratios, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{il} = \sum_{m=1}^3	|\log\left(\mathcal{I}_{k,l}(m+1)/\mathcal{I}_{k,l}(m)\right)|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}(m)$ instead of $\vX(m)$ in the WECS formulation. The spatio-temporal advantages of the proposed wavelet  $\vd(m)$ is clear in Figure \ref{F:Changes_methods_images}(b), which shows that a wavelet smoothing has an expressive capacity of measuring the the changes through correlations of coefficients' deviations.
+Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated log-ratios, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{il} = \sum_{m=1}^3	|\log\left(\mathcal{I}_{k,l}(m+1)/\mathcal{I}_{k,l}(m)\right)|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}(m)$ instead of $\vX(m)$ in the WECS formulation. 
+%The spatio-temporal advantages of the proposed wavelet  $\vd(m)$ is clear in Figure \ref{F:Changes_methods_images}(b), which shows that a wavelet smoothing has an expressive capacity of measuring the the changes through correlations of coefficients' deviations, even for the changes corresponding to smaller ellipses.
 
 
 We compute ROC curves to compare the detection performance of different methods and to verify the influence of some tuning parameters of wavelet smoothing: the resolution level $J$ and the choice of wavelet basis. Each detection method generates a matrix of change detection measures (correlations in the case of WECS). The ROC curves present the performance of change detection by applying a threshold on these measures, in the following way:
@@ -637,10 +638,10 @@ We compute ROC curves to compare the detection performance of different methods 
 \end{enumerate}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.13]{../../figs/methods_comparison}\hspace{-.5cm}(a) 
-\includegraphics[scale=.13]{../../figs/levels_comparison}\hspace{-.5cm}(b)\\
-\includegraphics[scale=.13]{../../figs/families_comparison}\hspace{-.5cm}(c)
-\includegraphics[scale=.13]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
+\includegraphics[scale=.14]{../../figs/methods_comparison}\hspace{-.6cm}(a) 
+\includegraphics[scale=.14]{../../figs/levels_comparison}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.14]{../../figs/families_comparison}\hspace{-.5cm}(c)
+\includegraphics[scale=.14]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
 \caption{ROC curves for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue).
 (b) db2 $\vd(m)$ with different levels.
 (c) $\vd(m)$ with different wavelet bases and J=2;
@@ -648,205 +649,50 @@ We compute ROC curves to compare the detection performance of different methods 
 \label{F:EllipsoidChanges_details}
 \end{figure}
 
-Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the synthetic data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$. We can see that the ROC curves for images treated with deep-learning methods or treated with wavelet based methods are almost identical. The WECS runs in 0.42s, while the deep-learning based $\vd(m)$ runs in 64.68s on a notebook. The configuration of the notebook is: OS - Ubuntu 18.04.5 LTS; RAM 7.7 GB; Intel\textregistered Core\texttrademark $ $i7-8565U CPU @ 1.80GHz x 8; graphics - Mesa Intel\texttrademark UHD Graphics 620 ; GNOME - 3.36.8; OS type - 64-bit. We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}(m)\}$ instead of $\{\vX(m)\}$, and the classic method of analyzing aggregated log-ratios of $\{\mathcal{I}(m)\}$. The ROC curves in Panel (a) clearly show that  the proposed WECS outperforms the rest. 
+Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the synthetic data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$. We can see that the ROC curves for images treated with deep-learning methods or treated with wavelet based methods are almost identical. The WECS runs in 0.42s, while the deep-learning based $\vd(m)$ runs in 64.68s on a notebook. The configuration of the notebook is: OS - Ubuntu 18.04.5 LTS; RAM 7.7 GB; Intel\textregistered Core\texttrademark $ $i7-8565U CPU @ 1.80GHz x 8; graphics - Mesa Intel\texttrademark UHD Graphics 620 ; GNOME - 3.36.8; OS type - 64-bit. We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}(m)\}$ instead of $\{\vX(m)\}$, and the classic method of analyzing aggregated absolute differences of $\{\mathcal{I}(m)\}$. The ROC curves in Panel (a) show that the proposed WECS outperforms its counterpart without wavelets and that it is competitive with the method using aggregation of differences. 
 
-%We may summarize these results as: the proposed wavelet $\vd(m)$ method presents a superior performance. It is also equipped with the following nice properties: (i) it is scalable; (ii) it is sparse; (iii) it is parsimonious; (iv) it can be easily adapted to be linearly updated when a new image is acquired; and (v) it is fast. Hence, the proposed wavelet change-detection procedure can be used as a real-time change detection tool for long time series of large images.    
+%\begin{figure}[htp!]
+%\includegraphics[scale=.14]{../../figs/methods_comparison_F1score}\hspace{-.5cm}(a) 
+%\includegraphics[scale=.14]{../../figs/levels_comparison_F1score}\hspace{-.5cm}(b)\\
+%\includegraphics[scale=.14]{../../figs/families_comparison_F1score}\hspace{-.5cm}(c)
+%\includegraphics[scale=.14]{../../figs/dm_comparison_wavelet_deepL_F1score}\hspace{-.5cm}(d) \\
+%\caption{$F_1$-scores for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue).
+%(b) db2 $\vd(m)$ with different levels.
+%(c) $\vd(m)$ with different wavelet bases and J=2;
+%(d) The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line).}
+%\label{F:EllipsoidChanges_details}
+%\end{figure}
 
 
 
 
 \section{Real Data Results}\label{section_realdata}
 
-We employed the proposed change detection method on a series of 85 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from November 08, 2015 to December 09, 2017. Each image has two channels and 1200 by 1000 pixels. We perform three change detection wavelet analyses: VV Polarization Channel;  VH Polarization Channel; and the Combined Image by Euclidean norm. 
+We employed the proposed change detection method on a series of 85 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}(m) = (\mathrm{VV}_{k,l}(m)^2+\mathrm{VH}_{k,l}(m)^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
 
-A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 16 (symlet 8) is built.  The log-images are approximated at levels $J=1,2,3,4$. Table \ref{T:approxenergy} shows the 85 images' average energy for each approximation level. We notice that roughly 99\% of the energy is recovered with $J=1$, and more than  90\% with $J=2$. The VV channel shows better overall energy recovery than the VH channel. For $J=4$ and $J=3$, the Euclidean combination of the polarization channels increases the energy representation percentage.  For $J=2$, VV channel and combined channels are equivalent. VH has 4\% less energy than VV for $J=3$, and $10\%$ less  for $J=4$.
-
-\begin{table*}[h!]
-\caption{Wavelet Approximation Mean Energy Percentage for log-images. Forest region at the border of Brazil and the French Guiana from November 08, 2015 to December 09, 2017. $n=85$ multi-date satellite images. Each image has two channels and 1200 by 1000 pixels. VV Polarization Channel;  VH Polarization Channel; and the Combined Image by Euclidean norm. Approximation $J=1,2,3,4$.}
-\centering
-\begin{tabular}{cccc|cccc|cccc}
-\hline
-\multicolumn{12}{c}{\sc Mean Approximated Energy Percentage}\\
-\hline
-\multicolumn{4}{c|}{VV Channel}&\multicolumn{4}{c|}{VH Channel}&\multicolumn{4}{c}{Combined Channels}\\
-\hline
-$J=4$&$J=3$&$J=2$&$J=1$&$J=4$&$J=3$&$J=2$&$J=1$&$J=4$&$J=3$&$J=2$&$J=1$\\
-\hline
-0.803&0.847&0.924&0.990&0.763&0.814&0.908&0.988&0.816&0.858&0.931&0.991\\
-\hline
-\end{tabular}\label{T:approxenergy}
-\end{table*}
-
-Figures \ref{F:squared_J1-4_VV}-\ref{F:squared_J1-4_euclid} show the series of squared deviations $\vd(m)$ and $\vt(m)$, for  the VV channel, VH channel, and Euclidean combination, respectively.  An overall feature on this data is that the VV polarization presents much higher energy than the VH. The amount of energy related to changes  is ten times higher on the former compared to the latter's.
-
-Regarding change time points, in each figure, we can notice a pattern of peaks which are common to all approximation levels. They are time points:
-\begin{list}{}{}
-\item (a) 14, 43, 54, and 58 by the coefficients' squared deviations on the average VV image;
-\item (b) 14, 43, 54, and 58 by the coefficients' squared deviations on the consecutive VV images;
-\item (c) 14, 38, 41, 43, 54, 56, and 58 by the coefficients' squared deviations on the average VH image;
-\item (d) 14, 38, 41, 43, 54-58 by the coefficients' squared deviations on the consecutive VH images;
-\item (e) 14, 43, 54, and 58 by the coefficients' squared deviations on the average combined channels image; and
-\item (e) 14, 43, 54, and 58 by the coefficients' squared deviations on the consecutive combined channels images.
-%%%%%%%% VV 12 14 15 16 (42) 43 54 56 58 d(m)
-%%%%%%%% VV 12 14 15 16 (42) 43 54 56 58 t(m)
-%%%%%%%% VH  12 14 15 38 41 43 54 56 58
-%%%%%%%% euclid 12 14 15 16 43 54 56 58
-\end{list}
+A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 16 (symlet 8) is built.  The images are approximated at resolution level $J=2$.
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J1_VV_squared_meandev}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J1_VV_squared_meandev}(b)\\
-\includegraphics[scale=.12]{../../figs/J2_VV_squared_meandev}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J2_VV_squared_meandev}(d)\\
-\includegraphics[scale=.12]{../../figs/J3_VV_squared_meandev}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_squared_meandev}(f)\\
-\includegraphics[scale=.12]{../../figs/J4_VV_squared_meandev}(g)
-\includegraphics[scale=.12]{../../figs/consecdif_J4_VV_squared_meandev}(h)
-\caption{{\sc VV Polarization Channel} Series of squared deviations $\vd(m)$ and $\vt(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation.  $\vd(m)$ - Approximation Levels:  (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. $\vt(m)$ - Approximation Levels:  (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. 
-}
-\label{F:squared_J1-4_VV}
-\end{figure}
-
-\begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J1_VH_squared_meandev}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J1_VH_squared_meandev}(b)\\
-\includegraphics[scale=.12]{../../figs/J2_VH_squared_meandev}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J2_VH_squared_meandev}(d)\\
-\includegraphics[scale=.12]{../../figs/J3_VH_squared_meandev}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_squared_meandev}(f)\\
-\includegraphics[scale=.12]{../../figs/J4_VH_squared_meandev}(g)
-\includegraphics[scale=.12]{../../figs/consecdif_J4_VH_squared_meandev}(h)
-\caption{{\sc VH Polarization  Channel} Series of squared deviations $\vd(m)$ and $\vt(m)$. The red horizontal line represents the median value and the yellow horizontal line represents their median plus two times their absolute median deviation.  $\vd(m)$ - Approximation Levels:  (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. $\vt(m)$ - Approximation Levels:  (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. 
-}
-\label{F:squared_J1-4_VH}
-\end{figure}
-
-\begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J1_euclid_squared_meandev}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J1_euclid_squared_meandev}(b)\\
-\includegraphics[scale=.12]{../../figs/J2_euclid_squared_meandev}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J2_euclid_squared_meandev}(d)\\
-\includegraphics[scale=.12]{../../figs/J3_euclid_squared_meandev}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_squared_meandev}(f)\\
-\includegraphics[scale=.12]{../../figs/J4_euclid_squared_meandev}(g)
-\includegraphics[scale=.12]{../../figs/consecdif_J4_euclid_squared_meandev}(h)
-\caption{{\sc Combined Channels} Series of squared deviations $\vd(m)$ and $\vt(m)$. The red horizontal line represents the median value  and the yellow horizontal line represents their median plus two times their absolute median deviation.  $\vd(m)$ - Approximation Levels:  (a) $J=1$; (c) $J=2$; (e) $J=3$; (g) $J=4$. $\vt(m)$ - Approximation Levels:  (b) $J=1$; (d) $J=2$; (f) $J=3$; (h) $J=4$. 
-}
-\label{F:squared_J1-4_euclid}
+\includegraphics[scale=.13]{../../figs/forest_vSumDifCoefSq}\hspace{-.5cm}(a) 
+\includegraphics[scale=.13]{../../figs/forest_wecs_abscorr}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.11]{../../figs/forest_wecs_change_space}\hspace{-.5cm}(c) 
+\includegraphics[scale=.13]{../../figs/forest_aggreg_ratios}\hspace{-.5cm}(d)\\ 
+\caption{Analysis of change points in time and space of the forest data. (a) Plot of $\vd(m)$, $m=1,\ldots,85$ with orange horizontal line indicating two times its median absolute deviation. (b) Matrix of absolute correlations obtained with WECS. (c) Change regions detected by highlighting the $[n/\log n]$ largest correlations. (d) Change measured with aggregation of absolute differences.}
+\label{F:forest_wecs}
 \end{figure}
 
 
 \begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J3_VV_squared_meandev}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_squared_meandev}(b)\\
-\includegraphics[scale=.12]{../../figs/J3_VV_sqrdif_change_locations}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_sqrdif_change_locations}(d)\\
-\includegraphics[scale=.12]{../../figs/J3_VV_sqrdif_lowest_cor_locations}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_sqrdif_lowest_cor_locations}(f)\\
-\includegraphics[scale=.12]{../../figs/perc01_J3_VV_sqrdif_change_locations}(g)
-\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VV_sqrdif_change_locations}(h)\\
-\includegraphics[scale=.12]{../../figs/perc01_J3_VV_sqrdif_lowest_cor_locations}(i)
-\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VV_sqrdif_lowest_cor_locations}(j)
-\caption{{\sc VV Polarization Channel} Series of squared mean deviations at level $J=3$: (a) $\vd(m)$; (b) $\vt(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) $\vd(m)$;  (d) $\vt(m)$; 0.1\% smallest absolute correlations - (e) $\vd(m)$; (f) $\vt(m)$; 0.01\% highest absolute correlations - (g) $\vd(m)$;  (h) $\vt(m)$;  0.01\% smallest absolute correlations - (i) $\vd(m)$; (j)  $\vt(m)$. 
-}  
-\label{F:squared_meandev_J3_VV}
+\includegraphics[scale=.3]{../../figs/forest_changes_time} 
+\caption{Images whose time $m$ correspond to points of $\vd(m)$ above two times its median absolute deviation in Figure \ref{F:forest_wecs}a.}
+\label{F:forest_change_times}
 \end{figure}
-
-\begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J3_VH_squared_meandev}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_squared_meandev}(b)
-
-\includegraphics[scale=.12]{../../figs/J3_VH_sqrdif_change_locations}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_sqrdif_change_locations}(d)
-
-\includegraphics[scale=.12]{../../figs/J3_VH_sqrdif_lowest_cor_locations}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_sqrdif_lowest_cor_locations}(f)
-
-\includegraphics[scale=.12]{../../figs/perc01_J3_VH_sqrdif_change_locations}(g)
-\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VH_sqrdif_change_locations}(h)
-
-\includegraphics[scale=.12]{../../figs/perc01_J3_VH_sqrdif_lowest_cor_locations}(i)
-\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_VH_sqrdif_lowest_cor_locations}(j)
-
-\caption{{\sc VH Polarization Channel} Series of squared mean deviations at level $J=3$: (a) $\vd(m)$; (b) $\vt(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) $\vd(m)$;  (d) $\vt(m)$; 0.1\% smallest absolute correlations - (e) $\vd(m)$; (f) $\vt(m)$; 0.01\% highest absolute correlations - (g) $\vd(m)$;  (h) $\vt(m)$;  0.01\% smallest absolute correlations - (i) $\vd(m)$; (j)  $\vt(m)$. 
-}  
-\label{F:squared_meandev_J3_VH}
-\end{figure}
-
-\begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J3_euclid_squared_meandev}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_squared_meandev}(b)\\
-\includegraphics[scale=.12]{../../figs/J3_euclid_sqrdif_change_locations}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_sqrdif_change_locations}(d)\\
-\includegraphics[scale=.12]{../../figs/J3_euclid_sqrdif_lowest_cor_locations}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_sqrdif_lowest_cor_locations}(f)\\
-\includegraphics[scale=.12]{../../figs/perc01_J3_euclid_sqrdif_change_locations}(g)
-\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_euclid_sqrdif_change_locations}(h)\\
-\includegraphics[scale=.12]{../../figs/perc01_J3_euclid_sqrdif_lowest_cor_locations}(i)
-\includegraphics[scale=.12]{../../figs/perc01_consecdif_J3_euclid_sqrdif_lowest_cor_locations}(j)
-\caption{{\sc Combined Channels} Series of squared mean deviations at level $J=3$: (a) $\vd(m)$; (b) $\vt(m)$. Red horizontal line represents the median value and yellow line represents two absolute median deviations beyond the median. Squared approximation coefficient deviations: 0.1\% highest absolute correlations - (c) $\vd(m)$;  (d) $\vt(m)$; 0.1\% smallest absolute correlations - (e) $\vd(m)$; (f) $\vt(m)$; 0.01\% highest absolute correlations - (g) $\vd(m)$;  (h) $\vt(m)$;  0.01\% smallest absolute correlations - (i) $\vd(m)$; (j)  $\vt(m)$. 
-} 
-\label{F:squared_meandev_J3_euclid}
-\end{figure}
-
-Figures \ref{F:squared_meandev_J3_VV}-\ref{F:squared_meandev_J3_euclid} present a timewise comparison between overall energy variations, $\vd(m)$ and $\vt(m)$ and their respective individual coefficients. Each figure has ten panels. Panels on the left and right deal with the first and second change detection methods respectively. A full description is give in each figure's caption. The overall conclusion from these figures is that as expected there are temporal variations between the methods regarding change detection (Panels (a)-(b)). The correlation screening detects the most relevant indices, as well as the least relevant ones  (Panels (c)-(f)). 
-These conclusions hold for analyses based upon VV, VH or combined polarizations, but the VV polarization signal is much stronger than VH's. A slight advantage is perceived for the $\vd(m)$ method as opposed to $\vt(m)$'s. This makes sense, since we are dealing here with data from a forest region over a long time, and seasonal changes will be perceived more easily on the first proposed method.
-
-\begin{table*}[ht!]
-\caption{Absolute correlation thresholds and number of selected coefficients for $n=85$ multi-temporal images of $1200\times 1000$ . Correlation was computed between approximation coefficients and approximation total energy at level $J=2$ for each image. }\label{tabela_quantis}
-\centering
-\begin{tabular}{c|cccr||c|cccr}
-\hline
-Qtile &\multicolumn{4}{c||}{\sc Correlation Thresh} &Qtile & \multicolumn{4}{c}{\sc Correlation Thresh}  \\
-Level &VV&VH&Comb& Coeffs &Level &VV&VH&Comb& Coeffs \\
-\hline
-0.50&0.281&0.199&0.292&600000&0.99&0.647&0.582&0.668&12000\\
-0.55&0.300&0.218&0.311&540000&0.991&0.651&0.587&0.673&10800\\
-0.60&0.319&0.239&0.331&480000& 0.992&0.656&0.594&0.678&9600\\
-0.65&0.339&0.260&0.352&420000& 0.993&0.662&0.601&0.684&8400\\
-0.70&0.361&0.282&0.375&360000& 0.994&0.669&0.608&0.690&7200\\
-0.75&0.385&0.307&0.399&300000& 0.995&0.676&0.617&0.697&6000\\
-0.80&0.412&0.335&0.428&240000& 0.996&0.685&0.626&0.705&4800\\
-0.85&0.445&0.368&0.462&180000& 0.997&0.696&0.639&0.716&3600\\
-0.90&0.487&0.410&0.506&120000& 0.998&0.710&0.654&0.729&2400\\
-0.95&0.549&0.472&0.570&60000& 0.999&0.731&0.676&0.748&1200\\
-\hline
-\end{tabular}
-\end{table*}
-
-
-\begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/J2_VV_image_cor}(a)
-\includegraphics[scale=.12]{../../figs/J2_VH_image_cor}(b)\\
-\includegraphics[scale=.12]{../../figs/J2_euclid_image_cor}(c)
-\includegraphics[scale=.12]{../../figs/J3_VV_image_cor}(d)\\ 
-\includegraphics[scale=.12]{../../figs/J3_VH_image_cor}(e)
-\includegraphics[scale=.12]{../../figs/J3_euclid_image_cor}(f)
-
-\caption{Absolute correlation matrices $\vR^{(d)}$ between mean-corrected squared coefficients at approximation levels and overall mean-corrected total energy $\{\vd(m)\}$.  $J=2$ (a)-(c);  $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$ ($J=10$). The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc VV  Polarization - Channel} $J=2$. (b) {\sc VH  Polarization - Channel} $J=2$. (c) {\sc Combined Channels} $J=2$.  (d)  {\sc VV  Polarization - Channel} $J=3$. (e) {\sc VH  Polarization - Channel} $J=3$. (f) {\sc Combined Channels} $J=3$} 
-\label{F:image_corr_J2J3}
-\end{figure}
-
-\begin{figure}[htp!]
-\includegraphics[scale=.12]{../../figs/consecdif_J2_VV_image_cor}(a)
-\includegraphics[scale=.12]{../../figs/consecdif_J2_VH_image_cor}(b)\\
-\includegraphics[scale=.12]{../../figs/consecdif_J2_euclid_image_cor}(c)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VV_image_cor}(d)\\ 
-\includegraphics[scale=.12]{../../figs/consecdif_J3_VH_image_cor}(e)
-\includegraphics[scale=.12]{../../figs/consecdif_J3_euclid_image_cor}(f)
-
-\caption{Absolute correlation matrices $\vR^{(t)}$ between squared differences of consecutive log-images' coefficients at approximation levels and their overall total energy $\{\vt(m)\}$. Levels $J=2$ (a)-(c);  $J=3$ (d)-(f). $n=85$ multi-temporal images of $1200\times 1000$. The color bar on the right gives the magnitude of correlation at all positions. (a) {\sc VV  Polarization - Channel} $J=2$. (b) {\sc VH  Polarization - Channel} $J=2$. (c) {\sc Combined Channels} $J=2$. (d)  {\sc VV  Polarization - Channel} $J=3$. (e) {\sc VH  Polarization - Channel} $J=3$. (f) {\sc Combined Channels} $J=3$.} 
-\label{F:image_corr_J2J3_consec}
-\end{figure}
-
-Figures \ref{F:image_corr_J2J3}-\ref{F:image_corr_J2J3_consec} shows the absolute correlation images for the VV, VH and combined channels for levels $J=2$ and $J=3$. We can notice that high correlation coefficients for $J=2$ are high correlation coefficients for $J=3$ as well. Moreover, there is a clear spatial connection between polarizations and between $\vd(m)$- and $\vt(m)$-based  analyses. On the other hand, correlations are more efficiently segregated when we move: from $J=2$ to $J=3$; from VH to VV polarization; or from  $\vt(m)$ to $\vd(m)$.
-
 
 
 
 \section{Discussion}\label{section_discussion}
 
-We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole image approximation. It makes use of correlation screening for ultra-high dimensional data. The proposed method's performance is shown using both synthetic and real data. The proposed method yields spatio-temporal  change points. Its performance is similar to a deep-learning feature extraction method, but the computational cost of the proposed method is 180 times smaller than the cost for the latter. Therefore, we may say that WECS may be used on images with equivalent performance for a fraction of the computational cost. Because of its reliance on wavelet representation and correlation screening, it is sparse, very fast and scalable. Finally, it is easily adapted to be updatable, so that real-time change detection is feasible even with a portable computer.
+%We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole image approximation. It makes use of correlation screening for ultra-high dimensional data. The proposed method's performance is shown using both synthetic and real data. The proposed method yields spatio-temporal  change points. Its performance is similar to a deep-learning feature extraction method, but the computational cost of the proposed method is 180 times smaller than the cost for the latter. Therefore, we may say that WECS may be used on images with equivalent performance for a fraction of the computational cost. Because of its reliance on wavelet representation and correlation screening, it is sparse, very fast and scalable. Finally, it is easily adapted to be updatable, so that real-time change detection is feasible even with a portable computer.
 
 
 

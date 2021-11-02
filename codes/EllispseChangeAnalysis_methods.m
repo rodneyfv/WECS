@@ -123,11 +123,11 @@ S = abs(im4log - im3log) + abs(im3log - im2log) + abs(im2log - im1log);
 S = S./max(S(:));
 %
 [pD1,pFA1]=ROCcurveNew(S,255*totalchanges); close
-[vp,vF1_std,~,~] = F1Scorecurve(R,255*totalchanges); close
+[vp,vF1_std,~,~] = F1Scorecurve(S,255*totalchanges); close
 %
 mImage = figure;
 imshow(S)
-title('Aggregation of log-ratios'                                                                                                                                                                                                                                                                                                                               , 'FontSize', 17)
+title('Aggregation of absolute differences'                                                                                                                                                                                                                                                                                                                               , 'FontSize', 17)
 saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
 
 %% Compare all results
@@ -143,7 +143,7 @@ plot(pFA,pD,'k')
 plot(pFA0,pD0,'g-d')
 plot(pFA1,pD1,':+')
 legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
-    'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
+    'Aggregation of absolute differences','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
 saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
@@ -159,7 +159,7 @@ plot(vp,vF1_wave,'k')
 plot(vp,vF1_nowave,'g-d')
 plot(vp,vF1_std,':+')
 legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
-    'Aggregation of log-ratios','interpreter','latex', 'Location','southeast', 'FontSize', 12)
+    'Aggregation of absolute differences','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
 saveas(mImage,sprintf('../figs/methods_comparison_F1score.jpg'))
