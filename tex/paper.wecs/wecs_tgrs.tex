@@ -564,9 +564,9 @@ where $vec(\vD(m))$ is the $p\times 1$ vector of wavelet coefficients for time $
 where $\vbeta$ is sparse, i.e., it has $p-s_d$ null elements, and $\vxi^{(d)}$ is some $n\times 1$ random vector of errors.
 %\citep{jonhstone2009} 
 
-In order to identify spatio-temporal changes, we employ the idea of ultra-high dimensional correlation screening \cite{fan2020statistical} as follows. For each local squared mean deviation time series, given by individual elements of $\vD(m)$ across $m=1,\ldots,n$, consider its Pearson correlation with the overall squared mean deviations, given by $\vd$:
+In order to identify spatio-temporal changes, we employ the idea of ultra-high dimensional correlation screening \cite{fan2020statistical} as follows. For each local squared mean deviation time series, given by individual elements of $\vD(m)$ across $m=1,\ldots,n$, consider the absolute value of its Pearson correlation with the overall squared mean deviations, given by $\vd$:
 \begin{equation*}
-R_{k,l}= \corr\left( \vD_{k,l}, \vd\right),
+R_{k,l}= |\corr\left( \vD_{k,l}, \vd\right)|,
 \label{def_Rkld}
 \end{equation*}
 where $\vD_{k,l}=(D_{k,l}(1),\ldots,D_{k,l}(n))^T$ is the time series of squared mean deviations of wavelet coefficients for the two-dimensional index $\{k,l\}$.
@@ -670,7 +670,11 @@ Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for ch
 
 We employed the proposed change detection method on a series of 84 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}(m) = (\mathrm{VV}_{k,l}(m)^2+\mathrm{VH}_{k,l}(m)^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
 
-A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 16 (symlet 8) is built.  The images are approximated at resolution level $J=2$.
+A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 16 (symlet 8) is built. In order to have dimensions as power of 2, the matrices $\mathcal{I}_{k,l}$ were extended to a $2048\times2048$ matrix with $\mathcal{I}_{k,l}$ at the center and the remaining parts being completed with mirrored values at the borders. The wavelet transform at resolution level $J=2$ was applied to these matrices. Then, we are able to compute the squared mean differences vector $\vd$ and the matrix of absolute correlations $\vR$. 
+
+The time change measures computed with $\vd$ are shown in Figure \ref{F:forest_wecs}a. The orange line in Figure \ref{F:forest_wecs}a represents the median absolute deviation of $\vd$, which allow us to notice times that differ expressively from the others. We can notice that times $m=25,27,30$ are highlighted as having expressive changes. The images  corresponding to these times can be seen in Figure \ref{F:forest_change_times}.
+
+The changes in space can be analyzed using the image obtained with $\vR$, which is displayed in Figure \ref{F:forest_wecs}b. Taking the $[n/\log n]$ ($n=1538\times1556$) largest absolute correlations as those corresponding to possible change points, we obtain a matrix of zeros and ones that is presented in Figure \ref{F:forest_wecs}c. The white regions in Figure \ref{F:forest_wecs}c (entries with value one) represent the change points, which seem to concentrate mainly on three regions: at the center, to the right of the river; at the top, on the left border of the river; and at the top left. Computing aggregated absolute differences to measure changes in space, we obtain Figure \ref{F:forest_wecs}d. The first two regions captured using WECS are also detected in Figure \ref{F:forest_wecs}d, but the former offers higher contrasts to these change regions.
 
 \begin{figure}[htp!]
 \includegraphics[scale=.13]{../../figs/forest_vSumDifCoefSq}\hspace{-.5cm}(a) 
@@ -692,7 +696,7 @@ A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 
 
 \section{Discussion}\label{section_discussion}
 
-%We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole image approximation. It makes use of correlation screening for ultra-high dimensional data. The proposed method's performance is shown using both synthetic and real data. The proposed method yields spatio-temporal  change points. Its performance is similar to a deep-learning feature extraction method, but the computational cost of the proposed method is 180 times smaller than the cost for the latter. Therefore, we may say that WECS may be used on images with equivalent performance for a fraction of the computational cost. Because of its reliance on wavelet representation and correlation screening, it is sparse, very fast and scalable. Finally, it is easily adapted to be updatable, so that real-time change detection is feasible even with a portable computer.
+We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole mean image. It makes use of correlation screening for ultra-high dimensional data. The proposed method's performance is shown using both synthetic and real data. The proposed method is useful to detect spatio-temporal change points, which is illustrated on data analyses. The method is employed to analyze a time series of 84 images of a forest.
 
 
 
