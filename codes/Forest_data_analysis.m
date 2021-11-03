@@ -158,6 +158,57 @@ axis off; colorbar
 set(gca,'FontSize',13)
 saveas(mImage,sprintf('../figs/forest_aggreg_ratios.jpg'))
 
+
+% reading the reference image with change and nonchange locations
+t = Tiff('../figs/change_nonchange.tif','r');
+Y = read(t);
+mChange = double(Y(:,:,1));
+mImage = figure;
+imshow(mChange)
+saveas(mImage,sprintf('../figs/forest_change.jpg'))
+
+mNonchange = double(Y(:,:,2));
+mImage = figure;
+imshow(mNonchange)
+saveas(mImage,sprintf('../figs/forest_nonchange.jpg'))
+
+% detection of change regions
+[D_wecs,FA_wecs] = ROCcurveNew(mCorr/max(mCorr(:)),mChange); close
+[D_agg,FA_agg] = ROCcurveNew(S/max(S(:)),mChange); close
+
+mImage = figure;
+hold on
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(FA_wecs,D_wecs,'k')
+plot(FA_agg,D_agg,'g-d')
+legend('WECS','Aggregation of absolute differences',...
+    'Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/forest_roc_change.jpg'))
+
+% detection of nonchange regions
+[D_wecs,FA_wecs] = ROCcurveNew(1 - mCorr/max(mCorr(:)),mNonchange); close
+[D_agg,FA_agg] = ROCcurveNew(1 - S/max(S(:)),mNonchange); close
+
+mImage = figure;
+hold on
+xlabel('False positive rate', 'FontSize', 13)
+ylabel('True positive rate', 'FontSize', 13)
+axis([0 1 0 1]);
+axis square
+plot(FA_wecs,D_wecs,'k')
+plot(FA_agg,D_agg,'g-d')
+legend('WECS','Aggregation of absolute differences',...
+    'Location','southeast', 'FontSize', 12)
+legend('boxoff')
+hold off
+saveas(mImage,sprintf('../figs/forest_roc_nonchange.jpg'))
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % making a video with the image time series
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

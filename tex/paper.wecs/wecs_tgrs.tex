@@ -674,7 +674,7 @@ A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 
 
 The time change measures computed with $\vd$ are shown in Figure \ref{F:forest_wecs}a. The orange line in Figure \ref{F:forest_wecs}a represents the median absolute deviation of $\vd$, which allow us to notice times that differ expressively from the others. We can notice that times $m=25,27,30$ are highlighted as having expressive changes. The images  corresponding to these times can be seen in Figure \ref{F:forest_change_times}.
 
-The changes in space can be analyzed using the image obtained with $\vR$, which is displayed in Figure \ref{F:forest_wecs}b. Taking the $[n/\log n]$ ($n=1538\times1556$) largest absolute correlations as those corresponding to possible change points, we obtain a matrix of zeros and ones that is presented in Figure \ref{F:forest_wecs}c. The white regions in Figure \ref{F:forest_wecs}c (entries with value one) represent the change points, which seem to concentrate mainly on three regions: at the center, to the right of the river; at the top, on the left border of the river; and at the top left. Computing aggregated absolute differences to measure changes in space, we obtain Figure \ref{F:forest_wecs}d. The first two regions captured using WECS are also detected in Figure \ref{F:forest_wecs}d, but the former offers higher contrasts to these change regions.
+The changes in space can be analyzed using the image obtained with $\vR$, which is displayed in Figure \ref{F:forest_wecs}b. Taking the $[n/\log n]$ ($n=1538\times1556$) largest absolute correlations as those corresponding to possible change points, we obtain a matrix of zeros and ones that is presented in Figure \ref{F:forest_wecs}c. The white regions in Figure \ref{F:forest_wecs}c (entries with value one) represent the change points, which seem to concentrate mainly on three regions: at the center, to the right of the river; at the top, on the left border of the river; and at the top left. Computing aggregated absolute differences to measure changes in space, we obtain Figure \ref{F:forest_wecs}d. The first two regions captured using WECS are also detected in Figure \ref{F:forest_wecs}d, but the former offers higher contrasts to these change regions. The comparison between the performance of these two methods can also be checked in Figure \ref{F:forest_roc_wecs_agg}, where a ROC curve is computed to check the correct detection of changing and not-changing regions. These change/nonchange regions were determined using [XXXXX]. We can notice that WECS reaches high correct detection earlier than the method that uses aggregation of differences, but both methods do not have good performances concerning the nonchange regions.
 
 \begin{figure}[htp!]
 \includegraphics[scale=.13]{../../figs/forest_vSumDifCoefSq}\hspace{-.5cm}(a) 
@@ -692,6 +692,14 @@ The changes in space can be analyzed using the image obtained with $\vR$, which 
 \label{F:forest_change_times}
 \end{figure}
 
+\begin{figure}[htp!]
+\includegraphics[scale=.11]{../../figs/forest_change}\hspace{-.5cm}(a)
+\includegraphics[scale=.11]{../../figs/forest_nonchange}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.13]{../../figs/forest_roc_change}\hspace{-.5cm}(c) 
+\includegraphics[scale=.14]{../../figs/forest_roc_nonchange}\hspace{-.5cm}(d)
+\caption{Analysis of change points in time and space of the forest data. (a) Regions (in white) where changes should be detected. (a) Regions (in white) where changes are not expected to be detected. (c) ROC curve for detection of changing regions. (d) ROC curves for detection of nonchange regions.}
+\label{F:forest_roc_wecs_agg}
+\end{figure}
 
 
 \section{Discussion}\label{section_discussion}
