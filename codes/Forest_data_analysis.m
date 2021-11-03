@@ -102,7 +102,7 @@ saveas(mImage,sprintf('../figs/forest_vSumDifCoefSq.jpg'))
 % checking the images corresponding to change points in time
 mImage = figure;
 cont = 1;
-for m = [4 8 41]
+for m = [25 27 30]
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
     data = double(Y(:,:,1).^2 + Y(:,:,2).^2);
@@ -157,5 +157,28 @@ imagesc(S)
 axis off; colorbar
 set(gca,'FontSize',13)
 saveas(mImage,sprintf('../figs/forest_aggreg_ratios.jpg'))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% making a video with the image time series
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% create the video writer with 1 fps
+writer_im = VideoWriter('images-ts.avi');
+% number of frames shown in a second
+writer_im.FrameRate = 2;
+% open the video writer
+open(writer_im);
+% write the frames to the video
+for m = 1:n
+    t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
+    Y = read(t);
+    data = double(Y(:,:,1).^2 + Y(:,:,2).^2);
+    imagesc(data)
+    title(sprintf('m=%2d',m)); axis off;
+    frame = getframe(gcf) ;
+    writeVideo(writer_im, frame);    
+end
+% close the writer object
+close(writer_im);
 
 

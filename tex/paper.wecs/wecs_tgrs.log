@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  2 NOV 2021 18:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  2 NOV 2021 23:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -346,12 +346,12 @@ File: ../../figs/corr_changes_dm.jpg Graphic file (type jpg)
 Package pdftex.def Info: ../../figs/corr_changes_dm.jpg  used on input line 620
 .
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
-<../../figs/corr_changes_logratios.jpg, id=27, 1106.1325pt x 955.57pt>
+<../../figs/corr_changes_logratios.jpg, id=27, 1122.1925pt x 944.52875pt>
 File: ../../figs/corr_changes_logratios.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_logratios.jpg>
 Package pdftex.def Info: ../../figs/corr_changes_logratios.jpg  used on input l
 ine 621.
-(pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
+(pdftex.def)             Requested size: 112.22581pt x 94.4584pt.
 <../../figs/corr_changes_dm_nowavelets.jpg, id=28, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_dm_nowavelets.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_dm_nowavelets.jpg>
@@ -363,12 +363,12 @@ Underfull \hbox (badness 2698) in paragraph at lines 619--623
 [][]\OT1/ptm/m/n/10 (a) [](b)
  []
 
-<../../figs/methods_comparison.jpg, id=29, 887.315pt x 665.48625pt>
+<../../figs/methods_comparison.jpg, id=29, 903.375pt x 654.445pt>
 File: ../../figs/methods_comparison.jpg Graphic file (type jpg)
 <use ../../figs/methods_comparison.jpg>
 Package pdftex.def Info: ../../figs/methods_comparison.jpg  used on input line 
 641.
-(pdftex.def)             Requested size: 124.22325pt x 93.16743pt.
+(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
 <../../figs/levels_comparison.jpg, id=30, 903.375pt x 654.445pt>
 File: ../../figs/levels_comparison.jpg Graphic file (type jpg)
 <use ../../figs/levels_comparison.jpg>
@@ -411,19 +411,19 @@ File: ../../figs/forest_wecs_abscorr.jpg Graphic file (type jpg)
 <use ../../figs/forest_wecs_abscorr.jpg>
 Package pdftex.def Info: ../../figs/forest_wecs_abscorr.jpg  used on input line
  677.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
+(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
 <../../figs/forest_wecs_change_space.jpg, id=40, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_wecs_change_space.jpg Graphic file (type jpg)
 <use ../../figs/forest_wecs_change_space.jpg>
 Package pdftex.def Info: ../../figs/forest_wecs_change_space.jpg  used on input
  line 678.
-(pdftex.def)             Requested size: 122.88948pt x 105.33385pt.
+(pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
 <../../figs/forest_aggreg_ratios.jpg, id=41, 903.375pt x 654.445pt>
 File: ../../figs/forest_aggreg_ratios.jpg Graphic file (type jpg)
 <use ../../figs/forest_aggreg_ratios.jpg>
 Package pdftex.def Info: ../../figs/forest_aggreg_ratios.jpg  used on input lin
 e 679.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
+(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 676--680
 
@@ -444,34 +444,31 @@ Overfull \hbox (19.01459pt too wide) in paragraph at lines 686--687
 arison.jpg> <../../figs/families_comparison.jpg> <../../figs/dm_comparison_wave
 let_deepL.jpg> <../../figs/forest_vSumDifCoefSq.jpg> <../../figs/forest_wecs_ab
 scorr.jpg> <../../figs/forest_wecs_change_space.jpg> <../../figs/forest_aggreg_
-ratios.jpg> <../../figs/forest_changes_time.jpg>]) [5] (./wecs_tgrs.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ratios.jpg> <../../figs/forest_changes_time.jpg>]) [5] (./wecs_tgrs.aux) ) 
 Here is how much of TeX's memory you used:
- 3216 strings out of 481239
- 51521 string characters out of 5920377
+ 3215 strings out of 481239
+ 51517 string characters out of 5920377
  298124 words of memory out of 5000000
- 18433 multiletter control sequences out of 15000+600000
+ 18432 multiletter control sequences out of 15000+600000
  578051 words of font info for 106 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  30i,10n,27p,2228b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (5 pages, 2160388 bytes).
+{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmri8a.pfb>
+Output written on wecs_tgrs.pdf (5 pages, 2149694 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream

@@ -668,15 +668,15 @@ Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for ch
 
 \section{Real Data Results}\label{section_realdata}
 
-We employed the proposed change detection method on a series of 85 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}(m) = (\mathrm{VV}_{k,l}(m)^2+\mathrm{VH}_{k,l}(m)^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
+We employed the proposed change detection method on a series of 84 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}(m) = (\mathrm{VV}_{k,l}(m)^2+\mathrm{VH}_{k,l}(m)^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
 
 A multi-resolution analysis (MRA) based on a Symlet basis with filter of length 16 (symlet 8) is built.  The images are approximated at resolution level $J=2$.
 
 \begin{figure}[htp!]
 \includegraphics[scale=.13]{../../figs/forest_vSumDifCoefSq}\hspace{-.5cm}(a) 
-\includegraphics[scale=.13]{../../figs/forest_wecs_abscorr}\hspace{-.5cm}(b)\\
-\includegraphics[scale=.11]{../../figs/forest_wecs_change_space}\hspace{-.5cm}(c) 
-\includegraphics[scale=.13]{../../figs/forest_aggreg_ratios}\hspace{-.5cm}(d)\\ 
+\includegraphics[scale=.14]{../../figs/forest_wecs_abscorr}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.10]{../../figs/forest_wecs_change_space}\hspace{-.5cm}(c) 
+\includegraphics[scale=.14]{../../figs/forest_aggreg_ratios}\hspace{-.5cm}(d)\\ 
 \caption{Analysis of change points in time and space of the forest data. (a) Plot of $\vd(m)$, $m=1,\ldots,85$ with orange horizontal line indicating two times its median absolute deviation. (b) Matrix of absolute correlations obtained with WECS. (c) Change regions detected by highlighting the $[n/\log n]$ largest correlations. (d) Change measured with aggregation of absolute differences.}
 \label{F:forest_wecs}
 \end{figure}
