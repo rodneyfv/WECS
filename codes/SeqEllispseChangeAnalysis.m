@@ -33,6 +33,13 @@ imshow(totalchanges)
 title('Total changes', 'FontSize', 17)
 saveas(mImage,sprintf('../figs/total_changes.jpg'))
 
+% first four observed images
+for m=1:4
+    mImage = figure;
+    imshow(mY(:,:,m))
+    saveas(mImage,sprintf('../figs/ellipses_t%d.jpg',m))
+end
+
 %% Analysis of decomposition level
 
 % wavelet basis used

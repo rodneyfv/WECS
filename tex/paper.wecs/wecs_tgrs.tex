@@ -600,17 +600,16 @@ for some arbitrary $\Delta>>0$ (which can be a function of $n$ and $J$). Thence,
 
 \section{Validation on synthetic data}\label{section_validation}
 
-In this section we apply the change detection methods above on synthetic data of multi-temporal images. 
-The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with 1/2 on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a Gaussian distribution with zero mean and variance $1/100$. The first image, $\mathcal{I}(1)$, presents three elongated ellipses. Changes consist of three different types of ellipses that are successively added to the original image $\mathcal{I}(1)$. The second image, $\mathcal{I}(2)$, has new large ellipses added. Smaller ellipses are then added to form $\mathcal{I}(3)$ and $\mathcal{I}(4)$. All the changes made to image $\mathcal{I}(1)$ can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
+In this section we apply the change detection methods above on synthetic data of multi-temporal images. The synthetic multi-temporal images ($n=80$) is obtained by repeating a sequence of four images with different types of changes plus a noise. Examples of the first four of these images are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with ones on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a standard Gaussian distribution. The first image, $\mathcal{I}(1)$, presents three elongated ellipses. The second image $\mathcal{I}(2)$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}(3)$ and $\mathcal{I}(4)$. All the changes made that occur among subsequent images can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
 
 \begin{figure}[htb!]
 \centering
 %\includegraphics[width=40pc]{EllipsoidChanges/ellipses_all}
-\includegraphics[scale=.17]{../../figs/ellipses_t1}
-\includegraphics[scale=.17]{../../figs/ellipses_t2}
-\includegraphics[scale=.17]{../../figs/ellipses_t3}
-\includegraphics[scale=.17]{../../figs/ellipses_t4}
-\caption{Synthetic multi-temporal ($n=4$) images. Features and changes come as ellipses and dots.}
+\includegraphics[scale=.11]{../../figs/ellipses_t1}
+\includegraphics[scale=.11]{../../figs/ellipses_t2}
+\includegraphics[scale=.11]{../../figs/ellipses_t3}
+\includegraphics[scale=.11]{../../figs/ellipses_t4}
+\caption{Example of the first four synthetic multi-temporal images. Features and changes come as white ellipses and dots.}
 \label{F:EllipsoidChanges}
 \end{figure}
 
@@ -624,7 +623,7 @@ The synthetic multi-temporal images ($n=4$) are shown in Figure \ref{F:Ellipsoid
 \label{F:Changes_methods_images}
 \end{figure}
 
-Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated log-ratios, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{il} = \sum_{m=1}^3	|\log\left(\mathcal{I}_{k,l}(m+1)/\mathcal{I}_{k,l}(m)\right)|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}(m)$ instead of $\vX(m)$ in the WECS formulation. 
+Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}(m) - \mathcal{I}_{k,l}(m-1)|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}(m)$ instead of $\vX(m)$ in the WECS formulation. 
 %The spatio-temporal advantages of the proposed wavelet  $\vd(m)$ is clear in Figure \ref{F:Changes_methods_images}(b), which shows that a wavelet smoothing has an expressive capacity of measuring the the changes through correlations of coefficients' deviations, even for the changes corresponding to smaller ellipses.
 
 
@@ -638,10 +637,10 @@ We compute ROC curves to compare the detection performance of different methods 
 \end{enumerate}
 
 \begin{figure}[htp!]
-\includegraphics[scale=.14]{../../figs/methods_comparison}\hspace{-.6cm}(a) 
-\includegraphics[scale=.14]{../../figs/levels_comparison}\hspace{-.5cm}(b)\\
-\includegraphics[scale=.14]{../../figs/families_comparison}\hspace{-.5cm}(c)
-\includegraphics[scale=.14]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
+\includegraphics[scale=.13]{../../figs/methods_comparison}\hspace{-.6cm}(a) 
+\includegraphics[scale=.13]{../../figs/levels_comparison}\hspace{-.5cm}(b)\\
+\includegraphics[scale=.13]{../../figs/families_comparison}\hspace{-.5cm}(c)
+\includegraphics[scale=.13]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
 \caption{ROC curves for detection of changing ellipses in synthetic images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue).
 (b) db2 $\vd(m)$ with different levels.
 (c) $\vd(m)$ with different wavelet bases and J=2;
@@ -649,7 +648,9 @@ We compute ROC curves to compare the detection performance of different methods 
 \label{F:EllipsoidChanges_details}
 \end{figure}
 
-Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the synthetic data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$. We can see that the ROC curves for images treated with deep-learning methods or treated with wavelet based methods are almost identical. The WECS runs in 0.42s, while the deep-learning based $\vd(m)$ runs in 64.68s on a notebook. The configuration of the notebook is: OS - Ubuntu 18.04.5 LTS; RAM 7.7 GB; Intel\textregistered Core\texttrademark $ $i7-8565U CPU @ 1.80GHz x 8; graphics - Mesa Intel\texttrademark UHD Graphics 620 ; GNOME - 3.36.8; OS type - 64-bit. We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}(m)\}$ instead of $\{\vX(m)\}$, and the classic method of analyzing aggregated absolute differences of $\{\mathcal{I}(m)\}$. The ROC curves in Panel (a) show that the proposed WECS outperforms its counterpart without wavelets and that it is competitive with the method using aggregation of differences. 
+Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the synthetic data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$, since it is uses less levels on the decomposition. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$, whereas the other method applies WECS's idea, the only difference being that $\vX(m)$ is replaced by another smooth version of $\mathcal{I}(m)$ that employs neural-networks trained to compete with wavelet smoothing. We can see that the ROC curves for images treated with a deep-learning method has a performance worse than that obtained with WECS. 
+% The WECS runs in 0.42s, while the deep-learning based $\vd(m)$ runs in 64.68s on a notebook. The configuration of the notebook is: OS - Ubuntu 18.04.5 LTS; RAM 7.7 GB; Intel\textregistered Core\texttrademark $ $i7-8565U CPU @ 1.80GHz x 8; graphics - Mesa Intel\texttrademark UHD Graphics 620 ; GNOME - 3.36.8; OS type - 64-bit. 
+We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}(m)\}$ instead of $\{\vX(m)\}$, and the classic method of analyzing aggregated absolute differences of $\{\mathcal{I}(m)\}$. The ROC curves in Panel (a) show that the proposed WECS outperforms both the other two methods. 
 
 %\begin{figure}[htp!]
 %\includegraphics[scale=.14]{../../figs/methods_comparison_F1score}\hspace{-.5cm}(a) 

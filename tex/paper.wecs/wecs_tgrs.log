@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  5 NOV 2021 23:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  6 NOV 2021 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -315,51 +315,51 @@ Underfull \hbox (badness 2103) in paragraph at lines 574--578
  []
 
 [2]
-<../../figs/ellipses_t1.jpg, id=21, 704.6325pt x 605.26125pt>
+<../../figs/ellipses_t1.jpg, id=21, 1106.1325pt x 955.57pt>
 File: ../../figs/ellipses_t1.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t1.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t1.jpg  used on input line 609.
-(pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
-<../../figs/ellipses_t2.jpg, id=22, 704.6325pt x 605.26125pt>
+Package pdftex.def Info: ../../figs/ellipses_t1.jpg  used on input line 608.
+(pdftex.def)             Requested size: 121.67494pt x 105.11302pt.
+<../../figs/ellipses_t2.jpg, id=22, 1106.1325pt x 955.57pt>
 File: ../../figs/ellipses_t2.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t2.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t2.jpg  used on input line 610.
-(pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
-<../../figs/ellipses_t3.jpg, id=23, 704.6325pt x 605.26125pt>
+Package pdftex.def Info: ../../figs/ellipses_t2.jpg  used on input line 609.
+(pdftex.def)             Requested size: 121.67494pt x 105.11302pt.
+<../../figs/ellipses_t3.jpg, id=23, 1106.1325pt x 955.57pt>
 File: ../../figs/ellipses_t3.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t3.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t3.jpg  used on input line 611.
-(pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
-<../../figs/ellipses_t4.jpg, id=24, 704.6325pt x 605.26125pt>
+Package pdftex.def Info: ../../figs/ellipses_t3.jpg  used on input line 610.
+(pdftex.def)             Requested size: 121.67494pt x 105.11302pt.
+<../../figs/ellipses_t4.jpg, id=24, 1122.1925pt x 944.52875pt>
 File: ../../figs/ellipses_t4.jpg Graphic file (type jpg)
 <use ../../figs/ellipses_t4.jpg>
-Package pdftex.def Info: ../../figs/ellipses_t4.jpg  used on input line 612.
-(pdftex.def)             Requested size: 119.78593pt x 102.89304pt.
+Package pdftex.def Info: ../../figs/ellipses_t4.jpg  used on input line 611.
+(pdftex.def)             Requested size: 123.44156pt x 103.89848pt.
 <../../figs/total_changes.jpg, id=25, 1106.1325pt x 955.57pt>
 File: ../../figs/total_changes.jpg Graphic file (type jpg)
 <use ../../figs/total_changes.jpg>
-Package pdftex.def Info: ../../figs/total_changes.jpg  used on input line 619.
+Package pdftex.def Info: ../../figs/total_changes.jpg  used on input line 618.
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
 <../../figs/corr_changes_dm.jpg, id=26, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_dm.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_dm.jpg>
-Package pdftex.def Info: ../../figs/corr_changes_dm.jpg  used on input line 620
+Package pdftex.def Info: ../../figs/corr_changes_dm.jpg  used on input line 619
 .
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
 <../../figs/corr_changes_logratios.jpg, id=27, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_logratios.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_logratios.jpg>
 Package pdftex.def Info: ../../figs/corr_changes_logratios.jpg  used on input l
-ine 621.
+ine 620.
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
 <../../figs/corr_changes_dm_nowavelets.jpg, id=28, 1106.1325pt x 955.57pt>
 File: ../../figs/corr_changes_dm_nowavelets.jpg Graphic file (type jpg)
 <use ../../figs/corr_changes_dm_nowavelets.jpg>
 Package pdftex.def Info: ../../figs/corr_changes_dm_nowavelets.jpg  used on inp
-ut line 622.
+ut line 621.
 (pdftex.def)             Requested size: 110.61972pt x 95.56259pt.
 
-Underfull \hbox (badness 2698) in paragraph at lines 619--623
+Underfull \hbox (badness 2698) in paragraph at lines 618--622
 [][]\OT1/ptm/m/n/10 (a) [](b)
  []
 
@@ -367,72 +367,61 @@ Underfull \hbox (badness 2698) in paragraph at lines 619--623
 File: ../../figs/methods_comparison.jpg Graphic file (type jpg)
 <use ../../figs/methods_comparison.jpg>
 Package pdftex.def Info: ../../figs/methods_comparison.jpg  used on input line 
-641.
-(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
+640.
+(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/levels_comparison.jpg, id=30, 903.375pt x 654.445pt>
 File: ../../figs/levels_comparison.jpg Graphic file (type jpg)
 <use ../../figs/levels_comparison.jpg>
 Package pdftex.def Info: ../../figs/levels_comparison.jpg  used on input line 6
-42.
-(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
+41.
+(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/families_comparison.jpg, id=31, 903.375pt x 654.445pt>
 File: ../../figs/families_comparison.jpg Graphic file (type jpg)
 <use ../../figs/families_comparison.jpg>
 Package pdftex.def Info: ../../figs/families_comparison.jpg  used on input line
- 643.
-(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
+ 642.
+(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/dm_comparison_wavelet_deepL.jpg, id=32, 903.375pt x 654.445pt>
 File: ../../figs/dm_comparison_wavelet_deepL.jpg Graphic file (type jpg)
 <use ../../figs/dm_comparison_wavelet_deepL.jpg>
 Package pdftex.def Info: ../../figs/dm_comparison_wavelet_deepL.jpg  used on in
-put line 644.
-(pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
+put line 643.
+(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--648
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--648
+Underfull \hbox (badness 10000) in paragraph at lines 640--647
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
-52.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [3 <../../figs/ellipses_t1.jpg> <../../figs/ellipses_t2.jpg> <../../figs/elli
-pses_t3.jpg> <../../figs/ellipses_t4.jpg> <../../figs/total_changes.jpg> <../..
-/figs/corr_changes_dm.jpg> <../../figs/corr_changes_logratios.jpg> <../../figs/
-corr_changes_dm_nowavelets.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+[3 <../../figs/ellipses_t1.jpg> <../../figs/ellipses_t2.jpg> <../../figs/ellips
+es_t3.jpg> <../../figs/ellipses_t4.jpg> <../../figs/total_changes.jpg> <../../f
+igs/corr_changes_dm.jpg> <../../figs/corr_changes_logratios.jpg> <../../figs/co
+rr_changes_dm_nowavelets.jpg>]
 <../../figs/forest_vSumDifCoefSq.jpg, id=38, 903.375pt x 654.445pt>
 File: ../../figs/forest_vSumDifCoefSq.jpg Graphic file (type jpg)
 <use ../../figs/forest_vSumDifCoefSq.jpg>
 Package pdftex.def Info: ../../figs/forest_vSumDifCoefSq.jpg  used on input lin
-e 680.
+e 681.
 (pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/forest_wecs_abscorr.jpg, id=39, 903.375pt x 654.445pt>
 File: ../../figs/forest_wecs_abscorr.jpg Graphic file (type jpg)
 <use ../../figs/forest_wecs_abscorr.jpg>
 Package pdftex.def Info: ../../figs/forest_wecs_abscorr.jpg  used on input line
- 681.
+ 682.
 (pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
 <../../figs/forest_wecs_change_space.jpg, id=40, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_wecs_change_space.jpg Graphic file (type jpg)
 <use ../../figs/forest_wecs_change_space.jpg>
 Package pdftex.def Info: ../../figs/forest_wecs_change_space.jpg  used on input
- line 682.
+ line 683.
 (pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
 <../../figs/forest_aggreg_ratios.jpg, id=41, 903.375pt x 654.445pt>
 File: ../../figs/forest_aggreg_ratios.jpg Graphic file (type jpg)
 <use ../../figs/forest_aggreg_ratios.jpg>
 Package pdftex.def Info: ../../figs/forest_aggreg_ratios.jpg  used on input lin
-e 683.
+e 684.
 (pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--684
+Underfull \hbox (badness 10000) in paragraph at lines 681--685
 
  []
 
@@ -440,35 +429,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 680--684
 File: ../../figs/forest_changes_time.jpg Graphic file (type jpg)
 <use ../../figs/forest_changes_time.jpg>
 Package pdftex.def Info: ../../figs/forest_changes_time.jpg  used on input line
- 690.
+ 691.
 (pdftex.def)             Requested size: 271.01459pt x 196.335pt.
 
-Overfull \hbox (19.01459pt too wide) in paragraph at lines 690--691
+Overfull \hbox (19.01459pt too wide) in paragraph at lines 691--692
 [][] 
  []
 
 <../../figs/forest_change.jpg, id=43, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_change.jpg Graphic file (type jpg)
 <use ../../figs/forest_change.jpg>
-Package pdftex.def Info: ../../figs/forest_change.jpg  used on input line 696.
+Package pdftex.def Info: ../../figs/forest_change.jpg  used on input line 697.
 (pdftex.def)             Requested size: 122.88948pt x 105.33385pt.
 <../../figs/forest_nonchange.jpg, id=44, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_nonchange.jpg Graphic file (type jpg)
 <use ../../figs/forest_nonchange.jpg>
 Package pdftex.def Info: ../../figs/forest_nonchange.jpg  used on input line 69
-7.
+8.
 (pdftex.def)             Requested size: 122.88948pt x 105.33385pt.
 <../../figs/forest_roc_change.jpg, id=45, 903.375pt x 654.445pt>
 File: ../../figs/forest_roc_change.jpg Graphic file (type jpg)
 <use ../../figs/forest_roc_change.jpg>
 Package pdftex.def Info: ../../figs/forest_roc_change.jpg  used on input line 6
-98.
+99.
 (pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/forest_roc_nonchange.jpg, id=46, 903.375pt x 654.445pt>
 File: ../../figs/forest_roc_nonchange.jpg Graphic file (type jpg)
 <use ../../figs/forest_roc_nonchange.jpg>
 Package pdftex.def Info: ../../figs/forest_roc_nonchange.jpg  used on input lin
-e 699.
+e 700.
 (pdftex.def)             Requested size: 126.47163pt x 91.62167pt.
 (./wecs_tgrs.bbl [4 <../../figs/methods_comparison.jpg> <../../figs/levels_comp
 arison.jpg> <../../figs/families_comparison.jpg> <../../figs/dm_comparison_wave
@@ -480,13 +469,13 @@ jpg> <../../figs/forest_nonchange.jpg> <../../figs/forest_roc_change.jpg> <../.
 
 ] (./wecs_tgrs.aux) ) 
 Here is how much of TeX's memory you used:
- 3252 strings out of 481239
- 52690 string characters out of 5920377
+ 3227 strings out of 481239
+ 52322 string characters out of 5920377
  298132 words of memory out of 5000000
- 18465 multiletter control sequences out of 15000+600000
- 578051 words of font info for 106 fonts, out of 8000000 for 9000
+ 18444 multiletter control sequences out of 15000+600000
+ 577737 words of font info for 105 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 30i,10n,27p,2228b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,10n,27p,1767b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
@@ -501,7 +490,7 @@ mbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (6 pages, 2078006 bytes).
+Output written on wecs_tgrs.pdf (6 pages, 3492473 bytes).
 PDF statistics:
  101 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream
