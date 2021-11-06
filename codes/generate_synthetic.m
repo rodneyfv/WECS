@@ -33,17 +33,17 @@ colormap(gray(256)); imagesc(im1_obs+im2_obs+im3_obs+im4_obs)
 % saving the synthetic images
 mImage = cast(100*(im1_obs),'uint8');
 imshow(mImage)
-imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png'))
+%imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png'))
 
 mImage = cast(100*(im2_obs),'uint8');
 imshow(mImage)
-imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png'))
+%imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png'))
 
 mImage = cast(100*(im3_obs),'uint8');
 imshow(mImage)
-imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png'))
+%imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png'))
 
 mImage = cast(100*(im4_obs),'uint8');
 imshow(mImage)
-imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png'))
+%imwrite(mImage,sprintf('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png'))
 

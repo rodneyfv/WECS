@@ -24,7 +24,7 @@ totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
 mImage = figure;
 imshow(totalchanges)
 title('Total changes', 'FontSize', 17)
-saveas(mImage,sprintf('../figs/total_changes.jpg'))
+%saveas(mImage,sprintf('../figs/total_changes.jpg'))
 
 %%
 eps = .00001;

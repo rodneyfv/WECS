@@ -5,41 +5,42 @@
 close all
 clear;
 %%
-im1 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle1.png');
-im2 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle2.png');  
-im3 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle3.png');  
-im4 = imread('../figs/ImagesWithEllipsoidChanges/ImageEllipseSpeckle4.png');  
 
-%
-% Images are too big, consider subsampling
-subsamplingfactor = 2;
-im1 = im1(1:subsamplingfactor:end,1:subsamplingfactor:end);
-im2 = im2(1:subsamplingfactor:end,1:subsamplingfactor:end);
-im3 = im3(1:subsamplingfactor:end,1:subsamplingfactor:end);
-im4 = im4(1:subsamplingfactor:end,1:subsamplingfactor:end);
-totalchanges = imread('../figs/GroundTruthEllipsoidChanges/TotalEllipseChanges.png');  
-totalchanges = totalchanges(1:subsamplingfactor:end,1:subsamplingfactor:end);
-%
-figure
-imshow(totalchanges)
-title('Total changes')
+% code that generates a sequence of synthetic images
 
-%%
-eps = .00001;
-im1log = eps+double(im1);
-im2log = eps+double(im2);
-im3log = eps+double(im3);
-im4log = eps+double(im4);
-n=4;
-imRef = im1log + im2log + im3log + im4log;
-    imRef = imRef/n;
+% Subsampling of images
+subsamplingfactor = 8;
+% noise level used
+sig = 1;
+% size of the sequence (must be multiple of 4)
+n = 80;
+% running code
+generate_synthetic_sequence
+
+% output
+size(mI) % true images
+size(mY) % sequence of synthetic images
+% number of rows and columns
+n1 = size(mY,1);
+n2 = size(mY,2);
+
+% all changes that are expected to be detected
+totalchanges = (abs(mI(:,:,1)-mI(:,:,2)) + abs(mI(:,:,2)-mI(:,:,3)) + ...
+    abs(mI(:,:,3)-mI(:,:,4)) + abs(mI(:,:,4)-mI(:,:,1)))>0;
+mImage = figure;
+colormap(gray(256)); imagesc(totalchanges)
+title('Total changes', 'FontSize', 17)
+%saveas(mImage,sprintf('../figs/total_changes.jpg'))
+
+% mean observed image
+imRef = mean(mY,3);
 
 % decomposition level fixed
 J = 2;
 
-%% Case 1 : reference image 
+%%
 
-% Wavelet basis: Haar
+% Wavelet basis
 wname = 'haar';
 
 [X1,~,~,~] = swt2(im1log,J,wname);
