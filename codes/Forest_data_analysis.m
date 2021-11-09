@@ -69,6 +69,7 @@ imRef = imRef/normconst;
 
 % resolution level used on wavelet decompositions
 J = 2;
+meanSNR = 0;
 
 for m=1:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
@@ -82,8 +83,14 @@ for m=1:n
     [tmp2,~,~,~] = swt2(tmp(1:2^pwr2,1:2^pwr2),J,wname);
     % sqared mean deviations of level J approx. coeff.
     mDifCoefSq(:,:,m) = (tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J) - imRef).^2;
+    % mean SNR of observed images
+    meanSNR = meanSNR + ...
+        norm(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J),'fro')/(norm(data,'fro')*n);
 end
 clear Y t tmp tmp2
+
+% mean SNR for observed images
+meanSNR
 
 % vector with total sum of squared mean deviations for each image
 vSumDifCoefSq = reshape(sum(sum(mDifCoefSq,1),2),1,n);

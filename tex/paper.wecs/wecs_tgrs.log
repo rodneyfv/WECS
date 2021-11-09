@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  9 NOV 2021 19:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  9 NOV 2021 20:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,44 +438,42 @@ Overfull \hbox (19.01459pt too wide) in paragraph at lines 683--684
 <../../figs/forest_change.jpg, id=50, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_change.jpg Graphic file (type jpg)
 <use ../../figs/forest_change.jpg>
-Package pdftex.def Info: ../../figs/forest_change.jpg  used on input line 703.
+Package pdftex.def Info: ../../figs/forest_change.jpg  used on input line 705.
 (pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
 <../../figs/forest_roc_change.jpg, id=51, 903.375pt x 654.445pt>
 File: ../../figs/forest_roc_change.jpg Graphic file (type jpg)
 <use ../../figs/forest_roc_change.jpg>
 Package pdftex.def Info: ../../figs/forest_roc_change.jpg  used on input line 7
-04.
+06.
 (pdftex.def)             Requested size: 135.5004pt x 98.1625pt.
 <../../figs/forest_wecs_abscorr.jpg, id=52, 903.375pt x 654.445pt>
 File: ../../figs/forest_wecs_abscorr.jpg Graphic file (type jpg)
 <use ../../figs/forest_wecs_abscorr.jpg>
 Package pdftex.def Info: ../../figs/forest_wecs_abscorr.jpg  used on input line
- 705.
+ 707.
 (pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/forest_aggreg_ratios.jpg, id=53, 903.375pt x 654.445pt>
 File: ../../figs/forest_aggreg_ratios.jpg Graphic file (type jpg)
 <use ../../figs/forest_aggreg_ratios.jpg>
 Package pdftex.def Info: ../../figs/forest_aggreg_ratios.jpg  used on input lin
-e 706.
+e 708.
 (pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
 <../../figs/forest_wecs_change_space.jpg, id=54, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_wecs_change_space.jpg Graphic file (type jpg)
 <use ../../figs/forest_wecs_change_space.jpg>
 Package pdftex.def Info: ../../figs/forest_wecs_change_space.jpg  used on input
- line 707.
+ line 709.
 (pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
 <../../figs/forest_aggreg_change_space.jpg, id=55, 1117.17375pt x 957.5775pt>
 File: ../../figs/forest_aggreg_change_space.jpg Graphic file (type jpg)
 <use ../../figs/forest_aggreg_change_space.jpg>
 Package pdftex.def Info: ../../figs/forest_aggreg_change_space.jpg  used on inp
-ut line 708.
+ut line 710.
 (pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
  (./wecs_tgrs.bbl [5 <../../figs/forest_changes_time.jpg> <../../figs/forest_ch
 ange.jpg> <../../figs/forest_roc_change.jpg> <../../figs/forest_wecs_abscorr.jp
 g> <../../figs/forest_aggreg_ratios.jpg> <../../figs/forest_wecs_change_space.j
-pg> <../../figs/forest_aggreg_change_space.jpg>]) [6
-
-] (./wecs_tgrs.aux)
+pg> <../../figs/forest_aggreg_change_space.jpg>]) [6] (./wecs_tgrs.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -487,7 +485,7 @@ Here is how much of TeX's memory you used:
  18446 multiletter control sequences out of 15000+600000
  579461 words of font info for 107 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 30i,10n,27p,1767b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,10n,27p,1767b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -504,7 +502,7 @@ ve/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on wecs_tgrs.pdf (6 pages, 3743493 bytes).
+Output written on wecs_tgrs.pdf (6 pages, 3743856 bytes).
 PDF statistics:
  115 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream

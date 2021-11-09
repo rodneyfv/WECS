@@ -7,7 +7,7 @@ close all
 clear;
 %%
 
-% code that generates a sequence of synthetic images
+% code that generates a sequence of simulated images
 
 % Subsampling of images
 subsamplingfactor = 2;
@@ -17,6 +17,13 @@ sig = 1;
 n = 80;
 % running code
 generate_synthetic_sequence
+
+% mean SNR of simulated images
+meanSNR = 0;
+for m=1:4
+    meanSNR = meanSNR + norm(mI(:,:,m),'fro')/(4*norm(mY(:,:,m),'fro'));
+end
+meanSNR
 
 % output
 size(mI) % true images
