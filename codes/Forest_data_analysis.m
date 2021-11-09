@@ -63,6 +63,7 @@ for m=1:n
     imRef = imRef + double(Y(:,:,1).^2 + Y(:,:,2).^2);
 end
 imRef = imRef/n;
+% constant to make the mean matrix have norm one
 normconst = norm(imRef);
 imRef = imRef/normconst;
 
@@ -106,12 +107,20 @@ for m = [25 27 30]
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
     data = double(Y(:,:,1).^2 + Y(:,:,2).^2);
+    
+    % extending image to be able to use swt2
+    pwr2 = ceil(log2(min([Nx Ny])));
+    extens = ceil((2^pwr2 - min([Nx Ny]))/2);
+    tmp = wextend('2D','per',data,extens); % matrix whose dim is power of 2
+    % wavelet approximation for log of VV chanel
+    [tmp2,~,~,~] = swt2(tmp(1:2^pwr2,1:2^pwr2),J,wname);
+
     subplot(2,2,cont); cont = cont + 1;
-    imagesc(data)
+    colormap(gray(256)); imagesc(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J))    
     title(sprintf('m=%2d',m)); axis off;
 end
 subplot(2,2,4)
-imagesc(imRef); title('Mean image'); axis off;
+colormap(gray(256)); imagesc(imRef); title('Mean image'); axis off;
 saveas(mImage,sprintf('../figs/forest_changes_time.jpg'))
 
 
@@ -130,12 +139,13 @@ axis off; colorbar
 set(gca,'FontSize',13)
 saveas(mImage,sprintf('../figs/forest_wecs_abscorr.jpg'))
 
-
 %histogram(mCorr(:))
 mImage = figure;
 cutoff = quantile(mCorr(:),1-1/log(Nx*Ny));
 imshow(mCorr>cutoff)
 saveas(mImage,sprintf('../figs/forest_wecs_change_space.jpg'))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Aggregation of differences
 S = zeros(Nx,Ny);
@@ -158,6 +168,14 @@ axis off; colorbar
 set(gca,'FontSize',13)
 saveas(mImage,sprintf('../figs/forest_aggreg_ratios.jpg'))
 
+cutoff_S_KI = kittler(S); % Kittler-Illingworth threshold
+cutoff_S_Otsu = graythresh(S); % Otsu's threshold
+
+mImage = figure;
+imshow(S>cutoff_S_Otsu)
+saveas(mImage,sprintf('../figs/forest_aggreg_change_space.jpg'))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % reading the reference image with change and nonchange locations
 t = Tiff('../figs/change_nonchange.tif','r');
@@ -172,9 +190,15 @@ mImage = figure;
 imshow(mNonchange)
 saveas(mImage,sprintf('../figs/forest_nonchange.jpg'))
 
-% detection of change regions
-[D_wecs,FA_wecs] = ROCcurveNew(mCorr/max(mCorr(:)),mChange); close
-[D_agg,FA_agg] = ROCcurveNew(S/max(S(:)),mChange); close
+% Computing F1-score for WECS and image using aggregation
+
+% F1-score for changing regions
+[F1, Pr, Re] = F1score(mCorr>cutoff,mChange)
+[F1, Pr, Re] = F1score(S>cutoff_S_KI,mChange)
+[F1, Pr, Re] = F1score(S>cutoff_S_Otsu,mChange)
+
+imgdiff = 2*255*(mCorr>cutoff) - mChange;
+tp = numel(find(imgdiff==255));
 
 mImage = figure;
 hold on
