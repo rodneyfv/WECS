@@ -562,7 +562,6 @@ where $vec(\vD(m))$ is the $p\times 1$ vector of wavelet coefficients for time $
 \label{E:sparsemodel_d}
 \end{equation}
 where $\vbeta$ is sparse, i.e., it has $p-s_d$ null elements, and $\vxi^{(d)}$ is some $n\times 1$ random vector of errors.
-%\citep{jonhstone2009} 
 
 In order to identify spatio-temporal changes, we employ the idea of ultra-high dimensional correlation screening \cite{fan2020statistical} as follows. For each local squared mean deviation time series, given by individual elements of $\vD(m)$ across $m=1,\ldots,n$, consider the absolute value of its Pearson correlation with the overall squared mean deviations, given by $\vd$:
 \begin{equation*}
@@ -570,6 +569,15 @@ R_{k,l}= |\corr\left( \vD_{k,l}, \vd\right)|,
 \label{def_Rkld}
 \end{equation*}
 where $\vD_{k,l}=(D_{k,l}(1),\ldots,D_{k,l}(n))^T$ is the time series of squared mean deviations of wavelet coefficients for the two-dimensional index $\{k,l\}$.
+
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[scale=.45]{../../drawio/diagram_wecs.drawio}
+\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
+\label{F:EllipsoidChanges}
+\end{figure}
+
 
 We have a matrix $\vR=[R_{k,l}]$ of correlations of ultra-high dimension. Define the set of 
 {\it important} indices for changes in images with respect to $\bar{\mathcal I}$ as 
