@@ -341,6 +341,7 @@
 % Basically, \url{my_url_here}.
 
 
+%DEFS. RODNEY%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\bSig\mathbf{\Sigma}
 \newcommand{\VS}{V\&S}
 \usepackage{url}
@@ -378,6 +379,42 @@
 \newcommand{\vT}{{\textbf T}}
 \newcommand{\vt}{{\textbf t}}
 
+
+\usepackage{hyperref}
+
+%DEFS. ROGERIO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{graphicx}
+
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{color,colortbl}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{cite}
+\usepackage{balance}
+
+\usepackage{bm,bbm}
+\usepackage{datetime2}
+\usepackage[binary-units]{siunitx}
+
+\usepackage{mathrsfs}
+
+\usepackage{placeins}
+
+\usepackage[abs]{overpic}
+\usepackage{pict2e}
+%\usepackage{float}
+\usepackage{microtype}
+\usepackage{pdfpages}
+
+\makeatletter
+\newcommand{\thickhline}{\noalign {\ifnum 0=`}\fi \hrule height 1pt \futurelet \reserved@a \@xhline}
+\newcolumntype{"}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
 % There should be no need to do such things with IEEEtran.cls V1.6 and later.
@@ -414,7 +451,9 @@
         and~Abdourrahmane~Atto,~\IEEEmembership{Senior~Member,~IEEE}% <-this % stops a space
 \thanks{This work was supported by FAPESP grants 2016/24469-6 and 2018/04654-9 and CNPq grants 309230/2017-9 and 310991/2020-0.}
 \thanks{R.~Fonseca and A.~Pinheiro are with the Department of Statistics, University of Campinas, Campinas 13083-859, Brazil (e-mails: ra192588@dac.unicamp.br; pinheiro@ime.unicamp.br).}
-\thanks{A.~Atto is with the LISTIC - Polytech Annecy-Chamb\'{e}ry, Universit\'{e} de Savoie, 74944 Annecy le Vieux Cedex, France (e-mail: Abdourrahmane.Atto@univ-savoie.fr).}}
+\thanks{A.~Atto is with the LISTIC - Polytech Annecy-Chamb\'{e}ry, Universit\'{e} de Savoie, 74944 Annecy le Vieux Cedex, France (e-mail: Abdourrahmane.Atto@univ-savoie.fr).}
+\thanks{R.~G.~Negri is with the Department of Environmental Engineering, São Paulo State University, São José dos Campos, Brazil (e-mail: rogerio.negri@unesp.br).}
+}
 % <-this % stops a space
 %\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 
@@ -518,7 +557,7 @@ Change detection, multi-temporal images, satellite images, wavelets.
 A review for change detection in multi-temporal remote sensing is given by \cite{ban2016change}. 
 Different proposals for this purpose may be found  in the literature. They vary in their motivations as well as in their applicability.  Change detection in multi-temporal hyperspectral images is discussed in \cite{bovolo2015time},  \cite{liu2019review}, and \cite{matsunaga2017current}.  \cite{jia2018novel} pursue change detection techniques via non-local means and principal component analysis. Compressed projection and image fusion are employed by \cite{hou2014unsupervised}. Deep learning by slow feature analysis for change detection is the subject of \cite{du2019unsupervised}. \cite{chen2020change} proposes a change detection method driven by adaptive parameter estimation.
 
-Besides different methodological paradigms, several areas of application receive special attention.  For instance, urban change detection applications via polarimetric SAR (POLSAR) images are discussed in \cite{ansari2020urban}. \cite{song2018multi} discusses land cover change detection in mountainous terrain via multi-temporal and multi-sensor remote sensing images. \cite{ru2021multi} studies multi-temporal scene classification and scene change detection. Deforestation change detection is discussed by \cite{barreto2016deforestation}. 
+Besides different methodological paradigms, several areas of application receive special attention.  \cite{song2018multi} discusses land cover change detection in mountainous terrain via multi-temporal and multi-sensor remote sensing images. \cite{ru2021multi} studies multi-temporal scene classification and scene change detection. Deforestation change detection is discussed by \cite{barreto2016deforestation}. 
 
 Wavelet methods present many advantages for a plethora of applications \cite{vidakovic1999statistical} thanks to wavelet capabilities in capturing multiscale/multiresolution information. Their computational efficiency and sparseness are specially relevant for large images and other high-dimensional data \cite{morettin2017wavelets}. \cite{atto2012multidate}, \cite{bouhlel2015multivariate}, \cite{celik2009multiscale}, \cite{cui2012statistical} use different wavelet methods for change detection in satellite images. 
 
@@ -607,8 +646,7 @@ for some arbitrary $\Delta>>0$ (which can be a function of $n$ and $J$). Thence,
 
 \section{Experiments}
 
-\subsection{Simulated images}
-\label{section_validation}
+\subsection{Simulated data analysis}\label{secExpSimulated}
 
 In this section we apply the change detection methods above on simulated data of multi-temporal images. The simulated multi-temporal images ($n=80$) is obtained by repeating a sequence of four images with different types of changes plus a noise. Examples of the first four of these images are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with ones on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a standard Gaussian distribution. The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
 
@@ -662,10 +700,31 @@ We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compa
 
 
 
-\subsection{Real Data}
-\label{section_realdata}
+\subsection{Actual remote sensing application}\label{secExpActual}
 
 We employed the proposed change detection method on a series of 84 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}^{(m)} = ((\mathrm{VV}_{k,l}^{(m)})^2+(\mathrm{VH}_{k,l}^{(m)})^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
+
+%-----------------------
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=0.485\textwidth]{../../qgis/maps/StudyArea.pdf}
+\caption{Study area location. \textcolor{red}{(preliminar)}}\label{figAE}
+\end{figure}
+
+
+%-----------------------
+\begin{figure}[hbt]
+\centering
+
+\mbox{
+\subfigure[26th December, 2015]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/Sentinel_2015.pdf}\label{figImgSentinel2015}} 
+\subfigure[3rd December, 2017]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/Sentinel_2017.pdf}\label{figImgSentinel2017}}
+}
+
+\subfigure[Ground truth change/non-change samples]{\includegraphics[width=0.23\textwidth]{../../figs/coming-soon.png}\label{figImgSentinelROIs}}
+
+\caption{\textcolor{red}{Inserir caption...}}\label{figImageRef}
+\end{figure}
 
 A multi-resolution analysis based on a Symlet basis with filter of length 16 (symlet 8) is built. In order to have dimensions as power of 2, the matrices $\mathcal{I}_{k,l}$ are extended to a $2048\times2048$ matrix with $\mathcal{I}_{k,l}$ at the center and the remaining parts being completed with mirrored values at the borders. The wavelet transform at resolution level $J=2$ is applied to these matrices and only the portion corresponding to the $1538 \times 1556$ is kept for further processing. Then, we are able to compute the squared mean differences vector $\vd$ and the matrix of absolute correlations $\vR$. 
 
