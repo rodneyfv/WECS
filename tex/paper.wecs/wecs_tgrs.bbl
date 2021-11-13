@@ -26,6 +26,27 @@ Y.~Ban and O.~Yousif, ``Change detection techniques: A review,'' in
   \emph{Multitemporal Remote Sensing}, Y.~Ban, Ed.\hskip 1em plus 0.5em minus
   0.4em\relax Cham: Springer, 2016, pp. 19--43.
 
+\bibitem{bruzzone2000automatic}
+L.~Bruzzone and D.~F. Prieto, ``Automatic analysis of the difference image for
+  unsupervised change detection,'' \emph{IEEE Transactions on Geoscience and
+  Remote Sensing}, vol.~38, no.~3, pp. 1171--1182, 2000.
+
+\bibitem{celik2010change}
+T.~Celik, ``Change detection in satellite images using a genetic algorithm
+  approach,'' \emph{IEEE Geoscience and Remote Sensing Letters}, vol.~7, no.~2,
+  pp. 386--390, 2010.
+
+\bibitem{quin2014mimosa}
+G.~Quin, B.~Pinel-Puyssegur, J.-M. Nicolas, and P.~Loreaux, ``{MIMOSA}: An
+  automatic change detection method for sar time series,'' \emph{IEEE
+  Transactions on Geoscience and Remote Sensing}, vol.~52, no.~9, pp.
+  5349--5363, 2014.
+
+\bibitem{saha2020change}
+S.~Saha, F.~Bovolo, and L.~Bruzzone, ``Change detection in image time-series
+  using unsupervised {LSTM},'' \emph{IEEE Geoscience and Remote Sensing
+  Letters}, 2020.
+
 \bibitem{bovolo2015time}
 F.~Bovolo and L.~Bruzzone, ``The time variable in data fusion: A change
   detection perspective,'' \emph{IEEE Geoscience and Remote Sensing Magazine},
@@ -67,12 +88,6 @@ B.~Du, L.~Ru, C.~Wu, and L.~Zhang, ``Unsupervised deep slow feature analysis
 Y.~Chen, Z.~Ming, and M.~Menenti, ``Change detection algorithm for
   multi-temporal remote sensing images based on adaptive parameter
   estimation,'' \emph{IEEE Access}, vol.~8, pp. 106\,083--106\,096, 2020.
-
-\bibitem{ansari2020urban}
-R.~A. Ansari, K.~M. Buddhiraju, and R.~Malhotra, ``Urban change detection
-  analysis utilizing multiresolution texture features from polarimetric {SAR}
-  images,'' \emph{Remote Sensing Applications: Society and Environment},
-  vol.~20, p. 100418, 2020.
 
 \bibitem{song2018multi}
 F.~Song, Z.~Yang, X.~Gao, T.~Dan, Y.~Yang, W.~Zhao, and R.~Yu, ``Multi-scale
