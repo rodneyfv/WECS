@@ -21,6 +21,24 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{barreto2016deforestation}
+T.~L. Barreto, R.~A. Rosa, C.~Wimmer, J.~B. Nogueira, J.~Almeida, and F.~A.~M.
+  Cappabianco, ``Deforestation change detection using high-resolution
+  multi-temporal {X}-band {SAR} images and supervised learning
+  classification,'' in \emph{2016 IEEE International Geoscience and Remote
+  Sensing Symposium (IGARSS)}.\hskip 1em plus 0.5em minus 0.4em\relax Beijing,
+  China: IEEE, 2016, pp. 5201--5204.
+
+\bibitem{ban2012multitemporal}
+Y.~Ban and O.~A. Yousif, ``Multitemporal spaceborne {SAR} data for urban change
+  detection in {C}hina,'' \emph{IEEE Journal of Selected Topics in Applied
+  Earth Observations and Remote Sensing}, vol.~5, no.~4, pp. 1087--1094, 2012.
+
+\bibitem{scher2021mapping}
+C.~Scher, N.~C. Steiner, and K.~C. McDonald, ``Mapping seasonal glacier melt
+  across the {H}indu {K}ush {H}imalaya with time series synthetic aperture
+  radar ({SAR}),'' \emph{The Cryosphere}, vol.~15, no.~9, pp. 4465--4482, 2021.
+
 \bibitem{ban2016change}
 Y.~Ban and O.~Yousif, ``Change detection techniques: A review,'' in
   \emph{Multitemporal Remote Sensing}, Y.~Ban, Ed.\hskip 1em plus 0.5em minus
@@ -38,7 +56,7 @@ T.~Celik, ``Change detection in satellite images using a genetic algorithm
 
 \bibitem{quin2014mimosa}
 G.~Quin, B.~Pinel-Puyssegur, J.-M. Nicolas, and P.~Loreaux, ``{MIMOSA}: An
-  automatic change detection method for sar time series,'' \emph{IEEE
+  automatic change detection method for {SAR} time series,'' \emph{IEEE
   Transactions on Geoscience and Remote Sensing}, vol.~52, no.~9, pp.
   5349--5363, 2014.
 
@@ -89,24 +107,10 @@ Y.~Chen, Z.~Ming, and M.~Menenti, ``Change detection algorithm for
   multi-temporal remote sensing images based on adaptive parameter
   estimation,'' \emph{IEEE Access}, vol.~8, pp. 106\,083--106\,096, 2020.
 
-\bibitem{song2018multi}
-F.~Song, Z.~Yang, X.~Gao, T.~Dan, Y.~Yang, W.~Zhao, and R.~Yu, ``Multi-scale
-  feature based land cover change detection in mountainous terrain using
-  multi-temporal and multi-sensor remote sensing images,'' \emph{IEEE Access},
-  vol.~6, pp. 77\,494--77\,508, 2018.
-
-\bibitem{ru2021multi}
-L.~Ru, B.~Du, and C.~Wu, ``Multi-temporal scene classification and scene change
-  detection with correlation based fusion,'' \emph{IEEE Transactions on Image
-  Processing}, vol.~30, pp. 1382--1394, 2021.
-
-\bibitem{barreto2016deforestation}
-T.~L. Barreto, R.~A. Rosa, C.~Wimmer, J.~B. Nogueira, J.~Almeida, and F.~A.~M.
-  Cappabianco, ``Deforestation change detection using high-resolution
-  multi-temporal {X}-band {SAR} images and supervised learning
-  classification,'' in \emph{2016 IEEE International Geoscience and Remote
-  Sensing Symposium (IGARSS)}.\hskip 1em plus 0.5em minus 0.4em\relax Beijing,
-  China: IEEE, 2016, pp. 5201--5204.
+\bibitem{bovolo2005detail}
+F.~Bovolo and L.~Bruzzone, ``A detail-preserving scale-driven approach to
+  change detection in multitemporal {SAR} images,'' \emph{IEEE Transactions on
+  Geoscience and Remote Sensing}, vol.~43, no.~12, pp. 2963--2972, 2005.
 
 \bibitem{vidakovic1999statistical}
 B.~Vidakovic, \emph{Statistical Modeling by Wavelets}.\hskip 1em plus 0.5em
@@ -142,6 +146,11 @@ S.~Cui and M.~Datcu, ``Statistical wavelet subband modeling for multi-temporal
 \bibitem{fan2020statistical}
 J.~Fan, R.~Li, C.-H. Zhang, and H.~Zou, \emph{Statistical Foundations of Data
   Science}.\hskip 1em plus 0.5em minus 0.4em\relax Boca Raton: CRC Press, 2020.
+
+\bibitem{fan2008sure}
+J.~Fan and J.~Lv, ``Sure independence screening for ultrahigh dimensional
+  feature space,'' \emph{Journal of the Royal Statistical Society: Series B},
+  vol.~70, no.~5, pp. 849--911, 2008.
 
 \bibitem{coifman1995translation}
 R.~R. Coifman and D.~L. Donoho, ``Translation-invariant de-noising,'' in
