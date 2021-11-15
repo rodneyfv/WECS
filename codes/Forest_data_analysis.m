@@ -105,7 +105,7 @@ xlabel('$m$','interpreter','latex','FontSize',20); xlim([0 n])
 ylabel('$\textbf{d}(m)$','interpreter','latex','FontSize',20);
 set(gca,'FontSize',13)
 hold off
-saveas(mImage,sprintf('../figs/forest_vSumDifCoefSq.jpg'))
+%saveas(mImage,sprintf('../figs/forest_vSumDifCoefSq.jpg'))
 
 % checking the images corresponding to change points in time
 mImage = figure;
@@ -128,7 +128,7 @@ for m = [25 27 30]
 end
 subplot(2,2,4)
 colormap(gray(256)); imagesc(imRef); title('Mean image'); axis off;
-saveas(mImage,sprintf('../figs/forest_changes_time.jpg'))
+%saveas(mImage,sprintf('../figs/forest_changes_time.jpg'))
 
 
 % computing correlations
@@ -144,13 +144,13 @@ mImage = figure;
 imagesc(mCorr)
 axis off; colorbar
 set(gca,'FontSize',13)
-saveas(mImage,sprintf('../figs/forest_wecs_abscorr.jpg'))
+%saveas(mImage,sprintf('../figs/forest_wecs_abscorr.jpg'))
 
 %histogram(mCorr(:))
 mImage = figure;
 cutoff = quantile(mCorr(:),1-1/log(Nx*Ny));
 imshow(mCorr>cutoff)
-saveas(mImage,sprintf('../figs/forest_wecs_change_space.jpg'))
+%saveas(mImage,sprintf('../figs/forest_wecs_change_space.jpg'))
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
