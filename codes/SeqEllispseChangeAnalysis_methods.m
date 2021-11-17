@@ -6,6 +6,8 @@ close all
 clear;
 %%
 
+rng(2021)
+
 % code that generates a sequence of synthetic images
 
 % Subsampling of images
@@ -124,6 +126,11 @@ saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
 [TP_nowecs,FP_nowecs] = ROCcurveNew(R_nowecs,255*totalchanges); close
 [TP_agg,FP_agg]=ROCcurveNew(S,255*totalchanges); close
 
+% saving results in a csv file
+mResults = array2table([TP_wecs; FP_wecs; TP_nowecs; FP_nowecs; TP_agg; FP_agg]');
+mResults.Properties.VariableNames = {'TP_wecs' 'FP_wecs' 'TP_nowecs' 'FP_nowecs' 'TP_agg' 'FP_agg'};
+writetable(mResults,'SeqEllipse_methods_ROC.csv')
+
 mImage = figure;
 hold on
 %title('ROC Curve', 'FontSize', 17)
@@ -145,6 +152,11 @@ saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
 [vp_wecs,FP_wecs,~,~] = F1Scorecurve(R_wecs,255*totalchanges); close
 [vp_nowecs,FP_nowecs,~,~] = F1Scorecurve(R_nowecs,255*totalchanges); close
 [vp_agg,FP_agg,~,~] = F1Scorecurve(S,255*totalchanges); close
+
+mResults = array2table([vp_wecs; FP_wecs; vp_nowecs; FP_nowecs; vp_agg; FP_agg]');
+mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_nowecs' 'FP_nowecs' 'vp_agg' 'FP_agg'};
+writetable(mResults,'SeqEllipse_methods_F1score.csv')
+
 
 mImage = figure;
 hold on

@@ -7,6 +7,8 @@ close all
 clear;
 %%
 
+rng(2021)
+
 % code that generates a sequence of simulated images
 
 % Subsampling of images
@@ -71,6 +73,14 @@ end
 [TP_J4,FP_J4] = ROCcurveNew(R_levels(:,:,4),255*totalchanges); close
 [TP_J5,FP_J5] = ROCcurveNew(R_levels(:,:,5),255*totalchanges); close
 
+% saving results in a csv file
+mResults = array2table([TP_J1 ; FP_J1; TP_J2 ; FP_J2; TP_J3 ; FP_J3;...
+    TP_J4 ; FP_J4; TP_J5 ; FP_J5]');
+mResults.Properties.VariableNames = {'TP_J1' 'FP_J1' 'TP_J2' 'FP_J2'...
+    'TP_J3' 'FP_J3' 'TP_J4' 'FP_J4' 'TP_J5' 'FP_J5'};
+writetable(mResults,'SeqEllipse_levels_ROC.csv')
+
+
 mImage = figure;
 hold on
 %title('ROC Curve', 'FontSize', 17)
@@ -94,6 +104,12 @@ saveas(mImage,sprintf('../figs/levels_comparison.jpg'))
 [vp_J3,FP_J3] = F1Scorecurve(R_levels(:,:,3),255*totalchanges); close
 [vp_J4,FP_J4] = F1Scorecurve(R_levels(:,:,4),255*totalchanges); close
 [vp_J5,FP_J5] = F1Scorecurve(R_levels(:,:,5),255*totalchanges); close
+
+mResults = array2table([vp_J1 ; FP_J1; vp_J2 ; FP_J2; vp_J3 ; FP_J3;...
+    vp_J4 ; FP_J4; vp_J5 ; FP_J5]');
+mResults.Properties.VariableNames = {'vp_J1' 'FP_J1' 'vp_J2' 'FP_J2'...
+    'vp_J3' 'FP_J3' 'vp_J4' 'FP_J4' 'vp_J5' 'FP_J5'};
+writetable(mResults,'SeqEllipse_levels_F1score.csv')
 
 mImage = figure;
 hold on
@@ -140,6 +156,12 @@ end
 [TP_s2,FP_s2] = ROCcurveNew(R_families(:,:,5),255*totalchanges); close
 [TP_s4,FP_s4] = ROCcurveNew(R_families(:,:,6),255*totalchanges); close
 
+mResults = array2table([TP_ha ; FP_ha; TP_d2 ; FP_d2; TP_d4 ; FP_d4;...
+    TP_c4 ; FP_c4; TP_s2 ; FP_s2; TP_s4 ; FP_s4]');
+mResults.Properties.VariableNames = {'TP_ha' 'FP_ha' 'TP_d2' 'FP_d2' ...
+    'TP_d4' 'FP_d4' 'TP_c4' 'FP_c4' 'TP_s2' 'FP_s2' 'TP_s4' 'FP_s4'};
+writetable(mResults,'SeqEllipse_family_ROC.csv')
+
 mImage = figure;
 hold on
 %title('ROC Curve', 'FontSize', 17)
@@ -166,6 +188,12 @@ saveas(mImage,sprintf('../figs/families_comparison.jpg'))
 [vp_c4,FP_c4] = F1Scorecurve(R_families(:,:,4),255*totalchanges); close
 [vp_s2,FP_s2] = F1Scorecurve(R_families(:,:,5),255*totalchanges); close
 [vp_s4,FP_s4] = F1Scorecurve(R_families(:,:,6),255*totalchanges); close
+
+mResults = array2table([vp_ha ; FP_ha; vp_d2 ; FP_d2; vp_d4 ; FP_d4;...
+    vp_c4 ; FP_c4; vp_s2 ; FP_s2; vp_s4 ; FP_s4]');
+mResults.Properties.VariableNames = {'vp_ha' 'FP_ha' 'vp_d2' 'FP_d2' ...
+    'vp_d4' 'FP_d4' 'vp_c4' 'FP_c4' 'vp_s2' 'FP_s2' 'vp_s4' 'FP_s4'};
+writetable(mResults,'SeqEllipse_family_F1score.csv')
 
 mImage = figure;
 hold on
@@ -243,6 +271,10 @@ title('d(m): deep learning denoiser')
 [TP_wecs,FP_wecs] = ROCcurveNew(R_wecs,255*totalchanges); close
 [TP_deep,FP_deep] = ROCcurveNew(R_deep,255*totalchanges); close
 
+mResults = array2table([TP_wecs ; FP_wecs; TP_deep ; FP_deep]');
+mResults.Properties.VariableNames = {'TP_wecs' 'FP_wecs' 'TP_deep' 'FP_deep'};
+writetable(mResults,'SeqEllipse_deep_ROC.csv')
+
 mImage = figure;
 hold on
 %title('ROC Curve', 'FontSize', 17)
@@ -261,6 +293,10 @@ saveas(mImage,sprintf('../figs/dm_comparison_wavelet_deepL.jpg'))
 
 [vp_wecs,FP_wecs] = F1Scorecurve(R_wecs,255*totalchanges); close
 [vp_deep,FP_deep] = F1Scorecurve(R_deep,255*totalchanges); close
+
+mResults = array2table([vp_wecs ; FP_wecs; vp_deep ; FP_deep]');
+mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_deep' 'FP_deep'};
+writetable(mResults,'SeqEllipse_deep_F1score.csv')
 
 mImage = figure;
 hold on
