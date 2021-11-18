@@ -108,9 +108,9 @@ hold off
 %saveas(mImage,sprintf('../figs/forest_vSumDifCoefSq.jpg'))
 
 % checking the images corresponding to change points in time
-mImage = figure;
-cont = 1;
 for m = [25 27 30]
+    mImage = figure;
+
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
     data = double(Y(:,:,1).^2 + Y(:,:,2).^2);
@@ -122,13 +122,15 @@ for m = [25 27 30]
     % wavelet approximation for log of VV chanel
     [tmp2,~,~,~] = swt2(tmp(1:2^pwr2,1:2^pwr2),J,wname);
 
-    subplot(2,2,cont); cont = cont + 1;
-    colormap(gray(256)); imagesc(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J))    
-    title(sprintf('m=%2d',m)); axis off;
+    %subplot(2,2,cont); cont = cont + 1;
+    colormap(gray(256)); imagesc(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J))
+    axis off
+    saveas(mImage,sprintf('../figs/forest_changes_time_m%2d.tiff',m))
 end
-subplot(2,2,4)
-colormap(gray(256)); imagesc(imRef); title('Mean image'); axis off;
-%saveas(mImage,sprintf('../figs/forest_changes_time.jpg'))
+mImage = figure;
+colormap(gray(256)); imagesc(imRef); axis off;
+axis off
+saveas(mImage,sprintf('../figs/forest_changes_time_mean.tiff',m))
 
 
 % computing correlations
