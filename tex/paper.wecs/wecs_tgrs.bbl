@@ -152,6 +152,15 @@ J.~Fan and J.~Lv, ``Sure independence screening for ultrahigh dimensional
   feature space,'' \emph{Journal of the Royal Statistical Society: Series B},
   vol.~70, no.~5, pp. 849--911, 2008.
 
+\bibitem{mallat1998wavelet}
+S.~G. Mallat, \emph{A Wavelet Tour of Signal Processing}.\hskip 1em plus 0.5em
+  minus 0.4em\relax San Diego: Academic Press, 1998.
+
+\bibitem{mallat1989theory}
+------, ``A theory for multiresolution signal decomposition: the wavelet
+  representation,'' \emph{IEEE transactions on pattern analysis and machine
+  intelligence}, vol.~11, no.~7, pp. 674--693, 1989.
+
 \bibitem{coifman1995translation}
 R.~R. Coifman and D.~L. Donoho, ``Translation-invariant de-noising,'' in
   \emph{Wavelets and statistics}, A.~Antoniadis and G.~Oppenheim, Eds.\hskip
@@ -162,11 +171,6 @@ A.~M. Atto, E.~Trouv{\'e}, J.-M. Nicolas, and T.~T. L{\^e}, ``Wavelet operators
   and multiplicative observation models—application to {SAR} image
   time-series analysis,'' \emph{IEEE Transactions on Geoscience and Remote
   Sensing}, vol.~54, no.~11, pp. 6606--6624, 2016.
-
-\bibitem{johnstone2009statistical}
-I.~M. Johnstone and D.~M. Titterington, ``Statistical challenges of
-  high-dimensional data,'' \emph{Philosophical Transactions of the Royal
-  Society A}, vol. 367, pp. 4237--4253, 2009.
 
 \bibitem{zhang2017beyond}
 K.~Zhang, W.~Zuo, Y.~Chen, D.~Meng, and L.~Zhang, ``Beyond a {G}aussian
