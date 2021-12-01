@@ -335,22 +335,31 @@ where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value \textcolor{
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experiments}
+\section{Experiments}\label{secExperiments}
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Experiment design}\label{secExpDesign}
 
 In order to assess the proposed method, this section presents two distinct studies comprising distinct datasets.
 
-The first study (Sec.~\ref{secExpSimulated}) uses a simulated data set and focus on identify the most appropriated wavelet family and resolution level $J$. Specifically, the Haar (haar) \cite{ref}, Daubechies of order 2 and 4 (db2 and db4) \cite{red}, Coiflets of order 4 (coif4) \cite{ref} and Symlets of order 2 and 4 (sym2 and sym4) \cite{ref} wavelet families are analyzed. 
+The first study (Sec.~\ref{secExpSimulated}) uses a simulated data set and focus on identify the most appropriated wavelet family and resolution level $J$. Specifically, the Haar (haar), Daubechies of order 2 and 4 (db2 and db4), Coiflets of order 4 (coif4) and Symlets of order 2 and 4 (sym2 and sym4) wavelet families are analyzed \cite{BeylkinEA1991,Daubechies1992}. 
 Posterior, once selected the wavelet family, the most suitable resolution level is then pointed out.
 
 Lastly, the performance of the proposed method is measured in terms of True/False Positive Ratios and Receiver Operating Characteristic (ROC) curve. 
 Comparisons with the standard Thresholding of Aggregate Absolute Difference (TAAD) and a non-wavelet version of WECS, herein called Energy Correlation Screening (ECS), são incluídas nos experiments. 
 
-In summary, the TAAD comprises the application of a thresholding algorithm on the accumulated change representation image $A$ where $A_kl = Sum$. The ECS stands for the use of I^m instead of $X^m$ when defining $Dkl^m$ at Equation~\ref{E:eq_defdm}.
+In summary, the TAAD comprises the application of a thresholding algorithm on the accumulated change representation image $\vA$ where $A_{kl} = \sum_{m=1}^{n}\mathcal{I}_{kl}^{(m)}$. The ECS stands for the use of $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ when defining $D_{kl}^{(m)}$ at Equation~\ref{E:eq_defdm}.
+
+
+\textcolor{red}{
+Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}^{(m)} - \mathcal{I}_{k,l}^{(m-1)}|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ in the WECS formulation. 
+}
+
 
 %%%
 
 The second study (Sec.~\ref{secExpActual}) analyzes the performance of WECS, and respective comparison with TAAD and ECS, in a real-world application with actual SAR image series. The appropriate wavelet family and resolution level previously identified are employed.
-ROC curves, F1-Score \cite{ref}, the kappa coefficient, and the variance of kappa \cite{CongaltonGreen2009}, are adopted for this purpose. Additionally, the computational run-times are presented and discussed. 
+ROC curves, F1-Score \cite{Rijsbergen1979}, the kappa coefficient, and the variance of kappa \cite{Congalton2019}, are adopted for this purpose. Additionally, the computational run-times are presented and discussed. 
 
 
 
@@ -372,7 +381,18 @@ ROC curves, F1-Score \cite{ref}, the kappa coefficient, and the variance of kapp
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Simulated data analysis}\label{secExpSimulated}
 
-In this section we apply the change detection methods above on simulated data of multi-temporal images. The simulated multi-temporal images ($n=80$) is obtained by repeating a sequence of four images with different types of changes plus a noise. Examples of the first four of these images are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with ones on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a standard Gaussian distribution. The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
+This section applies the WECS, TAAD, and ECS methods to detect changes on a simulated multi-temporal image dataset. 
+Such series comprises 80 multi-temporal images and it is synthesized by repeating a sequence of four images with different types of changes plus a noise. 
+Examples of the first four instants are shown in Figure~\ref{F:EllipsoidChanges}. 
+These images/instants are generated by summing two matrices: (i) a binary signal matrix with ones denoting where the ellipses occur and zero elsewhere; (ii) and a noise matrix with random variables following a standard Gaussian distribution. 
+
+The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images is shown in Figure~\ref{figResSim1}, where white regions (i.e., the ``ones'') correspond to changes along with the instants.
+
+Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure~\ref{figResSim2}. For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a binary matrix that can be compared with the total true changes shown in Figure \ref{figResSim1}.
+Similarly, Figures~\ref{figResSim3} and \ref{figResSim4} depicts the matrices $\vA$ and $\vR$ provided by TAAD and ECS methods.
+
+
+%In this section we apply the change detection methods above on simulated data of multi-temporal images. The simulated multi-temporal images ($n=80$) is obtained by repeating a sequence of four images with different types of changes plus a noise. Examples of the first four of these images are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with ones on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a standard Gaussian distribution. The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
 
 
 
@@ -381,19 +401,17 @@ In this section we apply the change detection methods above on simulated data of
 \centering
 
 \mbox{
-\subfigure[cap1]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t1_adjust.png}\label{figSim1}} 
-\subfigure[cap2]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t2_adjust.png}\label{figSim2}}
+\subfigure[$\mathcal{I}^{(1)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t1_adjust.png}\label{figSim1}} 
+\subfigure[$\mathcal{I}^{(2)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t2_adjust.png}\label{figSim2}}
 }
 \mbox{
-\subfigure[cap3]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t3_adjust.png}\label{figSim3}} 
-\subfigure[cap4]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t4_adjust.png}\label{figSim4}}
+\subfigure[$\mathcal{I}^{(3)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t3_adjust.png}\label{figSim3}} 
+\subfigure[$\mathcal{I}^{(4)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t4_adjust.png}\label{figSim4}}
 }
 
 \caption{Example of the first four simulated multi-temporal images. Features and changes come as white ellipses and dots.}
 \label{F:EllipsoidChanges}
 \end{figure}
-
-
 
 
 
@@ -403,31 +421,50 @@ In this section we apply the change detection methods above on simulated data of
 
 \mbox{
 \subfigure[Total changes]{\includegraphics[frame,width=0.23\textwidth]{../../figs/total_changes_adjust.png}\label{figResSim1}} 
-\subfigure[dbr WECS d(m), j=2]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_adjust.png}\label{figResSim2}} 
+\subfigure[WECS -- db2, $J=2$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_adjust.png}\label{figResSim2}} 
 }
 \mbox{
-\subfigure[Aggregation of absolute differences]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_logratios_adjust.png}\label{figResSim3}} 
-\subfigure[d(m) without wavelets]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_nowavelets_adjust.png}\label{figResSim4}} 
+\subfigure[TAAD -- $\vA$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_logratios_adjust.png}\label{figResSim3}} 
+\subfigure[ECS]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_nowavelets_adjust.png}\label{figResSim4}} 
 }
 
-\caption{Simulated images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Standard approach. (d) $\vd(m)$ without wavelets.}
+%\caption{Simulated images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Standard approach. (d) $\vd(m)$ without wavelets.}
+\caption{Expected change/non-change regions and typical results provided bu WECS, TAAD and ECS before the thresholding process.}
 \label{F:Changes_methods_images}
 \end{figure}
 
 
 
 
-Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}^{(m)} - \mathcal{I}_{k,l}^{(m-1)}|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ in the WECS formulation. 
+%Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}^{(m)} - \mathcal{I}_{k,l}^{(m-1)}|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ in the WECS formulation. 
 
 
-We compute ROC curves to compare the detection performance of different methods and to verify the influence of some tuning parameters of wavelet smoothing: the resolution level $J$ and the choice of wavelet basis. Each detection method generates a matrix of change detection measures (correlations in the case of WECS). The ROC curves present the performance of change detection by applying a threshold on these measures, in the following way:
-\begin{enumerate}
-\item Let $R$ be the matrix of change measures. Compute the range $[r_{\min},r_{\max}]$ of the values in $R$;
-\item Let $(r_{(1)},\ldots,r_{(100)})$ be equally space values between $r_{\min}$ and $r_{\max}$;
-\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$ coincide with the element $(i,j)$ where a change really occurs on the image of total changes. Dividing this number by the total number of changes gives the true positive rate.
-\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$  do not coincide with the element $(i,j)$ where a change really occurs. Dividing this number by the total number of entries where changes do not occur gives the false positive rate.
-\item The ROC curve is the plot of true and false positive rates corresponding to each $k$.
-\end{enumerate}
+
+According to the experiment design (Section~\ref{secExpDesign}), ROC curves are employed to compare the performance of each analyzed method and inspect the effects of both $J$ and wavelet basis on the performance of the WECS method. In summary, the ROC curves exhibit the performance as a function of true and false positive ratios when distinguishing two events (in this context, the change and non-changed pixels/positions) using distinct thresholds. The true and false positive ratios are computed using the ``total change'' image (Fig.~\ref{figResSim1}) as reference. Moreover, the tested thresholds embrace all values in $\vR$ (or $\vA$), excluding repetitions and considering it in ascending order.
+
+
+
+%We compute ROC curves to compare the detection performance of different methods and to verify the influence of some tuning parameters of wavelet smoothing: the resolution level $J$ and the choice of wavelet basis. Each detection method generates a matrix of change detection measures (correlations in the case of WECS). The ROC curves present the performance of change detection by applying a threshold on these measures, in the following way:
+%\begin{enumerate}
+%\item Let $R$ be the matrix of change measures. Compute the range $[r_{\min},r_{\max}]$ of the values in $R$;
+%\item Let $(r_{(1)},\ldots,r_{(100)})$ be equally space values between $r_{\min}$ and $r_{\max}$;
+%\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$ coincide with the element $(i,j)$ where a change really occurs on the image of total changes. Dividing this number by the total number of changes gives the true positive rate.
+%\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$  do not coincide with the element $(i,j)$ where a change really occurs. Dividing this number by the total number of entries where changes do not occur gives the false positive rate.
+%\item The ROC curve is the plot of true and false positive rates corresponding to each $k$.
+%\end{enumerate}
+
+
+
+
+
+%We compute ROC curves to compare the detection performance of different methods and to verify the influence of some tuning parameters of wavelet smoothing: the resolution level $J$ and the choice of wavelet basis. Each detection method generates a matrix of change detection measures (correlations in the case of WECS). The ROC curves present the performance of change detection by applying a threshold on these measures, in the following way:
+%\begin{enumerate}
+%\item Let $R$ be the matrix of change measures. Compute the range $[r_{\min},r_{\max}]$ of the values in $R$;
+%\item Let $(r_{(1)},\ldots,r_{(100)})$ be equally space values between $r_{\min}$ and $r_{\max}$;
+%\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$ coincide with the element $(i,j)$ where a change really occurs on the image of total changes. Dividing this number by the total number of changes gives the true positive rate.
+%\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$  do not coincide with the element $(i,j)$ where a change really occurs. Dividing this number by the total number of entries where changes do not occur gives the false positive rate.
+%\item The ROC curve is the plot of true and false positive rates corresponding to each $k$.
+%\end{enumerate}
 
 
 
@@ -437,12 +474,13 @@ We compute ROC curves to compare the detection performance of different methods 
 \centering
 
 \mbox{
-\subfigure[The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue)]{\includegraphics[width=0.23\textwidth]{../../graphs/methodROC.pdf}\label{figROCSim1}} 
-\subfigure[db2 $\vd(m)$ with different levels]{\includegraphics[width=0.23\textwidth]{../../graphs/levelsROC.pdf}\label{figROCSim2}}
+\subfigure[$\vd(m)$ with different wavelet bases and J=2]{\includegraphics[width=0.23\textwidth]{../../graphs/basisROC.pdf}\label{figROCSimBasis}}
+\subfigure[db2 $\vd(m)$ with different levels]{\includegraphics[width=0.23\textwidth]{../../graphs/levelsROC.pdf}\label{figROCSimJ}}
 }
+
 \mbox{
-\subfigure[$\vd(m)$ with different wavelet bases and J=2]{\includegraphics[width=0.23\textwidth]{../../graphs/basisROC.pdf}\label{figROCSim3}} 
-\subfigure[The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line)]{\includegraphics[width=0.23\textwidth]{../../graphs/comparisonROC.pdf}\label{figROCSim4}}
+\subfigure[The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue)]{\includegraphics[width=0.23\textwidth]{../../graphs/methodROC.pdf}\label{figROCSimRes}} 
+%\subfigure[The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line)]{\includegraphics[width=0.23\textwidth]{../../graphs/comparisonROC.pdf}\label{figROCSim4}}
 }
 
 \caption{ROC curves for detection of changing ellipses in simulated images and different methods.}\label{F:EllipsoidChanges_details}
@@ -451,16 +489,38 @@ We compute ROC curves to compare the detection performance of different methods 
 
 
 
+%basis wavelet
+Figure~\ref{figROCSimBasis} presents the ROC curves considering distinct wavelet basis in the WECS method. All instances adopts $J=2$. The curves allow concluding that db2 and sym2 deliveries the best trade-off between true and false positive ratios (i.e., high true positive ratios even when the false positive ratios are low).
+As a consequence of this finding, all the following experiments and analyses consider the db2 wavelet basis.
 
-Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the simulated data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$, since it is uses less levels on the decomposition. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$, whereas the other method applies WECS's idea, the only difference being that $\vX^{(m)}$ is replaced by another smooth version of $\mathcal{I}^{(m)}$ that employs neural-networks trained to compete with wavelet smoothing. We can see that the ROC curves for images treated with a deep-learning method has a performance worse than that obtained with WECS. 
-We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}^{(m)}\}$ instead of $\{\vX^{(m)}\}$, and the classic method of analyzing aggregated absolute differences of $\{\mathcal{I}^{(m)}\}$. The ROC curves in Panel (a) show that the proposed WECS outperforms both the other two methods. 
+%J-level
+Figure~\ref{figROCSimJ} depicts the ROC curves with $J \in \{1,2,3,4,5\}$ as decomposition levels. The profiles exhibited by the ROC curves make evident that $J$ equal to 2 or 3 promotes the best performances, with a slight advantage for $J=2$, since it demands few decomposition levels. The overall performance for $J=2$ warrants its use for the rest of the comparisons.
+
+%Compara figA
+Al last, the ROC curves shown in Figure~\ref{figROCSimRes} allow comparing the performances of WECS, TAAD and ECS approaches. 
+Firstly, the low-performance assigned to the ECS method allows concluding that the simple swap of the wavelet transform by a ``deviation image'' into the proposed correlation screening pipeline is an inconvenient choice and reinforces the importance of the wavelet concept in the context of the proposed method.
+About the performance of TAAD method, a true positive ratio of 0.8 is guaranteed when tolerating a false positive ratio of approximately 0.4. 
+Reversely, the WECS method provides the same true positive ratio under an almost nill false positive ratio, demonstrating then its superiority compared to the competitors.
+
+
+%Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the simulated data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$, since it is uses less levels on the decomposition. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$, whereas the other method applies WECS's idea, the only difference being that $\vX^{(m)}$ is replaced by another smooth version of $\mathcal{I}^{(m)}$ that employs neural-networks trained to compete with wavelet smoothing. We can see that the ROC curves for images treated with a deep-learning method has a performance worse than that obtained with WECS. 
+%We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}^{(m)}\}$ instead of $\{\vX^{(m)}\}$, and the classic method of analyzing aggregated absolute differences of $\{\mathcal{I}^{(m)}\}$. The ROC curves in Panel (a) show that the proposed WECS outperforms both the other two methods. 
 
 
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Actual remote sensing application}\label{secExpActual}
 
-We employed the proposed change detection method on a series of 84 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}^{(m)} = ((\mathrm{VV}_{k,l}^{(m)})^2+(\mathrm{VH}_{k,l}^{(m)})^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
+
+This section demonstrates the WECS, TAAD and ECS methods in a real-world change detection application. The appropriate wavelet basis and resolution level previously identified in Section~\ref{secExpSimulated} (i.e., db2 and $J=2$) are still considered in this analysis.
+
+In detail, this application considers a large multi-temporal series of 84 images acquired over a forest region at the border of Brazil and the French Guiana, from December 26th 2015 to December 3rd 2017, by the SAR sensor onboard the Sentinel-1 satellite.
+Each image contains the signal backscatters relative to VV and VH polarizations, a spatial resolution of \SI{10}{\meter} and support of $1538 \times 1556$ pixels wide.
+In order to apply the analyzed methods, the dual-polarized images were combined into a single-band representation considering
+$\mathcal{I}_{kl}^{(m)} = \sqrt{(\mathrm{VV}_{kl}^{(m)})^2+(\mathrm{VH}_{kl}^{(m)})^2}$, with $\mathrm{VV}$ and $\mathrm{VH}$ representing the available polarizations.
+
+
+%We employed the proposed change detection method on a series of 84 multi-date satellite images. The images were taken on a forest region at the border of Brazil and the French Guiana from 2015-12-26 to 2017-12-3. Each image has two channels (VV and VH) and 1538 by 1556 pixels. We perform a change detection wavelet analyses on the combined image by considering each observed entry as $\mathcal{I}_{k,l}^{(m)} = ((\mathrm{VV}_{k,l}^{(m)})^2+(\mathrm{VH}_{k,l}^{(m)})^2)^{1/2}$, where $\mathrm{VV}$ and $\mathrm{VH}$ represent the matrices of observations from VV and VH channels, respectively. 
 
 
 %-----------------------
@@ -486,9 +546,18 @@ We employed the proposed change detection method on a series of 84 multi-date sa
 \end{figure}
 
 
+\textcolor{magenta}{
 A multi-resolution analysis based on a Symlet basis with filter of length 16 (symlet 8) is built. In order to have dimensions as power of 2, the matrices $\mathcal{I}_{k,l}$ are extended to a $2048\times2048$ matrix with $\mathcal{I}_{k,l}$ at the center and the remaining parts being completed with mirrored values at the borders. The wavelet transform at resolution level $J=2$ is applied to these matrices and only the portion corresponding to the $1538 \times 1556$ is kept for further processing. Then, we are able to compute the squared mean differences vector $\vd$ and the matrix of absolute correlations $\vR$. 
+}
 
-The time change measures computed with $\vd$ are shown in Figure \ref{F:forest_wecs}. The orange line in Figure \ref{F:forest_wecs}a represents the median absolute deviation of $\vd$, which allow us to notice times that differ expressively from the others. We can notice that times $m=25,27,30$ are highlighted as having the most expressive changes. The images  corresponding to these times can be seen in Figure \ref{F:forest_change_times}.
+
+
+The instantaneous change values expressed by $\vd$ are shown in Figure~\ref{F:forest_wecs}. 
+The top line represents the median absolute deviation of $\vd$ and allows highlighting the instants 25, 27, and 30; when expressive differences occur in comparison to the other instants.
+The images relative to these instants are in Figure~\ref{F:forest_change_times}.
+
+
+%The time change measures computed with $\vd$ are shown in Figure \ref{F:forest_wecs}. The orange line in Figure \ref{F:forest_wecs}a represents the median absolute deviation of $\vd$, which allow us to notice times that differ expressively from the others. We can notice that times $m=25,27,30$ are highlighted as having the most expressive changes. The images  corresponding to these times can be seen in Figure \ref{F:forest_change_times}.
 
 
 %-----------------------
@@ -512,10 +581,10 @@ The time change measures computed with $\vd$ are shown in Figure \ref{F:forest_w
 
 \mbox{
 \subfigure[$m=30$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/forestChange_m30.pdf}\label{figImgSentinel2015}} 
-\subfigure[$\verline{\mathcal{I}}$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/forestChange_mean.pdf}\label{figImgSentinel2017}}
+\subfigure[$\overline{\mathcal{I}}$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/forestChange_mean.pdf}\label{figImgSentinel2017}}
 }
 
-\caption{Images $\vX^{(m)}$ from distinct instant $m$ and the mean image $\bar{\mathcal{I}}$.}
+\caption{Images $\vX^{(m)}$ from distinct instant $m$ and the mean image $\overline{\mathcal{I}}$.}
 \label{F:forest_change_times}
 \end{figure}
 
@@ -523,6 +592,10 @@ The time change measures computed with $\vd$ are shown in Figure \ref{F:forest_w
 
 
 The changes in space can be analyzed using the image obtained with $\vR$, which is displayed in Figure \ref{F:forest_wecs}c. Denoting the images' dimension as $N=1538\times1556$, if we take the $[N/\log N]$ largest absolute correlations as those corresponding to possible change points, we obtain a matrix of zeros and ones that is presented in Figure \ref{F:forest_wecs}e. The white regions in Figure \ref{F:forest_wecs}c (entries with value one) represent the change points, which seem to concentrate mainly on three regions: at the center, to the right of the river; at the top, on the left border of the river; and at the top left. Computing aggregated absolute differences to measure changes in space, we obtain Figure \ref{F:forest_wecs}d. An image of detected changes corresponding to measures in  Figure \ref{F:forest_wecs}d can be obtained applying a thresholding method for grayscale images.  Figure \ref{F:forest_wecs}f shows the result of using Otsu's thresholding method \cite{otsu1979threshold} for aggregation of absolute differences.
+
+
+
+
 
 The comparison of performance for the two change detection measures considered here can be checked in Figure \ref{F:forest_roc_wecs_agg}, where a ROC curve is computed to check the correct detection of changes. WECS attains high true positive rates before the aggregation method, but both methods design competitive results. This performance differs from the ROC curve results in the previous section because the real images have a mean signal to noise ratio (SNR) of 3.9327, whereas the simulated images were generated with SNR of 0.2309. Hence, WECS is expected to have performance closer to the aggregation method in less noisy applications. The reference of correct change regions is shown in Figure \ref{F:forest_roc_wecs_agg}a, which are determined using [XXXXX]. 
 
@@ -605,7 +678,7 @@ $\mathrm{Re}$ & 0.6022 & 0.6526 & 0.5094 \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}\label{section_discussion}
+\section{Conclusion}\label{section_discussion}
 
 We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole mean image. It makes use of correlation screening for ultra-high dimensional data. Thereupon, WECS is expected to provide a sample of points in space in a way that such set, contains real change points with high probability. The proposed method's performance is shown using both simulated and real data. The proposed method is useful to detect spatio-temporal change points, which is illustrated on data analyses. The method is employed to analyze a time series of 84 images of a forest.
 
