@@ -75,7 +75,7 @@ title('db2 WECS d(m), J=2', 'FontSize', 17)
 saveas(mImage,sprintf('../figs/corr_changes_dm.jpg'))
 
 
-%% No wavelets for comparison with mean image
+%% No wavelets for comparison with mean image (ECS)
 
 % matrix of squared mean differences
 mD = zeros(n1,n2,n);
