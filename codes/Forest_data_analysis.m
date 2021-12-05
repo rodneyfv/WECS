@@ -122,7 +122,7 @@ saveas(mImage,sprintf('../figs/forest_vSumDifCoefSq.jpg'))
 for m = [25 27 30]
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
-    data = double(Y(:,:,1).^2 + Y(:,:,2).^2);
+    data = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;
     
     % extending image to be able to use swt2
     pwr2 = ceil(log2(min([Nx Ny])));
@@ -209,7 +209,10 @@ tmp = double(S>cutoff_Otsu_taad);
 save_tiff_image(tmp,...
         sprintf('forest_taad_change_space_otsu.tiff'));
 
-%% No wavelets for comparison with mean image (ECS)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% No wavelets for comparison with mean image (ECS)
 
 % matrix of squared mean differences
 mD_ecs = zeros([Nx, Ny, n]);
