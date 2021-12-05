@@ -146,11 +146,14 @@ axis off; colorbar
 set(gca,'FontSize',13)
 % saveas(mImage,sprintf('../figs/forest_wecs_abscorr.jpg'))
 
+% Change image using threshold suggested in feature screening literature
 %histogram(mCorr(:))
 mImage = figure;
 cutoff = quantile(mCorr_wecs(:),1-1/log(Nx*Ny));
 imshow(mCorr_wecs>cutoff)
 %saveas(mImage,sprintf('../figs/forest_wecs_change_space.jpg'))
+save_tiff_image(double(mCorr_wecs>cutoff),...
+        sprintf('forest_wecs_abscorr_screethrs.tiff'));
 
 cutoff_KI_wecs = kittler(mCorr_wecs); % Kittler-Illingworth threshold
 cutoff_Otsu_wecs = graythresh(mCorr_wecs); % Otsu's threshold
