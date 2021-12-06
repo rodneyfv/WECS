@@ -581,14 +581,36 @@ The main idea behind WECS is built on ultra-high dimensional feature screening f
 % rest of the text goes as follows. 
 Section \ref{section_method} introduces the problem and presents the proposed method. We show WECS performance on simulated multi-temporal image data in Section \ref{section_validation}. In Section \ref{section_realdata} we apply the proposed method to a time series of 85 satellite images in the border region of Brazil and the French Guiana, for  images captured from November 08, 2015 to December 09 2017.  Section \ref{section_discussion} concludes the paper with a discussion.}
 
-\section{Theory Background}\label{section_theroy}
 
-Wavelet methods have been widely applied to analyze images in signal processing literature, specially for tasks such as signal denoising and compression \cite{mallat1998wavelet}. The most common way of describing wavelet representations is as a multiresolution decomposition, where a signal is represented on approximation and detail coefficients, which provide coarse and finer details of the signal, respectively. In practice, the discrete wavelet transform of matrices (image) consists in applying low and high-pass convolution filters to its rows and columns \cite{mallat1989theory}. In case of smoothing, applying such low-pass filter $J$ times to rows and columns of a matrix $\mathcal{I}$, yields a smooth image $\vX$. The number $J$ is also called resolution level, a tuning parameter for wavelet smoothing. This wavelet smoothing is employed in the next section as a denoising step for image analysis.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Theory Background}\label{section_theroy}
 
-Another idea that shall be employed in this work is the feature screening procedure, a method originally designed for ultra-high dimensional regression models \cite{fan2008sure}. In order to explain how it works, consider the usual linear regression framework where $\vy$ is a $n\times 1$ vector of observations from a response variable and $\{\vW_1 \cdots \vW_p\}$ is a $n\times p$ matrix with explanatory variables on its columns, which are used in a linear model $\vy = \sum_{i=1}^{p}\beta_i\vW_i + \vepsilon$, where $\beta_1,\ldots,\beta_p$ are unknown parameters and $\vepsilon$ is a zero mean random noise. The problem setup is that $p$ is much larger than $n$, what makes standard regression methods unfeasible, but only a handful of the available covariates are relevant for the model, i.e., have a nonzero corresponding parameter $\beta_i$. The feature screening idea consists in computing the sample correlation $\mathrm{corr}(\vy,\vW_i)$ among response and explanatory variables, and then selecting those covariates whose correlation are among the highest values. Under suitable conditions, such method is known to select a set containing all true covariates with high probability. In the image change detection problem, our idea is that a similar approach could be used to detect change locations by taking an overall change measure as response variable and local (pixel) measures as potential covariates.
+Wavelet methods have been widely applied to analyze images in signal processing literature, specially for tasks such as signal denoising and compression \cite{mallat1998wavelet}. The most common way of describing wavelet representations is as a multi-resolution decomposition, where a signal is represented on approximation and detail coefficients, which provide coarse and finer details of the signal, respectively. In practice, the discrete wavelet transform of matrices (image) consists in applying low and high-pass convolution filters to its rows and columns \cite{mallat1989theory}. In case of smoothing, applying such low-pass filter $J$ times to rows and columns of a matrix $\mathcal{I}$, yields a smooth image $\vX$. The number $J$ is also called resolution level, a tuning parameter for wavelet smoothing. This wavelet smoothing is employed in the next section as a denoising step for image analysis.
+
+\textcolor{green}{
+Using wavelet smoothing on the images consists in an initial step to analyze the data, but the main goal in the analysis is to find changes in space and at instants of time. The smoothed images still contain a large number of coefficients that need to be evaluated, what characterizes a high-dimensional problem with multiple time series corresponding to each location in space. Since most part of a region is usually not relevant for overall changes, we need to employ a method that retains the most important locations driving these modifications across time. Methods like variable selection are largely employed in statistics to identify the most important covariates in a study, and one method particularly efficient in identifying relevant variables is the feature screening technique.
+}
+
+Feature screening procedure is a method originally designed for ultra-high dimensional regression models \cite{fan2008sure}. In order to explain how it works, consider the usual linear regression framework where $\vy$ is a $n\times 1$ vector of observations from a response variable and $\{\vW_1 \cdots \vW_p\}$ is a $n\times p$ matrix with explanatory variables on its columns, which are used in a linear model $\vy = \sum_{i=1}^{p}\beta_i\vW_i + \vepsilon$, where $\beta_1,\ldots,\beta_p$ are unknown parameters and $\vepsilon$ is a zero mean random noise. The problem setup is that $p$ is much larger than $n$, what makes standard regression methods unfeasible, but only a handful of the available covariates are relevant for the model, i.e., have a nonzero corresponding parameter $\beta_i$. The feature screening idea consists in computing the sample correlation $\mathrm{corr}(\vy,\vW_i)$ among response and explanatory variables, and then selecting those covariates whose correlation are among the highest values. Under suitable conditions, such method is known to select a set containing all true covariates with high probability. In the image change detection problem, our idea is that a similar approach could be used to detect change locations by taking an overall change measure as response variable and local (pixel) measures as potential covariates.
 
 
-\section{Methodology}\label{section_method}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wavelet Energy Correlation Screening}\label{section_method}
+
+
+Figure~\ref{figDiagram} depicts a high-level conceptualization for the proposed method. The elements included in such representation are formalized in the constructions as follows.
+
+
+%-------------------------
+\begin{figure}[htb!]
+\centering
+\includegraphics[scale=.8]{../../drawio/diagram_wecs.drawio_11nov21}
+\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
+\label{figDiagram}
+\end{figure}
+
+
 
 
 Let $\mathcal{I}^{(1)},\ldots,\mathcal{I}^{(n)}$ be an image time series defined on a support $\mathcal{S} = \left\lbrace 1,\ldots,u  \right\rbrace \times \left\lbrace 1,\ldots,v  \right\rbrace \subset \mathbbm{N}^2$, hence representing a region of interest over $n$ distinct instants.
@@ -609,7 +631,7 @@ We can then consider further apportioning the total $\mathbb{L}_2$ energy of the
 + \sum_{m=1}^n\|\mathcal \vX^{(m)} - \overline{\mathcal{I}}\|_F^2,
 \end{split}
 \end{equation}
-where $\overline{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$ and $\overline{\vX}=n^{-1}\sum_{m=1}^n\vX^{(m)}$; $\| \cdot \|_F$ and $\left\langle \cdot , \cdot \right\rangle_F$ represents the Forbenius norm and inner product, respectively. Naturally, both $\overline{\mathcal{I}}$ and $\overline{\vX}$ shares the support $\mathcal{S}$.
+where $\overline{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$ and $\overline{\vX}=n^{-1}\sum_{m=1}^n\vX^{(m)}$; $\| \cdot \|_F$ and $\left\langle \cdot , \cdot \right\rangle_F$ represents the Frobenius norm and inner product, respectively. Naturally, both $\overline{\mathcal{I}}$ and $\overline{\vX}$ share the support $\mathcal{S}$.
 
 
 The most right-hand term in Equation~(\ref{E:eq_ANOVAlogimage}) measures the deviations 
@@ -626,148 +648,32 @@ Therefore, it is defined the temporal overall variation sequence $\left\lbrace \
 \end{equation}
 
 
-In this context, a instant $m$ in $\left\lbrace \vd^{(m)}  \right\rbrace_{m=1,\ldots,n}$ with high value stands for the image $\mathcal{I}^{(m)}$ where the most expressive changes take place.
+In this context, an instant $m$ in $\left\lbrace \vd^{(m)}  \right\rbrace_{m=1,\ldots,n}$ with high value stands for the image $\mathcal{I}^{(m)}$ where the most expressive changes take place.
 
-%%%%RGN: Seria esta a razão?
-%In order to obtain an expression for the spatio-temporal fluctuations, let consider the following global matrix $\vD$ of order $n \times uv$:
-%%Define the  $n\times p$ matrix
-%\begin{equation}\label{eq_defmatrixD}
-% \vD=\left(
-% \begin{array}{c}
-% vec(\vD^{(1)})^T\\
-% \vdots\\
-% vec(\vD^{(n)})^T\\
-% \end{array}
-% \right),
-%\end{equation}
-%where $vec(\vD^{(m)})$ is a $uv \times 1$ vector representation, using lexicographic ordering, of the wavelet coefficients regarding the instant $m$.
-%%%%RGN: esta parte fica redundante, pois já definimos os elementos envolvidos aqui...
-%% and $p=\#\{k,l\}$ is total number of locations represented by $\vX^{(m)}$, $m=1,\ldots,n$. 
-%\textcolor{red}{(precisa mesmo estar transposto? E se definir como $1 \times uv$?)}
-%
-%
-%%%%%RGN: Acho que a posicao desta citacao esta errada, nao?
-%Sparsity \cite{johnstone2009statistical} on wavelet coefficients plays a special role in this formalization.
-%% here.  
-%We suppose a handful of coefficients drive the changes given by $\vd$, so that the effective dimension of $\vD$ (number of locations where relevant changes occur), say $s$, is such that $s \ll p$. This can be represented as the following linear model
-%\begin{equation}\label{E:sparsemodel_d}
-%\vd=\vD\vbeta+\vxi
-%\end{equation}
-%where $\vbeta \in \mathbbm{R}^{uv}$ is sparse, i.e., it has $(uv - s)$ null elements, and $\vxi^{(d)} \in \mathbbm{R}^{n}$ is a random vector. \textcolor{red}{(existe esse $(d)$ no $\xi$ mesmo? Como $\beta$ e $\xi$ são obtidos?)} % of errors
-%%some $n\times 1$ random vector of errors.
 
-%%%RGN: vamos trocar $s_d$ por $s$? a adicao do d nao faz muita diferenca.
 
-In order to identify spatio-temporal changes, we employ the concept of ultra-high dimensional correlation screening \cite{fan2020statistical} discussed in Section~\ref{section_theroy}. For each local squared deviation time series given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, \textcolor{blue}{say $\vD_{kl} = \left\lbrace D_{kl}^{(1)},\ldots,D_{kl}^{(n)} \right\rbrace$}, consider the absolute value of its Pearson correlation with the overall squared mean deviations, given by $\vd$:
+In order to identify spatio-temporal changes, we employ the concept of ultra-high dimensional correlation screening \cite{fan2020statistical} discussed in Section~\ref{section_theroy}. For each local squared deviation time series given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, \textcolor{blue}{say $\vD_{kl} = \left\lbrace D_{kl}^{(1)},\ldots,D_{kl}^{(n)} \right\rbrace$}, consider the absolute value of its Pearson correlation with the overall squared deviations, given by $\vd$:
 \begin{equation*}\label{def_Rkld}
 R_{kl}= |\corr \left( \vD_{kl}, \vd \right)|.
 \end{equation*}
 Consequently, rises the matrix $\vR$ from the elements $R_{kl}$ assigned to each $(k,l) \in \mathcal{S}$.
 
 
-%%%RGN: este trecho acima (...where $\vD_{k,l}=(D_{k,l}(1)) pode ser omitido, pois ja definimos quem é D_kl antes da equacao 2. Ok?
-
-
-\begin{figure}[htb!]
-\centering
-\includegraphics[scale=.8]{../../drawio/diagram_wecs.drawio_11nov21}
-\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
-\label{F:EllipsoidChanges}
-\end{figure}
 
 
 Let us define a mapping of \textit{important} indices for changes over the image series with respect to $\overline{\mathcal I}$ as $\mathcal{M}^{\star} \subseteq \mathcal{S}$ where \textit{changes in $\{\mathcal{I}^{(m)}\}_{m=1,\ldots,n}$ with respect to $\overline{\mathcal{I}}$ are affected by local changes in the images}.
-%
-%Such mapping, when re-written using lexicographic order as adopted to express the columns of $\vR$ (Eq.~\ref{eq_defmatrixD}), coincides with the non-zero components of $\vbeta$ in Equation~\ref{E:sparsemodel_d}.
 
-%$\mathcal{M}^{\star}=\{(k,l) \in \mathcal{S}: \textit{changes in } \{\mathcal{I}^{(m)}\}_{m=1}^m \textit{ with respect to}$ $\bar{\mathcal{I}}$ \textit{are affected by changes in location corresponding to index} $(k,l)$ $\textit{in such images}\}$.  
-%This set coincides with the non-zero vectorized one-dimensional indices for the sparse representation of $\vbeta$ in (\ref{E:sparsemodel_d}). 
+
+
 
 An empirical mapping of change locations may be stated by:
 \begin{equation}
 \mathcal{M}_{\tau} = \{(k,l) \in \mathcal{S} : |R_{kl}|>\tau\},
 \label{E:def_Mtaud}
 \end{equation}
-where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value \textcolor{blue}{defined as function of $n$}. Under \textcolor{red}{some regularity conditions}, the probability $P(\mathcal{M}_{\tau}\supset\mathcal{M}^{\star}) \rightarrow 1$ as $n\rightarrow\infty$ \cite{fan2020statistical}. In other words, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{\star}$ when the number of instants $n$ is large enough. 
+where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value. Under \textcolor{green}{some regularity conditions \cite{fan2020statistical}}, the probability $P(\mathcal{M}_{\tau}\supset\mathcal{M}^{\star}) \rightarrow 1$ as $n\rightarrow\infty$. In other words, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{\star}$ when the number of instants $n$ is large enough. 
 
 
-
-%\section{Methodology}\label{section_method}
-%
-%Let $\mathcal{I}^{(1)},\ldots,\mathcal{I}^{(n)}$ be a set of matrices representing the images of some region of interest and $n$ instants in time. These images may be relative to one SAR channel or a combination of channels; this will be specified when appropriate. Our goal is twofold: to find possible points in time where some relevant changes might have taken place at the region represented in $\mathcal{I}^{(m)}$, $m=1,\ldots,n$, and to find which regions are closely associated to the observed changes along time. We shall address these tasks by analyzing the bidimensional stationary discrete wavelet decomposition of $\mathcal{I}^{(m)}$. Stationary wavelets (also known as non-decimated or redundant wavelets) is a traditional de-noising method that can be efficiently applied to two-dimensional signals such as images \cite{coifman1995translation,atto2012multidate,atto2016wavelet}. After application of this wavelet transform to $\mathcal{I}^{(m)}$ at some appropriate resolution level $J\geq 1$, one of its by-products is a matrix of so called approximation wavelet coefficients $\vX^{(m)}$, a smooth version of $\mathcal{I}^{(m)}$ with the same dimension. The higher $J\in\{1,\ldots,\log_2(k)\}$ is, the smoother $\vX^{(m)}$ gets, where $k$ is the minimum between the numbers of rows and columns of $\mathcal{I}^{(m)}$. Many other aspects can be involved in wavelet analysis of images (e.g., different types of wavelet transform, choice of wavelet basis, thresholding of detail coefficients, etc.), but in the current work we focus on $\vX^{(m)}$, which provides a simple way of performing wavelet smoothing and that gives interesting results; extensions based on further aspects of wavelet transforms are straightforward.
-%
-%We can then consider further apportioning the total $\mathbb{L}_2$ energy of $\left\{\vX^{(m)}\right\}$ as
-%\begin{equation} 
-%\sum_{m=1}^n\|\vX^{(m)}\|^2 = n\|\bar{\mathcal{I}}\|^2+2n\langle\bar{\vX}-\bar{\mathcal{I}},\bar{\mathcal{I}}\rangle+\sum_{m=1}^n\|\mathcal \vX^{(m)}-\bar{\mathcal{I}}\|^2,\label{E:eq_ANOVAlogimage}
-%\end{equation}
-%where $\bar{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$, $\bar{\vX}=n^{-1}\sum_{m=1}^n\vX^{(m)}$ and $\|\vA\|^2=\sum_{i=1}^n\sum_{j=1}^m a_{ij}^2$ for a $n\times m$ matrix $\vA=[a_{ij}]$. The last term in (\ref{E:eq_ANOVAlogimage}) measures deviations in time of $\vX^{(m)}$ compared to an {\it average image} $\bar{\mathcal{I}}$, what motivates us to such deviations to detect change points in time. Since each element (pixel) in $\vX^{(m)}$ also has a corresponding sequence of deviations in time, the relation of each local deviation to the overall measure can also be quantified, what allows us to detect changes in space. Such relation shall be computed in the present work with the Pearson correlation, what shares connections with the idea of feature screening employed in high-dimensional regression, as explained further. Other measures of change in time could be evaluated as well, such as squared differences of consecutive times $\|\mathcal \vX^{(m)}-\vX^{(m-1)}\|^2$, $d(\vX^{(m)},\bar{\vX})$ with $d(\cdot,\cdot)$ denoting some distance measure (e.g., Hellinger, Kullback-Leibler, etc.), among many other possibilities.
-%
-%Let $X_{k,l}^{(m)}$ and $\bar{\mathcal{I}}_{k,l}$ be the entry $(k,l)$ of $\vX^{(m)}$ and $\bar{\mathcal{I}}$, respectively. Computing $D_{k,l}^{(m)}=(X_{k,l}^{(m)}-\bar{\mathcal{I}}_{k,l})^2$, we denote the matrix of squared mean differences as $\vD^{(m)} = [D_{k,l}^{(m)}]$. We then 
-%analyze the time series given by
-%\begin{equation} 
-%\vd(m)= \sum_{k,l}D_{k,l}^{(m)} = \sum_{k,l}(X_{k,l}^{(m)} - \bar{\mathcal{I}}_{k,l})^2,
-%\label{E:eq_defdm}
-%\end{equation}
-%$m=1,\ldots,n$, which measure the temporal overall variation with respect to $\bar{\mathcal{I}}$.
-%
-%The time points with highest values of $\vd(m)$ represent the images for which the most expressive changes take place, where changes here are measured through $\mathbb{L}_2$ energy. Define the  $n\times p$ matrix
-%\begin{equation*}
-% \vD=\left(
-% \begin{array}{c}
-% vec(\vD^{(1)})^T\\
-% \vdots\\
-% vec(\vD^{(n)})^T\\
-% \end{array}
-% \right),
-%\label{eq_defmatrixD}
-%\end{equation*}
-%where $vec(\vD^{(m)})$ is the $p\times 1$ vector of wavelet coefficients for time $m$ and $p=\#\{k,l\}$ is total number of locations represented by $\vX^{(m)}$, $m=1,\ldots,n$. Sparsity \cite{johnstone2009statistical} on wavelet coefficients plays a special role here.  We suppose a handful of coefficients drive the changes given by $\vd$, so that the effective dimension of $\vD$ (number of locations where relevant changes occur), say $s_d$, is such that $s_d<<p$. This can be represented as the following linear model
-%\begin{equation} 
-%\vd=\vD\vbeta+\vxi
-%\label{E:sparsemodel_d}
-%\end{equation}
-%where $\vbeta$ is sparse, i.e., it has $p-s_d$ null elements, and $\vxi^{(d)}$ is some $n\times 1$ random vector of errors.
-%
-%In order to identify spatio-temporal changes, we employ the idea of ultra-high dimensional correlation screening \cite{fan2020statistical} as follows. For each local squared mean deviation time series, given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, consider the absolute value of its Pearson correlation with the overall squared mean deviations, given by $\vd$:
-%\begin{equation*}
-%R_{k,l}= |\corr\left( \vD_{k,l}, \vd\right)|,
-%\label{def_Rkld}
-%\end{equation*}
-%where $\vD_{k,l}=(D_{k,l}(1),\ldots,D_{k,l}(n))^T$ is the time series of squared mean deviations of wavelet coefficients for the two-dimensional index $\{k,l\}$.
-%
-%
-%\begin{figure}[htb!]
-%\centering
-%\includegraphics[scale=.8]{../../drawio/diagram_wecs.drawio_11nov21}
-%\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
-%\label{F:EllipsoidChanges}
-%\end{figure}
-%
-%
-%We have a matrix $\vR=[R_{k,l}]$ of correlations of ultra-high dimension. Define the set of 
-%{\it important} indices for changes in images with respect to $\bar{\mathcal I}$ as 
-%$\mathcal{M}^{*}=\{(k,l): \textit{changes in } \{\mathcal{I}^{(m)}\}_{m=1}^m \textit{ with respect to}$ $\bar{\mathcal{I}}$ \textit{are affected by changes in location corresponding to index} $(k,l)$ $\textit{in such images}\}$.  This set coincides with the non-zero vectorized one-dimensional indices for the sparse representation of $\vbeta$ in (\ref{E:sparsemodel_d}). 
-%We build the empirical set of indices flagged as corresponding to change locations by
-%\begin{equation}
-%\mathcal{M}_{\tau}=\{(k,l):|R_{k,l}|>\tau\},
-%\label{E:def_Mtaud}
-%\end{equation}
-%where $\tau_d>0$ is a convenient threshold value, function of $n$ and $J$. Under some regularity conditions, the probability that $\mathcal{M}_{\tau}$ contains its target set satisfies
-%\[
-%P(\mathcal{M}_{\tau}\supset\mathcal{M}^{*})\rightarrow 1,
-%\]
-%as $n\rightarrow\infty$ \cite{fan2020statistical}, where $P$ denotes a probability measure. In other words, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{*}$ when the number of observations $n$ is large.
-%
-%Further geometrical motivation for our proposal is given as follows. As defined by (\ref{E:eq_defdm}), we expect $\vd$ to be a vector with some few high values, say $s_d$, and $n-s_d$ smaller values. This segregates the multi-temporal images, since the former time points identify the images in which significant changes occur, while the latter indices identify time points with no major changes. Consider $U>L>0$ such that the $s_d$ highest values of $\vd$ are larger than $U$, and the $n-s_d$ smallest values of $\vd$ are smaller than $L$. We also take $\delta=U-L$. The indices defined by  (\ref{E:def_Mtaud}) are such that   
-%\[
-%\frac{<\vD_{k,l},\vd>}{\|\vD_{k,l}\|_2\|\vd\|_2}>\tau,
-%\]
-%i.e., such that  $\sum_{m=1}^nD_{k,l}^{(m)}\vd(m)>\tau\|\vD_{k,l}\|_2\|\vd\|_2$. This can be rewritten as
-%\[
-%\left|\sum_{m:\vd(m)>U} D_{k,l}^{(m)}\right|-\left|\sum_{m:\vd(m)<L} D_{k,l}^{(m)}\right|>\Delta,
-%\]
-%for some arbitrary $\Delta>>0$ (which can be a function of $n$ and $J$). Thence, when we employ correlation screening we select the two-dimensional wavelet indices which have the closest empirical directions to the vector of image temporal changes. Thus we are performing a truly spatio-temporal change detection in a single procedure.
-%
 
 
 \section{Experiments}

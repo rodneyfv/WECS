@@ -65,6 +65,18 @@ S.~Saha, F.~Bovolo, and L.~Bruzzone, ``Change detection in image time-series
   using unsupervised {LSTM},'' \emph{IEEE Geoscience and Remote Sensing
   Letters}, 2020.
 
+\bibitem{NegriEA2021}
+R.~G. Negri, A.~C. Frery, W.~Casaca, S.~Azevedo, M.~A. Dias, E.~A. Silva, and
+  E.~H. Alc\^{a}ntara, ``Spectral–spatial-aware unsupervised change detection
+  with stochastic distances and support vector machines,'' \emph{IEEE
+  Transactions on Geoscience and Remote Sensing}, vol.~59, no.~4, pp.
+  2863--2876, 2021.
+
+\bibitem{NegriFrery2021}
+R.~G. Negri and A.~C. Frery, ``Unsupervised change detection driven by floating
+  references: A pattern analysis approach,'' \emph{Pattern Analysis and
+  Applications}, vol.~24, 2021.
+
 \bibitem{bovolo2015time}
 F.~Bovolo and L.~Bruzzone, ``The time variable in data fusion: A change
   detection perspective,'' \emph{IEEE Geoscience and Remote Sensing Magazine},
