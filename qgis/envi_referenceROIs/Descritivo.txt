@@ -1,0 +1,12 @@
+- Utilizei a imagem ASF_mapCumChanges.tif e PCAKM_mapCumChanges.tif para identificar possíveis regiões de mudança e não mudança
+
+- Como a imagem possui uma única imagem, o uso de escala de cor (...no display, Tools >> Color Mapping >> Envi Color Tables) vai facilitar a identificação dos alvos
+
+- Sobre os alvos:
+	* o curso d'água deve ser uma região de não mudança (apesar de apontar alta frequência)
+	* demais alvos com alta frequência apontam para mudança temporal
+	
+	
+
+- O arquivo ROI é único para toda a série. Correto?
+	
