@@ -410,6 +410,8 @@
 \usepackage{microtype}
 \usepackage{pdfpages}
 
+\usepackage[export]{adjustbox}
+
 \makeatletter
 \newcommand{\thickhline}{\noalign {\ifnum 0=`}\fi \hrule height 1pt \futurelet \reserved@a \@xhline}
 \newcolumntype{"}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
@@ -559,7 +561,7 @@ Change detection, Remote Sensing, multi-temporal images, simulated images, wavel
 
 Most methods used for change detection analysis can be classified either as supervised (training data is used to set up the method) or unsupervised (fully data-driven techniques). We shall focus in this work on unsupervised approaches, whose examples in the literature include the works of \cite{bruzzone2000automatic,celik2010change,quin2014mimosa,saha2020change,NegriEA2021,NegriFrery2021}. Many other proposals of methods vary in their motivations as well as in their applicability.  Change detection in multi-temporal hyperspectral images is discussed in \cite{bovolo2015time,liu2019review,matsunaga2017current}.  \cite{jia2018novel} pursue change detection techniques via non-local means and principal component analysis. Compressed projection and image fusion are employed by \cite{hou2014unsupervised}. Deep learning by slow feature analysis for change detection is the subject of \cite{du2019unsupervised}. \cite{chen2020change} proposes a change detection method driven by adaptive parameter estimation.
 
-A special attention has been given for multi-temporal change detection using Synthetic Aperture Radar (SAR) images. \textcolor{green}{Some of the references already mentioned are examples of change detection methods applied to SAR images \cite{barreto2016deforestation,ban2012multitemporal,scher2021mapping,quin2014mimosa}, \cite{jia2018novel}, \cite{hou2014unsupervised}, \cite{bovolo2005detail} }. 
+A special attention has been given for multi-temporal change detection using Synthetic Aperture Radar (SAR) images. \textcolor{magenta}{Some of the references already mentioned are examples of change detection methods applied to SAR images \cite{barreto2016deforestation,ban2012multitemporal,scher2021mapping,quin2014mimosa}, \cite{jia2018novel}, \cite{hou2014unsupervised}, \cite{bovolo2005detail} }. 
 Known to be not affected by weather, cloud and sunlight conditions, SAR images rise as an essential data source in change detection applications \cite{bovolo2005detail}.
 Conversely, due to its acquisition architecture, the speckle noise typically affects the images obtained by SAR sensors and demands additional pre-processing before its use.
 
@@ -581,14 +583,36 @@ The main idea behind WECS is built on ultra-high dimensional feature screening f
 % rest of the text goes as follows. 
 Section \ref{section_method} introduces the problem and presents the proposed method. We show WECS performance on simulated multi-temporal image data in Section \ref{section_validation}. In Section \ref{section_realdata} we apply the proposed method to a time series of 85 satellite images in the border region of Brazil and the French Guiana, for  images captured from November 08, 2015 to December 09 2017.  Section \ref{section_discussion} concludes the paper with a discussion.}
 
-\section{Theory Background}\label{section_theroy}
 
-Wavelet methods have been widely applied to analyze images in signal processing literature, specially for tasks such as signal denoising and compression \cite{mallat1998wavelet}. The most common way of describing wavelet representations is as a multiresolution decomposition, where a signal is represented on approximation and detail coefficients, which provide coarse and finer details of the signal, respectively. In practice, the discrete wavelet transform of matrices (image) consists in applying low and high-pass convolution filters to its rows and columns \cite{mallat1989theory}. In case of smoothing, applying such low-pass filter $J$ times to rows and columns of a matrix $\mathcal{I}$, yields a smooth image $\vX$. The number $J$ is also called resolution level, a tuning parameter for wavelet smoothing. This wavelet smoothing is employed in the next section as a denoising step for image analysis.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Theory Background}\label{section_theroy}
 
-Another idea that shall be employed in this work is the feature screening procedure, a method originally designed for ultra-high dimensional regression models \cite{fan2008sure}. In order to explain how it works, consider the usual linear regression framework where $\vy$ is a $n\times 1$ vector of observations from a response variable and $\{\vW_1 \cdots \vW_p\}$ is a $n\times p$ matrix with explanatory variables on its columns, which are used in a linear model $\vy = \sum_{i=1}^{p}\beta_i\vW_i + \vepsilon$, where $\beta_1,\ldots,\beta_p$ are unknown parameters and $\vepsilon$ is a zero mean random noise. The problem setup is that $p$ is much larger than $n$, what makes standard regression methods unfeasible, but only a handful of the available covariates are relevant for the model, i.e., have a nonzero corresponding parameter $\beta_i$. The feature screening idea consists in computing the sample correlation $\mathrm{corr}(\vy,\vW_i)$ among response and explanatory variables, and then selecting those covariates whose correlation are among the highest values. Under suitable conditions, such method is known to select a set containing all true covariates with high probability. In the image change detection problem, our idea is that a similar approach could be used to detect change locations by taking an overall change measure as response variable and local (pixel) measures as potential covariates.
+Wavelet methods have been widely applied to analyze images in signal processing literature, specially for tasks such as signal denoising and compression \cite{mallat1998wavelet}. The most common way of describing wavelet representations is as a multi-resolution decomposition, where a signal is represented on approximation and detail coefficients, which provide coarse and finer details of the signal, respectively. In practice, the discrete wavelet transform of matrices (image) consists in applying low and high-pass convolution filters to its rows and columns \cite{mallat1989theory}. In case of smoothing, applying such low-pass filter $J$ times to rows and columns of a matrix $\mathcal{I}$, yields a smooth image $\vX$. The number $J$ is also called resolution level, a tuning parameter for wavelet smoothing. This wavelet smoothing is employed in the next section as a denoising step for image analysis.
+
+\textcolor{magenta}{
+Using wavelet smoothing on the images consists in an initial step to analyze the data, but the main goal in the analysis is to find changes in space and at instants of time. The smoothed images still contain a large number of coefficients that need to be evaluated simultaneously, what characterizes a high-dimensional problem with multiple time series corresponding to each location in space. We need to employ a method that retains the most important locations driving overall modifications across time. This type of problem is recurrent in statistics, and particularly in regression analysis it is mainly recognized as a variable selection problem. Methods like variable selection are largely employed to identify the most important covariates in a study, and one method particularly efficient in identifying relevant variables when the number of candidates is very large is the feature screening technique.
+}
+
+Feature screening procedure is a method originally designed for ultra-high dimensional regression models \cite{fan2008sure}. In order to explain how it works, consider the usual linear regression framework where $\vy$ is a $n\times 1$ vector of observations from a response variable and $\{\vW_1 \cdots \vW_p\}$ is a $n\times p$ matrix with explanatory variables on its columns, which are used in a linear model $\vy = \sum_{i=1}^{p}\beta_i\vW_i + \vepsilon$, where $\beta_1,\ldots,\beta_p$ are unknown parameters and $\vepsilon$ is a zero mean random noise. The problem setup is that $p$ is much larger than $n$, what makes standard regression methods unfeasible, but only a handful of the available covariates are relevant for the model, i.e., have a nonzero corresponding parameter $\beta_i$. The feature screening idea consists in computing the sample correlation $\mathrm{corr}(\vy,\vW_i)$ among response and explanatory variables, and then selecting those covariates whose correlation are among the highest values. Under suitable conditions, such method is known to select a set containing all true covariates with high probability. In the image change detection problem, our idea is that a similar approach could be used to detect change locations by taking an overall change measure as response variable and local (pixel) measures as potential covariates.
 
 
-\section{Methodology}\label{section_method}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wavelet Energy Correlation Screening}\label{section_method}
+
+
+Figure~\ref{figDiagram} depicts a high-level conceptualization for the proposed method. The elements included in such representation are formalized in the constructions as follows.
+
+
+%-------------------------
+\begin{figure}[htb!]
+\centering
+\includegraphics[scale=.8]{../../drawio/diagram_wecs.drawio_11nov21}
+\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
+\label{figDiagram}
+\end{figure}
+
+
 
 
 Let $\mathcal{I}^{(1)},\ldots,\mathcal{I}^{(n)}$ be an image time series defined on a support $\mathcal{S} = \left\lbrace 1,\ldots,u  \right\rbrace \times \left\lbrace 1,\ldots,v  \right\rbrace \subset \mathbbm{N}^2$, hence representing a region of interest over $n$ distinct instants.
@@ -609,7 +633,7 @@ We can then consider further apportioning the total $\mathbb{L}_2$ energy of the
 + \sum_{m=1}^n\|\mathcal \vX^{(m)} - \overline{\mathcal{I}}\|_F^2,
 \end{split}
 \end{equation}
-where $\overline{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$ and $\overline{\vX}=n^{-1}\sum_{m=1}^n\vX^{(m)}$; $\| \cdot \|_F$ and $\left\langle \cdot , \cdot \right\rangle_F$ represents the Forbenius norm and inner product, respectively. Naturally, both $\overline{\mathcal{I}}$ and $\overline{\vX}$ shares the support $\mathcal{S}$.
+where $\overline{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$ and $\overline{\vX}=n^{-1}\sum_{m=1}^n\vX^{(m)}$; $\| \cdot \|_F$ and $\left\langle \cdot , \cdot \right\rangle_F$ represents the Frobenius norm and inner product, respectively. Naturally, both $\overline{\mathcal{I}}$ and $\overline{\vX}$ share the support $\mathcal{S}$.
 
 
 The most right-hand term in Equation~(\ref{E:eq_ANOVAlogimage}) measures the deviations 
@@ -626,205 +650,152 @@ Therefore, it is defined the temporal overall variation sequence $\left\lbrace \
 \end{equation}
 
 
-In this context, a instant $m$ in $\left\lbrace \vd^{(m)}  \right\rbrace_{m=1,\ldots,n}$ with high value stands for the image $\mathcal{I}^{(m)}$ where the most expressive changes take place.
+In this context, an instant $m$ in $\left\lbrace \vd^{(m)}  \right\rbrace_{m=1,\ldots,n}$ with high value stands for the image $\mathcal{I}^{(m)}$ where the most expressive changes take place.
 
-%%%%RGN: Seria esta a razão?
-%In order to obtain an expression for the spatio-temporal fluctuations, let consider the following global matrix $\vD$ of order $n \times uv$:
-%%Define the  $n\times p$ matrix
-%\begin{equation}\label{eq_defmatrixD}
-% \vD=\left(
-% \begin{array}{c}
-% vec(\vD^{(1)})^T\\
-% \vdots\\
-% vec(\vD^{(n)})^T\\
-% \end{array}
-% \right),
-%\end{equation}
-%where $vec(\vD^{(m)})$ is a $uv \times 1$ vector representation, using lexicographic ordering, of the wavelet coefficients regarding the instant $m$.
-%%%%RGN: esta parte fica redundante, pois já definimos os elementos envolvidos aqui...
-%% and $p=\#\{k,l\}$ is total number of locations represented by $\vX^{(m)}$, $m=1,\ldots,n$. 
-%\textcolor{red}{(precisa mesmo estar transposto? E se definir como $1 \times uv$?)}
-%
-%
-%%%%%RGN: Acho que a posicao desta citacao esta errada, nao?
-%Sparsity \cite{johnstone2009statistical} on wavelet coefficients plays a special role in this formalization.
-%% here.  
-%We suppose a handful of coefficients drive the changes given by $\vd$, so that the effective dimension of $\vD$ (number of locations where relevant changes occur), say $s$, is such that $s \ll p$. This can be represented as the following linear model
-%\begin{equation}\label{E:sparsemodel_d}
-%\vd=\vD\vbeta+\vxi
-%\end{equation}
-%where $\vbeta \in \mathbbm{R}^{uv}$ is sparse, i.e., it has $(uv - s)$ null elements, and $\vxi^{(d)} \in \mathbbm{R}^{n}$ is a random vector. \textcolor{red}{(existe esse $(d)$ no $\xi$ mesmo? Como $\beta$ e $\xi$ são obtidos?)} % of errors
-%%some $n\times 1$ random vector of errors.
 
-%%%RGN: vamos trocar $s_d$ por $s$? a adicao do d nao faz muita diferenca.
 
-In order to identify spatio-temporal changes, we employ the concept of ultra-high dimensional correlation screening \cite{fan2020statistical} discussed in Section~\ref{section_theroy}. For each local squared deviation time series given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, \textcolor{blue}{say $\vD_{kl} = \left\lbrace D_{kl}^{(1)},\ldots,D_{kl}^{(n)} \right\rbrace$}, consider the absolute value of its Pearson correlation with the overall squared mean deviations, given by $\vd$:
+In order to identify spatio-temporal changes, we employ the concept of ultra-high dimensional correlation screening \cite{fan2020statistical} discussed in Section~\ref{section_theroy}. For each local squared deviation time series given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, \textcolor{blue}{say $\vD_{kl} = \left\lbrace D_{kl}^{(1)},\ldots,D_{kl}^{(n)} \right\rbrace$}, consider the absolute value of its Pearson correlation with the overall squared deviations, given by $\vd$:
 \begin{equation*}\label{def_Rkld}
 R_{kl}= |\corr \left( \vD_{kl}, \vd \right)|.
 \end{equation*}
 Consequently, rises the matrix $\vR$ from the elements $R_{kl}$ assigned to each $(k,l) \in \mathcal{S}$.
 
 
-%%%RGN: este trecho acima (...where $\vD_{k,l}=(D_{k,l}(1)) pode ser omitido, pois ja definimos quem é D_kl antes da equacao 2. Ok?
-
-
-\begin{figure}[htb!]
-\centering
-\includegraphics[scale=.8]{../../drawio/diagram_wecs.drawio_11nov21}
-\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
-\label{F:EllipsoidChanges}
-\end{figure}
 
 
 Let us define a mapping of \textit{important} indices for changes over the image series with respect to $\overline{\mathcal I}$ as $\mathcal{M}^{\star} \subseteq \mathcal{S}$ where \textit{changes in $\{\mathcal{I}^{(m)}\}_{m=1,\ldots,n}$ with respect to $\overline{\mathcal{I}}$ are affected by local changes in the images}.
-%
-%Such mapping, when re-written using lexicographic order as adopted to express the columns of $\vR$ (Eq.~\ref{eq_defmatrixD}), coincides with the non-zero components of $\vbeta$ in Equation~\ref{E:sparsemodel_d}.
 
-%$\mathcal{M}^{\star}=\{(k,l) \in \mathcal{S}: \textit{changes in } \{\mathcal{I}^{(m)}\}_{m=1}^m \textit{ with respect to}$ $\bar{\mathcal{I}}$ \textit{are affected by changes in location corresponding to index} $(k,l)$ $\textit{in such images}\}$.  
-%This set coincides with the non-zero vectorized one-dimensional indices for the sparse representation of $\vbeta$ in (\ref{E:sparsemodel_d}). 
+
+
 
 An empirical mapping of change locations may be stated by:
 \begin{equation}
 \mathcal{M}_{\tau} = \{(k,l) \in \mathcal{S} : |R_{kl}|>\tau\},
 \label{E:def_Mtaud}
 \end{equation}
-where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value \textcolor{blue}{defined as function of $n$}. Under \textcolor{red}{some regularity conditions}, the probability $P(\mathcal{M}_{\tau}\supset\mathcal{M}^{\star}) \rightarrow 1$ as $n\rightarrow\infty$ \cite{fan2020statistical}. In other words, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{\star}$ when the number of instants $n$ is large enough. 
+where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value. \textcolor{magenta}{The idea is that for suitable values of $\tau$, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{\star}$ \cite{fan2020statistical}. This screening idea has been successfully applied in different problems in areas such as graphical models \cite{zheng2020uniform}, time series \cite{yousuf2021targeting} and remote sensing \cite{li2021mapping}. We show it can also shed light on problems related to change point detection in time series of images.}
 
 
 
-%\section{Methodology}\label{section_method}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiments}\label{secExperiments}
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Experiment design}\label{secExpDesign}
+
+In order to assess the proposed method, this section presents two distinct studies comprising distinct datasets.
+
+The first study (Sec.~\ref{secExpSimulated}) uses a simulated data set and focus on identify the most appropriated wavelet family and resolution level $J$. Specifically, the Haar (haar), Daubechies of order 2 and 4 (db2 and db4), Coiflets of order 4 (coif4) and Symlets of order 2 and 4 (sym2 and sym4) wavelet families are analyzed \cite{BeylkinEA1991,Daubechies1992}. 
+Posterior, once selected the wavelet family, the most suitable resolution level is then pointed out.
+
+Lastly, the performance of the proposed method is measured in terms of True/False Positive Ratios and Receiver Operating Characteristic (ROC) curve. 
+Comparisons with the standard Thresholding of Aggregate Absolute Difference (TAAD) and a non-wavelet version of WECS, herein called Energy Correlation Screening (ECS), are included in the experiments. 
+
+In summary, the TAAD comprises the application of a thresholding algorithm on the accumulated change representation image $\vA$ where $A_{kl} = \sum_{m=2}^{n}|\mathcal{I}_{kl}^{(m)}-\mathcal{I}_{kl}^{(m-1)}|$. The ECS stands for the use of $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ when defining $D_{kl}^{(m)}$ at Equation~\ref{E:eq_defdm}.
+
 %
-%Let $\mathcal{I}^{(1)},\ldots,\mathcal{I}^{(n)}$ be a set of matrices representing the images of some region of interest and $n$ instants in time. These images may be relative to one SAR channel or a combination of channels; this will be specified when appropriate. Our goal is twofold: to find possible points in time where some relevant changes might have taken place at the region represented in $\mathcal{I}^{(m)}$, $m=1,\ldots,n$, and to find which regions are closely associated to the observed changes along time. We shall address these tasks by analyzing the bidimensional stationary discrete wavelet decomposition of $\mathcal{I}^{(m)}$. Stationary wavelets (also known as non-decimated or redundant wavelets) is a traditional de-noising method that can be efficiently applied to two-dimensional signals such as images \cite{coifman1995translation,atto2012multidate,atto2016wavelet}. After application of this wavelet transform to $\mathcal{I}^{(m)}$ at some appropriate resolution level $J\geq 1$, one of its by-products is a matrix of so called approximation wavelet coefficients $\vX^{(m)}$, a smooth version of $\mathcal{I}^{(m)}$ with the same dimension. The higher $J\in\{1,\ldots,\log_2(k)\}$ is, the smoother $\vX^{(m)}$ gets, where $k$ is the minimum between the numbers of rows and columns of $\mathcal{I}^{(m)}$. Many other aspects can be involved in wavelet analysis of images (e.g., different types of wavelet transform, choice of wavelet basis, thresholding of detail coefficients, etc.), but in the current work we focus on $\vX^{(m)}$, which provides a simple way of performing wavelet smoothing and that gives interesting results; extensions based on further aspects of wavelet transforms are straightforward.
-%
-%We can then consider further apportioning the total $\mathbb{L}_2$ energy of $\left\{\vX^{(m)}\right\}$ as
-%\begin{equation} 
-%\sum_{m=1}^n\|\vX^{(m)}\|^2 = n\|\bar{\mathcal{I}}\|^2+2n\langle\bar{\vX}-\bar{\mathcal{I}},\bar{\mathcal{I}}\rangle+\sum_{m=1}^n\|\mathcal \vX^{(m)}-\bar{\mathcal{I}}\|^2,\label{E:eq_ANOVAlogimage}
-%\end{equation}
-%where $\bar{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$, $\bar{\vX}=n^{-1}\sum_{m=1}^n\vX^{(m)}$ and $\|\vA\|^2=\sum_{i=1}^n\sum_{j=1}^m a_{ij}^2$ for a $n\times m$ matrix $\vA=[a_{ij}]$. The last term in (\ref{E:eq_ANOVAlogimage}) measures deviations in time of $\vX^{(m)}$ compared to an {\it average image} $\bar{\mathcal{I}}$, what motivates us to such deviations to detect change points in time. Since each element (pixel) in $\vX^{(m)}$ also has a corresponding sequence of deviations in time, the relation of each local deviation to the overall measure can also be quantified, what allows us to detect changes in space. Such relation shall be computed in the present work with the Pearson correlation, what shares connections with the idea of feature screening employed in high-dimensional regression, as explained further. Other measures of change in time could be evaluated as well, such as squared differences of consecutive times $\|\mathcal \vX^{(m)}-\vX^{(m-1)}\|^2$, $d(\vX^{(m)},\bar{\vX})$ with $d(\cdot,\cdot)$ denoting some distance measure (e.g., Hellinger, Kullback-Leibler, etc.), among many other possibilities.
-%
-%Let $X_{k,l}^{(m)}$ and $\bar{\mathcal{I}}_{k,l}$ be the entry $(k,l)$ of $\vX^{(m)}$ and $\bar{\mathcal{I}}$, respectively. Computing $D_{k,l}^{(m)}=(X_{k,l}^{(m)}-\bar{\mathcal{I}}_{k,l})^2$, we denote the matrix of squared mean differences as $\vD^{(m)} = [D_{k,l}^{(m)}]$. We then 
-%analyze the time series given by
-%\begin{equation} 
-%\vd(m)= \sum_{k,l}D_{k,l}^{(m)} = \sum_{k,l}(X_{k,l}^{(m)} - \bar{\mathcal{I}}_{k,l})^2,
-%\label{E:eq_defdm}
-%\end{equation}
-%$m=1,\ldots,n$, which measure the temporal overall variation with respect to $\bar{\mathcal{I}}$.
-%
-%The time points with highest values of $\vd(m)$ represent the images for which the most expressive changes take place, where changes here are measured through $\mathbb{L}_2$ energy. Define the  $n\times p$ matrix
-%\begin{equation*}
-% \vD=\left(
-% \begin{array}{c}
-% vec(\vD^{(1)})^T\\
-% \vdots\\
-% vec(\vD^{(n)})^T\\
-% \end{array}
-% \right),
-%\label{eq_defmatrixD}
-%\end{equation*}
-%where $vec(\vD^{(m)})$ is the $p\times 1$ vector of wavelet coefficients for time $m$ and $p=\#\{k,l\}$ is total number of locations represented by $\vX^{(m)}$, $m=1,\ldots,n$. Sparsity \cite{johnstone2009statistical} on wavelet coefficients plays a special role here.  We suppose a handful of coefficients drive the changes given by $\vd$, so that the effective dimension of $\vD$ (number of locations where relevant changes occur), say $s_d$, is such that $s_d<<p$. This can be represented as the following linear model
-%\begin{equation} 
-%\vd=\vD\vbeta+\vxi
-%\label{E:sparsemodel_d}
-%\end{equation}
-%where $\vbeta$ is sparse, i.e., it has $p-s_d$ null elements, and $\vxi^{(d)}$ is some $n\times 1$ random vector of errors.
-%
-%In order to identify spatio-temporal changes, we employ the idea of ultra-high dimensional correlation screening \cite{fan2020statistical} as follows. For each local squared mean deviation time series, given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, consider the absolute value of its Pearson correlation with the overall squared mean deviations, given by $\vd$:
-%\begin{equation*}
-%R_{k,l}= |\corr\left( \vD_{k,l}, \vd\right)|,
-%\label{def_Rkld}
-%\end{equation*}
-%where $\vD_{k,l}=(D_{k,l}(1),\ldots,D_{k,l}(n))^T$ is the time series of squared mean deviations of wavelet coefficients for the two-dimensional index $\{k,l\}$.
-%
-%
-%\begin{figure}[htb!]
-%\centering
-%\includegraphics[scale=.8]{../../drawio/diagram_wecs.drawio_11nov21}
-%\caption{Diagram of steps performed on WECS to compute an absolute correlation of a single point.}
-%\label{F:EllipsoidChanges}
-%\end{figure}
-%
-%
-%We have a matrix $\vR=[R_{k,l}]$ of correlations of ultra-high dimension. Define the set of 
-%{\it important} indices for changes in images with respect to $\bar{\mathcal I}$ as 
-%$\mathcal{M}^{*}=\{(k,l): \textit{changes in } \{\mathcal{I}^{(m)}\}_{m=1}^m \textit{ with respect to}$ $\bar{\mathcal{I}}$ \textit{are affected by changes in location corresponding to index} $(k,l)$ $\textit{in such images}\}$.  This set coincides with the non-zero vectorized one-dimensional indices for the sparse representation of $\vbeta$ in (\ref{E:sparsemodel_d}). 
-%We build the empirical set of indices flagged as corresponding to change locations by
-%\begin{equation}
-%\mathcal{M}_{\tau}=\{(k,l):|R_{k,l}|>\tau\},
-%\label{E:def_Mtaud}
-%\end{equation}
-%where $\tau_d>0$ is a convenient threshold value, function of $n$ and $J$. Under some regularity conditions, the probability that $\mathcal{M}_{\tau}$ contains its target set satisfies
-%\[
-%P(\mathcal{M}_{\tau}\supset\mathcal{M}^{*})\rightarrow 1,
-%\]
-%as $n\rightarrow\infty$ \cite{fan2020statistical}, where $P$ denotes a probability measure. In other words, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{*}$ when the number of observations $n$ is large.
-%
-%Further geometrical motivation for our proposal is given as follows. As defined by (\ref{E:eq_defdm}), we expect $\vd$ to be a vector with some few high values, say $s_d$, and $n-s_d$ smaller values. This segregates the multi-temporal images, since the former time points identify the images in which significant changes occur, while the latter indices identify time points with no major changes. Consider $U>L>0$ such that the $s_d$ highest values of $\vd$ are larger than $U$, and the $n-s_d$ smallest values of $\vd$ are smaller than $L$. We also take $\delta=U-L$. The indices defined by  (\ref{E:def_Mtaud}) are such that   
-%\[
-%\frac{<\vD_{k,l},\vd>}{\|\vD_{k,l}\|_2\|\vd\|_2}>\tau,
-%\]
-%i.e., such that  $\sum_{m=1}^nD_{k,l}^{(m)}\vd(m)>\tau\|\vD_{k,l}\|_2\|\vd\|_2$. This can be rewritten as
-%\[
-%\left|\sum_{m:\vd(m)>U} D_{k,l}^{(m)}\right|-\left|\sum_{m:\vd(m)<L} D_{k,l}^{(m)}\right|>\Delta,
-%\]
-%for some arbitrary $\Delta>>0$ (which can be a function of $n$ and $J$). Thence, when we employ correlation screening we select the two-dimensional wavelet indices which have the closest empirical directions to the vector of image temporal changes. Thus we are performing a truly spatio-temporal change detection in a single procedure.
-%
+%\textcolor{red}{
+%Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}^{(m)} - \mathcal{I}_{k,l}^{(m-1)}|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ in the WECS formulation. 
+%}
 
 
-\section{Experiments}
+%%%
 
-In this section we shall evaluate the performance of WECS on two types of data sets. Initially, we generate simulated data where the level of noise and true change regions are known. For these images, we analyze different aspects of concerning the application of WECS and compare its performance with a standard change detection method. In the following application, real satellite data is employed, where the performance of WECS is evaluated on predefined change regions.
+The second study (Sec.~\ref{secExpActual}) analyzes the performance of WECS, and respective comparison with TAAD and ECS, in a real-world application with actual SAR image series. The appropriate wavelet family and resolution level previously identified are employed.
+ROC curves, F1-Score \cite{Rijsbergen1979}, the kappa coefficient, and the variance of kappa \cite{Congalton2019}, are adopted for this purpose. Additionally, the computational run-times are presented and discussed. 
 
+
+
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulated data analysis}\label{secExpSimulated}
 
-In this section we apply the change detection methods above on simulated data of multi-temporal images. The simulated multi-temporal images ($n=80$) is obtained by repeating a sequence of four images with different types of changes plus a noise. Examples of the first four of these images are shown in Figure \ref{F:EllipsoidChanges}. These images are generated from the sum of two matrices: a signal matrix with ones on entries where ellipses occur and zero elsewhere, and a noise matrix with random variables following a standard Gaussian distribution. The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images can be seen in Figure \ref{F:Changes_methods_images}(a), which displays a matrix of zeros and ones that correspond, respectively, to locations without and with changes along time. Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure \ref{F:Changes_methods_images}(b). For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a matrix of zeros and ones that can be compared with the total true changes displayed in Figure \ref{F:Changes_methods_images}(a).
+This section applies the WECS, TAAD, and ECS methods to detect changes on a simulated multi-temporal image dataset. 
+Such series comprises 80 multi-temporal images and it is synthesized by repeating a sequence of four images with different types of changes plus a noise. 
+Examples of the first four instants are shown in Figure~\ref{F:EllipsoidChanges}. 
+These images/instants are generated by summing two matrices: (i) a binary signal matrix with ones denoting where the ellipses occur and zero elsewhere; (ii) and a noise matrix with random variables following a standard Gaussian distribution. 
 
-\begin{figure}[htb!]
+The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images are shown in Figure~\ref{figResSim1}, where white regions (i.e., the ``ones'') correspond to changes along with the instants.
+
+Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure~\ref{figResSim2}. For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a binary matrix that can be compared with the total true changes shown in Figure \ref{figResSim1}.
+Similarly, Figures~\ref{figResSim3} and \ref{figResSim4} depicts the matrices $\vA$ and $\vR$ provided by TAAD and ECS methods.
+
+
+
+%-----------------------
+\begin{figure}[hbt]
 \centering
-%\includegraphics[width=40pc]{EllipsoidChanges/ellipses_all}
-\includegraphics[scale=.11]{../../figs/ellipses_t1}
-\includegraphics[scale=.11]{../../figs/ellipses_t2}
-\includegraphics[scale=.11]{../../figs/ellipses_t3}
-\includegraphics[scale=.11]{../../figs/ellipses_t4}
+
+\mbox{
+\subfigure[$\mathcal{I}^{(1)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t1_adjust.png}\label{figSim1}} 
+\subfigure[$\mathcal{I}^{(2)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t2_adjust.png}\label{figSim2}}
+}
+\mbox{
+\subfigure[$\mathcal{I}^{(3)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t3_adjust.png}\label{figSim3}} 
+\subfigure[$\mathcal{I}^{(4)}$]{\includegraphics[width=0.23\textwidth]{../../figs/ellipses_t4_adjust.png}\label{figSim4}}
+}
+
 \caption{Example of the first four simulated multi-temporal images. Features and changes come as white ellipses and dots.}
 \label{F:EllipsoidChanges}
 \end{figure}
 
 
-\begin{figure}[htp!]
-\includegraphics[scale=.1]{../../figs/total_changes}(a)
-\includegraphics[scale=.1]{../../figs/corr_changes_dm}(b)
-\includegraphics[scale=.1]{../../figs/corr_changes_logratios}(c)
-\includegraphics[scale=.1]{../../figs/corr_changes_dm_nowavelets}(d)
-\caption{Simulated images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Standard approach. (d) $\vd(m)$ without wavelets.}
+
+%-----------------------
+\begin{figure}[hbt]
+\centering
+
+\mbox{
+\subfigure[Total changes]{\includegraphics[frame,width=0.23\textwidth]{../../figs/total_changes_adjust.png}\label{figResSim1}} 
+\subfigure[WECS -- db2, $J=2$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_adjust.png}\label{figResSim2}} 
+}
+\mbox{
+\subfigure[TAAD -- $\vA$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_logratios_adjust.png}\label{figResSim3}} 
+\subfigure[ECS]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_nowavelets_adjust.png}\label{figResSim4}} 
+}
+
+%\caption{Simulated images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Standard approach. (d) $\vd(m)$ without wavelets.}
+\caption{Expected change/non-change regions and typical results provided bu WECS, TAAD and ECS before the thresholding process.}
 \label{F:Changes_methods_images}
 \end{figure}
 
-Figure \ref{F:Changes_methods_images} illustrates a comparison of different approaches to detect accumulated changes. Panel (b) shows the result of WECS using Daubechies wavelet with two null moments (db2) and $J=2$. Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}^{(m)} - \mathcal{I}_{k,l}^{(m-1)}|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ in the WECS formulation. 
+
+According to the experiment design (Section~\ref{secExpDesign}), ROC curves are employed to compare the performance of each analyzed method and inspect the effects of both $J$ and wavelet basis on the performance of the WECS method. In summary, the ROC curves exhibit the performance as a function of true and false positive ratios when distinguishing two events (in this context, the change and non-changed pixels/positions) using distinct thresholds. The true and false positive ratios are computed using the ``total change'' image (Fig.~\ref{figResSim1}) as reference. Moreover, the tested thresholds embrace all values in $\vR$ (or $\vA$), excluding repetitions and considering it in ascending order.
 
 
-We compute ROC curves to compare the detection performance of different methods and to verify the influence of some tuning parameters of wavelet smoothing: the resolution level $J$ and the choice of wavelet basis. Each detection method generates a matrix of change detection measures (correlations in the case of WECS). The ROC curves present the performance of change detection by applying a threshold on these measures, in the following way:
-\begin{enumerate}
-\item Let $R$ be the matrix of change measures. Compute the range $[r_{\min},r_{\max}]$ of the values in $R$;
-\item Let $(r_{(1)},\ldots,r_{(100)})$ be equally space values between $r_{\min}$ and $r_{\max}$;
-\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$ coincide with the element $(i,j)$ where a change really occurs on the image of total changes. Dividing this number by the total number of changes gives the true positive rate.
-\item For each $k=1,\ldots,n$, check how many entries are there such that $R_{i,j}>r_{(k)}$  do not coincide with the element $(i,j)$ where a change really occurs. Dividing this number by the total number of entries where changes do not occur gives the false positive rate.
-\item The ROC curve is the plot of true and false positive rates corresponding to each $k$.
-\end{enumerate}
 
-\begin{figure}[htp!]
-\includegraphics[scale=.13]{../../figs/methods_comparison}\hspace{-.6cm}(a) 
-\includegraphics[scale=.13]{../../figs/levels_comparison}\hspace{-.5cm}(b)\\
-\includegraphics[scale=.13]{../../figs/families_comparison}\hspace{-.5cm}(c)
-\includegraphics[scale=.13]{../../figs/dm_comparison_wavelet_deepL}\hspace{-.5cm}(d) \\
-\caption{ROC curves for detection of changing ellipses in simulated images and different methods. (a) The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue).
-(b) db2 $\vd(m)$ with different levels.
-(c) $\vd(m)$ with different wavelet bases and J=2;
-(d) The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line).}
-\label{F:EllipsoidChanges_details}
+%-----------------------
+\begin{figure}[hbt]
+\centering
+
+\mbox{
+\subfigure[$\vd(m)$ with different wavelet bases and J=2]{\includegraphics[width=0.23\textwidth]{../../graphs/basisROC.pdf}\label{figROCSimBasis}}
+\subfigure[db2 $\vd(m)$ with different levels]{\includegraphics[width=0.23\textwidth]{../../graphs/levelsROC.pdf}\label{figROCSimJ}}
+}
+
+\mbox{
+\subfigure[The proposed methods in black (db2 WECS $\vd(m)$) vs two non-wavelet methods: standard log-ratio aggregation (red stars); and $\vd(m)$ (blue)]{\includegraphics[width=0.23\textwidth]{../../graphs/methodROC.pdf}\label{figROCSimRes}} 
+%\subfigure[The proposed db2 WECS $\vd(m)$ (red circles) and $\vd(m)$ with deep-learning feature extraction and without wavelets (yellow line)]{\includegraphics[width=0.23\textwidth]{../../graphs/comparisonROC.pdf}\label{figROCSim4}}
+}
+
+\caption{ROC curves for detection of changing ellipses in simulated images and different methods.}\label{F:EllipsoidChanges_details}
 \end{figure}
 
-Figure \ref{F:EllipsoidChanges_details} presents the different ROC curves for change detection methods applied to the simulated data as follows. The effects of wavelet bases, level of decomposition, deep-learning feature extraction are shown on the ROC curves. We employ the following wavelet bases: Haar;  Daubechies db2; Daubechies db4; Coiflets coif4; Symlets sym2 ; and Symlets sym4. Panel (c) presents the ROC curves for the proposed method under the aforementioned bases. On all instances $J=2$ is employed. Comparing the ROC curves of all options, we can notice that Daubechies db2 and Symlets sym2 are the best choices.  Panel (b) presents the ROC curves for five different levels of decomposition $J=\{1,2,3,4,5\}$ under the Daubechies db2 basis. Levels $J=2,3$ have a clear better performance, with a slight advantage to $J=2$, since it is uses less levels on the decomposition. The overall performance  of $J=2$ warrants its use for the rest of the comparisons. Panel (d) shows how the proposed method performs in comparison to a deep learning feature extraction from a residual learning network \cite{zhang2017beyond}. WECS is applied with db2 wavelets and $J=2$, whereas the other method applies WECS's idea, the only difference being that $\vX^{(m)}$ is replaced by another smooth version of $\mathcal{I}^{(m)}$ that employs neural-networks trained to compete with wavelet smoothing. We can see that the ROC curves for images treated with a deep-learning method has a performance worse than that obtained with WECS. 
-We finally have in Panel (a) the proposed WECS with db2 wavelets and $J=2$ compared to two other non-wavelet methods. The first involves computing $\vd(m)$ without wavelet smoothing, i.e., the squared deviations are computed using $\{\mathcal{I}^{(m)}\}$ instead of $\{\vX^{(m)}\}$, and the classic method of analyzing aggregated absolute differences of $\{\mathcal{I}^{(m)}\}$. The ROC curves in Panel (a) show that the proposed WECS outperforms both the other two methods. 
+
+
+
+%basis wavelet
+Figure~\ref{figROCSimBasis} presents the ROC curves considering distinct wavelet basis in the WECS method. All instances adopts $J=2$. The curves allow concluding that db2 and sym2 deliver the best trade-off between true and false positive ratios (i.e., high true positive ratios even when the false positive ratios are low).
+As a consequence of this finding, all the following experiments and analyses consider the db2 wavelet basis.
+
+%J-level
+Figure~\ref{figROCSimJ} depicts the ROC curves with $J \in \{1,2,3,4,5\}$ as decomposition levels. The profiles exhibited by the ROC curves make evident that $J$ equal to 2 or 3 promotes the best performances, with a slight advantage for $J=2$, since it demands few decomposition levels. The overall performance for $J=2$ warrants its use for the rest of the comparisons.
+
+%Compara figA
+At last, the ROC curves shown in Figure~\ref{figROCSimRes} allow comparing the performances of WECS, TAAD and ECS approaches. 
+Firstly, the low-performance assigned to the ECS method allows concluding that the simple swap of the wavelet transform by a ``deviation image'' into the proposed correlation screening pipeline is an inconvenient choice and reinforces the importance of the wavelet smoothing in the context of the proposed method.
+About the performance of TAAD method, a true positive ratio of 0.8 is guaranteed when tolerating a false positive ratio of approximately 0.4. 
+Reversely, the WECS method provides the same true positive ratio under an almost nill false positive ratio, demonstrating then its superiority compared to the competitors.
 
 
 
