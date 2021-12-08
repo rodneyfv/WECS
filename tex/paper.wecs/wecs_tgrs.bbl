@@ -184,10 +184,39 @@ A.~M. Atto, E.~Trouv{\'e}, J.-M. Nicolas, and T.~T. L{\^e}, ``Wavelet operators
   time-series analysis,'' \emph{IEEE Transactions on Geoscience and Remote
   Sensing}, vol.~54, no.~11, pp. 6606--6624, 2016.
 
-\bibitem{zhang2017beyond}
-K.~Zhang, W.~Zuo, Y.~Chen, D.~Meng, and L.~Zhang, ``Beyond a {G}aussian
-  denoiser: Residual learning of deep {CNN} for image denoising,'' \emph{IEEE
-  transactions on image processing}, vol.~26, no.~7, pp. 3142--3155, 2017.
+\bibitem{zheng2020uniform}
+Z.~Zheng, H.~Shi, Y.~Li, and H.~Yuan, ``Uniform joint screening for ultra-high
+  dimensional graphical models,'' \emph{Journal of Multivariate Analysis}, vol.
+  179, p. 104645, 2020.
+
+\bibitem{yousuf2021targeting}
+K.~Yousuf and Y.~Feng, ``Targeting predictors via partial distance correlation
+  with applications to financial forecasting,'' \emph{Journal of Business \&
+  Economic Statistics}, pp. 1--13, 2021.
+
+\bibitem{li2021mapping}
+X.~Li, H.~Lin, J.~Long, and X.~Xu, ``Mapping the growing stem volume of the
+  coniferous plantations in {N}orth {C}hina using multispectral data from
+  integrated {GF}-2 and {S}entinel-2 images and an optimized feature variable
+  selection method,'' \emph{Remote Sensing}, vol.~13, no.~14, p. 2740, 2021.
+
+\bibitem{BeylkinEA1991}
+G.~Beylkin, R.~Coifman, and V.~Rokhlin, ``Fast wavelet transforms and numerical
+  algorithms i,'' \emph{Communications on Pure and Applied Mathematics},
+  vol.~44, no.~2, pp. 141--183, 1991.
+
+\bibitem{Daubechies1992}
+I.~Daubechies, \emph{Ten Lectures on Wavelets}.\hskip 1em plus 0.5em minus
+  0.4em\relax USA: Society for Industrial and Applied Mathematics, 1992.
+
+\bibitem{Rijsbergen1979}
+C.~J.~V. Rijsbergen, \emph{Information Retrieval}, 2nd~ed.\hskip 1em plus 0.5em
+  minus 0.4em\relax USA: Butterworth-Heinemann, 1979.
+
+\bibitem{Congalton2019}
+R.~G. Congalton and K.~Green, \emph{Assessing the accuracy of remotely sensed
+  data: principles and practices}, 3rd~ed.\hskip 1em plus 0.5em minus
+  0.4em\relax CRC press, 2019.
 
 \bibitem{otsu1979threshold}
 N.~Otsu, ``A threshold selection method from gray-level histograms,''
