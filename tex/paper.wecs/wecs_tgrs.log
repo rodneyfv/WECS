@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  8 DEC 2021 21:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  9 DEC 2021 22:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,40 +683,409 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen289
 \@vwid@roff=\dimen290
 ))
-(./wecs_tgrs.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count323
+\float@exts=\toks36
+\float@box=\box66
+\@float@everytoks=\toks37
+\@floatcapt=\box67
+)
+(/usr/share/texlive/texmf-dist/tex/latex/scalerel/scalerel.sty
+Package: scalerel 2016/12/29 v1.8 Routines for constrained scaling and stretchi
+ng of objects, relative to a reference object or in absolute terms
+\thesrwidth=\skip76
+\thesrheight=\skip77
+\srblobheight=\skip78
+\srblobdepth=\skip79
+\mnxsrwidth=\skip80
+\LMex=\skip81
+\LMpt=\skip82
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks38
+\pgfutil@tempdima=\dimen291
+\pgfutil@tempdimb=\dimen292
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box68
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks39
+\pgfkeys@temptoks=\toks40
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks41
+))
+\pgf@x=\dimen293
+\pgf@y=\dimen294
+\pgf@xa=\dimen295
+\pgf@ya=\dimen296
+\pgf@xb=\dimen297
+\pgf@yb=\dimen298
+\pgf@xc=\dimen299
+\pgf@yc=\dimen300
+\pgf@xd=\dimen301
+\pgf@yd=\dimen302
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count324
+\c@pgf@countb=\count325
+\c@pgf@countc=\count326
+\c@pgf@countd=\count327
+\t@pgf@toka=\toks42
+\t@pgf@tokb=\toks43
+\t@pgf@tokc=\toks44
+\pgf@sys@id@count=\count328
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfsyssoftpath@smallbuffer@items=\count329
+\pgfsyssoftpath@bigbuffer@items=\count330
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen303
+\pgfmath@count=\count331
+\pgfmath@box=\box69
+\pgfmath@toks=\toks45
+\pgfmath@stack@operand=\toks46
+\pgfmath@stack@operation=\toks47
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count332
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@picminx=\dimen304
+\pgf@picmaxx=\dimen305
+\pgf@picminy=\dimen306
+\pgf@picmaxy=\dimen307
+\pgf@pathminx=\dimen308
+\pgf@pathmaxx=\dimen309
+\pgf@pathminy=\dimen310
+\pgf@pathmaxy=\dimen311
+\pgf@xx=\dimen312
+\pgf@xy=\dimen313
+\pgf@yx=\dimen314
+\pgf@yy=\dimen315
+\pgf@zx=\dimen316
+\pgf@zy=\dimen317
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@path@lastx=\dimen318
+\pgf@path@lasty=\dimen319
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@shorten@end@additional=\dimen320
+\pgf@shorten@start@additional=\dimen321
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfpic=\box70
+\pgf@hbox=\box71
+\pgf@layerbox@main=\box72
+\pgf@picture@serial@count=\count333
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgflinewidth=\dimen322
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@pt@x=\dimen323
+\pgf@pt@y=\dimen324
+\pgf@pt@temp=\dimen325
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowsep=\dimen326
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@max=\dimen327
+\pgf@sys@shading@range@num=\count334
+\pgf@shadingcount=\count335
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfexternal@startupbox=\box73
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodeparttextbox=\box74
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@nodesepstart=\dimen328
+\pgf@nodesepend=\dimen329
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen330
+\pgffor@skip=\dimen331
+\pgffor@stack=\toks48
+\pgffor@toks=\toks49
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@plot@mark@count=\count336
+\pgfplotmarksize=\dimen332
+)
+\tikz@lastx=\dimen333
+\tikz@lasty=\dimen334
+\tikz@lastxsaved=\dimen335
+\tikz@lastysaved=\dimen336
+\tikz@lastmovetox=\dimen337
+\tikz@lastmovetoy=\dimen338
+\tikzleveldistance=\dimen339
+\tikzsiblingdistance=\dimen340
+\tikz@figbox=\box75
+\tikz@figbox@bg=\box76
+\tikz@tempbox=\box77
+\tikz@tempbox@bg=\box78
+\tikztreelevel=\count337
+\tikznumberofchildren=\count338
+\tikznumberofcurrentchild=\count339
+\tikz@fig@count=\count340
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfmatrixcurrentrow=\count341
+\pgfmatrixcurrentcolumn=\count342
+\pgf@matrix@numberofcolumns=\count343
+)
+\tikz@expandcount=\count344
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarysvg.path.code.tex
+File: tikzlibrarysvg.path.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibrarysvg.path.cod
+e.tex
+File: pgflibrarysvg.path.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleparser.code.tex
+File: pgfmoduleparser.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfparserdef@arg@count=\count345
+)
+\pgf@lib@svg@last@x=\dimen341
+\pgf@lib@svg@last@y=\dimen342
+\pgf@lib@svg@last@c@x=\dimen343
+\pgf@lib@svg@last@c@y=\dimen344
+\pgf@lib@svg@count=\count346
+\pgf@lib@svg@max@num=\count347
+)) (./wecs_tgrs.aux
+
+LaTeX Warning: Label `figImgSentinel2015' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinel2015' multiply defined.
+
+
+LaTeX Warning: Label `figImgSentinel2017' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinel2017' multiply defined.
+
+
+LaTeX Warning: Label `figImgSentinel2015' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinel2015' multiply defined.
+
+
+LaTeX Warning: Label `figImgSentinel2017' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinel2017' multiply defined.
+
+
+LaTeX Warning: Label `figImgSentinel2015' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinel2015' multiply defined.
+
+
+LaTeX Warning: Label `figImgSentinel2017' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinel2017' multiply defined.
+
+
+LaTeX Warning: Label `figImgSentinelROIs' multiply defined.
+
+
+LaTeX Warning: Label `sub@figImgSentinelROIs' multiply defined.
+
+)
 \openout1 = `wecs_tgrs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 432.
-LaTeX Font Info:    ... okay on input line 432.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 452.
+LaTeX Font Info:    ... okay on input line 452.
 
 -- Lines per column: 58 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count323
-\scratchdimen=\dimen291
-\scratchbox=\box66
-\nofMPsegments=\count324
-\nofMParguments=\count325
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count326
-\MPscratchDim=\dimen292
-\MPnumerator=\count327
-\makeMPintoPDFobject=\count328
-\everyMPtoPDFconversion=\toks37
+\scratchcounter=\count348
+\scratchdimen=\dimen345
+\scratchbox=\box79
+\nofMPsegments=\count349
+\nofMParguments=\count350
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count351
+\MPscratchDim=\dimen346
+\MPnumerator=\count352
+\makeMPintoPDFobject=\count353
+\everyMPtoPDFconversion=\toks51
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -726,8 +1095,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring OFF on input line 432.
+\AtBeginShipoutBox=\box80
+Package hyperref Info: Link coloring OFF on input line 452.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -738,15 +1107,15 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count329
+\c@section@level=\count354
 )
-LaTeX Info: Redefining \ref on input line 432.
-LaTeX Info: Redefining \pageref on input line 432.
-LaTeX Info: Redefining \nameref on input line 432.
+LaTeX Info: Redefining \ref on input line 452.
+LaTeX Info: Redefining \pageref on input line 452.
+LaTeX Info: Redefining \nameref on input line 452.
 
 (./wecs_tgrs.out) (./wecs_tgrs.out)
-\@outlinefile=\write3
-\openout3 = `wecs_tgrs.out'.
+\@outlinefile=\write4
+\openout4 = `wecs_tgrs.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
@@ -759,14 +1128,14 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-binary.cfg
 File: siunitx-binary.cfg 2017/11/26 v2.7k siunitx: Binary units
 )
-LaTeX Info: Redefining \microtypecontext on input line 432.
+LaTeX Info: Redefining \microtypecontext on input line 452.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 432.
+LaTeX Info: Redefining \showhyphens on input line 452.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -782,11 +1151,12 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
+ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 432
+LaTeX Font Info:    Trying to load font information for U+msa on input line 452
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -795,7 +1165,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 432
+LaTeX Font Info:    Trying to load font information for U+msb on input line 452
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -804,7 +1174,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 43
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 45
 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -818,31 +1188,32 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 534.
 
-Underfull \hbox (badness 2762) in paragraph at lines 513--513
+Underfull \hbox (badness 2762) in paragraph at lines 534--534
 [][][]\OT1/ptm/m/n/8 (+20) A. Atto is with the LIS-TIC - Poly-tech Annecy-Chamb
 []ery, Uni-
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 513--513
+Underfull \hbox (badness 2856) in paragraph at lines 534--534
 \OT1/ptm/m/n/8 (+20) ver-sit[]e de Savoie, 74944 An-necy le Vieux Cedex, France
  (e-mail:
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 521--523
+Underfull \hbox (badness 2165) in paragraph at lines 542--544
 []\OT1/ptm/b/it/9 Index Terms\OT1/ptm/b/n/9 ---Change de-tec-tion, Re-mote Sens
 -ing, multi-
  []
 
 
 LaTeX Warning: Reference `section_validation' on page 1 undefined on input line
- 584.
+ 605.
 
 
-LaTeX Warning: Reference `section_realdata' on page 1 undefined on input line 5
-84.
+LaTeX Warning: Reference `section_realdata' on page 1 undefined on input line 6
+05.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -852,211 +1223,304 @@ LaTeX Warning: Reference `section_realdata' on page 1 undefined on input line 5
 pdfTeX warning: /usr/bin/pdflatex (file ../../drawio/diagram_wecs.drawio_11nov2
 1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
 ed
-<../../drawio/diagram_wecs.drawio_11nov21.pdf, id=104, 277.035pt x 308.11108pt>
+<../../drawio/diagram_wecs.drawio_11nov21.pdf, id=119, 277.035pt x 308.11108pt>
 
 File: ../../drawio/diagram_wecs.drawio_11nov21.pdf Graphic file (type pdf)
 <use ../../drawio/diagram_wecs.drawio_11nov21.pdf>
 Package pdftex.def Info: ../../drawio/diagram_wecs.drawio_11nov21.pdf  used on 
-input line 610.
+input line 631.
 (pdftex.def)             Requested size: 221.6283pt x 246.4892pt.
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 618
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 639
 .
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 Underfull \vbox (badness 2197) has occurred while \output is active []
 
- [2 <../../drawio/diagram_wecs.drawio_11nov21.pdf>] [3]
-<../../figs/ellipses_t1_adjust.png, id=180, 194.6472pt x 194.6472pt>
+ [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.656 \end{equation}
+                     <../../drawio/diagram_wecs.drawio_11nov21.pdf>] [3]
+<../../figs/ellipses_t1_adjust.png, id=197, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t1_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t1_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t1_adjust.png  used on input line 
-732.
+758.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
-<../../figs/ellipses_t2_adjust.png, id=181, 194.6472pt x 194.6472pt>
+<../../figs/ellipses_t2_adjust.png, id=198, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t2_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t2_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t2_adjust.png  used on input line 
-732.
+758.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
-<../../figs/ellipses_t3_adjust.png, id=182, 194.6472pt x 194.6472pt>
+<../../figs/ellipses_t3_adjust.png, id=199, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t3_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t3_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t3_adjust.png  used on input line 
-736.
+762.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
-<../../figs/ellipses_t4_adjust.png, id=183, 194.6472pt x 194.6472pt>
+<../../figs/ellipses_t4_adjust.png, id=200, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t4_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t4_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t4_adjust.png  used on input line 
-736.
+762.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
-<../../figs/total_changes_adjust.png, id=184, 194.6472pt x 194.6472pt>
+<../../figs/total_changes_adjust.png, id=201, 194.6472pt x 194.6472pt>
 File: ../../figs/total_changes_adjust.png Graphic file (type png)
 <use ../../figs/total_changes_adjust.png>
 Package pdftex.def Info: ../../figs/total_changes_adjust.png  used on input lin
-e 751.
+e 777.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
-<../../figs/corr_changes_dm_adjust.png, id=185, 194.6472pt x 194.6472pt>
+<../../figs/corr_changes_dm_adjust.png, id=202, 194.6472pt x 194.6472pt>
 File: ../../figs/corr_changes_dm_adjust.png Graphic file (type png)
 <use ../../figs/corr_changes_dm_adjust.png>
 Package pdftex.def Info: ../../figs/corr_changes_dm_adjust.png  used on input l
-ine 751.
+ine 777.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
-<../../figs/corr_changes_logratios_adjust.png, id=186, 194.6472pt x 194.6472pt>
+<../../figs/corr_changes_logratios_adjust.png, id=203, 194.6472pt x 194.6472pt>
 
 File: ../../figs/corr_changes_logratios_adjust.png Graphic file (type png)
 <use ../../figs/corr_changes_logratios_adjust.png>
 Package pdftex.def Info: ../../figs/corr_changes_logratios_adjust.png  used on 
-input line 755.
+input line 781.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
-<../../figs/corr_changes_dm_nowavelets_adjust.png, id=187, 194.6472pt x 194.647
+<../../figs/corr_changes_dm_nowavelets_adjust.png, id=204, 194.6472pt x 194.647
 2pt>
 File: ../../figs/corr_changes_dm_nowavelets_adjust.png Graphic file (type png)
 <use ../../figs/corr_changes_dm_nowavelets_adjust.png>
 Package pdftex.def Info: ../../figs/corr_changes_dm_nowavelets_adjust.png  used
- on input line 755.
+ on input line 781.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
-<../../graphs/basisROC.pdf, id=190, 496.64424pt x 492.10829pt>
+<../../graphs/basisROC.pdf, id=207, 496.64424pt x 492.10829pt>
 File: ../../graphs/basisROC.pdf Graphic file (type pdf)
 <use ../../graphs/basisROC.pdf>
-Package pdftex.def Info: ../../graphs/basisROC.pdf  used on input line 774.
+Package pdftex.def Info: ../../graphs/basisROC.pdf  used on input line 801.
 (pdftex.def)             Requested size: 118.6778pt x 117.59027pt.
-
-Underfull \hbox (badness 2269) in paragraph at lines 774--774
-[]\OT1/ptm/m/n/8 (+20) (a) $[]\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 m\OT1/cmr/m/n/8 )
-$ \OT1/ptm/m/n/8 (+20) with dif-fer-ent wavelet
- []
-
-<../../graphs/levelsROC.pdf, id=191, 488.52109pt x 492.10829pt>
+<../../graphs/levelsROC.pdf, id=208, 488.52109pt x 492.10829pt>
 File: ../../graphs/levelsROC.pdf Graphic file (type pdf)
 <use ../../graphs/levelsROC.pdf>
-Package pdftex.def Info: ../../graphs/levelsROC.pdf  used on input line 774.
+Package pdftex.def Info: ../../graphs/levelsROC.pdf  used on input line 801.
 (pdftex.def)             Requested size: 118.6778pt x 119.55011pt.
-<../../graphs/methodROC.pdf, id=192, 490.2366pt x 492.10829pt>
-File: ../../graphs/methodROC.pdf Graphic file (type pdf)
-<use ../../graphs/methodROC.pdf>
-Package pdftex.def Info: ../../graphs/methodROC.pdf  used on input line 779.
-(pdftex.def)             Requested size: 118.6778pt x 119.12961pt.
-<../../qgis/maps/StudyArea.pdf, id=196, 606.265pt x 412.54124pt>
-File: ../../qgis/maps/StudyArea.pdf Graphic file (type pdf)
-<use ../../qgis/maps/StudyArea.pdf>
-Package pdftex.def Info: ../../qgis/maps/StudyArea.pdf  used on input line 809.
+<../../graphs/methodROC_ext.pdf, id=209, 931.91742pt x 495.53319pt>
+File: ../../graphs/methodROC_ext.pdf Graphic file (type pdf)
+<use ../../graphs/methodROC_ext.pdf>
+Package pdftex.def Info: ../../graphs/methodROC_ext.pdf  used on input line 805
+.
+(pdftex.def)             Requested size: 237.36346pt x 126.21184pt.
 
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.834 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.834 
+       <../../figs/ellipses_t1_adjust.png> <../../figs/ellipses_t2_adjust.png> 
+<../../figs/ellipses_t3_adjust.png> <../../figs/ellipses_t4_adjust.png> <../../
+figs/total_changes_adjust.png> <../../figs/corr_changes_dm_adjust.png> <../../f
+igs/corr_changes_logratios_adjust.png> <../../figs/corr_changes_dm_nowavelets_a
+djust.png>]
+<../../qgis/maps/StudyArea_OSM.pdf, id=239, 606.265pt x 412.54124pt>
+File: ../../qgis/maps/StudyArea_OSM.pdf Graphic file (type pdf)
+<use ../../qgis/maps/StudyArea_OSM.pdf>
+Package pdftex.def Info: ../../qgis/maps/StudyArea_OSM.pdf  used on input line 
+846.
 (pdftex.def)             Requested size: 250.26031pt x 170.29497pt.
-<../../qgis/maps/Sentinel_2015.pdf, id=197, 402.50375pt x 437.635pt>
+<../../qgis/maps/Sentinel_2015.pdf, id=240, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/Sentinel_2015.pdf Graphic file (type pdf)
 <use ../../qgis/maps/Sentinel_2015.pdf>
 Package pdftex.def Info: ../../qgis/maps/Sentinel_2015.pdf  used on input line 
-821.
+858.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
-<../../qgis/maps/Sentinel_2017.pdf, id=198, 402.50375pt x 437.635pt>
+<../../qgis/maps/Sentinel_2017.pdf, id=241, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/Sentinel_2017.pdf Graphic file (type pdf)
 <use ../../qgis/maps/Sentinel_2017.pdf>
 Package pdftex.def Info: ../../qgis/maps/Sentinel_2017.pdf  used on input line 
-821.
+858.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
-<../../figs/coming-soon.png, id=199, 512.91624pt x 354.32375pt>
-File: ../../figs/coming-soon.png Graphic file (type png)
-<use ../../figs/coming-soon.png>
-Package pdftex.def Info: ../../figs/coming-soon.png  used on input line 823.
-(pdftex.def)             Requested size: 118.6778pt x 81.97932pt.
-[4 <../../figs/ellipses_t1_adjust.png> <../../figs/ellipses_t2_adjust.png> <../
-../figs/ellipses_t3_adjust.png> <../../figs/ellipses_t4_adjust.png> <../../figs
-/total_changes_adjust.png> <../../figs/corr_changes_dm_adjust.png> <../../figs/
-corr_changes_logratios_adjust.png> <../../figs/corr_changes_dm_nowavelets_adjus
-t.png>]
-<../../figs/forest_vSumDifCoefSq.jpg, id=223, 903.375pt x 654.445pt>
-File: ../../figs/forest_vSumDifCoefSq.jpg Graphic file (type jpg)
-<use ../../figs/forest_vSumDifCoefSq.jpg>
-Package pdftex.def Info: ../../figs/forest_vSumDifCoefSq.jpg  used on input lin
-e 834.
-(pdftex.def)             Requested size: 180.6718pt x 130.88667pt.
-<../../figs/forest_changes_time.jpg, id=224, 903.375pt x 654.445pt>
-File: ../../figs/forest_changes_time.jpg Graphic file (type jpg)
-<use ../../figs/forest_changes_time.jpg>
-Package pdftex.def Info: ../../figs/forest_changes_time.jpg  used on input line
- 841.
-(pdftex.def)             Requested size: 271.01459pt x 196.335pt.
+<../../qgis/maps/SamplesRev.pdf, id=242, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/SamplesRev.pdf Graphic file (type pdf)
+<use ../../qgis/maps/SamplesRev.pdf>
+Package pdftex.def Info: ../../qgis/maps/SamplesRev.pdf  used on input line 860
+.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
 
-Overfull \hbox (19.01459pt too wide) in paragraph at lines 841--842
-[][] 
+Underfull \hbox (badness 5726) in paragraph at lines 860--860
+[]\OT1/ptm/m/n/8 (+20) (c) Ref-er-ence change and non-
  []
 
-[5 <../../graphs/basisROC.pdf> <../../graphs/levelsROC.pdf
+<../../graphs/LineInstants_1-30-59.pdf, id=245, 945.3128pt x 504.30286pt>
+File: ../../graphs/LineInstants_1-30-59.pdf Graphic file (type pdf)
+<use ../../graphs/LineInstants_1-30-59.pdf>
+Package pdftex.def Info: ../../graphs/LineInstants_1-30-59.pdf  used on input l
+ine 886.
+(pdftex.def)             Requested size: 250.26031pt x 133.5088pt.
+<../../qgis/maps/X_1.pdf, id=246, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/X_1.pdf Graphic file (type pdf)
+<use ../../qgis/maps/X_1.pdf>
+Package pdftex.def Info: ../../qgis/maps/X_1.pdf  used on input line 899.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/X_30.pdf, id=247, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/X_30.pdf Graphic file (type pdf)
+<use ../../qgis/maps/X_30.pdf>
+Package pdftex.def Info: ../../qgis/maps/X_30.pdf  used on input line 899.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/X_59.pdf, id=248, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/X_59.pdf Graphic file (type pdf)
+<use ../../qgis/maps/X_59.pdf>
+Package pdftex.def Info: ../../qgis/maps/X_59.pdf  used on input line 904.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/X_mean.pdf, id=249, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/X_mean.pdf Graphic file (type pdf)
+<use ../../qgis/maps/X_mean.pdf>
+Package pdftex.def Info: ../../qgis/maps/X_mean.pdf  used on input line 904.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.916 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.916 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+6}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.916 
+       <../../graphs/basisROC.pdf> <../../graphs/levelsROC.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../../graphs/levelsROC.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
-> <../../graphs/methodROC.pdf
+> <../../graphs/methodROC_ext.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ../../graphs/methodROC.pdf): PDF inclus
-ion: multiple pdfs with page group included in a single page
-> <../../qgis/maps/studyArea.pdf> <../../qgis/maps/Sentinel_2015.pdf> <../../qg
-is/maps/Sentinel_2017.pdf> <../../figs/coming-soon.png> <../../figs/forest_vSum
-DifCoefSq.jpg>]
-<../../figs/forest_change.jpg, id=367, 1117.17375pt x 957.5775pt>
-File: ../../figs/forest_change.jpg Graphic file (type jpg)
-<use ../../figs/forest_change.jpg>
-Package pdftex.def Info: ../../figs/forest_change.jpg  used on input line 863.
-(pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
-<../../figs/forest_roc_change.jpg, id=368, 903.375pt x 654.445pt>
-File: ../../figs/forest_roc_change.jpg Graphic file (type jpg)
-<use ../../figs/forest_roc_change.jpg>
-Package pdftex.def Info: ../../figs/forest_roc_change.jpg  used on input line 8
-64.
-(pdftex.def)             Requested size: 135.5004pt x 98.1625pt.
-<../../figs/forest_wecs_abscorr.jpg, id=369, 903.375pt x 654.445pt>
-File: ../../figs/forest_wecs_abscorr.jpg Graphic file (type jpg)
-<use ../../figs/forest_wecs_abscorr.jpg>
-Package pdftex.def Info: ../../figs/forest_wecs_abscorr.jpg  used on input line
- 865.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
-<../../figs/forest_aggreg_ratios.jpg, id=370, 903.375pt x 654.445pt>
-File: ../../figs/forest_aggreg_ratios.jpg Graphic file (type jpg)
-<use ../../figs/forest_aggreg_ratios.jpg>
-Package pdftex.def Info: ../../figs/forest_aggreg_ratios.jpg  used on input lin
-e 866.
-(pdftex.def)             Requested size: 117.44287pt x 85.08083pt.
-<../../figs/forest_wecs_change_space.jpg, id=371, 1117.17375pt x 957.5775pt>
-File: ../../figs/forest_wecs_change_space.jpg Graphic file (type jpg)
-<use ../../figs/forest_wecs_change_space.jpg>
-Package pdftex.def Info: ../../figs/forest_wecs_change_space.jpg  used on input
- line 867.
-(pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
-<../../figs/forest_aggreg_change_space.jpg, id=372, 1117.17375pt x 957.5775pt>
-File: ../../figs/forest_aggreg_change_space.jpg Graphic file (type jpg)
-<use ../../figs/forest_aggreg_change_space.jpg>
-Package pdftex.def Info: ../../figs/forest_aggreg_change_space.jpg  used on inp
-ut line 868.
-(pdftex.def)             Requested size: 111.7239pt x 95.76335pt.
- (./wecs_tgrs.bbl [6 <../../figs/forest_changes_time.jpg> <../../figs/forest_ch
-ange.jpg> <../../figs/forest_roc_change.jpg> <../../figs/forest_wecs_abscorr.jp
-g> <../../figs/forest_aggreg_ratios.jpg> <../../figs/forest_wecs_change_space.j
-pg> <../../figs/forest_aggreg_change_space.jpg>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1024.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1024.
+pdfTeX warning: /usr/bin/pdflatex (file ../../graphs/methodROC_ext.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+> <../../qgis/maps/studyArea_OSM.pdf> <../../qgis/maps/Sentinel_2015.pdf> <../.
+./qgis/maps/Sentinel_2017.pdf> <../../qgis/maps/SamplesRev.pdf>]
+<../../qgis/maps/imageWECS.pdf, id=401, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/imageWECS.pdf Graphic file (type pdf)
+<use ../../qgis/maps/imageWECS.pdf>
+Package pdftex.def Info: ../../qgis/maps/imageWECS.pdf  used on input line 930.
 
-(./wecs_tgrs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1024.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1024.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/imageECS.pdf, id=402, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/imageECS.pdf Graphic file (type pdf)
+<use ../../qgis/maps/imageECS.pdf>
+Package pdftex.def Info: ../../qgis/maps/imageECS.pdf  used on input line 930.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/imageTAAD.pdf, id=403, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/imageTAAD.pdf Graphic file (type pdf)
+<use ../../qgis/maps/imageTAAD.pdf>
+Package pdftex.def Info: ../../qgis/maps/imageTAAD.pdf  used on input line 932.
+
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.954 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.954 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+9}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.954 
+       <../../graphs/LineInstants_1-30-59.pdf> <../../qgis/maps/X_1.pdf> <../..
+/qgis/maps/X_30.pdf> <../../qgis/maps/X_59.pdf> <../../qgis/maps/X_mean.pdf> <.
+./../qgis/maps/imageWECS.pdf> <../../qgis/maps/imageECS.pdf> <../../qgis/maps/i
+mageTAAD.pdf>]
+<../../qgis/maps/WECS-KI.pdf, id=629, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/WECS-KI.pdf Graphic file (type pdf)
+<use ../../qgis/maps/WECS-KI.pdf>
+Package pdftex.def Info: ../../qgis/maps/WECS-KI.pdf  used on input line 984.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/WECS-OT.pdf, id=630, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/WECS-OT.pdf Graphic file (type pdf)
+<use ../../qgis/maps/WECS-OT.pdf>
+Package pdftex.def Info: ../../qgis/maps/WECS-OT.pdf  used on input line 984.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/ECS-OT.pdf, id=631, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/ECS-OT.pdf Graphic file (type pdf)
+<use ../../qgis/maps/ECS-OT.pdf>
+Package pdftex.def Info: ../../qgis/maps/ECS-OT.pdf  used on input line 989.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../qgis/maps/TAAD-KI.pdf, id=632, 402.50375pt x 437.635pt>
+File: ../../qgis/maps/TAAD-KI.pdf Graphic file (type pdf)
+<use ../../qgis/maps/TAAD-KI.pdf>
+Package pdftex.def Info: ../../qgis/maps/TAAD-KI.pdf  used on input line 989.
+(pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
+<../../graphs/TPTNs.pdf, id=633, 522.69423pt x 335.87685pt>
+File: ../../graphs/TPTNs.pdf Graphic file (type pdf)
+<use ../../graphs/TPTNs.pdf>
+Package pdftex.def Info: ../../graphs/TPTNs.pdf  used on input line 1000.
+(pdftex.def)             Requested size: 250.26031pt x 160.81416pt.
+ (./wecs_tgrs.bbl [7pdfTeX warning (ext4): destination with the same identifier
+ (name{table.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.98 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.1
+0}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.98 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.1
+1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.98 
+      <../../qgis/maps/WECS-KI.pdf> <../../qgis/maps/WECS-OT.pdf> <../../qgis/m
+aps/ECS-OT.pdf> <../../qgis/maps/TAAD-KI.pdf> <../../graphs/TPTNs.pdf>])
+[8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1140.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1140.
+ (./wecs_tgrs.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1140.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1140.
 
 Package rerunfilecheck Info: File `wecs_tgrs.out' has not changed.
-(rerunfilecheck)             Checksum: BE89A4B907992AA19C578106A2EAB45D;533.
+(rerunfilecheck)             Checksum: DE5713AAC20E6513A5960AD1AD4A1E80;533.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1024.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1140.
  ) 
 Here is how much of TeX's memory you used:
- 17926 strings out of 481239
- 337365 string characters out of 5920377
- 631978 words of memory out of 5000000
- 32421 multiletter control sequences out of 15000+600000
- 600369 words of font info for 332 fonts, out of 8000000 for 9000
+ 28688 strings out of 481239
+ 570116 string characters out of 5920377
+ 843263 words of memory out of 5000000
+ 42932 multiletter control sequences out of 15000+600000
+ 604533 words of font info for 347 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 38i,19n,58p,1403b,895s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,19n,75p,1403b,900s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/rodney/.texlive2019/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
@@ -1068,16 +1532,17 @@ fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
-mr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (7 pages, 14664988 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on wecs_tgrs.pdf (8 pages, 67303202 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 383 compressed objects within 4 object streams
- 83 named destinations out of 1000 (max. 500000)
- 41665 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 619 compressed objects within 7 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 43750 words of extra memory for PDF output out of 51595 (max. 10000000)
 

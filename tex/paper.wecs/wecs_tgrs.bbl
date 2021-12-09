@@ -75,7 +75,7 @@ R.~G. Negri, A.~C. Frery, W.~Casaca, S.~Azevedo, M.~A. Dias, E.~A. Silva, and
 \bibitem{NegriFrery2021}
 R.~G. Negri and A.~C. Frery, ``Unsupervised change detection driven by floating
   references: A pattern analysis approach,'' \emph{Pattern Analysis and
-  Applications}, vol.~24, 2021.
+  Applications}, vol.~24, pp. 933--949, 2021.
 
 \bibitem{bovolo2015time}
 F.~Bovolo and L.~Bruzzone, ``The time variable in data fusion: A change
@@ -218,13 +218,24 @@ R.~G. Congalton and K.~Green, \emph{Assessing the accuracy of remotely sensed
   data: principles and practices}, 3rd~ed.\hskip 1em plus 0.5em minus
   0.4em\relax CRC press, 2019.
 
-\bibitem{otsu1979threshold}
-N.~Otsu, ``A threshold selection method from gray-level histograms,''
-  \emph{IEEE Transactions on Systems, Man, and Cybernetics}, vol.~9, no.~1, pp.
-  62--66, 1979.
-
-\bibitem{kittler1986minimum}
+\bibitem{KittlerIllingworth1986}
 J.~Kittler and J.~Illingworth, ``Minimum error thresholding,'' \emph{Pattern
   Recognition}, vol.~19, no.~1, pp. 41--47, 1986.
+
+\bibitem{JohnsonKasischke1998}
+R.~D. Johnson and E.~S. Kasischke, ``Change vector analysis: a technique for
+  the multispectral monitoring of land cover and condition,''
+  \emph{International Journal of Remote Sensing}, vol.~19, no.~3, pp. 411--426,
+  1998.
+
+\bibitem{Nielsen2007}
+A.~A. {Nielsen}, ``The regularized iteratively reweighted mad method for change
+  detection in multi- and hyperspectral data,'' \emph{IEEE Transactions on
+  Image Processing}, vol.~16, no.~2, pp. 463--478, 2007.
+
+\bibitem{WuEA2014}
+C.~Wu, B.~Du, and L.~Zhang, ``Slow feature analysis for change detection in
+  multispectral imagery,'' \emph{IEEE Transactions on Geoscience and Remote
+  Sensing}, vol.~52, no.~5, pp. 2858--2874, 2014.
 
 \end{thebibliography}
