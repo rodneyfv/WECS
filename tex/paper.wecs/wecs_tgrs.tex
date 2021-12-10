@@ -473,7 +473,7 @@
 		Rog\'{e}rio~G.~Negri \orcidicon{0000-0002-4808-2362},
         Alu\'{i}sio~Pinheiro \orcidicon{0000-0002-6132-7731},
         and~Abdourrahmane~Atto \orcidicon{0000-0003-1753-4917},~\IEEEmembership{Senior~Member,~IEEE}% <-this % stops a space
-\thanks{This work was supported by FAPESP grants 2016/24469-6 and 2018/04654-9 and CNPq grants 309230/2017-9 and 310991/2020-0.}
+\thanks{This work was supported by FAPESP (grants 2016/24469-6, 2018/04654-9 and 2021/01305-6) and CNPq (grants 309230/2017-9 and 310991/2020-0).}
 \thanks{R.~Fonseca and A.~Pinheiro are with the Department of Statistics, University of Campinas, Campinas 13083-859, Brazil (e-mails: ra192588@dac.unicamp.br; pinheiro@ime.unicamp.br).}
 \thanks{A.~Atto is with the LISTIC - Polytech Annecy-Chamb\'{e}ry, Universit\'{e} de Savoie, 74944 Annecy le Vieux Cedex, France (e-mail: Abdourrahmane.Atto@univ-savoie.fr).}
 \thanks{R.~G.~Negri is with the Department of Environmental Engineering, São Paulo State University, São José dos Campos, Brazil (e-mail: rogerio.negri@unesp.br).}
@@ -582,17 +582,19 @@ Change detection, Remote Sensing, multi-temporal images, simulated images, wavel
 
 Most methods used for change detection analysis can be classified either as supervised (training data is used to set up the method) or unsupervised (fully data-driven techniques). We shall focus in this work on unsupervised approaches, whose examples in the literature include the works of \cite{bruzzone2000automatic,celik2010change,quin2014mimosa,saha2020change,NegriEA2021,NegriFrery2021}. Many other proposals of methods vary in their motivations as well as in their applicability.  Change detection in multi-temporal hyperspectral images is discussed in \cite{bovolo2015time,liu2019review,matsunaga2017current}.  \cite{jia2018novel} pursue change detection techniques via non-local means and principal component analysis. Compressed projection and image fusion are employed by \cite{hou2014unsupervised}. Deep learning by slow feature analysis for change detection is the subject of \cite{du2019unsupervised}. \cite{chen2020change} proposes a change detection method driven by adaptive parameter estimation.
 
-A special attention has been given for multi-temporal change detection using Synthetic Aperture Radar (SAR) images. \textcolor{magenta}{Some of the references already mentioned are examples of change detection methods applied to SAR images \cite{barreto2016deforestation,ban2012multitemporal,scher2021mapping,quin2014mimosa}, \cite{jia2018novel}, \cite{hou2014unsupervised}, \cite{bovolo2005detail} }. 
+A special attention has been given for multi-temporal change detection using Synthetic Aperture Radar (SAR) images. 
+Some of the references already mentioned are examples of change detection methods applied to SAR images \cite{barreto2016deforestation,ban2012multitemporal,scher2021mapping,quin2014mimosa}, \cite{jia2018novel}, \cite{hou2014unsupervised}, \cite{bovolo2005detail}. 
 Known to be not affected by weather, cloud and sunlight conditions, SAR images rise as an essential data source in change detection applications \cite{bovolo2005detail}.
 Conversely, due to its acquisition architecture, the speckle noise typically affects the images obtained by SAR sensors and demands additional pre-processing before its use.
 
 Face with the complexity imposed by the high-dimensionality of multi-temporal datasets in addition to the presence of speckle noise, the change detection process using SAR images becomes a challenge task.
 In this context, the use of Wavelets rises as a convenient approach once such technique is robust when dealing with noise data and is allows an efficient computational treatment. 
 
-In more details, Wavelet methods present many advantages for a plethora of statistical applications \cite{vidakovic1999statistical} not only in remote sensing problems thanks to wavelet capabilities in capturing multi-scale/resolution information. 
+In more details, wavelet-based methods present many advantages for a plethora of statistical applications \cite{vidakovic1999statistical} not only in remote sensing problems thanks to wavelet capabilities in capturing multi-scale/resolution information. 
 Their computational efficiency and sparseness are specially relevant for large images and other high-dimensional data \cite{morettin2017wavelets}. 
-Analysis of SAR images have been investigated under different approaches using wavelet methods, such as \cite{atto2012multidate}, \cite{bouhlel2015multivariate}, \cite{celik2009multiscale}, \cite{cui2012statistical}. 
-\textcolor{magenta}{However, an application of screening ideas on wavelet coefficients is still a novel approach in change detection literature, and we show it has an interesting potential to provide good results even with simple algorithms.}
+Analysis of SAR images have been investigated under different approaches using wavelet methods, such as \cite{atto2012multidate,bouhlel2015multivariate,celik2009multiscale,cui2012statistical}. 
+%%%RGN: não foi definido/motivado o que é screening
+\textcolor{orange}{However, an application of screening ideas on wavelet coefficients is still a novel approach in change detection literature, and we show it has an interesting potential to provide good results even with simple algorithms.}
 
 
 In the light of presented discussions and motivations, using Wavelet and data screening concepts, we propose the Wavelet Energies Correlation Screening (WECS), a novel unsupervised multi-temporal change detection method for SAR images.
@@ -600,21 +602,25 @@ In the light of presented discussions and motivations, using Wavelet and data sc
 The main idea behind WECS is built on ultra-high dimensional feature screening for the wavelet coefficients \cite{fan2020statistical}. Such method is usually employed in high-dimensional regression models to reduce the problem's dimension by subsetting the available covariates in such a way that true covariates are among the chosen ones with high probability \cite{fan2008sure}. We show that by applying the feature screening idea on multi-temporal images, we obtain a fast and accurate method to cover change regions with good detection rates.
 
 
-\textcolor{blue}{This paper is organized as follows:
-% rest of the text goes as follows. 
-Section \ref{section_method} introduces the problem and presents the proposed method. We show WECS performance on simulated multi-temporal image data in Section \ref{section_validation}. In Section \ref{section_realdata} we apply the proposed method to a time series of 85 satellite images in the border region of Brazil and the French Guiana, for  images captured from November 08, 2015 to December 09 2017.  Section \ref{section_discussion} concludes the paper with a discussion.}
+This paper is organized as follows:
+A basic concepts and definitions are presented in Section~\ref{section_theroy}.
+Section \ref{section_method} introduces the problem and presents the proposed method. We show WECS performance on simulated multi-temporal image data in Section \ref{secExpSimulated}. In Section \ref{secExpActual} we apply the proposed method to a time series of 85 satellite images in the border region of Brazil and the French Guiana, for  images captured from December 26th 2015 to December 3rd 2017.  Section \ref{section_discussion} concludes this study.% paper with a discussion.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Basic Theory Background}\label{section_theroy}
 
-Wavelet methods have been widely applied to analyze images in signal processing literature, specially for tasks such as signal denoising and compression \cite{mallat1998wavelet}. The most common way of describing wavelet representations is as a multi-resolution decomposition, where a signal is represented on approximation and detail coefficients, which provide coarse and finer details of the signal, respectively. In practice, the discrete wavelet transform of matrices (image) consists in applying low and high-pass convolution filters to its rows and columns \cite{mallat1989theory}. In case of smoothing, applying such low-pass filter $J$ times to rows and columns of a matrix $\mathcal{I}$, yields a smooth image $\vX$. The number $J$ is also called resolution level, a tuning parameter for wavelet smoothing. This wavelet smoothing is employed in the next section as a denoising step for image analysis.
+Wavelet methods have been widely applied to analyze images in signal processing literature, specially for tasks such as signal denoising and compression \cite{mallat1998wavelet}. The most common way of describing wavelet representations is as a multi-resolution decomposition, where a signal is represented on approximation and detail coefficients, which provide coarse and finer details of the signal, respectively. In practice, the discrete wavelet transform of matrices (image) consists in applying low and high-pass convolution filters to its rows and columns \cite{mallat1989theory}. In case of smoothing, applying such low-pass filter $J$ times to rows and columns of a matrix $\mathcal{I}$, yields a smooth image $\vX$. The number $J$ is also called resolution level, a tuning parameter for wavelet smoothing. %This wavelet smoothing is employed in the next section as a denoising step for image analysis.
 
-\textcolor{magenta}{
-Using wavelet smoothing on the images consists in an initial step to analyze the data, but the main goal in the analysis is to find changes in space and at instants of time. The smoothed images still contain a large number of coefficients that need to be evaluated simultaneously, what characterizes a high-dimensional problem with multiple time series corresponding to each location in space. We need to employ a method that retains the most important locations driving overall modifications across time. This type of problem is recurrent in statistics, and particularly in regression analysis it is mainly recognized as a variable selection problem. Methods like variable selection are largely employed to identify the most important covariates in a study, and one method particularly efficient in identifying relevant variables when the number of candidates is very large is the feature screening technique.
-}
+Although the wavelet smoothing on images embraces an initial step to analyze the data, the main goal is to find the spatial changes over time. 
+The smoothed images still contain many coefficients that need to be evaluated simultaneously, which characterizes a high-dimensional problem with multiple time series corresponding to each location in space. 
+Consequently, retaining only the most essential locations driving overall modifications across time is needed. 
+This issue is recurrent in regression analysis when selecting the most relevant variables.
+The feature screening technique is a particularly efficient method to identify relevant variables, especially when the number of candidates is large.
 
-Feature screening procedure is a method originally designed for ultra-high dimensional regression models \cite{fan2008sure}. In order to explain how it works, consider the usual linear regression framework where $\vy$ is a $n\times 1$ vector of observations from a response variable and $\{\vW_1 \cdots \vW_p\}$ is a $n\times p$ matrix with explanatory variables on its columns, which are used in a linear model $\vy = \sum_{i=1}^{p}\beta_i\vW_i + \vepsilon$, where $\beta_1,\ldots,\beta_p$ are unknown parameters and $\vepsilon$ is a zero mean random noise. The problem setup is that $p$ is much larger than $n$, what makes standard regression methods unfeasible, but only a handful of the available covariates are relevant for the model, i.e., have a nonzero corresponding parameter $\beta_i$. The feature screening idea consists in computing the sample correlation $\mathrm{corr}(\vy,\vW_i)$ among response and explanatory variables, and then selecting those covariates whose correlation are among the highest values. Under suitable conditions, such method is known to select a set containing all true covariates with high probability. In the image change detection problem, our idea is that a similar approach could be used to detect change locations by taking an overall change measure as response variable and local (pixel) measures as potential covariates.
+%Using wavelet smoothing on images consists in an initial step to analyze the data, but the main goal in the analysis is to find changes in space and at instants of time. The smoothed images still contain a large number of coefficients that need to be evaluated simultaneously, what characterizes a high-dimensional problem with multiple time series corresponding to each location in space. We need to employ a method that retains the most important locations driving overall modifications across time. This type of problem is recurrent in statistics, and particularly in regression analysis it is mainly recognized as a variable selection problem. Methods like variable selection are largely employed to identify the most important covariates in a study, and one method particularly efficient in identifying relevant variables when the number of candidates is very large is the feature screening technique.
+
+In details, the feature screening is a method originally designed for ultra-high dimensional regression models \cite{fan2008sure}. In order to explain how it works, consider the usual linear regression framework where $\vy$ is a $n\times 1$ vector of observations from a response variable and $\{\vW_1 \cdots \vW_p\}$ is a $n\times p$ matrix with explanatory variables on its columns, which are used in a linear model $\vy = \sum_{i=1}^{p}\beta_i\vW_i + \vepsilon$, where $\beta_1,\ldots,\beta_p$ are unknown parameters and $\vepsilon$ is a zero mean random noise. The problem setup is that $p$ is much larger than $n$, what makes standard regression methods unfeasible, but only a handful of the available covariates are relevant for the model, i.e., have a nonzero corresponding parameter $\beta_i$. The feature screening idea consists in computing the sample correlation $\mathrm{corr}(\vy,\vW_i)$ among response and explanatory variables, and then selecting those covariates whose correlation are among the highest values. Under suitable conditions, such method is known to select a set containing all true covariates with high probability. In the image change detection problem, our idea is that a similar approach could be used to detect change locations by taking an overall change measure as response variable and local (pixel) measures as potential covariates.
 
 
 
@@ -638,7 +644,8 @@ Figure~\ref{figDiagram} depicts a high-level conceptualization for the proposed 
 
 Let $\mathcal{I}^{(1)},\ldots,\mathcal{I}^{(n)}$ be an image time series defined on a support $\mathcal{S} = \left\lbrace 1,\ldots,u  \right\rbrace \times \left\lbrace 1,\ldots,v  \right\rbrace \subset \mathbbm{N}^2$, hence representing a region of interest over $n$ distinct instants.
 %
-\textcolor{blue}{These images may be relative to one SAR channel or a combination of channels; this will be specified when appropriate}. Our goal is twofold: to find possible points in time where some relevant changes might have taken place at the region represented in $\mathcal{I}^{(m)}$, $m=1,\ldots,n$, and to find which regions are closely associated to the observed changes along time. We shall address these tasks by analyzing the bidimensional stationary discrete wavelet decomposition of $\mathcal{I}^{(m)}$. Stationary wavelets (also known as non-decimated or redundant wavelets) is a traditional de-noising method that can be efficiently applied to two-dimensional signals such as images \cite{coifman1995translation,atto2012multidate,atto2016wavelet}. 
+Such images are relative to one SAR channel or a combination of channels; this will be specified when appropriate. 
+Our goal is twofold: to find possible points in time where some relevant changes might have taken place at the region represented in $\mathcal{I}^{(m)}$, $m=1,\ldots,n$, and to find which regions are closely associated to the observed changes along time. We shall address these tasks by analyzing the bidimensional stationary discrete wavelet decomposition of $\mathcal{I}^{(m)}$. Stationary wavelets (also known as non-decimated or redundant wavelets) is a traditional de-noising method that can be efficiently applied to two-dimensional signals such as images \cite{coifman1995translation,atto2012multidate,atto2016wavelet}. 
 
 
 After application of this wavelet transform to $\mathcal{I}^{(m)}$ at some appropriate resolution level $J\geq 1$, one of its by-products is a matrix of so called approximation wavelet coefficients $\vX^{(m)}$, a smoothed version of $\mathcal{I}^{(m)}$ 
@@ -659,11 +666,12 @@ where $\overline{\mathcal{I}}=n^{-1}\sum_{m=1}^n\mathcal{I}^{(m)}$ and $\overlin
 
 The most right-hand term in Equation~(\ref{E:eq_ANOVAlogimage}) measures the deviations 
 between the wavelet coefficients at distinct instants ($\vX^{(m)}; \ m=1,\ldots,n$) regarding the \textit{average image} (i.e., $\overline{\mathcal{I}}$). Such deviations may favor detecting relevant changes over the time. Since each element (i.e., a pixel/position $(k,l)\in \mathcal{S}$) of $\vX^{(m)}$ also has a corresponding sequence of deviations in time, the local deviation to the overall measure 
-may also allow detecting the spatial changes. Among several approaches able to detect change events, the Pearson correlation coefficient rises as an convenient alternative. Furthermore, such measure \textcolor{blue}{shares connections with the idea of feature screening employed in high-dimensional regression, as explained earlier.}
+may also allow detecting the spatial changes. Among several approaches able to detect change events, the Pearson correlation coefficient rises as an convenient alternative. Furthermore, such measure shares connections with the idea of feature screening employed in high-dimensional regression, as explained earlier.
+
 
 Let $X_{kl}^{(m)}$ and $\overline{\mathcal{I}}_{kl}$ be the entry $(k,l)$ of $\vX^{(m)}$ and $\overline{\mathcal{I}}$, respectively. 
 %
-The matrix $\vD^{(m)}$ embraces the squared differences between $\vX^{(m)}$ and $\overline{\mathcal{I}}$, where $D_{kl}^{(m)} = \left( \vX_{kl}^{m} - \overline{\mathcal{I}}_{kl} \right)^2$.
+The matrix $\vD^{(m)}$ embraces the squared differences between $\vX^{(m)}$ and $\overline{\mathcal{I}}$, where $D_{kl}^{(m)} = \left( \vX_{kl}^{(m)} - \overline{\mathcal{I}}_{kl} \right)^2$.
 %
 Therefore, it is defined the temporal overall variation sequence $\left\lbrace \vd^{(m)}  \right\rbrace_{m=1,\ldots,n}$, whose elements are given by:
 \begin{equation}\label{E:eq_defdm}
@@ -675,26 +683,24 @@ In this context, an instant $m$ in $\left\lbrace \vd^{(m)}  \right\rbrace_{m=1,\
 
 
 
-In order to identify spatio-temporal changes, we employ the concept of ultra-high dimensional correlation screening \cite{fan2020statistical} discussed in Section~\ref{section_theroy}. For each local squared deviation time series given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, \textcolor{blue}{say $\vD_{kl} = \left\lbrace D_{kl}^{(1)},\ldots,D_{kl}^{(n)} \right\rbrace$}, consider the absolute value of its Pearson correlation with the overall squared deviations, given by $\vd$:
-\begin{equation*}\label{def_Rkld}
-R_{kl}= |\corr \left( \vD_{kl}, \vd \right)|.
-\end{equation*}
+In order to identify spatio-temporal changes, we employ the concept of ultra-high dimensional correlation screening \cite{fan2020statistical} discussed in Section~\ref{section_theroy}. For each local squared deviation time series given by individual elements of $\vD^{(m)}$ across $m=1,\ldots,n$, say $\vD_{kl} = \left\lbrace D_{kl}^{(1)},\ldots,D_{kl}^{(n)} \right\rbrace$, consider the absolute value of its Pearson correlation with the overall squared deviations $\vd$:
+\begin{equation}\label{def_Rkld}
+R_{kl}= |\corr \left( \vD_{kl}, \vd \right)|
+\end{equation}
 Consequently, rises the matrix $\vR$ from the elements $R_{kl}$ assigned to each $(k,l) \in \mathcal{S}$.
 
 
 
 
-Let us define a mapping of \textit{important} indices for changes over the image series with respect to $\overline{\mathcal I}$ as $\mathcal{M}^{\star} \subseteq \mathcal{S}$ where \textit{changes in $\{\mathcal{I}^{(m)}\}_{m=1,\ldots,n}$ with respect to $\overline{\mathcal{I}}$ are affected by local changes in the images}.
+Let us define a mapping of \textit{relevant} indices for changes over the image series with respect to $\overline{\mathcal I}$ as $\mathcal{M}^{\star} \subseteq \mathcal{S}$ where \textit{changes in $\{\mathcal{I}^{(m)}\}_{m=1,\ldots,n}$ with respect to $\overline{\mathcal{I}}$ are affected by local changes in the images}.
 
 
-
-
-An empirical mapping of change locations may be stated by:
+An empirical mapping of change locations may be stated as:
 \begin{equation}
 \mathcal{M}_{\tau} = \{(k,l) \in \mathcal{S} : |R_{kl}|>\tau\},
 \label{E:def_Mtaud}
 \end{equation}
-where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value. \textcolor{magenta}{The idea is that for suitable values of $\tau$, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{\star}$ \cite{fan2020statistical}. This screening idea has been successfully applied in different problems in areas such as graphical models \cite{zheng2020uniform}, time series \cite{yousuf2021targeting} and remote sensing \cite{li2021mapping}. We show it can also shed light on problems related to change point detection in time series of images.}
+where $\tau \in \mathbbm{R}_{+}^{*}$ is a convenient threshold value. The idea is that for suitable values of $\tau$, the empirical set $\mathcal{M}_{\tau}$ has high probability of detecting the correct change locations in $\mathcal{M}^{\star}$ \cite{fan2020statistical}. This screening idea has been successfully applied in different problems in areas such as graphical models \cite{zheng2020uniform}, time series \cite{yousuf2021targeting} and remote sensing \cite{li2021mapping}. We show it can also shed light on problems related to change detection in image time series.
 
 
 
@@ -713,24 +719,18 @@ Posterior, once selected the wavelet family, the most suitable resolution level 
 Lastly, the performance of the proposed method is measured in terms of True/False Positive Ratios and Receiver Operating Characteristic (ROC) curve. 
 Comparisons with the standard Thresholding of Aggregate Absolute Difference (TAAD) and a non-wavelet version of WECS, herein called Energy Correlation Screening (ECS), are included in the experiments. 
 
-In summary, the TAAD comprises the application of a thresholding algorithm on the accumulated change representation image $\vA$ where \textcolor{magenta}{$A_{kl} = \sum_{m=2}^{n}|\mathcal{I}_{kl}^{(m)}-\mathcal{I}_{kl}^{(m-1)}|$}. The ECS stands for the use of $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ when defining $D_{kl}^{(m)}$ at Equation~\ref{E:eq_defdm}.
 
-%
-%\textcolor{red}{
-%Panel (c) presents the result of using aggregated absolute differences, a standard approach where the accumulation of changes are measured by a matrix $\vS=\{\vS_{k,l}\}$ with $S_{kl} = \sum_{m=2}^n	|\mathcal{I}_{k,l}^{(m)} - \mathcal{I}_{k,l}^{(m-1)}|$. Finally, in Panel (d) we can see the result if $\vd(m)$ is performed purely on the spatial domain, using $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ in the WECS formulation. 
-%}
+In summary, the TAAD comprises the application of a thresholding algorithm on the accumulated change representation image $\vA$ where $A_{kl} = \sum_{m=2}^{n}|\mathcal{I}_{kl}^{(m)}-\mathcal{I}_{kl}^{(m-1)}|$. 
+The ECS stands for the use of $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ when defining $D_{kl}^{(m)}$ at Equation~\ref{E:eq_defdm}, and consequently Equation~\ref{def_Rkld}. The resulting ``Pearson correlation'' matrix from ECS approach is denoted by $\widetilde{\vR}$.
 
 
-%%%
+The second study (Sec.~\ref{secExpActual}) presents an analysis on the performance of WECS, and respective comparison with TAAD and ECS, in a real-world application with actual SAR image series. The appropriate wavelet family and resolution level previously identified are employed. 
+F1-Score \cite{Rijsbergen1979}, True/False Positive/Negative (TP, TN, FP and FN) rates, the kappa coefficient, and the variance of kappa \cite{Congalton2019}, are adopted for this purpose. Additionally, the computational run-times are presented and discussed.
 
-The second study (Sec.~\ref{secExpActual}) analyzes the performance of WECS, and respective comparison with TAAD and ECS, in a real-world application with actual SAR image series. The appropriate wavelet family and resolution level previously identified are employed.
-ROC curves, F1-Score \cite{Rijsbergen1979}, the kappa coefficient, and the variance of kappa \cite{Congalton2019}, are adopted for this purpose. Additionally, the computational run-times are presented and discussed. 
 
-%%%RGN: adaptar...
-\textcolor{magenta}{
+
 We used a computer with an Intel Intel i-7 processor (\SI{8}{core}, \SI{3.5}{\giga\hertz}), and \SI{16}{\giga\byte} of RAM running the Ubuntu Linux version~20.04 operating system.
-The code of the proposed method is freely available at \url{https://github.com/rodneyfv/WECS}. The times to run WECS, TAAD and ECS were, respectively, 143.45s, 7.89s and 110.08s. Despite taking a longer time to run, we shall see that WECS provides more accurate results than the other two methods (c.f. Table \ref{tabAccExpSentinel}).
-}
+The code of the proposed method is freely available at \url{https://github.com/rodneyfv/wecs}. 
 
 
 %%%%%%%%%%%%%%%%%%%%
@@ -744,7 +744,7 @@ These images/instants are generated by summing two matrices: (i) a binary signal
 The first image, $\mathcal{I}^{(1)}$, presents three elongated ellipses. The second image $\mathcal{I}^{(2)}$ has shorter and larger ellipses added. Smaller ellipses are then added to form $\mathcal{I}^{(3)}$ and $\mathcal{I}^{(4)}$. All the changes made that occur among subsequent images are shown in Figure~\ref{figResSim1}, where white regions (i.e., the ``ones'') correspond to changes along with the instants.
 
 Applying WECS to these images, we obtain a matrix $\vR$ of correlations between deviations of each $\mathcal{I}$ entry with the total squared mean deviation. An example of $\vR$ is presented in Figure~\ref{figResSim2}. For some choice of threshold $\tau$ on absolute values of $\vR$, we obtain a binary matrix that can be compared with the total true changes shown in Figure \ref{figResSim1}.
-Similarly, Figures~\ref{figResSim3} and \ref{figResSim4} depict the matrices $\vA$ and $\vR$ provided by TAAD and ECS methods.
+Similarly, Figures~\ref{figResSim3} and \ref{figResSim4} depict the matrices $\vA$ and $\widetilde{\vR}$ provided by TAAD and ECS methods.
 
 
 
@@ -773,11 +773,11 @@ Similarly, Figures~\ref{figResSim3} and \ref{figResSim4} depict the matrices $\v
 
 \mbox{
 \subfigure[Total changes]{\includegraphics[frame,width=0.23\textwidth]{../../figs/total_changes_adjust.png}\label{figResSim1}} 
-\subfigure[WECS -- db2, $J=2$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_adjust.png}\label{figResSim2}} 
+\subfigure[WECS (db2, $J=2$) -- $\vR$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_adjust.png}\label{figResSim2}} 
 }
 \mbox{
-\subfigure[TAAD -- $\vA$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_logratios_adjust.png}\label{figResSim3}} 
-\subfigure[ECS]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_nowavelets_adjust.png}\label{figResSim4}} 
+\subfigure[TAAD -- $\vA$]{\includegraphics[width=0.23\textwidth]{../../figs/corr_changes_logratios_adjust.png}\label{figResSim3}} 
+\subfigure[ECS -- $\widetilde{\vR}$]{\includegraphics[frame,width=0.23\textwidth]{../../figs/corr_changes_dm_nowavelets_adjust.png}\label{figResSim4}} 
 }
 
 %\caption{Simulated images with changing ellipses. (a) Image composed by the total changes over time. (b) Proposed db2 WECS $\vd(m)$ with $J=2$; (c) Standard approach. (d) $\vd(m)$ without wavelets.}
@@ -796,17 +796,16 @@ According to the experiment design (Section~\ref{secExpDesign}), ROC curves are 
 \centering
 
 \mbox{
-\subfigure[WECS with different wavelet bases and J=2]{\includegraphics[width=0.23\textwidth]{../../graphs/basisROC.pdf}\label{figROCSimBasis}}
-\subfigure[db2 WECS with different decomposition levels]{\includegraphics[width=0.23\textwidth]{../../graphs/levelsROC.pdf}\label{figROCSimJ}}
+\subfigure[WECS with different wavelet bases and J=2]{\includegraphics[width=0.23\textwidth]{../../graphs/basisROC.pdf}\label{figROCSimBasis}} \quad
+\subfigure[WECS with db2 basis and different decomposition levels]{\includegraphics[width=0.23\textwidth]{../../graphs/levelsROC.pdf}\label{figROCSimJ}}
 }
 
 \mbox{
-\subfigure[The proposed methods in red (db2 WECS) vs two non-wavelet methods: standard thresholding of aggregate absolute difference (TAAD - blue); and energy correlation screening (ECS - green)]{\includegraphics[width=0.46\textwidth]{../../graphs/methodROC_ext.pdf}\label{figROCSimRes}}
+\subfigure[ROC curve comparison between WECS (db2 and $J=2$), TAAD and ECS methods]{\includegraphics[width=0.46\textwidth]{../../graphs/methodROC_ext.pdf}\label{figROCSimRes}}
 }
 
-\caption{ROC curves for detection of changing ellipses in simulated images and different methods.}\label{F:EllipsoidChanges_details}
+\caption{ROC curves related to the experiment with simulated datasey.}\label{F:EllipsoidChanges_details}
 \end{figure}
-
 
 
 
@@ -819,9 +818,9 @@ Figure~\ref{figROCSimJ} depicts the ROC curves with $J \in \{1,2,3,4,5\}$ as dec
 
 %Compara figA
 At last, the ROC curves shown in Figure~\ref{figROCSimRes} allow comparing the performances of WECS, TAAD and ECS approaches. 
-Firstly, the low-performance assigned to the ECS method allows concluding that the simple swap of the wavelet transform by a ``deviation image'' into the proposed correlation screening pipeline is an inconvenient choice and reinforces the importance of the wavelet \textcolor{magenta}{smoothing} in the context of the proposed method.
-About the performance of TAAD method, a true positive ratio of 0.8 is guaranteed when tolerating a false positive ratio of approximately 0.4. 
-Reversely, the WECS method provides the same true positive ratio under an almost nill false positive ratio, demonstrating then its superiority compared to the competitors.
+Firstly, the low-performance assigned to the ECS method allows concluding that the simple swap of the wavelet transform by a ``deviation image'' into the proposed correlation screening pipeline is an inconvenient choice and reinforces the importance of the wavelet smoothing in the context of the proposed method.
+About the performance of TAAD method, a True Positive Ratio of 0.8 is guaranteed when tolerating a False Positive Ratio of approximately 0.4. 
+Reversely, the WECS method provides the same True Positive Ratio under an almost nil false positive ratio, demonstrating then its superiority compared to the competitors.
 
 
 %%%%%%%%%%%%%%%%%%%%
@@ -844,7 +843,7 @@ Such samples are needed to compute the accuracy measures beforehand mentioned in
 \begin{figure}[hbt]
 \centering
 \includegraphics[width=0.485\textwidth]{../../qgis/maps/StudyArea_OSM.pdf}
-\caption{Study area location.}\label{figAE}
+\caption{The study area location.}\label{figAE}
 \end{figure}
 
 
@@ -873,10 +872,10 @@ $\mathcal{I}_{kl}^{(m)} = \sqrt{(\mathrm{VV}_{kl}^{(m)})^2+(\mathrm{VH}_{kl}^{(m
 %}
 
 
-Initially, to express the instantaneous change values,
+Initially, to express the instantaneous change values with respect to the WECS method,
 Figure~\ref{F:forest_wecs} presents the temporal variations given by $\vd$. According to the presented profile, it is possible to observe the fluctuations around a central tendency near $12$ as highlight instants with a value similar, higher or lower than this tendency, as pointed out for $m$ equal to 1, 30 and 59, respectively.
 %
-For sake of comparison, the wavelet representation at each mentioned instant (i.e., $\vX^{(1)}$, $\vX^{(10)}$ and $\vX^{(50)}$) and the mean image (i.e., $\overline{\mathcal{I}}$) are exhibited in Figure~\ref{F:forest_wecs}. While $\vX^{(1)}$ shares similarities with $\overline{\mathcal{I}}$, evident changes rises in $\vX^{(30)}$. Reversely, $\vX^{(59)}$ offers low contribution for identifying change regions.
+For sake of comparison, the wavelet representation at each mentioned instant (i.e., $\vX^{(1)}$, $\vX^{(30)}$ and $\vX^{(59)}$) and the mean image (i.e., $\overline{\mathcal{I}}$) are exhibited in Figure~\ref{F:forest_wecs}. While $\vX^{(1)}$ shares similarities with $\overline{\mathcal{I}}$, evident changes rises in $\vX^{(30)}$. Reversely, $\vX^{(59)}$ offers low contribution for identifying change regions.
 
 
 
@@ -894,13 +893,13 @@ For sake of comparison, the wavelet representation at each mentioned instant (i.
 \centering
 
 \mbox{
-\subfigure[$m=1$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_1.pdf}\label{figImgSentinel2015}} 
-\subfigure[$m=30$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_30.pdf}\label{figImgSentinel2017}}
+\subfigure[$m=1$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_1.png}\label{figImgSentinel2015}} 
+\subfigure[$m=30$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_30.png}\label{figImgSentinel2017}}
 }
 
 \mbox{
-\subfigure[$m=59$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_59.pdf}\label{figImgSentinel2015}} 
-\subfigure[$\overline{\mathcal{I}}$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_mean.pdf}\label{figImgSentinel2017}}
+\subfigure[$m=59$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_59.png}\label{figImgSentinel2015}} 
+\subfigure[$\overline{\mathcal{I}}$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/X_mean.png}\label{figImgSentinel2017}}
 }
 
 \caption{Images $\vX^{(m)}$ from distinct instant $m$ and the mean image $\overline{\mathcal{I}}$.}
@@ -909,10 +908,11 @@ For sake of comparison, the wavelet representation at each mentioned instant (i.
 
 
 
-After submitting the image series to the methods WECS, ECS and TAAD, are obtained the matrices $\vR$, $\vR_{\star}$ and $\vA$, respectively, comprising measure about a tendency of changes in each position of the spatial domain. Such matrices are presented in Figure~\ref{figImageMethods}, where high values stand for regions with changes in their land cover over time.
+After submitting the image series to the methods WECS, ECS and TAAD, are obtained the matrices $\vR$, $\widetilde{\vR}$ and $\vA$, respectively, comprising measure about a tendency of changes in each position of the spatial domain. Such matrices are presented in Figure~\ref{figImageMethods}, where high values stand for regions with changes in their land cover over time.
 %
-However, to determine a cut-off value $\tau$ for such matrices, providing then binary maps $\mathcal{M}_{\tau}$ of ``change'' and ``non-change'' areas, the use of thresholding techniques rises as a convenient procedure. 
-Among different alternatives in the literature, the Otsu (OT) [figImageMethods ref] and Kittler-Illingworth (KI) \cite{KittlerIllingworth1986} thresholding techniques had been successfully employed for change detection purposes \cite{JohnsonKasischke1998,Nielsen2007,WuEA2014,NegriEA2021}.
+However, to determine a cut-off value $\tau$ for such matrices, providing then binary maps $\mathcal{M}_{\tau}$ of ``change'' and ``non-change'' areas (Equation~\ref{E:def_Mtaud}), the use of thresholding techniques rises as a convenient procedure. 
+Among different alternatives in the literature, the Otsu (OT) \cite{otsu1979threshold} and Kittler-Illingworth (KI) \cite{KittlerIllingworth1986} thresholding techniques had been successfully employed for change detection purposes \cite{JohnsonKasischke1998,Nielsen2007,WuEA2014,NegriEA2021}.
+
 
 The accuracy of obtained binary maps $\mathcal{M}_{\tau}$, resulting from the application of OT and KI algorithms on the change images provided by the WECS, ECS and TAAD methods, are measured in terms of F1-Score and kappa coefficient with basis on the reference ground-truth samples (Fig.~\ref{figImgSentinelROIs}). 
 Table~\ref{tabAccExpSentinel} presents the computed accuracy measures.
@@ -925,13 +925,13 @@ Table~\ref{tabAccExpSentinel} presents the computed accuracy measures.
 \centering
 
 \mbox{
-\subfigure[$\vR$ -- WECS]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/imageWECS.pdf}\label{figImgSentinel2015}} 
-\subfigure[$\tilde{\vR}$ -- ECS]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/imageECS.pdf}\label{figImgSentinel2017}}
+\subfigure[WECS -- $\vR$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/imageWECS.png}\label{figImgSentinel2015}} 
+\subfigure[ECS -- $\widetilde{\vR}$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/imageECS.png}\label{figImgSentinel2017}}
 }
 
-\subfigure[$\vA$ -- TAAD]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/imageTAAD.pdf}\label{figImgSentinelROIs}}
+\subfigure[TAAD -- $\vA$]{\includegraphics[width=0.23\textwidth]{../../qgis/maps/imageTAAD.png}\label{figImgSentinelROIs}}
 
-\caption{Change tendency matrices $\vR$, $\tilde{\vR}$ and $\vA$ assigned to the WECS, ECS and TAAD methods.}\label{figImageMethods}
+\caption{The ``tendency of change'' matrices $\vR$, $\widetilde{\vR}$ and $\vA$  assigned to the WECS, ECS and TAAD methods, respectively. The values are scaled to $[0,1]$.}\label{figImageMethods}
 \end{figure}
 
 
@@ -950,9 +950,9 @@ Figure~\ref{figSentinelResults} depicts the most accurate change/non-change maps
 It is possible to verify that while the TAAD-KI method assigns the water body as a ``region of change'' and does not detect locations that changed (northwest and southeast portions -- second and fourth quadrants).
 Regarding the ECS method, the provided result has a noise-corrupted aspect due to the frequent FP classification points.
 
-Lastly, as previously observed, the WECS method equipped with the KI algorithm provides a homogeneous mapping over the non-change areas (west portion -- second and third quadrants), accurate detection over the change regions, and low inclusion (FP) and exclusion (FN) error rates. In adopting the OT algorithm, the inclusion error increases, resulting in a less-regularized change/non-change map.
+As previously observed, the WECS method equipped with the KI algorithm provides a homogeneous mapping over the non-change areas (west portion -- second and third quadrants), accurate detection over the change regions, and low inclusion (FP) and exclusion (FN) error rates. In adopting the OT algorithm, the inclusion error increases, resulting in a less-regularized change/non-change map.
 
-The proportions of true/false positive/negative assigned to the analyzed methods are shown in Figure~\ref{figTPTNs} and corroborate the presented discussions.
+The proportions of True/False Positive/Negative assigned to the analyzed methods are shown in Figure~\ref{figTPTNs} and corroborate the presented discussions.
 
 
 
@@ -1002,11 +1002,23 @@ Var. of kappa & 6.90 & 3.43 & 1.91 & 1.72 & 0.76 & 0.91 \tabularnewline
 \end{figure}
 
 
+
+Lastly, the computational run-time of WECS, TAAD and ECS were, respectively, \SI{143.45}{\seconds}, \SI{7.89}{\seconds} and \SI{110.08}{\seconds}. Despite expending a longer execution time, its worth mention that WECS' running time is not excessive in the context of remote sensing image processing, beyond provides more accurate results in comparison to the competitors.
+
+%see that WECS provides more accurate results than the other two methods (c.f. Table \ref{tabAccExpSentinel}).
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{section_discussion}
 
-We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole mean image. It makes use of correlation screening for ultra-high dimensional data. Thereupon, WECS is expected to provide a sample of points in space in a way that such set, contains real change points with high probability. The proposed method's performance is shown using both simulated and real data. The proposed method is useful to detect spatio-temporal change points, which is illustrated on data analyses. The method is employed to analyze a time series of 84 images of a forest.
 
+%%%RGN: Esquecemos dessa parte... :(
+\textcolor{orange}{
+We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole mean image. It makes use of correlation screening for ultra-high dimensional data. Thereupon, WECS is expected to provide a sample of points in space in a way that such set, contains real change points with high probability. The proposed method's performance is shown using both simulated and real data. The proposed method is useful to detect spatio-temporal change points, which is illustrated on data analyses. The method is employed to analyze a time series of 84 images of a forest.
+}
 
 
 
