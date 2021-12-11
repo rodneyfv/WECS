@@ -594,7 +594,7 @@ In more details, wavelet-based methods present many advantages for a plethora of
 Their computational efficiency and sparseness are specially relevant for large images and other high-dimensional data \cite{morettin2017wavelets}. 
 Analysis of SAR images have been investigated under different approaches using wavelet methods, such as \cite{atto2012multidate,bouhlel2015multivariate,celik2009multiscale,cui2012statistical}. 
 %%%RGN: não foi definido/motivado o que é screening
-\textcolor{orange}{However, an application of screening ideas on wavelet coefficients is still a novel approach in change detection literature, and we show it has an interesting potential to provide good results even with simple algorithms.}
+\textcolor{orange}{However, there are variable selection methods that have been successfully applied in high-dimensional statistical models, but that are still novel ideas on wavelet coefficients and in the change detection literature. We show such approach has an interesting potential to provide good results even with simple algorithms.}
 
 
 In the light of presented discussions and motivations, using Wavelet and data screening concepts, we propose the Wavelet Energies Correlation Screening (WECS), a novel unsupervised multi-temporal change detection method for SAR images.
@@ -1016,9 +1016,13 @@ Lastly, the computational run-time of WECS, TAAD and ECS were, respectively, \SI
 
 
 %%%RGN: Esquecemos dessa parte... :(
-\textcolor{orange}{
-We present a novel way of detecting changes in multi-temporal satellite images, WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole mean image. It makes use of correlation screening for ultra-high dimensional data. Thereupon, WECS is expected to provide a sample of points in space in a way that such set, contains real change points with high probability. The proposed method's performance is shown using both simulated and real data. The proposed method is useful to detect spatio-temporal change points, which is illustrated on data analyses. The method is employed to analyze a time series of 84 images of a forest.
-}
+
+We present a novel way of detecting changes in multi-temporal satellite images called WECS. The procedure is based on wavelet energies from both the estimated individual coefficients as well as the whole mean image. It makes use of correlation screening for ultra-high dimensional data to identify which locations (pixels) are the most related to an overall change measure of the image time series. Thereupon, WECS is expected to provide a sample of points in space in a way that such set contains real change points with high probability. 
+
+The performance of WECS was evaluated in studies involving simulated and real data. In both experiments, WECS is compared with two standard approaches for analyzing multi-temporal images. One drawback of WECS compared to standard methods is that it takes longer time to process the images. However, its performance is shown to be superior on both real and simulated image, and the processing time is still not prohibitive.
+
+The current paper warrants future research in different directions, for example: adapting the idea of WECS to different types of images (multispectral, polarimetric SAR, etc); studying energy correlation screening method with for distinct smoothing techniques; deducing change detection rates theoretically for a statistical models. 
+
 
 
 
