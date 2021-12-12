@@ -218,6 +218,11 @@ R.~G. Congalton and K.~Green, \emph{Assessing the accuracy of remotely sensed
   data: principles and practices}, 3rd~ed.\hskip 1em plus 0.5em minus
   0.4em\relax CRC press, 2019.
 
+\bibitem{otsu1979threshold}
+N.~Otsu, ``A threshold selection method from gray-level histograms,''
+  \emph{IEEE Transactions on Systems, Man, and Cybernetics}, vol.~9, no.~1, pp.
+  62--66, 1979.
+
 \bibitem{KittlerIllingworth1986}
 J.~Kittler and J.~Illingworth, ``Minimum error thresholding,'' \emph{Pattern
   Recognition}, vol.~19, no.~1, pp. 41--47, 1986.

@@ -380,7 +380,6 @@
 \newcommand{\vt}{{\textbf t}}
 \newcommand{\vy}{{\textbf y}}
 
-
 \usepackage{hyperref}
 
 %DEFS. ROGERIO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -594,7 +593,7 @@ In more details, wavelet-based methods present many advantages for a plethora of
 Their computational efficiency and sparseness are specially relevant for large images and other high-dimensional data \cite{morettin2017wavelets}. 
 Analysis of SAR images have been investigated under different approaches using wavelet methods, such as \cite{atto2012multidate,bouhlel2015multivariate,celik2009multiscale,cui2012statistical}. 
 %%%RGN: não foi definido/motivado o que é screening
-\textcolor{orange}{However, there are variable selection methods that have been successfully applied in high-dimensional statistical models, but that are still novel ideas on wavelet coefficients and in the change detection literature. We show such approach has an interesting potential to provide good results even with simple algorithms.}
+However, there are variable selection methods that have been successfully applied in high-dimensional statistical models but that are still novel ideas in the wavelet and change detection literature. We show that one of these methods has an interesting potential to provide good results even with simple algorithms.
 
 
 In the light of presented discussions and motivations, using Wavelet and data screening concepts, we propose the Wavelet Energies Correlation Screening (WECS), a novel unsupervised multi-temporal change detection method for SAR images.
@@ -1002,11 +1001,7 @@ Var. of kappa & 6.90 & 3.43 & 1.91 & 1.72 & 0.76 & 0.91 \tabularnewline
 \end{figure}
 
 
-
-Lastly, the computational run-time of WECS, TAAD and ECS were, respectively, \SI{143.45}{\seconds}, \SI{7.89}{\seconds} and \SI{110.08}{\seconds}. Despite expending a longer execution time, its worth mention that WECS' running time is not excessive in the context of remote sensing image processing, beyond provides more accurate results in comparison to the competitors.
-
-%see that WECS provides more accurate results than the other two methods (c.f. Table \ref{tabAccExpSentinel}).
-
+Lastly, the computational run-time of WECS, TAAD and ECS were, respectively, \SI{143.45}{\second}, \SI{7.89}{\second} and \SI{110.08}{\second}. Despite expending a longer execution time, its worth mention that WECS' running time is not excessive in the context of remote sensing image processing, beyond provides more accurate results in comparison to the competitors.
 
 
 

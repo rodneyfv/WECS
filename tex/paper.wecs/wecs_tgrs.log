@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  11 DEC 2021 21:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  12 DEC 2021 07:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1055,22 +1055,22 @@ LaTeX Warning: Label `sub@figImgSentinelROIs' multiply defined.
 )
 \openout1 = `wecs_tgrs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 452.
-LaTeX Font Info:    ... okay on input line 452.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 451.
+LaTeX Font Info:    ... okay on input line 451.
 
 -- Lines per column: 58 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1096,7 +1096,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring OFF on input line 452.
+Package hyperref Info: Link coloring OFF on input line 451.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1109,9 +1109,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count354
 )
-LaTeX Info: Redefining \ref on input line 452.
-LaTeX Info: Redefining \pageref on input line 452.
-LaTeX Info: Redefining \nameref on input line 452.
+LaTeX Info: Redefining \ref on input line 451.
+LaTeX Info: Redefining \pageref on input line 451.
+LaTeX Info: Redefining \nameref on input line 451.
 
 (./wecs_tgrs.out) (./wecs_tgrs.out)
 \@outlinefile=\write4
@@ -1128,14 +1128,14 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-binary.cfg
 File: siunitx-binary.cfg 2017/11/26 v2.7k siunitx: Binary units
 )
-LaTeX Info: Redefining \microtypecontext on input line 452.
+LaTeX Info: Redefining \microtypecontext on input line 451.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 452.
+LaTeX Info: Redefining \showhyphens on input line 451.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1156,7 +1156,7 @@ ABD: EveryShipout initializing macros
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 452
+LaTeX Font Info:    Trying to load font information for U+msa on input line 451
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1165,7 +1165,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 452
+LaTeX Font Info:    Trying to load font information for U+msb on input line 451
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1175,7 +1175,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 45
-2.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1188,21 +1188,21 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 534.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 533.
 
-Underfull \hbox (badness 2762) in paragraph at lines 534--534
+Underfull \hbox (badness 2762) in paragraph at lines 533--533
 [][][]\OT1/ptm/m/n/8 (+20) A. Atto is with the LIS-TIC - Poly-tech Annecy-Chamb
 []ery, Uni-
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 534--534
+Underfull \hbox (badness 2856) in paragraph at lines 533--533
 \OT1/ptm/m/n/8 (+20) ver-sit[]e de Savoie, 74944 An-necy le Vieux Cedex, France
  (e-mail:
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 542--544
+Underfull \hbox (badness 2165) in paragraph at lines 541--543
 []\OT1/ptm/b/it/9 Index Terms\OT1/ptm/b/n/9 ---Change de-tec-tion, Re-mote Sens
 -ing, multi-
  []
@@ -1220,9 +1220,9 @@ ed
 File: ../../drawio/diagram_wecs.drawio_11nov21.pdf Graphic file (type pdf)
 <use ../../drawio/diagram_wecs.drawio_11nov21.pdf>
 Package pdftex.def Info: ../../drawio/diagram_wecs.drawio_11nov21.pdf  used on 
-input line 637.
+input line 636.
 (pdftex.def)             Requested size: 221.6283pt x 246.4892pt.
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 645
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 644
 .
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
@@ -1234,77 +1234,77 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.663 \end{equation}
+l.662 \end{equation}
                      <../../drawio/diagram_wecs.drawio_11nov21.pdf>] [3]
 <../../figs/ellipses_t1_adjust.png, id=196, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t1_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t1_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t1_adjust.png  used on input line 
-758.
+757.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
 <../../figs/ellipses_t2_adjust.png, id=197, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t2_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t2_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t2_adjust.png  used on input line 
-758.
+757.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
 <../../figs/ellipses_t3_adjust.png, id=198, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t3_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t3_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t3_adjust.png  used on input line 
-762.
+761.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
 <../../figs/ellipses_t4_adjust.png, id=199, 194.6472pt x 194.6472pt>
 File: ../../figs/ellipses_t4_adjust.png Graphic file (type png)
 <use ../../figs/ellipses_t4_adjust.png>
 Package pdftex.def Info: ../../figs/ellipses_t4_adjust.png  used on input line 
-762.
+761.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
 <../../figs/total_changes_adjust.png, id=200, 194.6472pt x 194.6472pt>
 File: ../../figs/total_changes_adjust.png Graphic file (type png)
 <use ../../figs/total_changes_adjust.png>
 Package pdftex.def Info: ../../figs/total_changes_adjust.png  used on input lin
-e 777.
+e 776.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
 <../../figs/corr_changes_dm_adjust.png, id=201, 194.6472pt x 194.6472pt>
 File: ../../figs/corr_changes_dm_adjust.png Graphic file (type png)
 <use ../../figs/corr_changes_dm_adjust.png>
 Package pdftex.def Info: ../../figs/corr_changes_dm_adjust.png  used on input l
-ine 777.
+ine 776.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
 <../../figs/corr_changes_logratios_adjust.png, id=202, 194.6472pt x 194.6472pt>
 
 File: ../../figs/corr_changes_logratios_adjust.png Graphic file (type png)
 <use ../../figs/corr_changes_logratios_adjust.png>
 Package pdftex.def Info: ../../figs/corr_changes_logratios_adjust.png  used on 
-input line 781.
+input line 780.
 (pdftex.def)             Requested size: 118.6778pt x 118.68115pt.
 <../../figs/corr_changes_dm_nowavelets_adjust.png, id=203, 194.6472pt x 194.647
 2pt>
 File: ../../figs/corr_changes_dm_nowavelets_adjust.png Graphic file (type png)
 <use ../../figs/corr_changes_dm_nowavelets_adjust.png>
 Package pdftex.def Info: ../../figs/corr_changes_dm_nowavelets_adjust.png  used
- on input line 781.
+ on input line 780.
 (pdftex.def)             Requested size: 194.64671pt x 194.64671pt.
 <../../graphs/basisROC.pdf, id=206, 496.64424pt x 492.10829pt>
 File: ../../graphs/basisROC.pdf Graphic file (type pdf)
 <use ../../graphs/basisROC.pdf>
-Package pdftex.def Info: ../../graphs/basisROC.pdf  used on input line 801.
+Package pdftex.def Info: ../../graphs/basisROC.pdf  used on input line 800.
 (pdftex.def)             Requested size: 118.6778pt x 117.59027pt.
 <../../graphs/levelsROC.pdf, id=207, 488.52109pt x 492.10829pt>
 File: ../../graphs/levelsROC.pdf Graphic file (type pdf)
 <use ../../graphs/levelsROC.pdf>
-Package pdftex.def Info: ../../graphs/levelsROC.pdf  used on input line 801.
+Package pdftex.def Info: ../../graphs/levelsROC.pdf  used on input line 800.
 (pdftex.def)             Requested size: 118.6778pt x 119.55011pt.
 
-Overfull \hbox (5.85577pt too wide) in paragraph at lines 801--802
+Overfull \hbox (5.85577pt too wide) in paragraph at lines 800--801
  [][] 
  []
 
 <../../graphs/methodROC_ext.pdf, id=208, 931.91742pt x 495.53319pt>
 File: ../../graphs/methodROC_ext.pdf Graphic file (type pdf)
 <use ../../graphs/methodROC_ext.pdf>
-Package pdftex.def Info: ../../graphs/methodROC_ext.pdf  used on input line 805
+Package pdftex.def Info: ../../graphs/methodROC_ext.pdf  used on input line 804
 .
 (pdftex.def)             Requested size: 237.36346pt x 126.21184pt.
 [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
@@ -1312,13 +1312,13 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.833 
+l.832 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.833 
+l.832 
        <../../figs/ellipses_t1_adjust.png> <../../figs/ellipses_t2_adjust.png> 
 <../../figs/ellipses_t3_adjust.png> <../../figs/ellipses_t4_adjust.png> <../../
 figs/total_changes_adjust.png> <../../figs/corr_changes_dm_adjust.png> <../../f
@@ -1328,28 +1328,28 @@ djust.png>]
 File: ../../qgis/maps/StudyArea_OSM.pdf Graphic file (type pdf)
 <use ../../qgis/maps/StudyArea_OSM.pdf>
 Package pdftex.def Info: ../../qgis/maps/StudyArea_OSM.pdf  used on input line 
-845.
+844.
 (pdftex.def)             Requested size: 250.26031pt x 170.29497pt.
 <../../qgis/maps/Sentinel_2015.pdf, id=241, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/Sentinel_2015.pdf Graphic file (type pdf)
 <use ../../qgis/maps/Sentinel_2015.pdf>
 Package pdftex.def Info: ../../qgis/maps/Sentinel_2015.pdf  used on input line 
-857.
+856.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
 <../../qgis/maps/Sentinel_2017.pdf, id=242, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/Sentinel_2017.pdf Graphic file (type pdf)
 <use ../../qgis/maps/Sentinel_2017.pdf>
 Package pdftex.def Info: ../../qgis/maps/Sentinel_2017.pdf  used on input line 
-857.
+856.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
 <../../qgis/maps/SamplesRev.pdf, id=243, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/SamplesRev.pdf Graphic file (type pdf)
 <use ../../qgis/maps/SamplesRev.pdf>
-Package pdftex.def Info: ../../qgis/maps/SamplesRev.pdf  used on input line 859
+Package pdftex.def Info: ../../qgis/maps/SamplesRev.pdf  used on input line 858
 .
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
 
-Underfull \hbox (badness 5726) in paragraph at lines 859--859
+Underfull \hbox (badness 5726) in paragraph at lines 858--858
 []\OT1/ptm/m/n/8 (+20) (c) Ref-er-ence change and non-
  []
 
@@ -1357,50 +1357,46 @@ Underfull \hbox (badness 5726) in paragraph at lines 859--859
 File: ../../graphs/LineInstants_1-30-59.pdf Graphic file (type pdf)
 <use ../../graphs/LineInstants_1-30-59.pdf>
 Package pdftex.def Info: ../../graphs/LineInstants_1-30-59.pdf  used on input l
-ine 885.
+ine 884.
 (pdftex.def)             Requested size: 250.26031pt x 133.5088pt.
 <../../qgis/maps/X_1.png, id=247, 402.084pt x 437.562pt>
 File: ../../qgis/maps/X_1.png Graphic file (type png)
 <use ../../qgis/maps/X_1.png>
-Package pdftex.def Info: ../../qgis/maps/X_1.png  used on input line 898.
+Package pdftex.def Info: ../../qgis/maps/X_1.png  used on input line 897.
 (pdftex.def)             Requested size: 118.6778pt x 129.14644pt.
 <../../qgis/maps/X_30.png, id=248, 221.628pt x 240.9pt>
 File: ../../qgis/maps/X_30.png Graphic file (type png)
 <use ../../qgis/maps/X_30.png>
-Package pdftex.def Info: ../../qgis/maps/X_30.png  used on input line 898.
+Package pdftex.def Info: ../../qgis/maps/X_30.png  used on input line 897.
 (pdftex.def)             Requested size: 118.6778pt x 128.996pt.
 <../../qgis/maps/X_59.png, id=249, 221.628pt x 240.9pt>
 File: ../../qgis/maps/X_59.png Graphic file (type png)
 <use ../../qgis/maps/X_59.png>
-Package pdftex.def Info: ../../qgis/maps/X_59.png  used on input line 903.
+Package pdftex.def Info: ../../qgis/maps/X_59.png  used on input line 902.
 (pdftex.def)             Requested size: 118.6778pt x 128.996pt.
 <../../qgis/maps/X_mean.png, id=250, 221.628pt x 240.9pt>
 File: ../../qgis/maps/X_mean.png Graphic file (type png)
 <use ../../qgis/maps/X_mean.png>
-Package pdftex.def Info: ../../qgis/maps/X_mean.png  used on input line 903.
+Package pdftex.def Info: ../../qgis/maps/X_mean.png  used on input line 902.
 (pdftex.def)             Requested size: 118.6778pt x 128.996pt.
-
-LaTeX Warning: Citation `otsu1979threshold' on page 5 undefined on input line 9
-14.
-
 [5pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.915 
+l.914 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.915 
+l.914 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.915 
+l.914 
        <../../graphs/basisROC.pdf> <../../graphs/levelsROC.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../../graphs/levelsROC.pdf): PDF inclus
@@ -1411,21 +1407,21 @@ pdfTeX warning: /usr/bin/pdflatex (file ../../graphs/methodROC_ext.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 > <../../qgis/maps/studyArea_OSM.pdf> <../../qgis/maps/Sentinel_2015.pdf> <../.
 ./qgis/maps/Sentinel_2017.pdf> <../../qgis/maps/SamplesRev.pdf>]
-<../../qgis/maps/imageWECS.png, id=403, 402.084pt x 437.562pt>
+<../../qgis/maps/imageWECS.png, id=404, 402.084pt x 437.562pt>
 File: ../../qgis/maps/imageWECS.png Graphic file (type png)
 <use ../../qgis/maps/imageWECS.png>
-Package pdftex.def Info: ../../qgis/maps/imageWECS.png  used on input line 930.
+Package pdftex.def Info: ../../qgis/maps/imageWECS.png  used on input line 929.
 
 (pdftex.def)             Requested size: 118.6778pt x 129.14644pt.
-<../../qgis/maps/imageECS.png, id=404, 402.084pt x 437.562pt>
+<../../qgis/maps/imageECS.png, id=405, 402.084pt x 437.562pt>
 File: ../../qgis/maps/imageECS.png Graphic file (type png)
 <use ../../qgis/maps/imageECS.png>
-Package pdftex.def Info: ../../qgis/maps/imageECS.png  used on input line 930.
+Package pdftex.def Info: ../../qgis/maps/imageECS.png  used on input line 929.
 (pdftex.def)             Requested size: 118.6778pt x 129.14644pt.
-<../../qgis/maps/imageTAAD.png, id=405, 402.084pt x 437.562pt>
+<../../qgis/maps/imageTAAD.png, id=406, 402.084pt x 437.562pt>
 File: ../../qgis/maps/imageTAAD.png Graphic file (type png)
 <use ../../qgis/maps/imageTAAD.png>
-Package pdftex.def Info: ../../qgis/maps/imageTAAD.png  used on input line 932.
+Package pdftex.def Info: ../../qgis/maps/imageTAAD.png  used on input line 931.
 
 (pdftex.def)             Requested size: 118.6778pt x 129.14644pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
@@ -1433,117 +1429,50 @@ Package pdftex.def Info: ../../qgis/maps/imageTAAD.png  used on input line 932.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.954 
+l.953 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.954 
+l.953 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.954 
+l.953 
        <../../graphs/LineInstants_1-30-59.pdf> <../../qgis/maps/X_1.png> <../..
 /qgis/maps/X_30.png> <../../qgis/maps/X_59.png> <../../qgis/maps/X_mean.png> <.
 ./../qgis/maps/imageWECS.png> <../../qgis/maps/imageECS.png> <../../qgis/maps/i
 mageTAAD.png>]
-<../../qgis/maps/WECS-KI.pdf, id=449, 402.50375pt x 437.635pt>
+<../../qgis/maps/WECS-KI.pdf, id=451, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/WECS-KI.pdf Graphic file (type pdf)
 <use ../../qgis/maps/WECS-KI.pdf>
-Package pdftex.def Info: ../../qgis/maps/WECS-KI.pdf  used on input line 984.
+Package pdftex.def Info: ../../qgis/maps/WECS-KI.pdf  used on input line 983.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
-<../../qgis/maps/WECS-OT.pdf, id=450, 402.50375pt x 437.635pt>
+<../../qgis/maps/WECS-OT.pdf, id=452, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/WECS-OT.pdf Graphic file (type pdf)
 <use ../../qgis/maps/WECS-OT.pdf>
-Package pdftex.def Info: ../../qgis/maps/WECS-OT.pdf  used on input line 984.
+Package pdftex.def Info: ../../qgis/maps/WECS-OT.pdf  used on input line 983.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
-<../../qgis/maps/ECS-OT.pdf, id=451, 402.50375pt x 437.635pt>
+<../../qgis/maps/ECS-OT.pdf, id=453, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/ECS-OT.pdf Graphic file (type pdf)
 <use ../../qgis/maps/ECS-OT.pdf>
-Package pdftex.def Info: ../../qgis/maps/ECS-OT.pdf  used on input line 989.
+Package pdftex.def Info: ../../qgis/maps/ECS-OT.pdf  used on input line 988.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
-<../../qgis/maps/TAAD-KI.pdf, id=452, 402.50375pt x 437.635pt>
+<../../qgis/maps/TAAD-KI.pdf, id=454, 402.50375pt x 437.635pt>
 File: ../../qgis/maps/TAAD-KI.pdf Graphic file (type pdf)
 <use ../../qgis/maps/TAAD-KI.pdf>
-Package pdftex.def Info: ../../qgis/maps/TAAD-KI.pdf  used on input line 989.
+Package pdftex.def Info: ../../qgis/maps/TAAD-KI.pdf  used on input line 988.
 (pdftex.def)             Requested size: 118.6778pt x 129.03442pt.
-<../../graphs/TPTNs.pdf, id=453, 522.69423pt x 335.87685pt>
+<../../graphs/TPTNs.pdf, id=455, 522.69423pt x 335.87685pt>
 File: ../../graphs/TPTNs.pdf Graphic file (type pdf)
 <use ../../graphs/TPTNs.pdf>
-Package pdftex.def Info: ../../graphs/TPTNs.pdf  used on input line 1000.
+Package pdftex.def Info: ../../graphs/TPTNs.pdf  used on input line 999.
 (pdftex.def)             Requested size: 250.26031pt x 160.81416pt.
-
-! Undefined control sequence.
-<argument> \seconds 
-                    
-l.1006 ...ere, respectively, \SI{143.45}{\seconds}
-                                                  , \SI{7.89}{\seconds} and ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \seconds 
-                    
-l.1006 ...ere, respectively, \SI{143.45}{\seconds}
-                                                  , \SI{7.89}{\seconds} and ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \seconds 
-                    
-l.1006 ...I{143.45}{\seconds}, \SI{7.89}{\seconds}
-                                                   and \SI{110.08}{\seconds}...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \seconds 
-                    
-l.1006 ...I{143.45}{\seconds}, \SI{7.89}{\seconds}
-                                                   and \SI{110.08}{\seconds}...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \seconds 
-                    
-l.1006 ....89}{\seconds} and \SI{110.08}{\seconds}
-                                                  . Despite expending a long...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \seconds 
-                    
-l.1006 ....89}{\seconds} and \SI{110.08}{\seconds}
-                                                  . Despite expending a long...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-(./wecs_tgrs.bbl [7pdfTeX warning (ext4): destination with the same identifier 
-(name{table.1}) has been already used, duplicate ignored
+ (./wecs_tgrs.bbl [7pdfTeX warning (ext4): destination with the same identifier
+ (name{table.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -1563,29 +1492,26 @@ l.67
       <../../qgis/maps/WECS-KI.pdf> <../../qgis/maps/WECS-OT.pdf> <../../qgis/m
 aps/ECS-OT.pdf> <../../qgis/maps/TAAD-KI.pdf> <../../graphs/TPTNs.pdf>])
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1156.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1156.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1151.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1151.
  (./wecs_tgrs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1156.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1156.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1151.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1151.
 
 Package rerunfilecheck Info: File `wecs_tgrs.out' has not changed.
 (rerunfilecheck)             Checksum: DE5713AAC20E6513A5960AD1AD4A1E80;533.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1156.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1151.
  ) 
 Here is how much of TeX's memory you used:
- 28695 strings out of 481239
- 569999 string characters out of 5920377
- 843314 words of memory out of 5000000
- 42932 multiletter control sequences out of 15000+600000
- 604771 words of font info for 351 fonts, out of 8000000 for 9000
+ 28701 strings out of 481239
+ 570071 string characters out of 5920377
+ 843353 words of memory out of 5000000
+ 42931 multiletter control sequences out of 15000+600000
+ 605091 words of font info for 355 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,19n,75p,1409b,897s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/rodney/.texlive2019/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>
@@ -1607,10 +1533,10 @@ ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
 es/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (8 pages, 37530884 bytes).
+Output written on wecs_tgrs.pdf (8 pages, 37530869 bytes).
 PDF statistics:
- 679 PDF objects out of 1000 (max. 8388607)
- 517 compressed objects within 6 object streams
- 100 named destinations out of 1000 (max. 500000)
+ 681 PDF objects out of 1000 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 101 named destinations out of 1000 (max. 500000)
  43750 words of extra memory for PDF output out of 51595 (max. 10000000)
 
