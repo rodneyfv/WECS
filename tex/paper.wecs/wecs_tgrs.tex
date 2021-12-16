@@ -435,6 +435,11 @@
 				\pic{orcidlogo};
 				\end{tikzpicture}
 			}{|}}}}
+			
+			
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
@@ -534,7 +539,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-We introduce WECS (Wavelet Energies Correlation Screening), an unsupervised procedure to detect spatio-temporal change points on multi-temporal SAR images. The procedure is based on wavelet approximation for the multi-temporal images, wavelet energy apportionment, and ultra-high dimensional correlation screening for the wavelet coefficients. We show WECS performance on simulated multi-temporal image data. We also evaluate the proposed method on a time series of 84 satellite images in a forest region at the border of Brazil and the French Guiana. The proposed method displays good results in covering change regions, with the additional benefit of having simple and fast computation.
+We introduce WECS (Wavelet Energies Correlation Screening), an unsupervised procedure to detect spatio-temporal change points on multi-temporal SAR images. The procedure is based on wavelet approximation for the multi-temporal images, wavelet energy apportionment, and ultra-high dimensional correlation screening for the wavelet coefficients. We show WECS performance on simulated multi-temporal image data. We also evaluate the proposed method on a time series of 85 satellite images in a forest region at the border of Brazil and the French Guiana. The proposed method displays good results in covering change regions, with the additional benefit of having simple and fast computation.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -647,7 +652,7 @@ Our goal is twofold: to find possible points in time where some relevant changes
 
 
 The application of this wavelet transform to $\mathcal{I}^{(m)}$ at some appropriate resolution level $J\geq 1$ results in a matrix of the so called approximation wavelet coefficients $\vX^{(m)}$, a smoothed version of $\mathcal{I}^{(m)}$ 
-defined on the same support $\mathcal{S}$. The higher $J\in\{1,\ldots,\log_2( \min{u,v} )\}$ is, the smoother $\vX^{(m)}$ gets.
+defined on the same support $\mathcal{S}$. The higher $J\in\{1,2,\ldots, \floor{ \log_2( \min\{u,v\} ) } \}$ is, the smoother $\vX^{(m)}$ gets.
 
 Beyond many other aspects that may be involved in wavelet analyses of images, which may include different wavelet bases as well as the use of thresholding of detail coefficients, the current construction is focused on $\vX^{(m)}$ to provide a simple wavelet smoothing. Nevertheless, extensions based on distinct aspects are straightforward.
 
@@ -683,26 +688,28 @@ In order to identify spatio-temporal changes, we employ the concept of ultra-hig
 \begin{equation}\label{def_Rkld}
 R_{kl}= |\corr \left( \vD_{kl}, \vd \right)|.
 \end{equation}
-Let $\vR = \{R_{kl}\}$ be the matrix of absolute correlations, where $R_{kl}$ is assigned to each $(k,l) \in \mathcal{S}$.
+
+Consequently, it is defined $\vR = \{R_{kl}\}$ as the matrix of absolute correlations, where $R_{kl}$ is assigned to each $(k,l) \in \mathcal{S}$.
+%Let $\vR = \{R_{kl}\}$ be the matrix of absolute correlations, where $R_{kl}$ is assigned to each $(k,l) \in \mathcal{S}$.
 
 
 Define a mapping of \textit{relevant} indices for changes over the image series with respect to $\overline{\mathcal I}$ as $\mathcal{M}^{\star} \subseteq \mathcal{S}$ where \textit{changes in $\{\mathcal{I}^{(m)}\}_{m=1,\ldots,n}$ with respect to $\overline{\mathcal{I}}$ are affected by local changes in the images}.
 
 
-\textcolor{magenta}{
-If we apply to Equation (\ref{E:eq_defdm}) the index dichotomy defined by $\mathcal{M}_*$, we have
+
+If we apply to Equation (\ref{E:eq_defdm}) the index dichotomy defined by $\mathcal{M}^\star$, we have
 \begin{align}
-\vd^{(m)}=\sum_{(k,l)\in\mathcal{M}_*}\beta_{k,l}D_{k,l}^{(m)}+\varepsilon^{(m)}, \label{Regressao}
+\vd^{(m)}=\sum_{(k,l)}\beta_{kl}D_{kl}^{(m)}+\varepsilon^{(m)}, \label{Regressao}
 \end{align}
-where $\beta_{k,l}$ are non-null regression coefficients for $(k,l)\in\mathcal{M}_*$, and $\varepsilon^{(m)}$ are stochastic error terms. 
-The error terms allow for both the apportionment of spurious correlation for indices not in $\mathcal{M}_*$ as well as for the energies not represented by the wavelet smoothing.
-} 
+where $\beta_{kl}$ are non-null regression coefficients for $(k,l)\in\mathcal{M}^\star$, and $\varepsilon^{(m)}$ are stochastic error terms. 
+The error terms allow for both the apportionment of spurious correlation for indices not in $\mathcal{M}^\star$ as well as for the energies not represented by the wavelet smoothing.
+ 
 
-\textcolor{magenta}{
-It is a well-known property of discrete wavelet transforms that it statistically decorrelates the original data \cite{vidakovic1999statistical,morettin2017wavelets}. For instance, this motivates the use of WECS instead of a non-wavelet version of energy correlation, since wavelets will result in sparser representations for $\mathcal{M}_*$. Moreover, the sure screening theoretical results for independent data motivates our conjecture that the regression set-up given by Equation (\ref{Regressao}) should have a good performance. A rigorous proof for dependent data sets such as multitemporal series of satellite images is beyond the scope of this manuscript, but the numerical results provide us with some solid evidences.
-}
 
-An empirical mapping of change locations may be stated as:
+It is a well-known property of discrete wavelet transforms that it statistically decorrelates the original data \cite{vidakovic1999statistical,morettin2017wavelets}. For instance, this motivates the use of WECS instead of a non-wavelet version of energy correlation, since wavelets will result in sparser representations for $\mathcal{M}^\star$. Moreover, the sure screening theoretical results for independent data motivates our conjecture that the regression set-up given by Equation (\ref{Regressao}) should have a good performance. A rigorous proof for dependent data sets such as multitemporal series of satellite images is beyond the scope of this manuscript, but the numerical results provide us with some solid evidences.
+
+
+Finally, an empirical mapping of change locations may be stated as:
 \begin{equation}
 \mathcal{M}_{\tau} = \{(k,l) \in \mathcal{S} : |R_{kl}|>\tau\},
 \label{E:def_Mtaud}
@@ -722,11 +729,10 @@ In order to assess the proposed method, this section presents two studies compri
 
 The first study (Sec.~\ref{secExpSimulated}) uses a simulated data set and focus on identifying the most appropriated wavelet family and resolution level $J$. Specifically, the Haar (haar), Daubechies of order 2 and 4 (db2 and db4), Coiflets of order 4 (coif4) and Symlets of order 2 and 4 (sym2 and sym4) wavelet families are analyzed \cite{BeylkinEA1991,Daubechies1992}. 
 %Posterior, once selected the wavelet family, the most suitable resolution level is then pointed out.
-
 The performance of the proposed method is measured in terms of True/False Positive Ratios and Receiver Operating Characteristic (ROC) curve. 
+
+
 Comparisons with the standard Thresholding of Aggregate Absolute Difference (TAAD) and a non-wavelet version of WECS, herein called Energy Correlation Screening (ECS), are included in the experiments. 
-
-
 In summary, the TAAD comprises the application of a thresholding algorithm on the accumulated change representation image $\vA$ where $A_{kl} = \sum_{m=2}^{n}|\mathcal{I}_{kl}^{(m)}-\mathcal{I}_{kl}^{(m-1)}|$. 
 The ECS stands for the use of $\mathcal{I}^{(m)}$ instead of $\vX^{(m)}$ when defining $D_{kl}^{(m)}$ at Equation~\ref{E:eq_defdm}, and consequently Equation~\ref{def_Rkld}. The resulting ``Pearson correlation'' matrix from ECS approach is denoted by $\widetilde{\vR}$.
 
@@ -836,7 +842,7 @@ Reversely, the WECS method provides the same True Positive Ratio under an almost
 
 This section compares the performance of WECS, TAAD and ECS in a real-world change detection application. The appropriate wavelet basis and resolution level previously identified in Section~\ref{secExpSimulated} (i.e., db2 and $J=2$) are still considered in this analysis.
 
-We consider here a large multi-temporal series of 84 images acquired over a forest region at the border of Brazil and the French Guiana (Fig.~\ref{figAE}), from December 26th 2015 to December 3rd 2017, by the SAR sensor onboard the Sentinel-1 satellite.
+We consider here a large multi-temporal series of 85 images acquired over a forest region at the border of Brazil and the French Guiana (Fig.~\ref{figAE}), from December 26th 2015 to December 3rd 2017, by the SAR sensor onboard the Sentinel-1 satellite.
 
 
 Each image contains the amplitude signal backscatters relative to VV and VH polarizations, a spatial resolution of \SI{10}{\meter} and support of $1538 \times 1556$ pixels wide.
@@ -966,7 +972,7 @@ The proportions of True/False Positive/Negative assigned to the analyzed methods
 
 
 \begin{table}[H]
-\caption{Accuracy values summary. The variance of kappa are multiplied by $\times 10^{-5}$.}\label{tabAccExpSentinel}
+\caption{Accuracy values summary. The variance of kappa are multiplied by $\times 10^{5}$.}\label{tabAccExpSentinel}
 \centering
 \begin{tabular}{ccccccc}
 \thickhline
