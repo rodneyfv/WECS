@@ -48,12 +48,12 @@ title=#1,breakable
 
 \vglue 0.3cm
 
-\huge{A thresholding process on the dissimilarities between probability models for change detection on Remote Sensing data}
+\huge{Wavelet Spatio-Temporal Change Detection on multi-temporal SAR images}
 \end{center}
 
 %\author
 \begin{center}
-\textbf{Luiz Gustavo Rodrigues Godoy, Rog\'{e}rio~G.~Negri, Diogo de Jesus Amore}
+\textbf{Rodney~V.~Fonseca, Rog\'{e}rio~G.~Negri, Alu\'{i}sio~Pinheiro and Abdourrahmane~Atto}
 \end{center}
 
 \date{\today}
@@ -80,30 +80,70 @@ Below we detail the changes and updates incorporated into the manuscript in this
 
 
 %%%%%%%%%%%%%%%%%%%
-\noindent-----------------------------------------------------------------------------------------
+\noindent---------------------------------------------------------------------------------------
 \section*{Editor's decision}
 
 %-------------------------------------
-\textit{Only a few issues need to be solved as the two reviewers suggested. Please revise your manuscript.}
+\textit{
+Dear Dr. Fonseca:\\
+I am sorry to inform you that your manuscript:\\
+Wavelet Spatio-Temporal Change Detection on multi-temporal POLSAR images (TGRS-2021-01131)\\
+has been carefully reviewed by the Editorial Board of the IEEE Transactions on Geoscience and Remote Sensing
+(TGRS) and has not been recommended for publication at this time. It is felt that, while there may be sufficient original
+content in the manuscript to warrant publication, it still requires a more substantial amount of work than is consistent with
+a ‘Major Revision’ decision. For this reason, we encourage you to consider revising the manuscript in response to the
+comments given below and submitting it as a new submission to TGRS. If you do decide to resubmit the paper, please
+include a point-by-point response to the comments of the reviewers along with the new paper in order to expedite its
+review. Use the "Submit a Resubmission" link in your author center when you submit the new manuscript.\\
+Your resubmission deadline is 20-Jan-2022.\\
+Below are summary comments from the TGRS Editorial Board for your information.\\
+Thank you for submitting your manuscript to TGRS.\\
+Sincerely,\\
+Dr. Simon Yueh\\
+Editor, IEEE Trans. on Geoscience and Remote Sensing
+}
 
 \medskip
 
-\textbf{R:} We have done our best to answer all comments and included the corresponding modifications in the new version of the manuscript. 
-To facilitate the identification of new content added in the revised manuscript, we highlight in red the text inclusions/changes.
+\textbf{R:} .
 %-------------------------------------
 
+%%%%%%%%%%%%%%%%%%%
+\noindent---------------------------------------------------------------------------------------
+\section*{Associate Editor}
 
+%-------------------------------------
+\textit{Dear Authors,\\
+I regret to inform you that I cannot recommend publication of your paper in the IEEE Transactions on Geoscience and
+Remote Sensing journal. This rejection is based upon the enclosed comments of the reviewers.
+In case you decide to resubmit the paper to this journal, I suggest that you take into account all the reviewers’ comments
+to improve your manuscript.
+Thank you for considering TGARS for the publication of your manuscript. We welcome the future submission of your
+work to the journal.\\
+Sincerely,}
+
+\medskip
+
+\textbf{R:} .
+%-------------------------------------
+
+\medskip
+
+
+\newpage
+
+\vspace{0.25cm}
 
 %%%%%%%%%%%%%%%%%%%
-\noindent-----------------------------------------------------------------------------------------
+\noindent---------------------------------------------------------------------------------------
 \section*{Reviewer \#1}
 
 %-------------------------------------
-\textit{This paper presents an application of unsupervised algorithms for change detection analysis based on stochastic distance and threshold. And the author compared it with CVA method to prove it robust and high performance. However, there are several major comments in the manuscript that must be addressed before considering its publication.}
+\textit{This paper presents a wavelet decomposition based change detection method for POLSAR images. The method seems original but the paper is poorly written. The detailed comments are listed as follows.}
 
 \medskip
 
-\textbf{R:} We thank the reviewer for all his/her contributions, technical insights, and the time spent on reviewing our manuscript.
+\textbf{R:} .
 %-------------------------------------
 
 \medskip
@@ -112,25 +152,19 @@ To facilitate the identification of new content added in the revised manuscript,
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 1}
-\textit{The method applied three different types of stochastic distances, while the difference of these distances is not explained, and the reason for different performances when they are applied to remote sensing images is not analyzed.}
+\textit{This paper lacks a thorough review of POLSAR image change detection methods. What are the challenges of
+POLSAR image change detection? What are the advantages and defects of existing methods? What’s the superiority of
+the proposed method over existing ones? What are the contributions of this paper to remote sensing community? There
+are many works about change detection in POLSAR images. This paper only addresses the method without necessary
+comparison.}
 
 \medskip
 
-\textbf{R:} As a consequence of its particular formulation, each stochastic distance plays a distinct way of measuring the similarity between two probability distributions. Therefore, while two objects (i.e., regions/neighborhoods) may share high similarities according to a given stochastic distance, such objects may also demonstrate elevated divergence levels concerning other stochastic distances.
-Consequently, we should understand that each stochastic distance may provide a distinct representation of the spatio-temporal dynamics.
-In the context of the proposed change detection framework, it is essential to assess different stochastic distance alternatives and quantify the respective performances on mapping the landscape changes. 
+\textbf{R:} .
 
 
 \medskip
 
-The presented response was adapted and then inserted in the Section 2.2, as showed bellow:
-\begin{quotation}
-
-As a consequence of its particular formulation, each stochastic distance plays a distinct way of measuring the similarity between two probability distributions.
-Therefore, while two distributions may present a certain level of similarity according to a given stochastic distance, these distributions may also demonstrate divergences concerning other stochastic distances.
-Consequently, admitting that distinct stochastic distances may lead to particular conclusions, the identification of the most convenient distance for a specific application is needed.
-
-\end{quotation}
 
 
 
@@ -146,22 +180,15 @@ Consequently, admitting that distinct stochastic distances may lead to particula
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 2}
-\textit{Fig.1 is the key block diagram illustrating the proposed approach. Maybe I missed some key points, but I want to clarify some questions. Each pixel in the neighborhood is the same important for V? And the probability density functions fu and fv are the multivariate Gaussian distributions in experiment?}
+\textit{The authors claim that “it is sparse, very fast and scalable. Finally, it is easily adapted to be updatable”. However, the
+change detection in POLSAR images has been significantly developed and there are many excellent methods. Many of
+them are also fast and scalable. Without any necessary comparison, how to demonstrate that “it is very fast and scalable”? What’s the novelty of the proposed method?}
 
 \medskip
 
-\textbf{R:} The reviewer's interpretation is right. All the pixels/positions $s$ into the neighborhood $\mathcal{V}_{\rho}(s)$ has the same importance when modeling the probability distribution functions $f_U$ and $f_V$. Such modeling is made by estimating the parameters $\mu$ and $\Sigma$ from $\mathcal{V}_{\rho}(s)$ but considering different instants, resulting in the models $f_U$ and $f_V$. In the experiments, $f_U$ and $f_V$ are both multivariate Gaussian distributions.
+\textbf{R:} .
 
 \medskip
-
-The following text was added in Section~3:
-\begin{quotation}
-
-Equivalently, it may be understood that the information from $V(\mathcal{I}_1,(i,j),\rho)$ and $V(\mathcal{I}_2,(i,j),\rho)$ are employed to estimate the parameters of $f_{\mathbf{U}}$ and $f_{\mathbf{V}}$. 
-In this process, the radiometric values concerning the elements/coordinates into the mentioned neighborhoods, regardless of their distance from the reference position $(i,j)$, equal importance on the distributions parameters estimation.
-
-\end{quotation}
-
 
 \end{mybox}
 %-------------------------------------
@@ -172,21 +199,14 @@ In this process, the radiometric values concerning the elements/coordinates into
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 3}
-\textit{The author chose the reference samples manually. And I want to ask that what is the rule and way when you take the samples because I notice that the distribution of most samples at different times are located in similar areas.}
+\textit{What’s the relationship between this paper and [i]? [i] also uses wavelet transformation for change detection.
+[i] Fonseca, R. , Ludwig, G. , Montoril, M. , Pinheiro, A. . (2020). Nonparametric methods for detecting change in Multitemporal SAR-PolSAR Satellite Data. arXiv: 2001.05764.}
 
 \medskip
 
-\textbf{R:} The ground-reference samples were collected through a careful visual inspection process regarding pairs of instants. On certain occasions, when selecting a ``non-change'' sample that does not change over time, such sample tends to be reconsidered in distinct pairs of instants. In the same sense, targets/regions with frequent spectral change also may be re-employed.
+\textbf{R:} .
 
 \medskip
-
-
-An additional explanation concerning the reference samples was inserted in the experiments section:
-\begin{quotation}
-
-Under certain conditions, places of ``non-change'' samples that do not change over time tend to be reconsidered in distinct pairs of instants. In the same sense, regions with frequent spectral transition may be re-employed as a ``change'' sample.
-
-\end{quotation}
 
 
 \end{mybox}
@@ -198,65 +218,89 @@ Under certain conditions, places of ``non-change'' samples that do not change ov
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 4}
-\textit{The author listed some literature in the introduction. I think the authors might have missed some latest and relevant papers in this area. Please comment on the following recent papers in the revised paper. [a] Change detection using deep learning approach with object-based image analysis. [b] An unsupervised domain adaptation approach for change detection and its application to deforestation mapping in tropical biomes. [c] A deep translation (gan) based change detection network for optical and sar remote sensing images}
+\textit{Methodology describes the proposed method in detail, but what’s new in this paper? All the operators are existing or
+intuitive.}
 
 \medskip
 
-\textbf{R:} Thanks for the suggested papers. We included the respective citations in the introduction section.
+\textbf{R:} .
 
 \medskip
-
-\begin{quotation}
-
-Recently, diverse supervised approaches have been proposed in the literature to deal with change detection on Remote Sensing data. 
-Ref.~\citenum{LiuEA2021} combines object-based image analysis and convolutional neural network concepts to perform %a supervised 
-change detection. %approach. 
-Ref.~\citenum{LiEA2021} employs generative adversarial nets to propose a 
-%supervised 
-change detection method that simultaneously analyzes optical and radar data. 
-Ref.~\citenum{VegaEA2021} exploits the idea of ``Domain Adaptation'' to train a neural network using information from one source for posterior generic use on the change detection over distinct imagery datasets.
-
-\end{quotation}
 
 
 \end{mybox}
 %-------------------------------------
 
 \vspace{0.3cm}
-
-
 
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 5}
-\textit{The experiments need to be further analyzed. For instance, the intermediate result of Id should be displayed and explained, because it make the experiment more convincing.}
+\textit{The method is not clearly described. For example, what’s log-image? What’s the epsilon in Eq. (1). Eq. (1) seems
+problematic. It denotes wavelet decomposition?}
 
 
 \medskip
-\textbf{R:} Thanks for this suggestion.
-
-The distance ($\mathcal{I}_{d}$ -- SDTA) and amplitude ($\mathcal{I}_{a}$ -- CVA) images, related to the change detection maps presented in Section 4.3, were incorporated in the manuscript. Additional discussions regarding such images were also added to the text.
-
+\textbf{R:} .
 
 \medskip
-
-\begin{quotation}
-
-As a complementary analysis, Figures~10 to 13 show the distance ($\mathcal{I}_d$) and amplitude ($\mathcal{I}_a$) images referent to the change maps presented in Figures~6 to 9, respectively. Once the values may change as a function of the input data, distance type, and neighborhood size, the depicted maps use a quantile-based color scale.
-%
-Concerning both methods, it may observe that the Kittler-Illingworth technique tends to threshold the distance/amplitude values around the second and third quantile.
-%
-In consonance with the change maps (Figs.6-9), the SDTA method expresses the changes through homogeneous regions. The same is not observed for the CVA method, where isolated points of high amplitude values are spread along the study area.
-
-
-\end{quotation}
-
-
 
 \end{mybox}
 %-------------------------------------
 
 \vspace{0.3cm}
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 6}
+\textit{Without comparison with recent change detection methods in experiments, how to demonstrate the advantages of the
+proposed method? For example, if there is a method that is faster and performs better than existing ones, why I have to
+use the proposed one?}
+
+
+\medskip
+\textbf{R:} .
+
+\medskip
+
+\end{mybox}
+%-------------------------------------
+
+\vspace{0.3cm}
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 7}
+\textit{The authors claims that “Its performance is similar to a deep learning feature extraction method”. However, the deep
+learning feature extraction method is proposed for image denoising and it is not specially designed for POLSAR images.
+It is obviously unfair to compare the proposed method with it. Why not compare the proposed method with recent
+POLSAR image change detection methods? The proposed one cannot outperform them?}
+
+
+\medskip
+\textbf{R:} .
+
+\medskip
+
+\end{mybox}
+%-------------------------------------
+
+\vspace{0.3cm}
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 8}
+\textit{For real data, there are only self comparisons without any comparison with existing excellent methods. Therefore, the
+conclusions may be not correct.}
+
+
+\medskip
+\textbf{R:} .
+
+\medskip
+
+\end{mybox}
+%-------------------------------------
 
 
 
@@ -273,125 +317,77 @@ In consonance with the change maps (Figs.6-9), the SDTA method expresses the cha
 %-------------------------------------
 \begin{mybox}{General Comment}
 
-\textit{The paper proposes a change detection method for Landsat 5/8 images, referred to as Stochastic Distance Thresholding Analysis (SDTA). Please consider the following issues:}
+\textit{Fonseca et al. present a wavelet-based approach to detect spatiotemporal change points on multi-temporal Polarimetric
+SAR. The approach is potentially interesting and might be of use for a broader community. However, it suffered from
+several shortcomings, which prevents me from recommending the publication of the manuscript in its current form. In the
+following o elaborate my concerns, and I hope authors find them useful.}
 
 \medskip
 
-\textbf{R:}  We thank the reviewer for all his/her contributions, technical insights and the time spent on reviewing our manuscript.
+\textbf{R:}  .
 \end{mybox}
 %-------------------------------------
-
-
 
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 1}
-\textit{Line 149. Known densities. Please add details, by considering both the sensor/band/resolution characteristics and the neighborhood size.}
+\textit{the method section is unclear and partly incomplete. There are equations whose terms are not defined (e.g., Eq 1 and
+that between 7 and 8 without a number). Furthermore, the procedure for Wavelet multiresolution analysis is not
+described. Although, provided in the cited literature, it is crucial to carefully layout the procedure used to create the input
+to the change detection algorithm. Also, statements like "J-th approximation level" are unclear. I suspect the author
+meant to say "J-th decomposition level."}
+
 
 \medskip
-
-\textbf{R:} Further details about the densities/neighborhoods were incorporated in Section~3, as pointed below. Details concerning the adopted sensor and neighborhood size ($\rho$) are found in Sections~4.1 and 4.2.
-
-
-\begin{quotation}
-Equivalently, it may be understood that the information from $V(\mathcal{I}_1,(i,j),\rho)$ and $V(\mathcal{I}_2,(i,j),\rho)$ are employed to estimate the parameters of $f_{\mathbf{U}}$ and $f_{\mathbf{V}}$. 
-In this process, the radiometric values concerning the elements/coordinates into the mentioned neighborhoods, regardless of their distance from the reference position $(i,j)$, have equal importance on the distributions parameters estimation.
-\end{quotation}
-
-
+\textbf{R:} .
 \end{mybox}
 %-------------------------------------
 
-\vspace{0.3cm}
-
-
 \medskip
+
 %-------------------------------------
+
 \begin{mybox}{Comment 2}
-\textit{Was pansharpening applied? If it was not, add results on pansharpened MS bands.}
+\textit{synthetic test is confusing. Figure 1 shows a sequence of 4 synthetic images with changes appearing consecutively.
+The expectation from the presented method and promises made in the abstract and introduction is that 4 corresponding
+change maps can be obtained characterizing the changes made in the synthetic datasets. However, Figure 2 shows a
+total change and some other maps, which is unclear how they were obtained or what is the relevance to the presented
+method and promises of the paper.}
 
 \medskip
 
-\textbf{R:} The pansharpening was not applied. One of the main reasons is the absence of a panchromatic band for images acquired in 1999, 2003, and 2008 by the TM sensor. 
-However, according to the reviewer's comment, the conclusion section mentions the importance of future studies and analysis with higher resolution images.
-
-
-
+\textbf{R:} .
 \end{mybox}
+%-------------------------------------
+
+
 %-------------------------------------
 
 \vspace{0.3cm}
 
 
-
-
 \medskip
 %-------------------------------------
+
 \begin{mybox}{Comment 3}
-\textit{Line 208: GitHub link is not working.}
-
-\medskip
-\textbf{R:} 
-In fact, the repository has been created, but we have not yet provided the code. The codes will be made available immediately after the manuscript acceptance/publishing. The main reason to make it unavailable is due to possible adjusts that may be necessary through the revision process.
-
-\end{mybox}
-%-------------------------------------
-
-\vspace{0.3cm}
-
-
-
-\medskip
-%-------------------------------------
-\begin{mybox}{Comment 4 and 5}
-\textit{Please better explain the anomalous behavior in Fig.5b.
-\\
-Fig.10b shows poor performance for low FPR with respect to CVA. Justify that from a methodological point of view or with considerations on the specificity of the 2003-2008 scenario.
-}
+\textit{the real data set is not introduced carefully, and it is not clear what datasets from what sensor at what resolution and
+quality are used. How the real data is proceeded and prepared for this analysis, etc. In Figures 7-9 most of the panels
+(e.g., c-j) show many overlapping curves that color-coded without providing a colorbar. These figures carry very little
+useful information and I encourage authors to rethink ways to present their results. I also suggest authors to provide
+examples of images and show the wavelet decomposition results. Also, show the average approximate coefficient
+matrix. Last but not least, quantify a change map and provide a validation test such as an independent optical image
+taken from the same area...}
 
 \medskip
 
-\textbf{R:} For the sake of simplicity, we discussed comments 4 and 5 together. We included the following text in the ``results and discussion'' section.
-
-\medskip
-
-
-\begin{quotation}
-
-The behavior observed in Figure~\cite{5b} is a consequence of the spectral behavior of the ``2003 image'' (Fig.~\ref{2003}). External factors (like atmospheric, climatic, or even seasonality) may impair the target distinction and the measured stochastic distance/amplitude values.
-%
-It is essential to attend that the ``2003 image'' affects both analyzed methods (SDTA and CVA) concerning 1999--2003 and 2003--2008 comparisons in terms of results accuracy, with more influence on this latter pair.
-%
-Furthermore, according to the ROC curves (Fig.14(a) and (b)), it is possible to identify that the ``2003 image'' demands higher False Positive Rate values (approximately 0.195 and 0.3 concerning the pairs 1999--2003 and 2003--2008, respectively) in order to deliver a True Positive Rate above 0.8.
-%
-In summary, we may consider that the interference mentioned is the cause of large ``blobs of changes'' that overlaps the non-change reference samples and consequently drop the F1-Score values.
-%
-On the other hand, since the CVA does not consider the neighborhood information, avoiding the insurgence of large ``blobs of changes'' yet producing very noisy results, it is still less susceptible to False Positive errors in this case.
-%
-However, from a qualitative point of view, we should stress that the change maps delivered by the SDTA method are superior to those from CVA.
-
-
-\end{quotation}
-
-
-
+\textbf{R:} .
 \end{mybox}
 %-------------------------------------
 
 
+%-------------------------------------
 
 
-%\vspace{0.3cm}
-%
-%\medskip
-%%-------------------------------------
-%\begin{mybox}{Comment 5}
-%\textit{Fig.10b shows poor performance for low FPR with respect to CVA. Justify that from a methodological point of view or with considerations on the specificity of the 2003-2008 scenario.}
-%
-%\medskip
-%\textbf{R:} \textcolor{red}{Que explicaćão temos para este caso? (que faz o CVA ganhar da proposta). O que foi mesmo??}
-%\end{mybox}
-%%-------------------------------------
 
 
 \vspace{0.3cm}
