@@ -589,7 +589,7 @@ Most methods used for change detection analysis can be classified either as supe
 A special attention has been given for multi-temporal change detection using Synthetic Aperture Radar (SAR) images. 
 Some of the references already mentioned are examples of change detection methods applied to SAR images \cite{barreto2016deforestation,ban2012multitemporal,scher2021mapping,quin2014mimosa}, \cite{jia2018novel}, \cite{hou2014unsupervised}. Known to be unaffected by weather, cloud and sunlight conditions, SAR images rise as an essential data source in change detection applications \cite{bovolo2005detail}. Conversely, due to its acquisition architecture, the speckle noise typically affects the images obtained by SAR sensors and demands additional pre-processing before its use.
 
-Change detection process using SAR images is a challenging task due to the the high-dimensionality of multi-temporal datasets associated with the speckle noise. In this context, the use of Wavelets rises as a convenient approach given robustness when dealing with noise data and the available efficient computational algorithms.
+Change detection process using SAR images is a challenging task due to the high-dimensionality of multi-temporal datasets associated with the speckle noise. In this context, the use of Wavelets comes as a convenient approach given robustness when dealing with noise data and the available efficient computational algorithms.
 
 Wavelet-based methods present many advantages for a plethora of statistical applications \cite{vidakovic1999statistical} thanks to wavelet capabilities in capturing multi-scale/resolution information. 
 Their computational efficiency and sparseness are specially relevant for large images and other high-dimensional data \cite{morettin2017wavelets}. 
@@ -870,14 +870,14 @@ Such samples are needed to compute the accuracy measures beforehand mentioned in
 \end{figure}
 
 
-In order to apply the analyzed methods, the dual-polarized images were combined into a single-band representation considering
+In order to apply the analyzed methods, the dual-polarized images were combined into a single-band representation considering the so-called "span" image
 $\mathcal{I}_{kl}^{(m)} = \sqrt{(\mathrm{VV}_{kl}^{(m)})^2+(\mathrm{VH}_{kl}^{(m)})^2}$, with $\mathrm{VV}$ and $\mathrm{VH}$ representing the available polarizations.
 
 
 Initially, to express the instantaneous change values with respect to WECS,
 Figure~\ref{F:forest_wecs} presents the temporal variations given by $\vd$. According to the presented profile, it is possible to observe the fluctuations around a central value near $12$ as highlight instants with a value similar, higher or lower than this baseline, as pointed out for $m$ equal to 1, 30 and 59, respectively.
 %
-For the sake of comparison, the wavelet representation at each mentioned instant (i.e., $\vX^{(1)}$, $\vX^{(30)}$ and $\vX^{(59)}$) and the mean image (i.e., $\overline{\mathcal{I}}$) are exhibited in Figure~\ref{F:forest_change_times}. While $\vX^{(1)}$ shares similarities with $\overline{\mathcal{I}}$, evident changes rises in $\vX^{(30)}$. Reversely, $\vX^{(59)}$ offers low contribution for identifying change regions.
+For the sake of comparison, the wavelet representation at each mentioned instant (i.e., $\vX^{(1)}$, $\vX^{(30)}$ and $\vX^{(59)}$) and the mean image (i.e., $\overline{\mathcal{I}}$) are exhibited in Figure~\ref{F:forest_change_times}. While $\vX^{(1)}$ shares similarities with $\overline{\mathcal{I}}$, evident changes rise in $\vX^{(30)}$. Reversely, $\vX^{(59)}$ offers low contribution for identifying change regions.
 
 
 
@@ -1005,7 +1005,7 @@ Var. of kappa & 6.90 & 3.43 & 1.91 & 1.72 & 0.76 & 0.91 \tabularnewline
 \end{figure}
 
 
-Lastly, the computational run-time of WECS, TAAD and ECS were, respectively, \SI{143.45}{\second}, \SI{7.89}{\second} and \SI{110.08}{\second}. Despite expending a longer execution time, its worth mention that WECS' running time is not excessive in the context of remote sensing image processing, beyond providing systematically more accurate results.
+Lastly, the computational run-time of WECS, TAAD and ECS were, respectively, \SI{143.45}{\second}, \SI{7.89}{\second} and \SI{110.08}{\second}. Despite expending a longer execution time, it is worth mention that WECS' running time is not excessive in the context of remote sensing image processing, beyond providing systematically more accurate results.
 
 
 

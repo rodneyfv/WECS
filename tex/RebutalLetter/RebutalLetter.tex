@@ -60,12 +60,12 @@ title=#1,breakable
 
 
 \vspace{2cm}
-\noindent Dear Associate Editor,
+\noindent Dear Editors,
 \bigskip
 
 \textcolor{black}{We would like to thank the reviewers for the valuable comments and the time spent on checking our manuscript. 
 We have addressed their comments towards further improving the paper contents and presentation. 
-Below we detail the changes and updates incorporated into the manuscript in this round of review.}
+Below we detail the changes and updates incorporated into the manuscript in this new submission.}
 
 
 \medskip
@@ -105,7 +105,7 @@ Editor, IEEE Trans. on Geoscience and Remote Sensing
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} We would like to thank the editor for his comments and for giving us the opportunity to improve the manuscript and submit it again to TGRS. Another coauthor has joined our group and we have been able to improve considerably the manuscript's readability and presentation of our contribution. We hope the editors and reviewers find the current version significantly more appropriate for the journal.
 %-------------------------------------
 
 %%%%%%%%%%%%%%%%%%%
@@ -124,7 +124,7 @@ Sincerely,}
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} We would like to thank the associate editor for his consideration with our manuscript and for allowing us to re-submit our work. The manuscript was carefully reviewed and a thorough analysis was carried out to improve its content. The reviewers' comments have been addressed one by one and below you can find a response to each one of them.
 %-------------------------------------
 
 \medskip
@@ -143,7 +143,7 @@ Sincerely,}
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} We thank the reviewer for all his/her contributions, technical insights, and the time spent on reviewing our manuscript. The manuscript was re-written and the its content was carefully improve.
 %-------------------------------------
 
 \medskip
@@ -160,22 +160,15 @@ comparison.}
 
 \medskip
 
-\textbf{R:} .
-
+\textbf{R:} The reviewer is totally right. Even though we wrote PolSAR in the title, the first manuscript did not address the characteristics of this type of image or mentioned related methods from the literature. The term PolSAR was removed from the manuscript and now we let it clear that our method is suitable for single channel images. In the application with real data, we focus on SAR images, what is mentioned in title in the new manuscript.
 
 \medskip
-
-
 
 
 \end{mybox}
 %-------------------------------------
 
 \vspace{0.3cm}
-
-
-
-
 
 \medskip
 %-------------------------------------
@@ -186,7 +179,7 @@ them are also fast and scalable. Without any necessary comparison, how to demons
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} These remarks about the proposed method were removed from the manuscript. Additionally, the current version does not refers to PolSAR images anymore.
 
 \medskip
 
@@ -204,7 +197,7 @@ them are also fast and scalable. Without any necessary comparison, how to demons
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} In the cited paper [i], the authors estimate probability density functions for each instant using the images' wavelet coefficients. Next, a time series of curves is estimated using such density functions, which are later used to compute a matrix of differences for pairs of instants. The method in the present manuscript is significantly simpler, basically using discrete wavelet transform for images and Pearson correlation, whereas [i] employs functional data analysis tools. 
 
 \medskip
 
@@ -223,7 +216,7 @@ intuitive.}
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} The idea of using correlation screening to detect spatio/temporal changes has not been proposed in the literature yet. Works in feature screening basically employ existing and well known correlation measures, but the application of these techniques in the statistical learning literature is an active research topic regarding high-dimensional data. We show this idea can also offer useful results for satellite image data as well.
 
 \medskip
 
@@ -241,7 +234,7 @@ problematic. It denotes wavelet decomposition?}
 
 
 \medskip
-\textbf{R:} .
+\textbf{R:} Log-image referred to the logarithm of a matrix representing a image, but such terminology is not longer used in the current manuscript. The epsilon mentioned referred to noise present in an observed image and it did not involve wavelet decomposition. We realized such problems with the presentation of the methodology and re-wrote this section. We hope it is more clear now.
 
 \medskip
 
@@ -259,7 +252,7 @@ use the proposed one?}
 
 
 \medskip
-\textbf{R:} .
+\textbf{R:} We have not been able to find another method that address simultaneously spatial and temporal change detection for a full time series of satellite images. Most methods deal only with pairs of images. Therefore, we decided to compare our results with the standard approaches cited in the manuscript.
 
 \medskip
 
@@ -278,7 +271,7 @@ POLSAR image change detection methods? The proposed one cannot outperform them?}
 
 
 \medskip
-\textbf{R:} .
+\textbf{R:} The comparison with a deep learning method was removed, as well as any mention to PolSAR images.
 
 \medskip
 
@@ -295,7 +288,7 @@ conclusions may be not correct.}
 
 
 \medskip
-\textbf{R:} .
+\textbf{R:} The real data application was improved and now we offer much more details about the region analyzed. The analyses are once again compared with standard approaches for the type of analyses we make.
 
 \medskip
 
@@ -324,14 +317,15 @@ following o elaborate my concerns, and I hope authors find them useful.}
 
 \medskip
 
-\textbf{R:}  .
+\textbf{R:} We thank the reviewer for all his/her contributions, technical insights and the time
+spent on reviewing our manuscript. The manuscript was carefully improved and we hope the recent version is suitable to be considered for publication.
 \end{mybox}
 %-------------------------------------
 
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 1}
-\textit{the method section is unclear and partly incomplete. There are equations whose terms are not defined (e.g., Eq 1 and
+\textit{1 - the method section is unclear and partly incomplete. There are equations whose terms are not defined (e.g., Eq 1 and
 that between 7 and 8 without a number). Furthermore, the procedure for Wavelet multiresolution analysis is not
 described. Although, provided in the cited literature, it is crucial to carefully layout the procedure used to create the input
 to the change detection algorithm. Also, statements like "J-th approximation level" are unclear. I suspect the author
@@ -339,7 +333,7 @@ meant to say "J-th decomposition level."}
 
 
 \medskip
-\textbf{R:} .
+\textbf{R:} Presentation of the methodology was carefully revised and now all terms and methods are introduced before being referred to. We present a brief introduction of wavelet decomposition and feature screening that might be enough to understand the following parts of the manuscript. Concerning the approximation level, it is indeed one of the decomposition levels, but we meant that only coefficients related to coarse details are used. This is explained with more details in the current version.
 \end{mybox}
 %-------------------------------------
 
@@ -348,7 +342,7 @@ meant to say "J-th decomposition level."}
 %-------------------------------------
 
 \begin{mybox}{Comment 2}
-\textit{synthetic test is confusing. Figure 1 shows a sequence of 4 synthetic images with changes appearing consecutively.
+\textit{2 - synthetic test is confusing. Figure 1 shows a sequence of 4 synthetic images with changes appearing consecutively.
 The expectation from the presented method and promises made in the abstract and introduction is that 4 corresponding
 change maps can be obtained characterizing the changes made in the synthetic datasets. However, Figure 2 shows a
 total change and some other maps, which is unclear how they were obtained or what is the relevance to the presented
@@ -356,7 +350,7 @@ method and promises of the paper.}
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} The four images are now presented separately in Figure 2 of the recent version. The total changes are showed in Figure 3 of this version. The idea is that, if only the first and last images were used (images 1 and 4, respectively), changes in instants between these times would be missed. The proposed method is suited to detect this type of change. Explanations in the section about the simulated images were improved and we added more details on how they were generated.
 \end{mybox}
 %-------------------------------------
 
@@ -370,7 +364,7 @@ method and promises of the paper.}
 %-------------------------------------
 
 \begin{mybox}{Comment 3}
-\textit{the real data set is not introduced carefully, and it is not clear what datasets from what sensor at what resolution and
+\textit{3 - the real data set is not introduced carefully, and it is not clear what datasets from what sensor at what resolution and
 quality are used. How the real data is proceeded and prepared for this analysis, etc. In Figures 7-9 most of the panels
 (e.g., c-j) show many overlapping curves that color-coded without providing a colorbar. These figures carry very little
 useful information and I encourage authors to rethink ways to present their results. I also suggest authors to provide
@@ -380,11 +374,162 @@ taken from the same area...}
 
 \medskip
 
-\textbf{R:} .
+\textbf{R:} Details about the images were included in the text: type of satellite image; type of sensor; resolution; and description of pre-processing steps used before applying the proposed method. We also removed similar figures that were not adding new information to the analysis. The Figures with overlapping curves are no longer used, and different details about the region studied are presented now, including change maps in Figure 6c and Figure 10. In particular, Figure 6c is a validation change map that is used to compute accuracy methods presented in Table 1 of the recent manuscript version.
 \end{mybox}
 %-------------------------------------
 
 
+%-------------------------------------
+%%%%%%%%%%%%%%%%%%%
+\section*{Reviewer \#3}
+
+
+%-------------------------------------
+\begin{mybox}{General Comment}
+
+\textit{The manuscript presents a methodology to detect changes in the wavelet domain using multitemporal SAR
+data. Although all the mathematical formalism looks sound and the results on simulated data are promising,
+the manuscript is still lacking of some important parts. Most importantly, a proper analysis of results using
+real data should be done. Real data are indeed used, but their analysis has little to do with validating change
+detection and it is more about showing how the new observables look like. More information should also be
+added to the simulations. After the addition of these information and a proper validation the paper should be
+publishable in TGRS.}
+\medskip
+
+\textbf{R:} We thank the reviewer for all his/her contributions, technical insights and the time
+spent on reviewing our manuscript. The analysis of real data was improved and now we offer more details about the images used and present a validation change image to measure the accuracy of the proposed method. We also provide now a better description of how the simulated images were generated and analyzed.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 1}
+\textit{Data used: In the entire paper there is no mention of the type of data used. Are this Sentinel-1 GRD images?
+\textcolor{red}{Also please consider acknowledging ESA for the use of data.}}
+
+
+\medskip
+\textbf{R:} The data was obatined from the SAR sensor onboard the Sentinel-1 satellite.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 2}
+\textit{Simulations: Some more details should be provided to describe how the simulations were performed. I assume these are Monte Carlo simulations where an Additive Gaussian Noise is added to the image (representing
+the log intensity). This is not ideal, since it opens the question on the noise level you simulate (i.e. the energy
+of the noise). Why did you selected that energy for the noise? Ideally, you would simulate the complex pixel
+as a Circular Complex Gaussian random variable, then take the intensity (maybe use multi-look) and then the
+log. Please justify the value of noise energy you selected or please repeat the simulations starting from complex
+pixels.}
+
+
+\medskip
+\textbf{R:} The simulated images were indeed generated with additive Gaussian noise. We included more details about how the simulated images were generated and what level of noise was used. The signal to noise to ration considered was chosen in order to not let the true changes too apparent in the observed images (especially image 4), as can be seen in Figure 2. Such level also offers a harder scenario than what is analyzed in the application with real data. Such explanations are presented in the manuscript now.   
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 3}
+\textit{Figure 2: Is (a) a validation mask where each pixel that changes at any time is flagged as 1? Please add
+more details on the content of subplot (a).}
+
+
+\medskip
+\textbf{R:} Yes, ones (white) correspond to locations were change happened at any instant, whereas zero (black) correspond to places where no change takes place.  This information is given now in the recent version and the figure now is on Figure 3a. We also present more details about the content of other images as well.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 4}
+\textit{Timeseries vs pairwise: At the moment, it is not clear what is the advantage of using the full time series
+compared to apply a pairwise approach using first and last image. In the simulation, is this a better choice in
+detecting changes that applying a single pairwise change detector between image 1 and image 4? So not do the
+accumulation, but just use first and last change detection for comparison.}
+
+
+\medskip
+\textbf{R:} The simulated images illustrate the point in considering the full time series: if only images 1 and 4 were considered in a pairwise analysis, the changes that happened between these instants would be missing. The proposed method is able to detect this type of change, as can be seen in Figure 3b. Additionally, we also look for instants when a relevant change might have happened. The method proposed can be used to detect this type of change as well through analyzing the the measures $\mathbf{d}^{(1)},\ldots,\mathbf{d}^{(n)}$.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 5}
+\textit{Real data info and preprocessing: There is absolutely no information about what satellite data are used. I
+assume this are Sentinel-1 GRD, but please provide info on that. Also there is no info on what pre-processing
+you use. \textcolor{red}{Did you do calibration, terrain correction, noise removal, geocoding?}}
+
+
+\medskip
+\textbf{R:} We included information about the images used in the real data application. They are indeed Sentinel-1 images.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 6}
+\textit{Real data validation: The test with real data is very poor and should be improved. For instance, there is
+no information on what changed in the scene. Also there is no detection mask obtained from the analysis and
+no quantitative results (e.g. a ROC curve). These informations must be provided in order to make this paper
+publishable.}
+
+
+\medskip
+\textbf{R:} A validation image with change locations is used in the recent version and can be seen in Figure 6c. This image is used to compute accuracy measures of the proposed method and standard approaches. A change map is also provided using two different types of thresholding (Otsu and Kittler-Illingworth).
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 7}
+\textit{Figure 4 to 6: These are temporal trends, but there is no information on what the reader is supposed to see
+in these trends. If you take the backscattering (or any other measure, e.g. kurtosis) it will always show a trend...
+why are the trends coming from your method better than any other trend one could get?\\
+Each plot I assume is referred to a region. What is the region you are looking at (forest, river, agriculture)?
+How big is the region? Are we supposed to have changes in these regions? If so, which changes and when they
+happen?}
+
+
+\medskip
+\textbf{R:} These figures are not presented in the recent version, and only an overall change measure is presented in Figure 7. An increasing trend in this plot means that the corresponding images are changing with respect to the mean image. A decreasing trend indicates that images are becoming more similar to the mean image.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 8}
+\textit{Figure 7 to 9: What do all these colour lines in the plots refer too? Are different different regions?}
+
+
+\medskip
+\textbf{R:} Yes, each color correspond to a different location (pixel). The goal was to show that locations flagged as change point have squared deviations that behave similarly as the overall measure. Since these Figures were somewhat confusing, we decided not to show them in the recent version.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 9}
+\textit{Figure 10 and 11: Do you have information on the area that changed? If you want to use R (d) for detection,
+and low correlation are flagged as changing areas, doe s this mean that the river (permanent water body) is the
+most changing part?}
+
+\medskip
+\textbf{R:} We present now a change map that is used to evaluate the methods. When using $\mathbf{R}$, high correlations are the ones flagged as corresponding to changing areas. This is because the correlation is computed between a local change measure and an overall change measure. Therefore, the river is not detected as changing region by the proposed method.
+\end{mybox}
+%-------------------------------------
+
+\medskip
+%-------------------------------------
+\begin{mybox}{Comment 10}
+\textit{P.2, c.1, l.31: Please change "practive" into "practice".}
+
+
+\medskip
+\textbf{R:} The word was corrected in the recent version.
+\end{mybox}
 %-------------------------------------
 
 
