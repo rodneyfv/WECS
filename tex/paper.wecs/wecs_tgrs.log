@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  18 DEC 2021 17:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  19 DEC 2021 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1286,20 +1286,18 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.840 W
-       e consider here a large multi-temporal series of 85 images acquired o...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
-s been already used, duplicate ignored
+l.841 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.840 W
-       e consider here a large multi-temporal series of 85 images acquired o...
- <../../figs/ellipses_t1_adjust.png> <../../figs/ellipses_t2_adjust.png> <../..
-/figs/ellipses_t3_adjust.png> <../../figs/ellipses_t4_adjust.png> <../../figs/t
-otal_changes_adjust.png> <../../figs/corr_changes_dm_adjust.png> <../../figs/co
-rr_changes_logratios_adjust.png> <../../figs/corr_changes_dm_nowavelets_adjust.
-png>]
+l.841 
+       <../../figs/ellipses_t1_adjust.png> <../../figs/ellipses_t2_adjust.png> 
+<../../figs/ellipses_t3_adjust.png> <../../figs/ellipses_t4_adjust.png> <../../
+figs/total_changes_adjust.png> <../../figs/corr_changes_dm_adjust.png> <../../f
+igs/corr_changes_logratios_adjust.png> <../../figs/corr_changes_dm_nowavelets_a
+djust.png>]
 <../../qgis/maps/StudyArea_OSM.pdf, id=238, 606.265pt x 412.54124pt>
 File: ../../qgis/maps/StudyArea_OSM.pdf Graphic file (type pdf)
 <use ../../qgis/maps/StudyArea_OSM.pdf>
@@ -1486,7 +1484,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1153.
 Here is how much of TeX's memory you used:
  29199 strings out of 481239
  579174 string characters out of 5920377
- 855834 words of memory out of 5000000
+ 854834 words of memory out of 5000000
  43425 multiletter control sequences out of 15000+600000
  605117 words of font info for 355 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -1509,7 +1507,7 @@ ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wecs_tgrs.pdf (8 pages, 37523625 bytes).
+Output written on wecs_tgrs.pdf (8 pages, 37523597 bytes).
 PDF statistics:
  676 PDF objects out of 1000 (max. 8388607)
  515 compressed objects within 6 object streams
