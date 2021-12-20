@@ -840,7 +840,9 @@ This section compares the performance of WECS, TAAD and ECS in a real-world chan
 We consider here a large multi-temporal series of 85 images acquired over a forest region at the border of Brazil and the French Guiana (Fig.~\ref{figAE}), from December 26th 2015 to December 3rd 2017, by the SAR sensor onboard the Sentinel-1 satellite.
 
 
-Each image contains the amplitude signal backscatters relative to VV and VH polarizations, a spatial resolution of \SI{10}{\meter} and support of $1538 \times 1556$ pixels wide.
+Each image contains the amplitude signal backscatters relative to VV and VH polarizations, a spatial resolution of \SI{10}{\meter} and a support of $1538 \times 1556$ pixels wide in ground range projection. 
+Specifically, these images where obtained from the \textit{Sentinel-1 SAR GRD} dataset maintained by the European Space Agency \cite{ESA2021}.
+%
 Figures~\ref{figImgSentinel2015} and \ref{figImgSentinel2017} depict the first and last images of the time series, where it is possible to compare and identify some landscape changes.
 
 After careful visual inspection of the backscatter profile of each image in the series, it is possible to identify the regions where the land cover change occurs or does not occur, allowing then collecting reference samples regarding the ``change'' and ``non-change'' conditions. 
@@ -1049,8 +1051,9 @@ The current paper warrants future research in different directions, for example:
 
 
 % use section* for acknowledgment
-%\section*{Acknowledgment}
+\section*{Acknowledgment}
 
+The authors would like to thank the European Space Agency (ESA) for providing the Sentinel-1 data used in this research.
 
 
 % Can use something like this to put references on a page
