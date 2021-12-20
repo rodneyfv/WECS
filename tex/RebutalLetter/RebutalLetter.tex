@@ -129,8 +129,11 @@ Sincerely,}
 
 \medskip
 
+\medskip
 
-\newpage
+\medskip
+
+%\newpage
 
 \vspace{0.25cm}
 
@@ -296,8 +299,11 @@ conclusions may be not correct.}
 %-------------------------------------
 
 
+\medskip
+\medskip
+\medskip
 
-\newpage
+%\newpage
 
 
 
@@ -325,7 +331,7 @@ spent on reviewing our manuscript. The manuscript was carefully improved and we 
 \medskip
 %-------------------------------------
 \begin{mybox}{Comment 1}
-\textit{1 - the method section is unclear and partly incomplete. There are equations whose terms are not defined (e.g., Eq 1 and
+\textit{The method section is unclear and partly incomplete. There are equations whose terms are not defined (e.g., Eq 1 and
 that between 7 and 8 without a number). Furthermore, the procedure for Wavelet multiresolution analysis is not
 described. Although, provided in the cited literature, it is crucial to carefully layout the procedure used to create the input
 to the change detection algorithm. Also, statements like "J-th approximation level" are unclear. I suspect the author
@@ -342,7 +348,7 @@ meant to say "J-th decomposition level."}
 %-------------------------------------
 
 \begin{mybox}{Comment 2}
-\textit{2 - synthetic test is confusing. Figure 1 shows a sequence of 4 synthetic images with changes appearing consecutively.
+\textit{Synthetic test is confusing. Figure 1 shows a sequence of 4 synthetic images with changes appearing consecutively.
 The expectation from the presented method and promises made in the abstract and introduction is that 4 corresponding
 change maps can be obtained characterizing the changes made in the synthetic datasets. However, Figure 2 shows a
 total change and some other maps, which is unclear how they were obtained or what is the relevance to the presented
@@ -364,7 +370,7 @@ method and promises of the paper.}
 %-------------------------------------
 
 \begin{mybox}{Comment 3}
-\textit{3 - the real data set is not introduced carefully, and it is not clear what datasets from what sensor at what resolution and
+\textit{The real data set is not introduced carefully, and it is not clear what datasets from what sensor at what resolution and
 quality are used. How the real data is proceeded and prepared for this analysis, etc. In Figures 7-9 most of the panels
 (e.g., c-j) show many overlapping curves that color-coded without providing a colorbar. These figures carry very little
 useful information and I encourage authors to rethink ways to present their results. I also suggest authors to provide
@@ -374,12 +380,20 @@ taken from the same area...}
 
 \medskip
 
-\textbf{R:} Details about the images were included in the text: type of satellite image; type of sensor; resolution; \textcolor{red}{and description of pre-processing steps used before applying the proposed method}. We also removed similar figures that were not adding new information to the analysis. The figures with overlapping curves are no longer used, and different details about the region studied are presented now, including change maps in Figure 6c and Figure 10. In particular, Figure 6c is a validation change map that is used to compute accuracy measure of the methods considered. These measures are given in Table 1 of the recent manuscript version.
+\textbf{R:} Details about the images were included in the text:
+the acquisition satellite/sensor; spatial resolution; and the image size.
+% type of satellite image; type of sensor; resolution; \textcolor{red}{and description of pre-processing steps used before applying the proposed method}. 
+ We also removed similar figures that were not adding new information to the analysis. The figures with overlapping curves are no longer used, and different details about the region studied are presented now, including change maps in Figures 6(c) and 10. In particular, Figure 6(c) is a validation/reference change map that is used to compute accuracy measure of the methods considered. These measures are given in Table 1 of the revised manuscript.% recent manuscript version.
 \end{mybox}
 %-------------------------------------
 
 
-\newpage
+%\newpage
+\medskip
+\medskip
+\medskip
+
+
 %-------------------------------------
 %%%%%%%%%%%%%%%%%%%
 \section*{Reviewer \#3}
@@ -411,6 +425,7 @@ spent on reviewing our manuscript. The analysis of real data was improved and no
 
 \medskip
 \textbf{R:} The data was obatined from the SAR sensor onboard the Sentinel-1 satellite.
+\textcolor{green}{Verdade... vamos citar a fonte, apenas foi dito o sensor.}
 \end{mybox}
 %-------------------------------------
 
@@ -466,6 +481,8 @@ you use. \textcolor{red}{Did you do calibration, terrain correction, noise remov
 
 \medskip
 \textbf{R:} We included more detailed information about the images used in the real data application. They are indeed Sentinel-1 images.
+
+\textcolor{green}{Não houve pre-processamento, mas é interessante incluir isso no texto. Eu farei isso.}
 \end{mybox}
 %-------------------------------------
 
@@ -479,7 +496,7 @@ publishable.}
 
 
 \medskip
-\textbf{R:} A validation image with change locations is used in the recent version and can be seen in Figure 6c. This image is used to compute accuracy measures of the proposed method and standard approaches. A change map is also provided using two different types of thresholding (Otsu and Kittler-Illingworth).
+\textbf{R:} A validation image with change locations is used in the recent version and can be seen in Figure 6(c). This image is used to compute accuracy measures of the proposed method and standard approaches. A change map is also provided using two different types of thresholding algorithms (Otsu and Kittler-Illingworth).
 \end{mybox}
 %-------------------------------------
 
