@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  19 DEC 2021 21:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.14)  21 DEC 2021 06:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**RebutalLetter.tex
-(./RebutalLetter.tex
+**ResponseLetter.tex
+(./ResponseLetter.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -545,8 +545,8 @@ Package: iftex 2019/11/07 v1.0c TeX engine tests
 \Gm@layoutvoffset=\dimen264
 \Gm@dimlist=\toks39
 )
-(./RebutalLetter.aux)
-\openout1 = `RebutalLetter.aux'.
+(./ResponseLetter.aux)
+\openout1 = `ResponseLetter.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
@@ -621,29 +621,29 @@ ABD: EveryShipout initializing macros
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6]
-[7]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 455
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 468
 .
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 455
+LaTeX Font Info:    Trying to load font information for U+msb on input line 468
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [8] [9]
-No file RebutalLetter.bbl.
-[10] (./RebutalLetter.aux) ) 
+) [6] [7]
+No file ResponseLetter.bbl.
+[8] (./ResponseLetter.aux) ) 
 Here is how much of TeX's memory you used:
- 18320 strings out of 481239
- 384111 string characters out of 5920377
- 641002 words of memory out of 5000000
- 33288 multiletter control sequences out of 15000+600000
+ 18319 strings out of 481239
+ 384103 string characters out of 5920377
+ 641004 words of memory out of 5000000
+ 33287 multiletter control sequences out of 15000+600000
  544011 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,6n,95p,835b,993s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,6n,95p,836b,993s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super
 -t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
@@ -654,10 +654,10 @@ onts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm
 </usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fo
 nts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-
 super/sfti1095.pfb>
-Output written on RebutalLetter.pdf (10 pages, 188659 bytes).
+Output written on ResponseLetter.pdf (8 pages, 188218 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
