@@ -202,6 +202,13 @@ R.~G. Congalton and K.~Green, \emph{Assessing the accuracy of remotely sensed
   data: principles and practices}, 3rd~ed.\hskip 1em plus 0.5em minus
   0.4em\relax CRC press, 2019.
 
+\bibitem{ESA2021}
+\BIBentryALTinterwordspacing
+ESA, ``European space agency -- {Sentinel-1 SAR Technical Guide}.'' 2021,
+  accessed: 2021-09-01. [Online]. Available:
+  \url{https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-1-sar}
+\BIBentrySTDinterwordspacing
+
 \bibitem{otsu1979threshold}
 N.~Otsu, ``A threshold selection method from gray-level histograms,''
   \emph{IEEE Transactions on Systems, Man, and Cybernetics}, vol.~9, no.~1, pp.
