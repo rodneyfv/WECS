@@ -102,6 +102,7 @@ for ii=1:Nx
     end
 end
 toc
+clear mD_wecs tmp
 
 % mean SNR for observed images
 meanSNR
@@ -134,9 +135,11 @@ for m = [25 27 30]
     save_tiff_image(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J),...
         sprintf('forest_changes_time_m%2d.tiff',m));
 end
+clear tmp tmp2
 save_tiff_image(imRef,...
         sprintf('forest_changes_time_mean.tiff'));
 
+    
 % Saving the images of correlations
 save_tiff_image(mCorr_wecs,...
         sprintf('forest_wecs_abscorr.tiff'));
@@ -182,6 +185,7 @@ for m=2:n
     S = S + abs(data2 - data1);
     data2 = data1;
 end
+clear data1 data2
 S = S./max(S(:));
 toc
 
@@ -237,7 +241,7 @@ for m=1:n
     % sqared mean deviations
     mD_ecs(:,:,m) = (data - imRef).^2;
 end
-clear Y t
+clear Y t data
 
 % vector of overall changes
 vd_ecs = reshape(sum(sum(mD_ecs,1),2),n,1);
@@ -251,6 +255,7 @@ for ii=1:Nx
     end
 end
 toc
+clear mD_ecs
 
 % vector of overall changes
 plot(1:n,vd_ecs)
@@ -273,8 +278,12 @@ save_tiff_image(tmp,...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % reading the reference image with change locations
-t = Tiff('../figs/change_nonchange.tif','r');
+%t = Tiff('../figs/change_nonchange.tif','r');
+%Y = read(t);
+
+t = Tiff('../figs/imgROIs.tif','r');
 Y = read(t);
+
 mChange = double(Y(:,:,1));
 mImage = figure;
 imshow(mChange)
@@ -282,13 +291,43 @@ saveas(mImage,sprintf('../figs/forest_change.jpg'))
 
 % Computing F1-score for WECS and image using aggregation
 
+% file to write the scores
+file_cd_scores = fopen('F1scores_cd_methods.txt','w');
+
 % F1-score for changing regions
-[F1, Pr, Re] = F1score(mCorr_wecs>cutoff_KI_wecs,mChange)
-[F1, Pr, Re] = F1score(mCorr_wecs>cutoff_Otsu_wecs,mChange)
-[F1, Pr, Re] = F1score(S>cutoff_KI_taad,mChange)
-[F1, Pr, Re] = F1score(S>cutoff_Otsu_taad,mChange)
-[F1, Pr, Re] = F1score(mCorr_ecs>cutoff_KI_ecs,mChange)
-[F1, Pr, Re] = F1score(mCorr_ecs>cutoff_Otsu_ecs,mChange)
+[F1_wecs_ki, Pr_wecs_ki, Re_wecs_ki] = F1score(mCorr_wecs>cutoff_KI_wecs,mChange)
+[F1_wecs_otsu, Pr_wecs_otsu, Re_wecs_otsu] = F1score(mCorr_wecs>cutoff_Otsu_wecs,mChange)
+[F1_taad_ki, Pr_taad_ki, Re_taad_ki] = F1score(S>cutoff_KI_taad,mChange)
+[F1_taad_otsu, Pr_taad_otsu, Re_taad_otsu] = F1score(S>cutoff_Otsu_taad,mChange)
+[F1_ecs_ki, Pr_ecs_ki, Re_ecs_ki] = F1score(mCorr_ecs>cutoff_KI_ecs,mChange)
+[F1_ecs_otsu, Pr_ecs_otsu, Re_ecs_otsu] = F1score(mCorr_ecs>cutoff_Otsu_ecs,mChange)
+
+% change map computed with change vector analysis
+mCD_CVA = imread('../figs/CVA_BrazilGuiana.png');
+[F1_cva, Pr_cva, Re_cva] = F1score(mCD_CVA./255, mChange)
+% change map computed with multivariate alteration detection
+mCD_MAD = imread('../figs/IRMAD_BrazilGuiana.png');
+[F1_mad, Pr_mad, Re_mad] = F1score(mCD_MAD./255, mChange)
+% change map computed with PCA-Kmeans
+mCD_PCA = imread('../figs/PCAKmeans_BrazilGuiana.png');
+[F1_pca, Pr_pca, Re_pca] = F1score(mCD_PCA./255, mChange)
+% change map computed with slow feature analysis
+mCD_SFA = imread('../figs/ISFA_BrazilGuiana.png');
+[F1_sfa, Pr_sfa, Re_sfa] = F1score(mCD_SFA./255, mChange)
+
+fprintf(file_cd_scores, '%10s %6s %6s %6s\n', 'method', 'F1', 'Prec', 'Rec');
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'WECS_KI', F1_wecs_ki, Pr_wecs_ki, Re_wecs_ki);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'WECS_Otsu', F1_wecs_otsu, Pr_wecs_otsu, Re_wecs_otsu);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'TAAD_KI', F1_taad_ki, Pr_taad_ki, Re_taad_ki);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'TAAD_Otsu', F1_taad_otsu, Pr_taad_otsu, Re_taad_otsu);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'ECS_KI', F1_ecs_ki, Pr_ecs_ki, Re_ecs_ki);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'ECS_Otsu', F1_ecs_otsu, Pr_ecs_otsu, Re_ecs_otsu);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'CVA', F1_cva, Pr_cva, Re_cva);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'MAD', F1_mad, Pr_mad, Re_mad);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'PCA', F1_pca, Pr_pca, Re_pca);
+fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'SFA', F1_sfa, Pr_sfa, Re_sfa);
+
+fclose(file_cd_scores);
 
 imgdiff = 2*255*(mCorr_wecs>cutoff) - mChange;
 tp = numel(find(imgdiff==255));
