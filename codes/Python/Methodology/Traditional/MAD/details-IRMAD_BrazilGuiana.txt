@@ -1,0 +1,6 @@
+Here we provide information about the analysis of the Brazil-Guiana data using the IRMAD method
+
+The analysis used a chi-square test
+sqrt_chi2:  [[1.81032397 1.37102026 1.03285124 ... 1.23868751 1.50200743 1.36823918]]
+dimension of sqrt_chi2:  (1, 2393128)
+Time to run:  6.1359 s

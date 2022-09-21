@@ -3,6 +3,7 @@ from osgeo import gdal
 import numpy as np
 from Methodology.Traditional.PCAKmeans.algorithm import pca_k_means
 from Methodology.Traditional.PCAKmeans.util import diff_image
+from Methodology.util.cluster_util import otsu
 import imageio.v3
 
 
@@ -41,8 +42,15 @@ def main():
     change_img = pca_k_means(diff_img, block_size=block_sz,
                              eig_space_dim=eig_dim)
     del diff_img
-    imageio.imwrite('PCAKmeans_BrazilGuiana.png', change_img)
-    imageio.imwrite('PCAKmeans_BrazilGuiana.tiff', change_img)
+    imageio.imwrite('PCAKmeans_changeimage_BrazilGuiana.png', change_img)
+
+    bcm = np.ones((img_height, img_width))
+    thre = otsu(change_img)
+    bcm[change_img > thre] = 255
+    bcm = np.reshape(bcm, (img_height, img_width))
+    imageio.imwrite('PCAKmeans_BrazilGuiana.tiff', bcm)
+    imageio.imwrite('PCAKmeans_BrazilGuiana.png', bcm)
+
 
 if __name__ == '__main__':
     main()

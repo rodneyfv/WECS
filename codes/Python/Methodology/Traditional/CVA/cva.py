@@ -5,7 +5,7 @@ from osgeo import gdal
 import time
 from Methodology.util.cluster_util import otsu
 from Methodology.util.data_prepro import stad_img
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 def CVA(img_X, img_Y, stad=False):
@@ -23,6 +23,9 @@ def main():
     data_set_X = gdal.Open('../../../Dataset/2015-12-26.tif')  # data set X
     data_set_Y = gdal.Open('../../../Dataset/2017-12-3.tif')  # data set Y
 
+    # file to write details of the analysis
+    f = open('details-CVA_BrazilGuiana.txt', 'w')
+    print("Here we provide information about the analysis of the Brazil-Guiana data using the CVA method\n", file=f)
     # print(type(data_set_X))
     # print(data_set_X.RasterCount)
 
@@ -58,7 +61,11 @@ def main():
     imageio.imwrite('CVA_BrazilGuiana2.tiff', bcm)
     imageio.imwrite('CVA_BrazilGuiana.png', bcm)
     toc = time.time()
-    print(toc - tic)
+    print("The analysis used Otsu's threshold", file=f)
+    print("Threshold: ", thre, file=f)
+    print("Time to run: ", round(toc - tic, 4), "s", file=f)
+    f.close()
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,5 @@
+Here we provide information about the analysis of the Brazil-Guiana data using the ISFA method
+
+The analysis used Otsu's threshold
+Threshold:  2.379880076832352
+Time to run:  18.6454 s

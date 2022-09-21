@@ -145,6 +145,10 @@ def main():
     # data_set_X = gdal.Open('../../../Dataset/Landsat/Taizhou/2000TM')  # data set X
     # data_set_Y = gdal.Open('../../../Dataset/Landsat/Taizhou/2003TM')  # data set Y
 
+    # file to write details of the analysis
+    f = open('details-ISFA_BrazilGuiana.txt', 'w')
+    print("Here we provide information about the analysis of the Brazil-Guiana data using the ISFA method\n", file=f)
+
     img_width = data_set_X.RasterXSize  # image width
     img_height = data_set_X.RasterYSize  # image height
 
@@ -165,7 +169,10 @@ def main():
     imageio.imwrite('ISFA_BrazilGuiana.tiff', bcm)
     imageio.imwrite('ISFA_BrazilGuiana.png', bcm)
     toc = time.time()
-    print(toc - tic)
+    print("The analysis used Otsu's threshold", file=f)
+    print("Threshold: ", thre, file=f)
+    print("Time to run: ", round(toc - tic, 4), "s", file=f)
+    f.close()
 
 
 if __name__ == '__main__':

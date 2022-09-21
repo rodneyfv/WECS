@@ -108,6 +108,10 @@ if __name__ == '__main__':
     # data_set_X = gdal.Open('../../../Dataset/Landsat/Taizhou/2000TM')  # data set X
     # data_set_Y = gdal.Open('../../../Dataset/Landsat/Taizhou/2003TM')  # data set Y
 
+    # file to write details of the analysis
+    f = open('details-IRMAD_BrazilGuiana.txt', 'w')
+    print("Here we provide information about the analysis of the Brazil-Guiana data using the IRMAD method\n", file=f)
+
     img_width = data_set_X.RasterXSize  # image width
     img_height = data_set_X.RasterYSize  # image height
 
@@ -131,4 +135,8 @@ if __name__ == '__main__':
     imageio.imwrite('IRMAD_BrazilGuiana.tiff', k_means_bcm)
     imageio.imwrite('IRMAD_BrazilGuiana.png', k_means_bcm)
     toc = time.time()
-    print(toc - tic)
+    print("The analysis used a chi-square test", file=f)
+    print("sqrt_chi2: ", sqrt_chi2, file=f)
+    print("dimension of sqrt_chi2: ", sqrt_chi2.shape, file=f)
+    print("Time to run: ", round(toc - tic, 4), "s", file=f)
+    f.close()
