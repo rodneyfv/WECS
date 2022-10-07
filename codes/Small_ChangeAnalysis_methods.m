@@ -8,7 +8,7 @@ clear;
 
 rng(2021)
 
-% code that generates a sequence of synthetic images
+% generating a sequence of synthetic images
 
 % Subsampling of images
 subsamplingfactor = 2;
@@ -16,23 +16,44 @@ subsamplingfactor = 2;
 sig = 1;
 % size of the sequence (must be multiple of 4)
 n = 80;
-% running code
-generate_synthetic_sequence
+
+% Loading the image with small ellipses
+im1=imread('../figs/GroundTruthEllipsoidChanges/ellipse3.tif');
+im1=double(~im1(1:subsamplingfactor:end,1:subsamplingfactor:end)); 
+% number of rows and columns
+n1 = size(im1,1);
+n2 = size(im1,2);
+
+
+sprintf('signal to noise ratios')
+sprintf('im1: %f',sqrt(sum(sum(im1.^2,1))/(n1*n2))/sig)
+
+% array to store sequence of images
+mY = zeros(n1, n2, n);
+% sequence of images with noise
+cont = 1;
+while cont<=80
+    mY(:,:,cont) = im1 + sig*randn(n1, n2);
+    cont = cont + 1;
+    for m=1:3
+        mY(:,:,cont) = sig*randn(n1, n2);
+        cont = cont + 1;
+    end
+end
+
 
 % output
-size(mI) % true images
 size(mY) % sequence of synthetic images
 % number of rows and columns
 n1 = size(mY,1);
 n2 = size(mY,2);
 
 % all changes that are expected to be detected
-totalchanges = (abs(mI(:,:,1)-mI(:,:,2)) + abs(mI(:,:,2)-mI(:,:,3)) + ...
-    abs(mI(:,:,3)-mI(:,:,4)) + abs(mI(:,:,4)-mI(:,:,1)))>0;
 mImage = figure;
-colormap(gray(256)); imagesc(totalchanges)
-title('Total changes', 'FontSize', 17)
-%saveas(mImage,sprintf('../figs/total_changes.jpg'))
+colormap(gray(256)); imagesc(im1)
+title('Small changes', 'FontSize', 17)
+axis off
+saveas(mImage,sprintf('../figs/small_changes.jpg'))
 
 % mean observed image
 imRef = mean(mY,3);
@@ -42,11 +63,15 @@ imRef = mean(mY,3);
 wname = 'db2'; % wavelet basis used
 J = 2; % resolution level of wavelet transform
 
+% computing the wavelet coefficients of normalized images
 mX = zeros(n1,n2,n);
 for m=1:n
+    mY(:,:,m) = mY(:,:,m)/norm(imRef);
     [tmp,~,~,~] = swt2(mY(:,:,m),J,wname);
     mX(:,:,m) = tmp(:,:,J); % focus only on level J approximations
 end
+% normalized mean image
+imRef = imRef/norm(imRef);
 
 % matrix of squared mean differences
 mD = zeros(n1,n2,n);
@@ -55,8 +80,16 @@ for m=1:n
 end
 
 % vector of overall changes
+mImage = figure;
 vd = reshape(sum(sum(mD,1),2),n,1);
-plot(1:n,vd)
+plot(1:n,vd,'LineWidth',2)
+xlabel('$m$','interpreter','latex','FontSize',20); xlim([0 n])
+ylabel('$\textbf{d}(m)$','interpreter','latex','FontSize',20);
+set(gca,'FontSize',13)
+for m = 1:4:80
+    xline(m)
+end
+saveas(mImage,sprintf('../figs/small_changes_detected_instants.jpg'))
 
 %
 R = zeros(n1,n2);
@@ -72,7 +105,7 @@ R_wecs = R./max(R(:));
 mImage = figure;
 imshow(R_wecs)
 title('db2 WECS d(m), J=2', 'FontSize', 17)
-%saveas(mImage,sprintf('../figs/corr_changes_dm.jpg'))
+saveas(mImage,sprintf('../figs/small_changes_corr_dm.jpg'))
 
 
 %% No wavelets for comparison with mean image (ECS)
@@ -102,7 +135,7 @@ R_nowecs = R./max(R(:));
 mImage = figure;
 imshow(R_nowecs)
 title('d(m) without wavelets', 'FontSize', 17)
-saveas(mImage,sprintf('../figs/corr_changes_dm_nowavelets.jpg'))
+%saveas(mImage,sprintf('../figs/small_changes_corr_dm_nowavelets.jpg'))
 
 
 %% Standard change detection
@@ -118,18 +151,18 @@ S = S./max(S(:));
 mImage = figure;
 imshow(S)
 title('Aggregation of absolute differences'                                                                                                                                                                                                                                                                                                                               , 'FontSize', 17)
-saveas(mImage,sprintf('../figs/corr_changes_logratios.jpg'))
+%saveas(mImage,sprintf('../figs/small_changes_corr_logratios.jpg'))
 
 %% Compare all results
 
-[TP_wecs,FP_wecs]=ROCcurveNew(R_wecs,255*totalchanges); close
-[TP_nowecs,FP_nowecs] = ROCcurveNew(R_nowecs,255*totalchanges); close
-[TP_agg,FP_agg]=ROCcurveNew(S,255*totalchanges); close
+[TP_wecs,FP_wecs]=ROCcurveNew(R_wecs,255*im1); close
+[TP_nowecs,FP_nowecs] = ROCcurveNew(R_nowecs,255*im1); close
+[TP_agg,FP_agg]=ROCcurveNew(S,255*im1); close
 
 % saving results in a csv file
 mResults = array2table([TP_wecs; FP_wecs; TP_nowecs; FP_nowecs; TP_agg; FP_agg]');
 mResults.Properties.VariableNames = {'TP_wecs' 'FP_wecs' 'TP_nowecs' 'FP_nowecs' 'TP_agg' 'FP_agg'};
-writetable(mResults,'SeqEllipse_methods_ROC.csv')
+%writetable(mResults,'SeqEllipse_methods_ROC.csv')
 
 mImage = figure;
 hold on
@@ -145,17 +178,17 @@ legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', .
     'Aggregation of absolute differences','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-saveas(mImage,sprintf('../figs/methods_comparison.jpg'))
+saveas(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'))
 
 %
 
-[vp_wecs,FP_wecs,~,~] = F1Scorecurve(R_wecs,255*totalchanges); close
-[vp_nowecs,FP_nowecs,~,~] = F1Scorecurve(R_nowecs,255*totalchanges); close
-[vp_agg,FP_agg,~,~] = F1Scorecurve(S,255*totalchanges); close
+[vp_wecs,FP_wecs,~,~] = F1Scorecurve(R_wecs,255*im1); close
+[vp_nowecs,FP_nowecs,~,~] = F1Scorecurve(R_nowecs,255*im1); close
+[vp_agg,FP_agg,~,~] = F1Scorecurve(S,255*im1); close
 
 mResults = array2table([vp_wecs; FP_wecs; vp_nowecs; FP_nowecs; vp_agg; FP_agg]');
 mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_nowecs' 'FP_nowecs' 'vp_agg' 'FP_agg'};
-writetable(mResults,'SeqEllipse_methods_F1score.csv')
+%writetable(mResults,'SeqEllipse_methods_F1score.csv')
 
 
 mImage = figure;
@@ -172,7 +205,8 @@ legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', .
     'Aggregation of absolute differences','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-saveas(mImage,sprintf('../figs/methods_comparison_F1score.jpg'))
+%saveas(mImage,sprintf('../figs/small_changes_methods_comparison_F1score.jpg'))
+
 
 
 
