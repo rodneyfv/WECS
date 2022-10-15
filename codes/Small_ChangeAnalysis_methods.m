@@ -196,13 +196,13 @@ exportgraphics(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'),'B
 [vp_nowecs,FP_nowecs,~,~] = F1Scorecurve(R_nowecs,255*im1); close
 [vp_agg,FP_agg,~,~] = F1Scorecurve(S,255*im1); close
 
-mResults = array2table([vp_wecs; FP_wecs; vp_nowecs; FP_nowecs; vp_agg; FP_agg]');
-mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_nowecs' 'FP_nowecs' 'vp_agg' 'FP_agg'};
+%mResults = array2table([vp_wecs; FP_wecs; vp_nowecs; FP_nowecs; vp_agg; FP_agg]');
+%mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_nowecs' 'FP_nowecs' 'vp_agg' 'FP_agg'};
 %writetable(mResults,'SeqEllipse_methods_F1score.csv')
 
 % saving CSV for ROC curves of WECS, TAAD and ECS
-mResults = array2table([FP_wecs; vp_wecs; FP_agg; vp_agg; FP_nowecs; vp_nowecs]');
-mResults.Properties.VariableNames = {'FP_wecs' 'f1_score_wecs' 'FP_taad' 'f1_score_taad' 'FP_ecs' 'f1_score_ecs'};
+mResults = array2table([TP_wecs; FP_wecs; TP_nowecs; FP_nowecs; TP_agg; FP_agg]');
+mResults.Properties.VariableNames = {'TP_wecs' 'FP_wecs' 'TP_nowecs' 'FP_nowecs' 'TP_agg' 'FP_agg'};
 writetable(mResults,'small_changes_ROC_curves_forest.csv')
 
 
