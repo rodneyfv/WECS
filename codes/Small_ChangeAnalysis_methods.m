@@ -51,9 +51,16 @@ n2 = size(mY,2);
 % all changes that are expected to be detected
 mImage = figure;
 colormap(gray(256)); imagesc(im1)
-title('Small changes', 'FontSize', 17)
 axis off
-saveas(mImage,sprintf('../figs/small_changes.jpg'))
+% saveas(mImage,sprintf('../figs/small_changes.jpg'))
+exportgraphics(mImage,sprintf('../figs/small_changes.jpg'),'BackgroundColor','none')
+
+% all changes that are expected to be detected
+mImage = figure;
+colormap(gray(256)); imagesc(mY(:,:,1))
+axis off
+exportgraphics(mImage,sprintf('../figs/small_changes_first_image.jpg'),'BackgroundColor','none')
+
 
 % mean observed image
 imRef = mean(mY,3);
@@ -89,7 +96,8 @@ set(gca,'FontSize',13)
 for m = 1:4:80
     xline(m)
 end
-saveas(mImage,sprintf('../figs/small_changes_detected_instants.jpg'))
+% saveas(mImage,sprintf('../figs/small_changes_detected_instants.jpg'))
+exportgraphics(mImage,sprintf('../figs/small_changes_detected_instants.jpg'),'BackgroundColor','none')
 
 %
 R = zeros(n1,n2);
@@ -104,8 +112,9 @@ R_wecs = R./max(R(:));
 %
 mImage = figure;
 imshow(R_wecs)
-title('db2 WECS d(m), J=2', 'FontSize', 17)
-saveas(mImage,sprintf('../figs/small_changes_corr_dm.jpg'))
+% title('db2 WECS d(m), J=2', 'FontSize', 17)
+% saveas(mImage,sprintf('../figs/small_changes_corr_dm.jpg'))
+exportgraphics(mImage,sprintf('../figs/small_changes_corr_dm.jpg'),'BackgroundColor','none')
 
 
 %% No wavelets for comparison with mean image (ECS)
@@ -178,7 +187,8 @@ legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', .
     'Aggregation of absolute differences','interpreter','latex', 'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-saveas(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'))
+% saveas(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'))
+exportgraphics(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'),'BackgroundColor','none')
 
 %
 
@@ -189,6 +199,11 @@ saveas(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'))
 mResults = array2table([vp_wecs; FP_wecs; vp_nowecs; FP_nowecs; vp_agg; FP_agg]');
 mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_nowecs' 'FP_nowecs' 'vp_agg' 'FP_agg'};
 %writetable(mResults,'SeqEllipse_methods_F1score.csv')
+
+% saving CSV for ROC curves of WECS, TAAD and ECS
+mResults = array2table([FP_wecs; vp_wecs; FP_agg; vp_agg; FP_nowecs; vp_nowecs]');
+mResults.Properties.VariableNames = {'FP_wecs' 'f1_score_wecs' 'FP_taad' 'f1_score_taad' 'FP_ecs' 'f1_score_ecs'};
+writetable(mResults,'small_changes_ROC_curves_forest.csv')
 
 
 mImage = figure;
