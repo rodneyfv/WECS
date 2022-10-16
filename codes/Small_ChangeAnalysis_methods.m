@@ -190,38 +190,13 @@ hold off
 % saveas(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'))
 exportgraphics(mImage,sprintf('../figs/small_changes_methods_comparison.jpg'),'BackgroundColor','none')
 
-%
-
-[vp_wecs,FP_wecs,~,~] = F1Scorecurve(R_wecs,255*im1); close
-[vp_nowecs,FP_nowecs,~,~] = F1Scorecurve(R_nowecs,255*im1); close
-[vp_agg,FP_agg,~,~] = F1Scorecurve(S,255*im1); close
-
-%mResults = array2table([vp_wecs; FP_wecs; vp_nowecs; FP_nowecs; vp_agg; FP_agg]');
-%mResults.Properties.VariableNames = {'vp_wecs' 'FP_wecs' 'vp_nowecs' 'FP_nowecs' 'vp_agg' 'FP_agg'};
-%writetable(mResults,'SeqEllipse_methods_F1score.csv')
 
 % saving CSV for ROC curves of WECS, TAAD and ECS
 mResults = array2table([TP_wecs; FP_wecs; TP_nowecs; FP_nowecs; TP_agg; FP_agg]');
 mResults.Properties.VariableNames = {'TP_wecs' 'FP_wecs' 'TP_nowecs' 'FP_nowecs' 'TP_agg' 'FP_agg'};
-writetable(mResults,'small_changes_ROC_curves_forest.csv')
+writetable(mResults,'small_changes_ROC_curves.csv')
 
-
-mImage = figure;
-hold on
-%title('F1-score', 'FontSize', 17)
-xlabel('$p$','interpreter','latex', 'FontSize', 13)
-ylabel('$F_1$-score','interpreter','latex', 'FontSize', 13)
-axis([0 1 0 0.99]);
-axis square
-plot(vp_wecs,FP_wecs,'k')
-plot(vp_nowecs,FP_nowecs,'g-d')
-plot(vp_agg,FP_agg,':+')
-legend('db2 WECS $\textbf{d}(m)$, $J=2$', '$\textbf{d}(m)$: without wavelets', ...
-    'Aggregation of absolute differences','interpreter','latex', 'Location','southeast', 'FontSize', 12)
-legend('boxoff')
-hold off
-%saveas(mImage,sprintf('../figs/small_changes_methods_comparison_F1score.jpg'))
-
+%
 
 
 
