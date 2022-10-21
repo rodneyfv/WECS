@@ -1,0 +1,5 @@
+Here we provide information about the analysis of the Brazil-Guiana data using the PCA-Kmeans method
+
+The analysis used Otsu's threshold
+Threshold:  0.6375
+Time to run:  57.7022 s

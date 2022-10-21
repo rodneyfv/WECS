@@ -98,6 +98,11 @@ for m = 1:4:80
 end
 % saveas(mImage,sprintf('../figs/small_changes_detected_instants.jpg'))
 exportgraphics(mImage,sprintf('../figs/small_changes_detected_instants.jpg'),'BackgroundColor','none')
+% saving CSV for ROC curves of WECS, TAAD and ECS
+mResults = array2table([1:n; vd']');
+mResults.Properties.VariableNames = {'id' 'dm'};
+writetable(mResults,'small_changes_dm_instants.csv')
+
 
 %
 R = zeros(n1,n2);
