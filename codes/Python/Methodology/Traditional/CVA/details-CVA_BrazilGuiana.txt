@@ -1,5 +1,2 @@
 Here we provide information about the analysis of the Brazil-Guiana data using the CVA method
 
-The analysis used Otsu's threshold
-Threshold:  4.322566369781274
-Time to run:  6.6123 s

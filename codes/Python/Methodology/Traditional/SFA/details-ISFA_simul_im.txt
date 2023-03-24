@@ -1,0 +1,5 @@
+Here we provide information about the analysis of the simulated images using the ISFA method
+
+The analysis used Otsu's threshold
+Threshold:  2.566610317566976
+Time to run:  6.5062 s

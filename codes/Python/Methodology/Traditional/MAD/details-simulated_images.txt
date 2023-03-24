@@ -1,0 +1,6 @@
+Here we provide information about the analysis of the simulated images using the IRMAD method
+
+The analysis used a chi-square test
+sqrt_chi2:  [[0.47807074 0.2664047  1.15004715 ... 1.29110912 0.85525807 0.24906948]]
+dimension of sqrt_chi2:  (1, 1048576)
+Time to run:  2.3947 s

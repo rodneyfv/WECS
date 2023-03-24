@@ -1,0 +1,5 @@
+Here we provide information about the analysis of the first and last simulated images using the CVA method
+
+The analysis used Otsu's threshold
+Threshold:  3.3000594227220366
+Time to run:  4.664 s
