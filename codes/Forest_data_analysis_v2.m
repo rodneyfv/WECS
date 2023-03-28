@@ -60,13 +60,11 @@ mD_wecs = zeros([Nx, Ny, n]);
 
 tic
 % mean image
-imRef = zeros(Nx,Ny);
 for m=1:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
     % observed amplitudes
     mD_wecs(:,:,m) = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2));
-    imRef = imRef + double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2));
 end
 tmp = mean(mD_wecs, 3);
 % constant to make the mean matrix have norm one
@@ -74,7 +72,7 @@ normconst = norm(tmp);
 imRef = tmp/normconst;
 
 % resolution level used on wavelet decompositions
-J = 3;
+J = 2;
 
 for m=1:n
     % we normalize the image by the norm of the mean image
@@ -113,7 +111,6 @@ xlabel('$m$','interpreter','latex','FontSize',20); xlim([0 n])
 ylabel('$\textbf{d}(m)$','interpreter','latex','FontSize',20);
 set(gca,'FontSize',13)
 hold off
-saveas(mImage,sprintf('forest_vSumDifCoefSq_v2.jpg'))
 
 % checking the images corresponding to change points in time
 for m = [1 30 59]
@@ -145,22 +142,17 @@ axis off; colorbar
 set(gca,'FontSize',13)
 %saveas(mImage,sprintf('../figs_v2/forest_wecs_abscorr.jpg'))
 
-% Change image using threshold suggested in feature screening literature
-%histogram(mCorr(:))
-mImage = figure;
-cutoff = quantile(R_wecs(:),1-1/log(Nx*Ny));
-imshow(R_wecs > cutoff)
-%saveas(mImage,sprintf('../figs/forest_wecs_change_space.jpg'))
-save_tiff_image(double(R_wecs > cutoff),...
-        sprintf('forest_wecs_abscorr_screethrs_v2.tiff'));
-
 cutoff_KI_wecs = kittler(R_wecs); % Kittler-Illingworth threshold
 cutoff_Otsu_wecs = graythresh(R_wecs); % Otsu's threshold
 
 tmp = double(R_wecs > cutoff_KI_wecs);
+imagesc(tmp)
+title('WECS - KI')
 save_tiff_image(tmp,...
         sprintf('forest_wecs_change_space_KI_v2.tiff'));
 tmp = double(R_wecs > cutoff_Otsu_wecs);
+imagesc(tmp)
+title('WECS - Otsu')
 save_tiff_image(tmp,...
         sprintf('forest_wecs_change_space_otsu_v2.tiff'));
 
@@ -173,7 +165,7 @@ A_taad = zeros(Nx,Ny);
 tic
 t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{1,:})),'r');
 Y = read(t);
-data1 = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;
+data1 = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))/normconst;
 for m=2:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
@@ -198,14 +190,15 @@ set(gca,'FontSize',13)
 cutoff_KI_taad = kittler(A_taad); % Kittler-Illingworth threshold
 cutoff_Otsu_taad = graythresh(A_taad); % Otsu's threshold
 
-mImage = figure;
-imshow(A_taad > cutoff_Otsu_taad)
-%saveas(mImage,sprintf('../figs_v2/forest_aggreg_change_space.jpg'))
-
 tmp = double(A_taad > cutoff_KI_taad);
+imagesc(tmp)
+title('TAAD - KI')
 save_tiff_image(tmp,...
         sprintf('forest_taad_change_space_KI_v2.tiff'));
+
 tmp = double(A_taad > cutoff_Otsu_taad);
+imagesc(tmp)
+title('TAAD - Otsu')
 save_tiff_image(tmp,...
         sprintf('forest_taad_change_space_otsu_v2.tiff'));
 
@@ -219,21 +212,21 @@ mD_ecs = zeros([Nx, Ny, n]);
 
 tic
 % mean image
-imRef = zeros(Nx,Ny);
 for m=1:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
-    imRef = imRef + double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2));
+    % observed amplitudes
+    mD_ecs(:,:,m) = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2));
 end
-imRef = imRef/n;
+tmp = mean(mD_ecs, 3);
 % constant to make the mean matrix have norm one
-normconst = norm(imRef);
-imRef = imRef/normconst;
+normconst = norm(tmp);
+imRef = tmp/normconst;
 
 for m=1:n
-    t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
-    Y = read(t);
-    data = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))/normconst;
+%     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
+%     Y = read(t);
+    data = mD_ecs(:,:,m)/normconst;
     % sqared mean deviations
     mD_ecs(:,:,m) = (data - imRef).^2;
 end
@@ -265,9 +258,14 @@ cutoff_KI_ecs = kittler(R_ecs); % Kittler-Illingworth threshold
 cutoff_Otsu_ecs = graythresh(R_ecs); % Otsu's threshold
 
 tmp = double(R_ecs > cutoff_KI_ecs);
+imagesc(tmp)
+title('ECS - KI')
 save_tiff_image(tmp,...
         sprintf('forest_ecs_change_space_KI_v2.tiff'));
+
 tmp = double(R_ecs > cutoff_Otsu_ecs);
+imagesc(tmp)
+title('ECS - Otsu')
 save_tiff_image(tmp,...
         sprintf('forest_ecs_change_space_otsu_v2.tiff'));
 
@@ -325,8 +323,6 @@ fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'SFA', F1_sfa, Pr_sfa, Re_sf
 
 fclose(file_cd_scores);
 
-imgdiff = 2*255*(R_wecs > cutoff) - mChange;
-tp = numel(find(imgdiff==255));
 
 % detection of nonchange regions
 [D_wecs,FA_wecs] = ROCcurveNew(R_wecs/max(R_wecs(:)), mChange); close
