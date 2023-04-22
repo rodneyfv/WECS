@@ -1,4 +1,13 @@
 function [t,F1,pD,Re]=F1Scorecurve(img,im0)
+% Input
+% img: matrix of computed using data with 0 (nonchanges) and 1 (change)
+% im0: matrix of true change regions, with values 0 (nonchange) and 255
+% (change)
+% Output
+% t: threshold values considered
+% F1: F1 scores for each t value
+% Pr: Precision for each t value
+% Re: Recall for each t value
 
 % Nombre reel de pixel ayant change
 CP=find(im0~=0);

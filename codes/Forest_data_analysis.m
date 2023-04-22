@@ -21,8 +21,10 @@ end
 dates = dates(dates_idsort,:);
 
 % reading the first image
+tic
 t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{1,:})),'r');
 Y = read(t);
+toc
 imagesc(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))
 
 %
@@ -32,7 +34,6 @@ imagesc(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))
 
 %% Configurations for wavelet decompositions
 
-%wname='sym8';
 wname='db2';
 
 % saving the current boundary handling and then changing it to periodic.
@@ -52,30 +53,30 @@ dwtmode('per');
 %********************************************%
 %******** analysis for combined chanel ************%
 
-% matrix of mean squared differences of approximation coefficients
+% this matrix will store the mean squared differences of approximation
+% coefficients, but to save time, we first store the observed amplitudes of
+% the images on it
 mD_wecs = zeros([Nx, Ny, n]);
 
 tic
 % mean image
-imRef = zeros(Nx,Ny);
 for m=1:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
-    imRef = imRef + double(Y(:,:,1).^2 + Y(:,:,2).^2);
+    % observed amplitudes
+    mD_wecs(:,:,m) = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2));
 end
-imRef = imRef/n;
+tmp = mean(mD_wecs, 3);
 % constant to make the mean matrix have norm one
-normconst = norm(imRef);
-imRef = imRef/normconst;
+normconst = norm(tmp);
+imRef = tmp/normconst;
 
 % resolution level used on wavelet decompositions
 J = 2;
-meanSNR = 0;
 
 for m=1:n
-    t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
-    Y = read(t);
-    data = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;
+    % we normalize the image by the norm of the mean image
+    data = mD_wecs(:,:,m)/normconst;
     % extending image to be able to use swt2
     pwr2 = ceil(log2(min([Nx Ny])));
     extens = ceil((2^pwr2 - min([Nx Ny]))/2);
@@ -84,28 +85,21 @@ for m=1:n
     [tmp2,~,~,~] = swt2(tmp(1:2^pwr2,1:2^pwr2),J,wname);
     % sqared mean deviations of level J approx. coeff.
     mD_wecs(:,:,m) = (tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J) - imRef).^2;
-    % mean SNR of observed images
-    meanSNR = meanSNR + ...
-        norm(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J),'fro')/(norm(data,'fro')*n);
 end
-clear Y t tmp tmp2
 
 % vector with total sum of squared mean deviations for each image
 vd_wecs = reshape(sum(sum(mD_wecs,1),2),1,n);
 
 % computing correlations
-mCorr_wecs = zeros(Nx,Ny);
+R_wecs = zeros(Nx,Ny);
 for ii=1:Nx
     for jj=1:Ny
         tmp = abs(corrcoef(reshape(mD_wecs(ii,jj,:),1,n),vd_wecs));
-        mCorr_wecs(ii,jj) = tmp(1,2);
+        R_wecs(ii,jj) = tmp(1,2);
     end
 end
 toc
-clear mD_wecs tmp
-
-% mean SNR for observed images
-meanSNR
+clear Y t tmp tmp2 mD_wecs
 
 % plot of mean squared deviations
 mImage = figure;
@@ -117,13 +111,12 @@ xlabel('$m$','interpreter','latex','FontSize',20); xlim([0 n])
 ylabel('$\textbf{d}(m)$','interpreter','latex','FontSize',20);
 set(gca,'FontSize',13)
 hold off
-saveas(mImage,sprintf('../figs/forest_vSumDifCoefSq.jpg'))
 
 % checking the images corresponding to change points in time
-for m = [25 27 30]
+for m = [1 30 59]
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
-    data = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;
+    data = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))/normconst;
     
     % extending image to be able to use swt2
     pwr2 = ceil(log2(min([Nx Ny])));
@@ -133,85 +126,81 @@ for m = [25 27 30]
     [tmp2,~,~,~] = swt2(tmp(1:2^pwr2,1:2^pwr2),J,wname);
 
     save_tiff_image(tmp2(extens+1:extens+Nx,extens+1:extens+Ny,J),...
-        sprintf('forest_changes_time_m%2d.tiff',m));
+        sprintf('forest_changes_time_m%2d_v2.tiff',m));
 end
 clear tmp tmp2
 save_tiff_image(imRef,...
-        sprintf('forest_changes_time_mean.tiff'));
+        sprintf('forest_changes_time_mean_v2.tiff'));
 
     
 % Saving the images of correlations
-save_tiff_image(mCorr_wecs,...
-        sprintf('forest_wecs_abscorr.tiff'));
+save_tiff_image(R_wecs,...
+        sprintf('forest_wecs_abscorr_v2.tiff'));
 mImage = figure;
-imagesc(mCorr_wecs)
+imagesc(R_wecs)
 axis off; colorbar
 set(gca,'FontSize',13)
-% saveas(mImage,sprintf('../figs/forest_wecs_abscorr.jpg'))
+%saveas(mImage,sprintf('../figs_v2/forest_wecs_abscorr.jpg'))
 
-% Change image using threshold suggested in feature screening literature
-%histogram(mCorr(:))
-mImage = figure;
-cutoff = quantile(mCorr_wecs(:),1-1/log(Nx*Ny));
-imshow(mCorr_wecs>cutoff)
-%saveas(mImage,sprintf('../figs/forest_wecs_change_space.jpg'))
-save_tiff_image(double(mCorr_wecs>cutoff),...
-        sprintf('forest_wecs_abscorr_screethrs.tiff'));
+cutoff_KI_wecs = kittler(R_wecs); % Kittler-Illingworth threshold
+cutoff_Otsu_wecs = graythresh(R_wecs); % Otsu's threshold
 
-cutoff_KI_wecs = kittler(mCorr_wecs); % Kittler-Illingworth threshold
-cutoff_Otsu_wecs = graythresh(mCorr_wecs); % Otsu's threshold
-
-tmp = double(mCorr_wecs>cutoff_KI_wecs);
+tmp = double(R_wecs > cutoff_KI_wecs);
+imagesc(tmp)
+title('WECS - KI')
 save_tiff_image(tmp,...
-        sprintf('forest_wecs_change_space_KI.tiff'));
-tmp = double(mCorr_wecs>cutoff_Otsu_wecs);
+        sprintf('forest_wecs_change_space_KI_v2.tiff'));
+tmp = double(R_wecs > cutoff_Otsu_wecs);
+imagesc(tmp)
+title('WECS - Otsu')
 save_tiff_image(tmp,...
-        sprintf('forest_wecs_change_space_otsu.tiff'));
+        sprintf('forest_wecs_change_space_otsu_v2.tiff'));
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Aggregation of differences (TAAD)
-S = zeros(Nx,Ny);
+A_taad = zeros(Nx,Ny);
 
 tic
 t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{1,:})),'r');
 Y = read(t);
-data1 = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;
+data1 = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))/normconst;
 for m=2:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
-    data2 = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;    
-    S = S + abs(data2 - data1);
+    data2 = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2))/normconst;    
+    A_taad = A_taad + abs(data2 - data1);
     data2 = data1;
 end
 clear data1 data2
-S = S./max(S(:));
+A_taad = A_taad./max(A_taad(:));
 toc
 
 % saving change measures obtained with TAAD
-save_tiff_image(S,...
-        sprintf('forest_taad.tiff'));
+save_tiff_image(A_taad,...
+        sprintf('forest_taad_v2.tiff'));
 
 mImage = figure;
-imagesc(S)
+imagesc(A_taad)
 axis off; colorbar
 set(gca,'FontSize',13)
-%saveas(mImage,sprintf('../figs/forest_aggreg_ratios.jpg'))
+%saveas(mImage,sprintf('../figs_v2/forest_aggreg_ratios.jpg'))
 
-cutoff_KI_taad = kittler(S); % Kittler-Illingworth threshold
-cutoff_Otsu_taad = graythresh(S); % Otsu's threshold
+cutoff_KI_taad = kittler(A_taad); % Kittler-Illingworth threshold
+cutoff_Otsu_taad = graythresh(A_taad); % Otsu's threshold
 
-mImage = figure;
-imshow(S>cutoff_Otsu_taad)
-%saveas(mImage,sprintf('../figs/forest_aggreg_change_space.jpg'))
-
-tmp = double(S>cutoff_KI_taad);
+tmp = double(A_taad > cutoff_KI_taad);
+imagesc(tmp)
+title('TAAD - KI')
 save_tiff_image(tmp,...
-        sprintf('forest_taad_change_space_KI.tiff'));
-tmp = double(S>cutoff_Otsu_taad);
+        sprintf('forest_taad_change_space_KI_v2.tiff'));
+
+tmp = double(A_taad > cutoff_Otsu_taad);
+imagesc(tmp)
+title('TAAD - Otsu')
 save_tiff_image(tmp,...
-        sprintf('forest_taad_change_space_otsu.tiff'));
+        sprintf('forest_taad_change_space_otsu_v2.tiff'));
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -223,21 +212,21 @@ mD_ecs = zeros([Nx, Ny, n]);
 
 tic
 % mean image
-imRef = zeros(Nx,Ny);
 for m=1:n
     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
     Y = read(t);
-    imRef = imRef + double(Y(:,:,1).^2 + Y(:,:,2).^2);
+    % observed amplitudes
+    mD_ecs(:,:,m) = double(sqrt(Y(:,:,1).^2 + Y(:,:,2).^2));
 end
-imRef = imRef/n;
+tmp = mean(mD_ecs, 3);
 % constant to make the mean matrix have norm one
-normconst = norm(imRef);
-imRef = imRef/normconst;
+normconst = norm(tmp);
+imRef = tmp/normconst;
 
 for m=1:n
-    t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
-    Y = read(t);
-    data = double(Y(:,:,1).^2 + Y(:,:,2).^2)/normconst;
+%     t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
+%     Y = read(t);
+    data = mD_ecs(:,:,m)/normconst;
     % sqared mean deviations
     mD_ecs(:,:,m) = (data - imRef).^2;
 end
@@ -247,11 +236,11 @@ clear Y t data
 vd_ecs = reshape(sum(sum(mD_ecs,1),2),n,1);
 
 % computing correlations
-mCorr_ecs = zeros(Nx,Ny);
+R_ecs = zeros(Nx,Ny);
 for ii=1:Nx
     for jj=1:Ny
         tmp = abs(corrcoef(reshape(mD_ecs(ii,jj,:),1,n),vd_ecs));
-        mCorr_ecs(ii,jj) = tmp(1,2);
+        R_ecs(ii,jj) = tmp(1,2);
     end
 end
 toc
@@ -261,19 +250,24 @@ clear mD_ecs
 plot(1:n,vd_ecs)
 
 % saving image of correlations from ECS
-save_tiff_image(mCorr_ecs,...
-        sprintf('forest_ecs.tiff'));
-imagesc(mCorr_ecs)
+save_tiff_image(R_ecs,...
+        sprintf('forest_ecs_v2.tiff'));
+imagesc(R_ecs)
 
-cutoff_KI_ecs = kittler(mCorr_ecs); % Kittler-Illingworth threshold
-cutoff_Otsu_ecs = graythresh(mCorr_ecs); % Otsu's threshold
+cutoff_KI_ecs = kittler(R_ecs); % Kittler-Illingworth threshold
+cutoff_Otsu_ecs = graythresh(R_ecs); % Otsu's threshold
 
-tmp = double(mCorr_ecs>cutoff_KI_ecs);
+tmp = double(R_ecs > cutoff_KI_ecs);
+imagesc(tmp)
+title('ECS - KI')
 save_tiff_image(tmp,...
-        sprintf('forest_ecs_change_space_KI.tiff'));
-tmp = double(mCorr_ecs>cutoff_Otsu_ecs);
+        sprintf('forest_ecs_change_space_KI_v2.tiff'));
+
+tmp = double(R_ecs > cutoff_Otsu_ecs);
+imagesc(tmp)
+title('ECS - Otsu')
 save_tiff_image(tmp,...
-        sprintf('forest_ecs_change_space_otsu.tiff'));
+        sprintf('forest_ecs_change_space_otsu_v2.tiff'));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -287,33 +281,33 @@ Y = read(t);
 mChange = double(Y(:,:,1));
 mImage = figure;
 imshow(mChange)
-saveas(mImage,sprintf('../figs/forest_change.jpg'))
+saveas(mImage,sprintf('forest_change_v2.jpg'))
 
 % Computing F1-score for WECS and image using aggregation
 
 % file to write the scores
-file_cd_scores = fopen('F1scores_cd_methods.txt','w');
+file_cd_scores = fopen('F1scores_cd_methods_v2.txt','w');
 
 % F1-score for changing regions
-[F1_wecs_ki, Pr_wecs_ki, Re_wecs_ki] = F1score(mCorr_wecs>cutoff_KI_wecs,mChange)
-[F1_wecs_otsu, Pr_wecs_otsu, Re_wecs_otsu] = F1score(mCorr_wecs>cutoff_Otsu_wecs,mChange)
-[F1_taad_ki, Pr_taad_ki, Re_taad_ki] = F1score(S>cutoff_KI_taad,mChange)
-[F1_taad_otsu, Pr_taad_otsu, Re_taad_otsu] = F1score(S>cutoff_Otsu_taad,mChange)
-[F1_ecs_ki, Pr_ecs_ki, Re_ecs_ki] = F1score(mCorr_ecs>cutoff_KI_ecs,mChange)
-[F1_ecs_otsu, Pr_ecs_otsu, Re_ecs_otsu] = F1score(mCorr_ecs>cutoff_Otsu_ecs,mChange)
+[F1_wecs_ki, Pr_wecs_ki, Re_wecs_ki] = F1score(R_wecs > cutoff_KI_wecs, mChange);
+[F1_wecs_otsu, Pr_wecs_otsu, Re_wecs_otsu] = F1score(R_wecs > cutoff_Otsu_wecs, mChange);
+[F1_taad_ki, Pr_taad_ki, Re_taad_ki] = F1score(A_taad > cutoff_KI_taad, mChange);
+[F1_taad_otsu, Pr_taad_otsu, Re_taad_otsu] = F1score(A_taad > cutoff_Otsu_taad, mChange);
+[F1_ecs_ki, Pr_ecs_ki, Re_ecs_ki] = F1score(R_ecs > cutoff_KI_ecs, mChange);
+[F1_ecs_otsu, Pr_ecs_otsu, Re_ecs_otsu] = F1score(R_ecs > cutoff_Otsu_ecs, mChange);
 
 % change map computed with change vector analysis
 mCD_CVA = imread('../figs/CVA_BrazilGuiana.png');
-[F1_cva, Pr_cva, Re_cva] = F1score(mCD_CVA./255, mChange)
+[F1_cva, Pr_cva, Re_cva] = F1score(mCD_CVA./255, mChange);
 % change map computed with multivariate alteration detection
 mCD_MAD = imread('../figs/IRMAD_BrazilGuiana.png');
-[F1_mad, Pr_mad, Re_mad] = F1score(mCD_MAD./255, mChange)
+[F1_mad, Pr_mad, Re_mad] = F1score(mCD_MAD./255, mChange);
 % change map computed with PCA-Kmeans
 mCD_PCA = imread('../figs/PCAKmeans_BrazilGuiana.png');
-[F1_pca, Pr_pca, Re_pca] = F1score(mCD_PCA./255, mChange)
+[F1_pca, Pr_pca, Re_pca] = F1score(mCD_PCA./255, mChange);
 % change map computed with slow feature analysis
 mCD_SFA = imread('../figs/ISFA_BrazilGuiana.png');
-[F1_sfa, Pr_sfa, Re_sfa] = F1score(mCD_SFA./255, mChange)
+[F1_sfa, Pr_sfa, Re_sfa] = F1score(mCD_SFA./255, mChange);
 
 fprintf(file_cd_scores, '%10s %6s %6s %6s\n', 'method', 'F1', 'Prec', 'Rec');
 fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'WECS_KI', F1_wecs_ki, Pr_wecs_ki, Re_wecs_ki);
@@ -329,13 +323,11 @@ fprintf(file_cd_scores, '%10s %5.4f %5.4f %5.4f\n', 'SFA', F1_sfa, Pr_sfa, Re_sf
 
 fclose(file_cd_scores);
 
-imgdiff = 2*255*(mCorr_wecs>cutoff) - mChange;
-tp = numel(find(imgdiff==255));
 
 % detection of nonchange regions
-[D_wecs,FA_wecs] = ROCcurveNew(mCorr_wecs/max(mCorr_wecs(:)),mChange); close
-[D_taad,FA_taad] = ROCcurveNew(S/max(S(:)),mChange); close
-[D_ecs,FA_ecs] = ROCcurveNew(mCorr_ecs/max(mCorr_ecs(:)),mChange); close
+[D_wecs,FA_wecs] = ROCcurveNew(R_wecs/max(R_wecs(:)), mChange); close
+[D_taad,FA_taad] = ROCcurveNew(A_taad/max(A_taad(:)), mChange); close
+[D_ecs,FA_ecs] = ROCcurveNew(R_ecs/max(R_ecs(:)),mChange); close
 
 mImage = figure;
 hold on
@@ -350,40 +342,17 @@ legend('WECS','TAAD','ECS',...
     'Location','southeast', 'FontSize', 12)
 legend('boxoff')
 hold off
-saveas(mImage,sprintf('../figs/forest_roc_change.jpg'))
+saveas(mImage,sprintf('forest_roc_change_v2.jpg'))
 
 % saving CSV for measures in time
 mResults = array2table([reshape(vd_wecs,1,n); reshape(vd_ecs,1,n)]');
 mResults.Properties.VariableNames = {'vd_wecs' 'vd_ecs'};
-writetable(mResults,'change_measures_time.csv')
+writetable(mResults,'change_measures_time_v2.csv')
 
 % saving CSV for ROC curves of WECS, TAAD and ECS
 mResults = array2table([FA_wecs; D_wecs; FA_taad; D_taad; FA_ecs; D_ecs]');
 mResults.Properties.VariableNames = {'FA_wecs' 'D_wecs' 'FA_taad' 'D_taad' 'FA_ecs' 'D_ecs'};
-writetable(mResults,'ROC_curves_forest.csv')
+writetable(mResults,'ROC_curves_forest_v2.csv')
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% making a video with the image time series
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% create the video writer with 1 fps
-writer_im = VideoWriter('images-ts.avi');
-% number of frames shown in a second
-writer_im.FrameRate = 2;
-% open the video writer
-open(writer_im);
-% write the frames to the video
-for m = 1:n
-    t = Tiff(strcat('../../Images/timeSeries/ascending/',char(dates{m,:})),'r');
-    Y = read(t);
-    data = double(Y(:,:,1).^2 + Y(:,:,2).^2);
-    imagesc(data)
-    title(sprintf('m=%2d',m)); axis off;
-    frame = getframe(gcf) ;
-    writeVideo(writer_im, frame);    
-end
-% close the writer object
-close(writer_im);
 
 

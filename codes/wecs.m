@@ -1,7 +1,7 @@
 function [R,vd] = wecs(mY,wname,J)
 % Function to apply the WECS to a time series of images
 % Input
-% mY: array of observed images
+% mY: array of observed images (dimensions must be a power of 2)
 % wname: wavelet basis
 % J: resolution level of wavelet decomposition
 
@@ -29,7 +29,6 @@ end
 
 % vector of overall changes
 vd = reshape(sum(sum(mD,1),2),n,1);
-%plot(1:n,vd)
 
 % matrix of correlations
 R = zeros(n1,n2);
